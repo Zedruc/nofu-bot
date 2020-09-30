@@ -49,21 +49,7 @@ module.exports = {
 
             var FinalesPasswort = GenerierterPasswortTeil1 + GenerierterPasswortTeil2 + GenerierterPasswortTeil3 + GenerierterPasswortTeil4;
 
-            //let pass = {
-            //    password: FinalesPasswort
-            //};
-
-            //let data = JSON.stringify(pass);
-
-            //fs.writeFile('passwords.json', "data", (err) =>{
-
-            //    if (err) throw err;
-
-            //    console.log("Daten wurden in die Datei geschrieben")
-
-            //});
-            //
-            //console.log(data);
+    
 
             var words = {
                 one: GenerierterPasswortTeil1,
