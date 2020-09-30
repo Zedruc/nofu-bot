@@ -19,7 +19,7 @@ for(const file of commandFiles){
 
 client.on("ready", () => {
     console.info("Der 018 ist jetzt online!");
-    client.user.setActivity('seinem Meister', { type: 'LISTENING' })
+    client.user.setActivity('his master', { type: 'LISTENING' })
 
     http.get('http://worldtimeapi.org/api/timezone/Europe/Berlin',
         res => {
