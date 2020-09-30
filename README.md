@@ -42,6 +42,6 @@ This is actually my first project in node.js
 
 # Please note:
 
-If you are about to add my bot to your server thats fine, I appreciate that.
-But if you find bugs please let me know :)
+If you use my bot
+and you find bugs please let me know :D
 Discord: Tot Nofu#4100
