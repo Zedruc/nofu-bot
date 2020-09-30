@@ -8,7 +8,7 @@ module.exports = {
         .setColor(9384170)
         .setTitle("*Server Info*")
         .addField("**Server Name:**", `${message.guild.name}`, true)
-        .addField("**Anzahl der Mitglieder:**", `${message.guild.memberCount}`, true)
+        .addField("**Member Count:**", `${message.guild.memberCount}`, true)
         .addField("**Server Owner**", `${message.guild.owner}`, true)
 
         message.channel.send(infoEmbed);

@@ -23,7 +23,7 @@ module.exports = {
       return message.channel.bulkDelete(löschAnzahl);
 
     } else{
-      message.reply("Du bist nicht in der Adminliste eingetragen!");
+      message.reply("Youre not in the owner!");
 
       console.log("User " + message.author.id+ " hat versucht den command `delete` zu benutzen");
     }

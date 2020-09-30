@@ -95,10 +95,6 @@ client.on('message', message =>{
 
         client.commands.get('password').execute(message, args);
 
-    } else if (command === 'JoinVC') {
-
-        client.commands.get('JoinVC').execute(message, args);
-
     }
 });
 

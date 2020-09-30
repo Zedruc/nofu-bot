@@ -13,9 +13,9 @@ module.exports = {
           const duration = moment.duration(client.uptime).format(" D [days], H [hrs], m [mins], s [secs]");
 
           const statEmbed = new Discord.MessageEmbed()
-          .setTitle("**  = STATISTIKEN =**")
-          .addField("**Speichernutzung ::**", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
-          .addField("**Uptime**", `**${duration}**`);
+          .setTitle("**  = STATISTICS =**")
+          .addField("**Memory usage ::**", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
+          .addField("**Uptime (glitched, still trying to fix it ;-;)**", `**${duration}**`);
 
           message.channel.send(statEmbed)
         }
