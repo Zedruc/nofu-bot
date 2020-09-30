@@ -3,7 +3,7 @@ module.exports = {
     description: "Ping command",
     execute(message, args){
         const Discord = require('discord.js');
-        message.channel.send("Du wirst jetzt gepingt...").then(m =>{
+        message.channel.send("pinging...").then(m =>{
             // The math thingy to calculate the user's ping
               var ping = m.createdTimestamp - message.createdTimestamp;
   

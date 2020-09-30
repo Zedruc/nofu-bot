@@ -26,7 +26,7 @@ module.exports = {
                 .setTitle("**Flachwitz Incoming**")
                 .setThumbnail(image_links.domtendo_face)
                 .setDescription(answer.setup + "\n" + answer.punchline)
-                .setFooter("\n\n Witze nur in Englisch da sie von einem Server zufällig geholt werden (Witz ID: " + answer.id + ")");
+                .setFooter("Joke ID: " + answer.id + ")");
 
                 message.channel.send(jokeEmbed);
             })
