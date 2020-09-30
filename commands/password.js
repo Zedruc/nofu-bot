@@ -2,7 +2,6 @@ const { throws } = require('assert');
 const Discord = require('discord.js');
 const fs = require('fs');
 const git = require('git');
-const { passwords } = require("../passwords.json");
 
 module.exports = {
     name: 'password',
