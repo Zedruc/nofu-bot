@@ -76,8 +76,8 @@ module.exports = {
 
             let passEmbed = new Discord.MessageEmbed()
             .setTitle("**Your personal generated password:**")
-            .setDescription(FinalesPasswort)
-            .addField("__There are 1533058025824 different passwords this bot can generate :p__", "Fun fact")
+            .addField("There you go: ", FinalesPasswort)
+            .setFooter("__There are 1533058025824 different passwords this bot can generate :p__")
             .setTimestamp();
 
             message.author.send(passEmbed);
