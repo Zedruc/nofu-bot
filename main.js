@@ -91,10 +91,6 @@ client.on('message', message =>{
 
         client.commands.get('password').execute(message, args);
 
-    } else if (command === 'kick') {
-
-        client.commands.get('kick').execute(message, args);
-
     }
 });
 
