@@ -26,7 +26,7 @@ module.exports = {
                 .setTitle("**Joke Incoming**")
                 .setThumbnail(image_links.domtendo_face)
                 .setDescription(answer.setup + "\n" + answer.punchline)
-                .setFooter("Joke ID: " + answer.id + ")");
+                .setFooter("Joke ID: " + answer.id);
 
                 message.channel.send(jokeEmbed);
             })

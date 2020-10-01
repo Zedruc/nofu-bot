@@ -67,10 +67,6 @@ client.on('message', message =>{
 
         client.commands.get('delete').execute(message, args);
 
-    } else if (command === 'addAdmin'){
-
-        client.commands.get('addAdmin').execute(message, args);
-
     } else if (command === 'serverinfo'){
 
         client.commands.get('serverinfo').execute(message, args);
