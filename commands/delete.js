@@ -14,7 +14,7 @@ module.exports = {
 
     if(!löschAnzahl || löschAnzahl == 0 || löschAnzahl > 100){
 
-      message.reply("Gib bitte eine Zahl zwischen 0 und 100 an");
+      message.reply("Please provide a number between 2 and 100!");
 
     } else if (message.author.id == message.guild.ownerID){
 
