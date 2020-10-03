@@ -6,7 +6,7 @@ module.exports = {
     name: "delay",
     description: "delay/cooldown test",
     execute(message, args) {
-        if (talkedRecently.has(msg.author.id)) {
+        if (talkedRecently.has(message.author.id)) {
             message.channel.send("Wait a bit before getting typing this again. - " + message.author);
         } else {
 
