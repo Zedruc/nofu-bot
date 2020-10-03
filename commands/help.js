@@ -19,6 +19,7 @@ module.exports = {
             .addField("**%password**", "`generates a random password and sends it to you`", true)
             .addField("**%convert**", "`Allows you to provide a direct link to an image and convert it to the given file type` \n\n example: %convert png https://cdn.discordapp.com/attachments/583683143895220226/761889131034574858/20201002_101811.jpg", true)
             .addField("**%welcome**", "`If the user of the command is admin it toggles the welcoming message`", true)
+            .addField("**%findanime <name>**", "`Will show you some information about the given anime`", true)
         message.channel.send(embed).catch(error => {
             console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
         });

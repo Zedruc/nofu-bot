@@ -25,6 +25,7 @@ with
 - %password
 
 `- %convert`
+`- %findanime` 
 
 You can actually
 - Test your connection to the server the command was used in
@@ -34,10 +35,11 @@ You can actually
 - make a generated and safe password slide right into your dms :>
 
 `- provide a link direct to an image and it will be converted to the given file type!`
+`- search an anime name and see infos about it! (soon will add a function to search by genre but I have to learn how to not- write 42 if statements for the genres xD)`
 
 # Facts about the dev
 So, I'm german
-> What hopefully explains the partial bad english
+> What hopefully explains the partially bad english
 
 Im relatively new to "real" coding with js and stuff
 > I used to be proud of making crappy html files but I mean, everyone starts off somewhere ^^
