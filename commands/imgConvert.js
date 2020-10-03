@@ -6,7 +6,7 @@ module.exports = {
   description: "Converts given file url to provided file-type",
   execute(message, args) {
     const prefix = "%";
-    const args = message.content.slice(prefix.length).trim().split(' ');
+    let args = message.content.slice(prefix.length).trim().split(' ');
     let url = args[1];
     console.log(url);
 
