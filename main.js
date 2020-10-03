@@ -125,6 +125,10 @@ client.on('message', message => {
         client.commands.get('welcome').execute(message, args);
         welcomeToggle = !welcomeToggle;
 
+    } else if (command === 'findmusic') {
+
+        client.commands.get('findmusic').execute(message, args);
+
     }
 });
 
