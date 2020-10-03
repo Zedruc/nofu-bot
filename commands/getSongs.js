@@ -26,6 +26,7 @@ module.exports = {
             }
         })
             .then((response) => {
+                let responseString = response;
                 console.log(response)
             })
             .catch((error) => {
@@ -35,11 +36,11 @@ module.exports = {
 
         let musicInfoEmbed = new Discord.MessageEmbed()
             .setTitle("__The 5 most known songs from " + Band + "__")
-            .addField("**1.**: ", response.data[0].title)
-            .addField("**2.**: ", response.data[1].title)
-            .addField("**3.**: ", response.data[2].title)
-            .addField("**4.**: ", response.data[3].title)
-            .addField("**5.**: ", response.data[4].title)
+            .addField("**1.**: ", responseString.data[0].title)
+            .addField("**2.**: ", responseString.data[1].title)
+            .addField("**3.**: ", responseString.data[2].title)
+            .addField("**4.**: ", responseString.data[3].title)
+            .addField("**5.**: ", responseString.data[4].title)
 
         message.channel.send(musicInfoEmbed);
     }
