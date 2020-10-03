@@ -11,7 +11,9 @@ module.exports = {
         time: 30000,
       })
       .then((collected) => {
-        let url = message.content;
+        const prefix = "%";
+        const args = message.content.slice(prefix.length).trim().split(' ');
+        let url = args[1];
         console.log(url);
       });
   },
