@@ -13,7 +13,7 @@ module.exports = {
       .then((collected) => {
         const prefix = "%";
         const args = message.content.slice(prefix.length).trim().split(' ');
-        let url = args[1];
+        let url = args[0];
         console.log(url);
       });
   },
