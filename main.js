@@ -120,9 +120,9 @@ client.on('message', message => {
 
         client.commands.get('convert').execute(message, args);
 
-    } else if (command === 'delay') {
+    } else if (command === 'welcome') {
 
-        client.commands.get('delay').execute(message, args);
+        client.commands.get('welcome').execute(message, args);
         welcomeToggle = !welcomeToggle;
 
     }
