@@ -5,16 +5,20 @@ module.exports = {
   name: "convert",
   description: "Converts given file url to provided file-type",
   execute(message, args) {
-    message.channel
-      .awaitMessages((m) => m.author.id == message.author.id, {
-        max: 1,
-        time: 30000,
+    const prefix = "%";
+    const args = message.content.slice(prefix.length).trim().split(' ');
+    let url = args[1];
+    console.log(url);
+
+    convertapi
+      .convert("png", {
+        File: url,
       })
-      .then((collected) => {
-        const prefix = "%";
-        const args = message.content.slice(prefix.length).trim().split(' ');
-        let url = args[1];
-        console.log(url);
+      .then(function (result) {
+        // get converted file url
+        console.log("Converted file url: " + result.file.url);
+        // save to file
+        return;
       });
-  },
+  }
 };
