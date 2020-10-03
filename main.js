@@ -1,18 +1,18 @@
 const Discord = require('discord.js');
 const http = require('http');
 const client = new Discord.Client();
- 
+
 const prefix = '%';
- 
+
 const fs = require('fs');
 const { info, timeStamp } = require('console');
- 
+
 client.commands = new Discord.Collection();
- 
+
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
-for(const file of commandFiles){
+for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
- 
+
     client.commands.set(command.name, command);
 }
 
@@ -43,35 +43,35 @@ client.on('guildDelete', guild => {
     console.log(`Bot wurde entfernt von ${guild.name} (id: ${guild.id})`)
 });
 
- 
-client.on('message', message =>{
 
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
- 
+client.on('message', message => {
+
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
- 
-    if(command === 'ping'){
+
+    if (command === 'ping') {
 
         client.commands.get('ping').execute(message, args);
 
-    } else if (command === "meme"){
+    } else if (command === "meme") {
 
         client.commands.get('meme').execute(message, args);
 
-    } else if (command === 'help'){
+    } else if (command === 'help') {
 
         client.commands.get('help').execute(message, args);
 
-    } else if (command === 'delete'){
+    } else if (command === 'delete') {
 
         client.commands.get('delete').execute(message, args);
 
-    } else if (command === 'serverinfo'){
+    } else if (command === 'serverinfo') {
 
         client.commands.get('serverinfo').execute(message, args);
 
-    } else if (command === 'userinfo'){
+    } else if (command === 'userinfo') {
 
         client.commands.get('userinfo').execute(message, args);
 
@@ -90,6 +90,10 @@ client.on('message', message =>{
     } else if (command === 'password') {
 
         client.commands.get('password').execute(message, args);
+
+    } else if (command === 'convert') {
+
+        client.commands.get('convert').execute(message, args);
 
     }
 });
