@@ -7,6 +7,7 @@ module.exports = {
     description: 'lists songs of a given band',
     execute(message, args) {
 
+        let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(' ');
         let Band = msgArgs[1];
 
