@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
-import { welcomeToggle } from "../main";
 //export { welcomeToggle };
+
+let welcomeToggle = true;
 
 module.exports = {
     name: 'welcome',

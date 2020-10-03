@@ -123,6 +123,7 @@ client.on('message', message => {
     } else if (command === 'delay') {
 
         client.commands.get('delay').execute(message, args);
+        welcomeToggle = !welcomeToggle;
 
     }
 });
