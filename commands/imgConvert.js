@@ -21,8 +21,6 @@ module.exports = {
 
       .catch(function (e) {
         console.error(e.toString());
-        console.debug(e.request);
-        console.debug(e.response);
       });
   }
 };
