@@ -7,11 +7,12 @@ module.exports = {
   execute(message, args) {
     const prefix = "%";
     let msgArgs = message.content.slice(prefix.length).trim().split(' ');
+    let fileType = msgArgs[1];
     let url = msgArgs[2];
     console.log(url);
 
     convertapi
-      .convert(args[1], {
+      .convert(fileType, {
         File: url,
       })
       .then(function (result) {
