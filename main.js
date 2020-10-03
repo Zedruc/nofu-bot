@@ -6,6 +6,7 @@ const prefix = '%';
 
 const fs = require('fs');
 const { info, timeStamp } = require('console');
+const { join } = require('path');
 
 client.commands = new Discord.Collection();
 
@@ -42,6 +43,19 @@ client.on("ready", () => {
 client.on('guildDelete', guild => {
     console.log(`Bot wurde entfernt von ${guild.name} (id: ${guild.id})`)
 });
+
+
+client.on("guildMemberAdd", member => {
+    let beginnerRole = member.guild.roles.find('');
+    member.addRole(beginnerRole);
+
+    let welcomeEmbed = new Discord.MessageEmbed()
+        .setTitle("welcome " + member + "!")
+        .setDescription("This is the official Support server for the Nofu Bot \n But you can also chat here :p")
+        .setFooter(client.user.avatarURL());
+    member.guild.channels.get('761912789765062658').send(welcomeEmbed)
+});
+
 
 
 client.on('message', message => {
