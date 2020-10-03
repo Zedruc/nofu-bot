@@ -8,28 +8,43 @@ module.exports = {
     name: 'joke',
     description: 'Sendet einen Flachewitz',
     execute(message, args) {
-        https.get('https://official-joke-api.appspot.com/random_joke',
-        res => {
-            // console.log(res.statusCode);
-            // console.log(res.headers);
+        if (talkedRecently.has(message.author.id)) {
+            message.channel.send("Wait a bit before getting typing this again. - " + "<@" + message.author + ">");
+        } else {
 
-            let data = '';
+            // the user can type the command
 
-            res.on('data', chunk => {
-                data += chunk;
-            })
+            https.get('https://official-joke-api.appspot.com/random_joke',
+                res => {
+                    // console.log(res.statusCode);
+                    // console.log(res.headers);
 
-            res.on('end', () => {
-                let answer = JSON.parse(data);
+                    let data = '';
 
-                let jokeEmbed = new Discord.MessageEmbed()
-                .setTitle("**Joke Incoming**")
-                .setThumbnail(image_links.domtendo_face)
-                .setDescription(answer.setup + "\n" + answer.punchline)
-                .setFooter("Joke ID: " + answer.id);
+                    res.on('data', chunk => {
+                        data += chunk;
+                    });
 
-                message.channel.send(jokeEmbed);
-            })
-        });
+                    res.on('end', () => {
+                        let answer = JSON.parse(data);
+
+                        let jokeEmbed = new Discord.MessageEmbed()
+                            .setTitle("**Joke Incoming**")
+                            .setThumbnail(image_links.domtendo_face)
+                            .setDescription(answer.setup + "\n" + answer.punchline)
+                            .setFooter("Joke ID: " + answer.id);
+
+                        message.channel.send(jokeEmbed);
+                    });
+
+
+                    // Adds the user to the set so that they can't talk for a bit
+                    talkedRecently.add(message.author.id);
+                    setTimeout(() => {
+                        // Removes the user from the set after a minute
+                        talkedRecently.delete(message.author.id);
+                    }, 4000);
+                })
+        }
     }
 }
