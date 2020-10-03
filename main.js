@@ -129,6 +129,10 @@ client.on('message', message => {
 
         client.commands.get('findanime').execute(message, args);
 
+    } else if (command === 'join') {
+
+        client.commands.get('joinvc').execute(message, args);
+
     }
 });
 
