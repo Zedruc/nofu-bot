@@ -24,12 +24,16 @@ with
 - %delete
 - %password
 
+`- %convert`
+
 You can actually
 - Test your connection to the server the command was used in
 - Get your own userinfo OR some user's info by simply mentioning (@) them!
 - Get some infos about the server the command was used in
 - delete the given amount of messages
 - make a generated and safe password slide right into your dms :>
+
+`- provide a link direct to an image and it will be converted to the given file type!`
 
 # Facts about the dev
 So, I'm german
