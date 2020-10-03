@@ -112,6 +112,10 @@ client.on('message', message => {
 
         client.commands.get('convert').execute(message, args);
 
+    } else if (command === 'delay') {
+
+        client.commands.get('delay').execute(message, args);
+
     }
 });
 
