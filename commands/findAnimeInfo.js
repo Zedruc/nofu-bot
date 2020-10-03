@@ -9,7 +9,9 @@ module.exports = {
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         // let searchCriteria = msgArgs[1];
-        let animeName = msgArgs[1];
+        let animeName = args[];
+        let nameString = animeName.toString();
+        console.log(nameString);
 
         //if (searchCriteria == "name") {
         https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
