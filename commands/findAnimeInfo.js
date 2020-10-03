@@ -9,9 +9,9 @@ module.exports = {
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         // let searchCriteria = msgArgs[1];
-        let animeName = args;
-        let nameString = animeName.toString();
-        let argumentsWithSpace = nameString.replace(/,/g, " ");
+        let rawArgs = args;
+        let argsString = rawArgs.toString();
+        let animeName = argsString.replace(/,/g, " ");
         console.log(nameString);
 
         //if (searchCriteria == "name") {
