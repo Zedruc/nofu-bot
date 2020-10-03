@@ -11,6 +11,7 @@ module.exports = {
         // let searchCriteria = msgArgs[1];
         let animeName = args;
         let nameString = animeName.toString();
+        let argumentsWithSpace = nameString.replace(/,/g, " ");
         console.log(nameString);
 
         //if (searchCriteria == "name") {
