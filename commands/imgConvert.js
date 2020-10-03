@@ -17,8 +17,12 @@ module.exports = {
       .then(function (result) {
         // get converted file url
         console.log("Converted file url: " + result.file.url);
-        // save to file
-        return;
+      })
+
+      .catch(function (e) {
+        console.error(e.toString());
+        console.debug(e.request);
+        console.debug(e.response);
       });
   }
 };
