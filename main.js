@@ -47,7 +47,7 @@ client.on('guildDelete', guild => {
 
 client.on("guildMemberAdd", member => {
     if (member.guild.id == 761912789164883969) {
-        let beginnerRole = member.guild.roles.find('');
+        let beginnerRole = member.guild.roles.find('Member', 'Member');
         member.addRole(beginnerRole);
 
 
