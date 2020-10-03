@@ -1,4 +1,5 @@
 // First, this must be at the top level of your code, **NOT** in any event!
+const Discord = require('discord.js');
 const talkedRecently = new Set();
 
 module.exports = {
@@ -6,7 +7,7 @@ module.exports = {
     description: "delay/cooldown test",
     execute(message, args) {
         if (talkedRecently.has(msg.author.id)) {
-            msg.channel.send("Wait a bit before getting typing this again. - " + msg.author);
+            message.channel.send("Wait a bit before getting typing this again. - " + msg.author);
         } else {
 
             // the user can type the command ... your command code goes here :)
