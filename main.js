@@ -2,6 +2,10 @@ const Discord = require('discord.js');
 const http = require('http');
 const client = new Discord.Client();
 
+//import { welcomeToggle } from "../nofu-bot/commands/welcome";
+let welcomeToggle = true;
+
+
 const prefix = '%';
 
 const fs = require('fs');
@@ -46,16 +50,20 @@ client.on('guildDelete', guild => {
 
 
 client.on("guildMemberAdd", member => {
-    if (member.guild.id == 761912789164883969) {
-        let beginnerRole = member.guild.roles.find('Member', 'Member');
-        member.addRole(beginnerRole);
+    if (welcomeToggle == true) {
+        client.on('guildMemberAdd', (guildMember) => {
+            guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Member"));
+        });
 
-
-        let welcomeEmbed = new Discord.MessageEmbed()
-            .setTitle("welcome " + member + "!")
-            .setDescription("This is the official Support server for the Nofu Bot \n But you can also chat here :p")
-            .setFooter(client.user.avatarURL());
-        member.guild.channels.get('761912789765062658').send(welcomeEmbed)
+        if (member.guild.id == 761912789164883969) {
+            let welcomeEmbed = new Discord.MessageEmbed()
+                .setTitle("welcome " + member + "!")
+                .setDescription("This is the official Support server for the Nofu Bot \n But you can also chat here :p")
+                .setFooter(client.user.avatarURL());
+            member.guild.channels.get('761912789765062658').send(welcomeEmbed)
+        }
+    } else {
+        return;
     }
 })
 
