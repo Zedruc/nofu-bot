@@ -6,12 +6,12 @@ module.exports = {
   description: "Converts given file url to provided file-type",
   execute(message, args) {
     const prefix = "%";
-    let args = message.content.slice(prefix.length).trim().split(' ');
-    let url = args[1];
+    let msgArgs = message.content.slice(prefix.length).trim().split(' ');
+    let url = msgArgs[2];
     console.log(url);
 
     convertapi
-      .convert("png", {
+      .convert(args[1], {
         File: url,
       })
       .then(function (result) {
