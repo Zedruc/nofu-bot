@@ -12,7 +12,7 @@ module.exports = {
         let rawArgs = args;
         let argsString = rawArgs.toString();
         let animeName = argsString.replace(/,/g, " ");
-        console.log(nameString);
+        console.log(argsString);
 
         //if (searchCriteria == "name") {
         https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
