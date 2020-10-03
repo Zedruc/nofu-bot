@@ -8,7 +8,7 @@ module.exports = {
 
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
-        let searchCriteria = msgArgs[1];
+        // let searchCriteria = msgArgs[1];
         let animeName = msgArgs[2];
 
         //if (searchCriteria == "name") {
