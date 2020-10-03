@@ -10,11 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.20.0",
+    "convertapi": "^1.6.0",
     "discord-rpc": "^3.1.4",
     "discord.js": "^12.3.1",
     "git": "^0.1.5",
     "moment": "^2.29.0",
     "moment-duration-format": "^2.3.2",
+    "request": "^2.88.2",
     "ytdl-core": "^3.3.0"
   }
 }
