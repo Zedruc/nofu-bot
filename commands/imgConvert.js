@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 var convertapi = require("convertapi")("DDysaqRl9AkMP5eL");
+const { image_links } = require("../resources.json");
 
 module.exports = {
   name: "convert",
@@ -18,6 +19,13 @@ module.exports = {
       .then(function (result) {
         // get converted file url
         console.log("Converted file url: " + result.file.url);
+
+        let downloadEmbed = new Discord.MessageEmbed()
+          .setThumbnail(image_links.image_icon)
+          .setTitle("Your Download link: ")
+          .addField(result.file.url, `Your image converted to ${fileType}`)
+
+        message.channel.send(downloadEmbed);
       })
 
       .catch(function (e) {

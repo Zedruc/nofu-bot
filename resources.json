@@ -1,6 +1,6 @@
 {
-    "image_links" : {
-
-            "domtendo_face" : "https://pbs.twimg.com/media/DEtCfSlWsAAjgwD.png"
+    "image_links": {
+        "domtendo_face": "https://pbs.twimg.com/media/DEtCfSlWsAAjgwD.png",
+        "image_icon": "https://www.iconfinder.com/data/icons/ionicons/512/icon-image-512.png"
     }
 }
