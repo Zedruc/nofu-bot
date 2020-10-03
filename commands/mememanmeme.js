@@ -1,6 +1,7 @@
 const https = require('https');
 const Discord = require('discord.js');
 const url = 'https://www.reddit.com/r/MemeMan.json?limit=100'
+const talkedRecently = new Set();
 
 module.exports = {
     name: 'mememan',

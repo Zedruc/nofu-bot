@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const axios = require('axios');
 const https = require('https');
 const { image_links } = require("../resources.json");
+const talkedRecently = new Set();
 
 module.exports = {
     name: 'joke',
