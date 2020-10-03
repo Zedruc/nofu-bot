@@ -46,15 +46,18 @@ client.on('guildDelete', guild => {
 
 
 client.on("guildMemberAdd", member => {
-    let beginnerRole = member.guild.roles.find('');
-    member.addRole(beginnerRole);
+    if (member.guild.id == 761912789164883969) {
+        let beginnerRole = member.guild.roles.find('');
+        member.addRole(beginnerRole);
 
-    let welcomeEmbed = new Discord.MessageEmbed()
-        .setTitle("welcome " + member + "!")
-        .setDescription("This is the official Support server for the Nofu Bot \n But you can also chat here :p")
-        .setFooter(client.user.avatarURL());
-    member.guild.channels.get('761912789765062658').send(welcomeEmbed)
-});
+
+        let welcomeEmbed = new Discord.MessageEmbed()
+            .setTitle("welcome " + member + "!")
+            .setDescription("This is the official Support server for the Nofu Bot \n But you can also chat here :p")
+            .setFooter(client.user.avatarURL());
+        member.guild.channels.get('761912789765062658').send(welcomeEmbed)
+    }
+})
 
 
 
