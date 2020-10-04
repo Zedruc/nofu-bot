@@ -38,18 +38,19 @@ module.exports = {
 
                     https.get('https://api.jikan.moe/v3/anime/' + + "/character_staff", resp => {
 
-                        let body1 = '';
+                        let body = '';
 
-                        resp.on('data', chunk1 => {
-                            body1 += chunk1;
+                        resp.on('data', chunk => {
+                            body += chunk;
                         });
 
                         resp.on('end', () => {
-                            let bodyString1 = JSON.parse(body1);
+                            let bodyString = JSON.parse(body);
+                            let chars = bodyString.characters;
 
-                            for (let i = 0; i < bodyString1.characters.length; i++) {
-                                const element1 = array[i];
-                                console.log(element1);
+                            for (let i = 0; i < chars.length; i++) {
+                                const element = array[i];
+                                console.log(element);
                             }
                         });
                     })
