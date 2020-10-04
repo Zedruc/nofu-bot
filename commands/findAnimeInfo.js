@@ -47,6 +47,7 @@ module.exports = {
                         resp.on('end', () => {
                             let bodyString = JSON.parse(body);
                             let chars = bodyString.characters;
+                            console.log(chars);
 
                             for (let i = 0; i < chars.length; i++) {
                                 const element = array[i];
