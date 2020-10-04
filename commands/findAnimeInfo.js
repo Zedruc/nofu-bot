@@ -9,13 +9,6 @@ module.exports = {
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
-        const searchScripts = fs.readdirSync('../commands/animeSearch').filter(file => file.endsWith('.js'));
-        for (const file of searchScripts) {
-            const command = require(`./commands/animeSearch/${file}`);
-
-            client.commands.set(command.name, command);
-        }
-
 
         // let searchCriteria = msgArgs[1];
         let rawArgs = args;
