@@ -65,6 +65,8 @@ module.exports = {
                                     .setTitle("**All characters from__ " + animeNameGetID + "__**")
                                     .setThumbnail(chars.image_url)
                                     .setDescription(string)
+
+                                message.reply(animeChars);
                             }
 
                         });
