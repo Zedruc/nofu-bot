@@ -36,7 +36,7 @@ module.exports = {
                     console.info(topResult.title + " ID: \n" + animeID);
 
 
-                    https.get('https://api.jikan.moe/v3/anime/' + animeID + "/character_staff", resp => {
+                    https.get('https://api.jikan.moe/v3/anime/' + animeID + "/characters_staff", resp => {
 
                         let body = '';
 
