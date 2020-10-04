@@ -61,7 +61,8 @@ module.exports = {
                             console.log(allNames);
                             if (i === length) {
                                 let string = JSON.stringify(allNames);
-                                let optimalString = string.replace(/\n/g, "\n");
+                                let optimalString = string.replace(/\n/g, ", ");
+                                let moreOptimatString = optimalString.replace(/,/, ", ")
                                 let animeChars = new Discord.MessageEmbed()
                                     .setTitle("**All characters from __" + animeNameGetID + "__**")
                                     .setThumbnail(chars.image_url)
