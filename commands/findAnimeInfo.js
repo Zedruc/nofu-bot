@@ -270,6 +270,46 @@ module.exports = {
                     })
                     break;
 
+                case 'characters':
+                    https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
+
+                        let body = '';
+
+                        res.on('data', chunk => {
+                            body += chunk;
+                        });
+
+                        res.on('end', () => {
+                            let bodyString = JSON.parse(body);
+                            console.log(bodyString.results[0].title);
+                            let topResult = bodyString.results[0];
+
+                            let animeID = topResult.mal_id;
+                            console.info(topResult.title + " ID: \n" + animeID);
+                        });
+                    })
+
+                    https.get('https://api.jikan.moe/v3/anime/' + animeID + "/character_staff", res => {
+
+                        let body = '';
+
+                        res.on('data', chunk => {
+                            body += chunk;
+                        });
+
+                        res.on('end', () => {
+                            let bodyString = JSON.parse(body);
+
+                            for (let i = 0; i < bodyString.characters.length; i++) {
+                                const element = array[i];
+                                console.log(element);
+                            }
+                        });
+                    })
+
+
+
+
                 default:
                     https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
