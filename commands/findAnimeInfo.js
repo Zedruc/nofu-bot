@@ -16,77 +16,75 @@ module.exports = {
         let animeName = argsString.replace(/,/g, " ");
         console.log(argsString);
 
-        if (args.length) {
+        if (msgArgs[1] == "characters") {
+            let animeNameGetID = argsString[2];
 
-            if (args[1] == "characters") {
-                let animeNameGetID = argsString[2];
+            https.get('https://api.jikan.moe/v3/search/anime?q=' + animeNameGetID, res => {
 
-                https.get('https://api.jikan.moe/v3/search/anime?q=' + animeNameGetID, res => {
+                let body = '';
 
-                    let body = '';
+                res.on('data', chunk => {
+                    body += chunk;
+                });
 
-                    res.on('data', chunk => {
-                        body += chunk;
-                    });
+                res.on('end', () => {
+                    let bodyString = JSON.parse(body);
+                    console.log("getting chars from: " + bodyString.results[0].title);
+                    let topResult = bodyString.results[0];
 
-                    res.on('end', () => {
-                        let bodyString = JSON.parse(body);
-                        console.log(bodyString.results[0].title);
-                        let topResult = bodyString.results[0];
-
-                        let animeID = topResult.mal_id;
-                        console.info(topResult.title + " ID: \n" + animeID);
-                    });
-                })
-
-                https.get('https://api.jikan.moe/v3/anime/' + animeID + "/character_staff", res => {
-
-                    let body = '';
-
-                    res.on('data', chunk => {
-                        body += chunk;
-                    });
-
-                    res.on('end', () => {
-                        let bodyString = JSON.parse(body);
-
-                        for (let i = 0; i < bodyString.characters.length; i++) {
-                            const element = array[i];
-                            console.log(element);
-                        }
-                    });
-                })
-
-            } else {
-
-                https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
-
-                    let body = '';
-
-                    res.on('data', chunk => {
-                        body += chunk;
-                    });
-
-                    res.on('end', () => {
-                        let bodyString = JSON.parse(body);
-                        console.log(bodyString.results[0].title);
-                        let topResult = bodyString.results[0];
-
-                        let animeInfoEmbed = new Discord.MessageEmbed()
-                            .setTitle("**Top search results for __" + animeName + "__**")
-                            .setThumbnail(topResult.image_url)
-                            .setDescription(topResult.synopsis)
-                            .addField("Episodes:", topResult.episodes, true)
-                            .addField("Release Date:", topResult.start_date)
+                    let animeID = topResult.mal_id;
+                    console.info(topResult.title + " ID: \n" + animeID);
 
 
-                        message.channel.send(animeInfoEmbed);
-                        console.log(msgArgs);
-                    });
-                })
+                    https.get('https://api.jikan.moe/v3/anime/' + + "/character_staff", resp => {
+
+                        let body1 = '';
+
+                        resp.on('data', chunk1 => {
+                            body1 += chunk1;
+                        });
+
+                        resp.on('end', () => {
+                            let bodyString1 = JSON.parse(body1);
+
+                            for (let i = 0; i < bodyString1.characters.length; i++) {
+                                const element1 = array[i];
+                                console.log(element1);
+                            }
+                        });
+                    })
+                });
+            })
+
+        } else {
+
+            https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
+
+                let body = '';
+
+                res.on('data', chunk => {
+                    body += chunk;
+                });
+
+                res.on('end', () => {
+                    let bodyString = JSON.parse(body);
+                    console.log(bodyString.results[0].title);
+                    let topResult = bodyString.results[0];
+
+                    let animeInfoEmbed = new Discord.MessageEmbed()
+                        .setTitle("**Top search results for __" + animeName + "__**")
+                        .setThumbnail(topResult.image_url)
+                        .setDescription(topResult.synopsis)
+                        .addField("Episodes:", topResult.episodes, true)
+                        .addField("Release Date:", topResult.start_date)
 
 
-            }
+                    message.channel.send(animeInfoEmbed);
+                    console.log(msgArgs);
+                });
+            })
+
+
         }
     }
 }
