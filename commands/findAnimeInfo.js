@@ -19,7 +19,7 @@ module.exports = {
         if (msgArgs[1] == "characters") {
             let animeNameGetID = msgArgs[2];
 
-            https.get('https://api.jikan.moe/v3/search/anime?q=' + animeNameGetID, res => {
+            https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
                 let body = '';
 
@@ -48,9 +48,25 @@ module.exports = {
                             let bodyString = JSON.parse(body);
                             let chars = bodyString.characters;
 
-                            for (let i = 0; i < chars.length; i++) {
-                                console.log(chars[i].role)
+                            let length = chars.length - 1;
+                            console.log(length);
+
+                            let allNames = {};
+                            let i = 0;
+                            do {
+                                i++
+                                allNames += "\n" + chars[i].name;
+
+                            } while (i < length);
+                            console.log(allNames);
+                            if (i === length) {
+                                let string = JSON.stringify(allNames);
+                                let animeChars = new Discord.MessageEmbed()
+                                    .setTitle("**All characters from__ " + animeNameGetID + "__**")
+                                    .setThumbnail(chars.image_url)
+                                    .setDescription(string)
                             }
+
                         });
                     })
                 });

@@ -24,8 +24,8 @@ with
 - %delete
 - %password
 
-`- %convert`
-`- %findanime` 
+- %convert
+- %findanime
 
 You can actually
 - Test your connection to the server the command was used in
@@ -34,8 +34,8 @@ You can actually
 - delete the given amount of messages
 - make a generated and safe password slide right into your dms :>
 
-`- provide a link direct to an image and it will be converted to the given file type!`
-`- search an anime name and see infos about it! (soon will add a function to search by genre but I have to learn how to not- write 42 if statements for the genres xD)`
+- provide a link direct to an image and it will be converted to the given file type!
+- search an anime name and see infos about it!
 
 # Facts about the dev
 So, I'm german
