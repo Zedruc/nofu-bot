@@ -17,7 +17,7 @@ module.exports = {
         console.log(argsString);
 
         if (msgArgs[1] == "characters") {
-            let animeNameGetID = argsString[2];
+            let animeNameGetID = msgArgs[2];
 
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeNameGetID, res => {
 
@@ -29,7 +29,7 @@ module.exports = {
 
                 res.on('end', () => {
                     let bodyString = JSON.parse(body);
-                    console.log("getting chars from: " + bodyString.results[0].title);
+                    console.log("getting chars from: " + animeNameGetID);
                     let topResult = bodyString.results[0];
 
                     let animeID = topResult.mal_id;
