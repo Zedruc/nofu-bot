@@ -63,10 +63,11 @@ module.exports = {
                                 let string = JSON.stringify(allNames);
                                 let optimalString = string.toString();
                                 let opoptimalString = optimalString.trim().split(/ +/);
+                                let output = allNames.join(', ');
                                 let animeChars = new Discord.MessageEmbed()
                                     .setTitle("**All characters from __" + animeNameGetID + "__**")
                                     .setThumbnail(chars.image_url)
-                                    .setDescription(optimalString)
+                                    .setDescription(output)
 
                                 message.reply(animeChars);
                             }
