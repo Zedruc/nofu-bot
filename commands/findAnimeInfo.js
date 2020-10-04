@@ -51,7 +51,7 @@ module.exports = {
                             let length = chars.length - 1;
                             console.log(length);
 
-                            let allNames = {};
+                            let allNames = [];
                             let i = 0;
                             do {
                                 i++
