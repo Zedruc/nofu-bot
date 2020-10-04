@@ -313,32 +313,7 @@ module.exports = {
 
 
 
-                default:
-                    https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
-                        let body = '';
-
-                        res.on('data', chunk => {
-                            body += chunk;
-                        });
-
-                        res.on('end', () => {
-                            let bodyString = JSON.parse(body);
-                            console.log(bodyString.results[0].title);
-                            let topResult = bodyString.results[0];
-
-                            let animeInfoEmbed = new Discord.MessageEmbed()
-                                .setTitle("**Top search results for __" + animeName + "__**")
-                                .setThumbnail(topResult.image_url)
-                                .setDescription(topResult.synopsis)
-                                .addField("Episodes:", topResult.episodes, true)
-                                .addField("Release Date:", topResult.start_date)
-
-
-                            message.channel.send(animeInfoEmbed);
-                            console.log(msgArgs);
-                        });
-                    })
 
 
             }
