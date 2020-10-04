@@ -18,8 +18,6 @@ module.exports = {
 
         if (msgArgs[1] == "characters") {
             let animeNameGetID = message.content.slice(prefix.length + 21).trim().split(/ +/);
-            let animN = animeNameGetID.toString();
-            let animNa = animN.replace(/,/g, " ");
 
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
@@ -63,7 +61,8 @@ module.exports = {
                             console.log(allNames);
                             if (i === length) {
                                 let string = JSON.stringify(allNames);
-                                let optimalString = string.replace(/\n/g, ", ");
+                                let optimalString = string.toString();
+                                let opoptimalString = optimalString.replace(/\n/g, "  ");
                                 let animeChars = new Discord.MessageEmbed()
                                     .setTitle("**All characters from __" + animeNameGetID + "__**")
                                     .setThumbnail(chars.image_url)
