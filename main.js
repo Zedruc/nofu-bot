@@ -4,6 +4,7 @@ const client = new Discord.Client();
 
 //import { welcomeToggle } from "../nofu-bot/commands/welcome";
 let welcomeToggle = true;
+let date_ob = new Date();
 
 
 const prefix = '%';
@@ -106,7 +107,13 @@ client.on('message', message => {
 
     } else if (command === 'uptime') {
 
-        client.commands.get('uptime').execute(message, args);
+        let time = Date.now() - date_ob;
+
+        const statEmbed = new Discord.MessageEmbed()
+            .setTitle("**  = STATISTICS =**")
+            .addField("**Memory usage ::**", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
+            .addField("**Uptime (glitched)**", `time: ${time}`);
+        message.channel.send(statEmbed);
 
     } else if (command === 'mememan') {
 
