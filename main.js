@@ -140,6 +140,10 @@ client.on('message', message => {
 
         client.commands.get('joinvc').execute(message, args);
 
+    } else if (command == 'searchinfo') {
+
+        client.commands.get('searchinfo').execute(message, args);
+
     }
 });
 
