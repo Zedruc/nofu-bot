@@ -17,7 +17,7 @@ module.exports = {
         console.log(argsString);
 
         if (msgArgs[1] == "characters") {
-            let animeNameGetID = msgArgs.slice(10).trim().split(/ +/);
+            let animeNameGetID = message.content.slice(prefix.length + 10).trim().split(/ +/);
 
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
