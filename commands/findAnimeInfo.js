@@ -37,7 +37,7 @@ module.exports = {
                                 .setThumbnail(topResult.image_url)
                                 .setDescription(topResult.synopsis)
                                 .addField("Episodes:", topResult.episodes, true)
-                                .addField("Release Date:", topResult.start_date)
+                                .addField(" Date:", topResult.start_date)
 
 
                             message.channel.send(animeInfoEmbed);
