@@ -271,7 +271,10 @@ module.exports = {
                     break;
 
                 case 'characters':
-                    https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
+
+                    let animeNameGetID = argsString[2];
+
+                    https.get('https://api.jikan.moe/v3/search/anime?q=' + animeNameGetID, res => {
 
                         let body = '';
 
