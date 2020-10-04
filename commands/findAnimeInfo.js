@@ -18,7 +18,8 @@ module.exports = {
 
         if (msgArgs[1] == "characters") {
             let animeNameGetID = message.content.slice(prefix.length + 21).trim().split(/ +/);
-            let animN = animeNameGetID.replace(/,/g, " ");
+            let animN = animeNameGetID.toString();
+            let animNa = animN.replace(/,/g, " ");
 
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
@@ -56,7 +57,7 @@ module.exports = {
                             let i = 0;
                             do {
                                 i++
-                                allNames += "\n" + chars[i].name;
+                                allNames += chars[i].name;
 
                             } while (i < length);
                             console.log(allNames);
