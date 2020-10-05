@@ -7,7 +7,7 @@ module.exports = {
     execute(message, args) {
 
         let prefix = "%";
-        let msgArgs = message.content.slice(prefix.length + 18).trim().split(/ +/);
+        let msgArgs = message.content.slice(prefix.length + 20).trim().split(/ +/).replace(/ ,/g, " ");
 
 
         // let searchCriteria = msgArgs[1];
