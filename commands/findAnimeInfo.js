@@ -96,7 +96,7 @@ module.exports = {
                     let topResult = bodyString.results[0];;
 
                     let animeInfoEmbed = new Discord.MessageEmbed()
-                        .setTitle("**Top search results for __" + dd + "__**")
+                        .setTitle("**Top search results for __" + bodyString.results[0].title + "__**")
                         .setThumbnail(topResult.image_url)
                         .setDescription(topResult.synopsis)
                         .addField("Episodes:", topResult.episodes, true)
