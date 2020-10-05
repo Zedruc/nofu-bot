@@ -8,8 +8,6 @@ module.exports = {
 
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
-        let nameOfAnim = message.content.slice(prefix.length + 20).trim().split(/ +/);
-        console.log("TEST TEST TEST: " + nameOfAnim);
 
 
         // let searchCriteria = msgArgs[1];
@@ -63,7 +61,7 @@ module.exports = {
                             } while (i < length);
                             console.log(allNames);
                             if (i === length) {
-                                let string = JSON.stringify(allNames);
+                                //let string = JSON.stringify(allNames);
 
                                 let String = allNames.trim().split(/ +/);
                                 console.log(String);
