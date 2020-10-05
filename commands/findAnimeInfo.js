@@ -18,7 +18,7 @@ module.exports = {
 
         if (msgArgs[1] == "characters") {
             let animeNameGetID = message.content.slice(prefix.length + 21).trim().split(/ +/);
-            let animeNameGetIDNOCOMMA = animeName.replace(/,/g, " ");
+            let animeNameGetIDNOCOMMA = animeNameGetID.replace(/,/g, " ");
 
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
