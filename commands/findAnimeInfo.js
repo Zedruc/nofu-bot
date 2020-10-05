@@ -56,6 +56,7 @@ module.exports = {
                             do {
                                 i++
                                 allNames += chars[i].name;
+                                allNames += " ";
 
                             } while (i < length);
                             console.log(allNames);
@@ -63,7 +64,7 @@ module.exports = {
                                 let string = JSON.stringify(allNames);
 
                                 let String = allNames.trim().split(/ +/);
-                                console.log(allNames);
+                                console.log(String);
                                 let animeChars = new Discord.MessageEmbed()
                                     .setTitle("**All characters from __" + animeNameGetID + "__**")
                                     .setThumbnail(chars.image_url)
