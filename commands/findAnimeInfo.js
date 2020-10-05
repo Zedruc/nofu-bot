@@ -8,6 +8,7 @@ module.exports = {
 
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
+        let nameOfAnim = message.content.slice(prefix.length + 20).trim().split(/ +/);
         let d = msgArgs.toString();
         let dd = d.replace(/ ,/g, " ");
 
@@ -96,7 +97,7 @@ module.exports = {
                     let topResult = bodyString.results[0];;
 
                     let animeInfoEmbed = new Discord.MessageEmbed()
-                        .setTitle("**Top search results for __" + bodyString.results[0].title + "__**")
+                        .setTitle("**Top search results for __" + nameOfAnim + "__**")
                         .setThumbnail(topResult.image_url)
                         .setDescription(topResult.synopsis)
                         .addField("Episodes:", topResult.episodes, true)
