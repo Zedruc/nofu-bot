@@ -45,11 +45,6 @@ module.exports = {
                         });
 
                         resp.on('end', () => {
-                            
-                            
-                
-                            
-                            
                             let bodyString = JSON.parse(body);
                             let chars = bodyString.characters;
 
@@ -66,16 +61,14 @@ module.exports = {
                             console.log(allNames);
                             if (i === length) {
                                 let string = JSON.stringify(allNames);
-                                
-          
+
                                 let optimalString = string.toString();
-                                let opoptimalString = optimalString.trim().split(/ +/);
-                                let output = 
-                                    console.log(optimalString);
+                                let String = optimalString.trim().split(/ +/);
+                                console.log(optimalString);
                                 let animeChars = new Discord.MessageEmbed()
                                     .setTitle("**All characters from __" + animeNameGetID + "__**")
                                     .setThumbnail(chars.image_url)
-                                    .setDescription(array_content)
+                                    .setDescription(String)
 
                                 message.reply(animeChars);
                             }
