@@ -7,7 +7,9 @@ module.exports = {
     execute(message, args) {
 
         let prefix = "%";
-        let msgArgs = message.content.slice(prefix.length + 20).trim().split(/ +/).replace(/ ,/g, " ");
+        let msgArgs = message.content.slice(prefix.length + 20).trim().split(/ +/);
+        let d = msgArgs.toString();
+        let dd = d.replace(/ ,/g, " ");
 
 
         // let searchCriteria = msgArgs[1];
@@ -94,7 +96,7 @@ module.exports = {
                     let topResult = bodyString.results[0];;
 
                     let animeInfoEmbed = new Discord.MessageEmbed()
-                        .setTitle("**Top search results for __" + msgArgs + "__**")
+                        .setTitle("**Top search results for __" + d + "__**")
                         .setThumbnail(topResult.image_url)
                         .setDescription(topResult.synopsis)
                         .addField("Episodes:", topResult.episodes, true)
