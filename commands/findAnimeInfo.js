@@ -18,6 +18,7 @@ module.exports = {
 
         if (msgArgs[1] == "characters") {
             let animeNameGetID = message.content.slice(prefix.length + 21).trim().split(/ +/);
+            let animeNameGetIDNOCOMMA = animeName.replace(/,/g, " ");
 
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
 
@@ -91,10 +92,10 @@ module.exports = {
                 res.on('end', () => {
                     let bodyString = JSON.parse(body);
                     console.log(bodyString.results[0].title);
-                    let topResult = bodyString.results[0];
+                    let topResult = bodyString.results[0];;
 
                     let animeInfoEmbed = new Discord.MessageEmbed()
-                        .setTitle("**Top search results for __" + animeName + "__**")
+                        .setTitle("**Top search results for __" + animeNameGetIDNOCOMMA + "__**")
                         .setThumbnail(topResult.image_url)
                         .setDescription(topResult.synopsis)
                         .addField("Episodes:", topResult.episodes, true)
