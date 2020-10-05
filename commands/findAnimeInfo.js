@@ -9,8 +9,7 @@ module.exports = {
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         let nameOfAnim = message.content.slice(prefix.length + 20).trim().split(/ +/);
-        let d = msgArgs.toString();
-        let dd = d.replace(/ ,/g, " ");
+        console.log("TEST TEST TEST: " + nameOfAnim);
 
 
         // let searchCriteria = msgArgs[1];
