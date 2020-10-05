@@ -48,7 +48,7 @@ module.exports = {
                                 console.log(String);
                                 let animeChars = new Discord.MessageEmbed()
                                     .setTitle("**All characters from __" + topResult.title + "__**")
-                                    .setThumbnail(chars.image_url)
+                                    .setThumbnail(topResult.image_url)
                                     .setDescription(String)
 
                                 message.reply(animeChars);
