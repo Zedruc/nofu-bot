@@ -7,7 +7,7 @@ module.exports = {
     execute(message, args) {
 
         let prefix = "%";
-        let msgArgs = message.content.slice(prefix.length + 20).trim().split(/ +/);
+        let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         let d = msgArgs.toString();
         let dd = d.replace(/ ,/g, " ");
 
