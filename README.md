@@ -24,6 +24,7 @@ with
 - %delete
 - %password
 
+
 - %convert
 - %findanime
 - %findsongs < artist / band name >
@@ -35,10 +36,12 @@ You can actually
 - delete the given amount of messages
 - make a generated and safe password slide right into your dms :>
 
+
 - provide a link direct to an image and it will be converted to the given file type!
 - search an anime name and see infos about it!
 - will list songs from the given artist / band *and of course provides a link to their Itunes page*
-  btw:The list with songs will be sent in dms to prevent list spamming in guilds :)
+
+  btw: The list with songs will be sent in dms to prevent list spamming in guilds :)
 
 # Facts about the dev
 So, I'm german
