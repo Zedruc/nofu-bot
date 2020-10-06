@@ -136,13 +136,13 @@ client.on('message', message => {
 
         client.commands.get('findanime').execute(message, args);
 
-    } else if (command === 'join') {
+    } else if (command === 'joinvc') {
 
         client.commands.get('joinvc').execute(message, args);
 
-    } else if (command == 'searchinfo') {
+    } else if (command == 'findsongs') {
 
-        client.commands.get('searchinfo').execute(message, args);
+        client.commands.get('findsongs').execute(message, args);
 
     }
 });
