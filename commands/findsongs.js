@@ -30,7 +30,8 @@ module.exports = {
 
                 let songsEmbed = new Discord.MessageEmbed()
                     .setTitle("**Songs from: __" + term + "__**")
-                    .setDescription(allNames);
+                    .setDescription(allNames)
+                    .setThumbnail(bodyString.results[0].artworkUrl100)
 
                 message.reply(songsEmbed);
             })
