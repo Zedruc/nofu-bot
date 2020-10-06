@@ -27,11 +27,12 @@ module.exports = {
                     allNames.push(bodyString.results[i].trackName);
                 } while (i < length);
 
-                let test = allNames.trim().split(/ +/);
+                let test = allNames.toString();
+                let test2 = test.trim().split(/ +/);
 
                 let songsEmbed = new Discord.MessageEmbed()
                     .setTitle("**Songs from: __" + term + "__**")
-                    .setDescription(test + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl)
+                    .setDescription(test2 + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl)
                     .setThumbnail(bodyString.results[0].artworkUrl100)
 
                 message.author.send(songsEmbed);
