@@ -24,7 +24,7 @@ module.exports = {
                 let i = 0;
                 do {
                     i++
-                    allNames.push(" " + bodyString.results[i].trackName);
+                    allNames.push(" " + bodyString.results[i].trackName + "\n");
                 } while (i < length);
 
                 let songsEmbed = new Discord.MessageEmbed()
