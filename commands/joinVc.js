@@ -7,7 +7,7 @@ module.exports = {
 
         if (message.guild === null) return;
 
-        if (message.author !== 568729687291985930) {
+        if (message.author !== "568729687291985930") {
             message.channel.send("This command is only aviable for the developer due to testing. \n...How did you even know??")
         } else {
             let channel = message.member.voice.channel;
