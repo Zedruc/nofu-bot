@@ -18,7 +18,6 @@ module.exports = {
 
             res.on('end', () => {
                 let bodyString = JSON.parse(body);
-                console.log(bodyString);
 
                 let length = bodyString.results.length - 1;
                 let allNames = [];
@@ -28,9 +27,11 @@ module.exports = {
                     allNames.push(bodyString.results[i].trackName);
                 } while (i < length);
 
+                let test = allNames.trim().split(/ +/);
+
                 let songsEmbed = new Discord.MessageEmbed()
                     .setTitle("**Songs from: __" + term + "__**")
-                    .setDescription(allNames + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl)
+                    .setDescription(test + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl)
                     .setThumbnail(bodyString.results[0].artworkUrl100)
 
                 message.author.send(songsEmbed);
