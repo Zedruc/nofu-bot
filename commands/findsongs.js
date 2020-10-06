@@ -3,8 +3,9 @@ const https = require('https');
 
 module.exports = {
     name: 'findsongs',
-    descriptioN: 'searches songs of given artist',
+    description: 'searches songs of given artist',
     execute(message, args) {
+        let prefix = "%";
         let url = "https://itunes.apple.com/search?term=";
         let body = '';
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
