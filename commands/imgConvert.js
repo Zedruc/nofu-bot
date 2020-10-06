@@ -6,6 +6,9 @@ module.exports = {
   name: "convert",
   description: "Converts given file url to provided file-type",
   execute(message, args) {
+
+    if (message.guild === null) return;
+
     const prefix = "%";
     let msgArgs = message.content.slice(prefix.length).trim().split(' ');
     let fileType = msgArgs[1];

@@ -9,6 +9,7 @@ module.exports = {
   description: "Bot Stats",
   execute(message, args, bot) {
 
+    if (message.guild === null) return;
 
   }
 }

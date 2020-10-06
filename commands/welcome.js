@@ -7,6 +7,9 @@ module.exports = {
     name: 'welcome',
     description: 'welcome toggle',
     execute(message, args) {
+
+        if (message.guild === null) return;
+
         if (message.member.roles.find(role => role.hasPermission('Administrator'))) {
             welcomeToggle = !welcomeToggle;
 

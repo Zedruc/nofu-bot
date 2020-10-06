@@ -5,6 +5,9 @@ module.exports = {
     name: 'findsongs',
     description: 'searches songs of given artist',
     execute(message, args) {
+
+        if (message.guild === null) return;
+
         let prefix = "%";
         let url = "https://itunes.apple.com/search?term=";
         let body = '';

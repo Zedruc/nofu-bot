@@ -4,6 +4,9 @@ module.exports = {
     name: 'findanime',
     description: 'lists infos about the given anime',
     execute(message, args) {
+
+        if (message.guild === null) return;
+
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         // let searchCriteria = msgArgs[1];

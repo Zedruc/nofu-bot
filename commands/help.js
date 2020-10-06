@@ -2,6 +2,9 @@ module.exports = {
     name: 'help',
     description: "Help Command",
     execute(message, args) {
+
+        if (message.guild === null) return;
+
         const Discord = require('discord.js');
         const server = message.guild.name;
         const embed = new Discord.MessageEmbed()
