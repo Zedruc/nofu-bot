@@ -19,9 +19,6 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 console.log(bodyString);
 
-                let bodyString = JSON.parse(body);
-                console.log(bodyString);
-
                 let length = bodyString.results.length - 1;
                 let allNames = [];
                 let i = 0;
