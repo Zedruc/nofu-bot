@@ -51,7 +51,10 @@ module.exports = {
                                     .setThumbnail(topResult.image_url)
                                     .setDescription(String)
 
-                                message.reply(animeChars);
+                                message.author.send(animeChars);
+
+                                message.channel.send("<@" + message.author + ">, sent you the list in Direct Messages to prevent the bot spamming the chat with a huge list :)")
+
                             }
                         });
                     })

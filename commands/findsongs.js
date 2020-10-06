@@ -33,7 +33,10 @@ module.exports = {
                     .setDescription(allNames + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl)
                     .setThumbnail(bodyString.results[0].artworkUrl100)
 
-                message.reply(songsEmbed);
+                message.author.send(songsEmbed);
+
+                message.channel.send("<@" + message.author + ">, sent you the list in direct Messages to prevent the bot spamming the chat with a huge list :)")
+
             })
         })
     }
