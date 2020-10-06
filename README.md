@@ -26,6 +26,7 @@ with
 
 - %convert
 - %findanime
+- %findsongs < artist / band name >
 
 You can actually
 - Test your connection to the server the command was used in
@@ -36,12 +37,13 @@ You can actually
 
 - provide a link direct to an image and it will be converted to the given file type!
 - search an anime name and see infos about it!
+- will list songs from the given artist / band *and of course provides a link to their Itunes page*
 
 # Facts about the dev
 So, I'm german
 > What hopefully explains the partially bad english
 
-Im relatively new to "real" coding with js and stuff
+Im pretty new to "real" coding with js and stuff
 > I used to be proud of making crappy html files but I mean, everyone starts off somewhere ^^
 
 This is actually my first project in node.js
