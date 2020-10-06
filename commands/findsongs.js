@@ -29,7 +29,7 @@ module.exports = {
                 } while (i < length);
 
                 let songsEmbed = new Discord.MessageEmbed()
-                    .setTitle("**Songs from: __" + term)
+                    .setTitle("**Songs from: __" + term + "__**")
                     .setDescription(allNames);
 
                 message.reply(songsEmbed);
