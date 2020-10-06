@@ -35,7 +35,7 @@ module.exports = {
 
                 message.author.send(songsEmbed);
 
-                message.channel.send("<@" + message.author + ">, sent you the list in direct Messages to prevent the bot spamming the chat with a huge list :)")
+                message.channel.send("<@" + message.author + ">, sent you the list in Direct Messages to prevent the bot spamming the chat with a huge list :)")
 
             })
         })
