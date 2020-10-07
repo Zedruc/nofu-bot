@@ -48,6 +48,10 @@ You can actually
 
   btw: The list with songs will be sent in dms to prevent list spamming in guilds :)
 
+  In case youre angry:
+
+  %slap <@user> :D 
+
 # Facts about the dev
 So, I'm german
 > What hopefully explains the partially bad english
