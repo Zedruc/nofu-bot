@@ -20,6 +20,9 @@ module.exports = {
         if (message.guild === null) return;
 
         https.get('https://api.tenor.com/v1/search?q=' + term + "&limit=50", res => {
+
+            console.log(term);
+
             let body = '';
 
             res.on('data', chunk => {
