@@ -9,6 +9,8 @@ module.exports = {
     name: "slap",
     description: "yes, you can slap others now xD",
     execute(message, args) {
+        if (message.guild === null) return;
+
         const taggedUser = message.mentions.users.first();
 
         let prefix = "%";
@@ -16,7 +18,7 @@ module.exports = {
         let key = process.env.tenorkey;
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
-        if (message.guild === null) return;
+
 
         https.get('https://api.tenor.com/v1/search?q=anime+slap&limit=50&key=' + key, res => {
 
