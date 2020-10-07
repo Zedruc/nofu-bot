@@ -30,7 +30,7 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 let int = Math.floor(Math.random(1) * 50);
 
-                let gifUrl = bodyString.results[int].url;
+                let gifUrl = body.results[int].url;
 
                 let slapEmbed = new Discord.MessageEmbed()
                     .setTitle(message.author + " slapped " + taggedUser + "!")
