@@ -19,7 +19,7 @@ module.exports = {
 
         if (message.guild === null) return;
 
-        https.get('https://api.tenor.com/v1/search?q=' + term.join(" ") + '&key=' + key + "&limit=50", res => {
+        https.get('https://api.tenor.com/v1/search?q=' + term + '&key=' + key + "&limit=50", res => {
             let body = '';
 
             res.on('data', chunk => {
