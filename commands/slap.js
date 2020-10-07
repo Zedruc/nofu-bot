@@ -34,7 +34,8 @@ module.exports = {
 
                 let slapEmbed = new Discord.MessageEmbed()
                     .setTitle(message.author.name + " slapped " + msgArgs[1] + "!")
-                    .setDescription("***S L A P*** \n" + gifUrl)
+                    .setDescription("***S L A P***")
+                    .setImage(gifUrl)
 
                 message.reply(slapEmbed);
             })
