@@ -36,6 +36,10 @@ module.exports = {
 
                     message.channel.send("How about we don\'t do that ;-;")
 
+                } else if (taggedUser == 760905298990202901) {
+
+                    message.reply("no. :)");
+
                 } else {
 
                     message.channel.send(message.member.displayName + " slapped <@" + taggedUser + ">! \n" + gifUrl)
