@@ -7,7 +7,7 @@ const { join } = require("path");
 
 module.exports = {
     name: "slap",
-    description: "yes, you now can slap others xD",
+    description: "yes, you can slap others now xD",
     execute(message, args) {
         const taggedUser = message.mentions.users.first();
 
@@ -15,13 +15,10 @@ module.exports = {
 
         let key = process.env.tenorkey;
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
-        let term = message.content.slice(prefix.length + 4).trim().split(/ +/);
 
         if (message.guild === null) return;
 
-        https.get('https://api.tenor.com/v1/search?q=' + term + "&limit=50", res => {
-
-            console.log(term);
+        https.get('https://api.tenor.com/v1/search?q=anime+slap&limit=50&key=' + key, res => {
 
             let body = '';
 
@@ -31,12 +28,13 @@ module.exports = {
 
             res.on('end', () => {
                 let bodyString = JSON.parse(body);
-                let int = Math.floor(Math.random(1) * 50);
+                let int = Math.floor(Math.random(1) * 49);
 
-                let gifUrl = bodyString.results[int].url;
+                let gifUrl = body.results[int].url;
 
                 let slapEmbed = new Discord.MessageEmbed()
                     .setTitle(message.author + " slapped " + taggedUser + "!")
+                    .setDescription("***S L A P***")
                     .attachFiles([gifUrl])
 
                 message.reply(slapEmbed);
