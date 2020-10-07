@@ -31,7 +31,7 @@ module.exports = {
                 } while (i < length);
 
                 let songsEmbed = new Discord.MessageEmbed()
-                    .setTitle("**Songs from: __" + term.replace(/,/g, " ") + "__**")
+                    .setTitle("**Songs from: __" + term.join(" ") + "__**")
                     .setDescription(allNames + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl)
                     .setThumbnail(bodyString.results[0].artworkUrl100)
 
