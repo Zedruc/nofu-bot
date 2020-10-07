@@ -32,7 +32,7 @@ module.exports = {
 
                 let gifUrl = bodyString.results[int].url;
 
-                if (taggedUser = message.author.id) {
+                if (taggedUser == message.author.id) {
                     message.channel.send("How about we don\'t do that ;-;")
                 }
 
