@@ -144,6 +144,10 @@ client.on('message', message => {
 
         client.commands.get('findsongs').execute(message, args);
 
+    } else if (command == 'slap') {
+
+        client.commands.get('slap').execute(message, args);
+
     }
 });
 
