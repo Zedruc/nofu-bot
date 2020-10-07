@@ -10,6 +10,9 @@ module.exports = {
     description: "yes, you now can slap others xD",
     execute(message, args) {
         const taggedUser = message.mentions.users.first();
+
+        let prefix = "%";
+
         let key = process.env.tenorkey;
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
