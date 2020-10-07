@@ -32,14 +32,7 @@ module.exports = {
 
                 let gifUrl = bodyString.results[int].url;
 
-                let slapEmbed = new Discord.MessageEmbed()
-                    .setTitle(message.member.displayName + " slapped " + taggedUser + " !")
-                    .setColor('BLURPLE')
-                    .setDescription("***S L A P***")
-                    .attachFiles(gifUrl)
-
-                message.reply(slapEmbed);
-                message.reply(gifUrl)
+                message.channel.send(message.member.displayName + "slapped " + taggedUser + "! \n" + gifUrl)
             })
         })
 
