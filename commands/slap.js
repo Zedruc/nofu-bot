@@ -36,9 +36,10 @@ module.exports = {
                     .setTitle(message.member.displayName + " slapped " + taggedUser + " !")
                     .setColor('BLURPLE')
                     .setDescription("***S L A P***")
-                    .setThumbnail(gifUrl)
+                    .attachFiles(gifUrl)
 
                 message.reply(slapEmbed);
+                message.reply(gifUrl)
             })
         })
 
