@@ -32,8 +32,8 @@ module.exports = {
 
                 let songsEmbed = new Discord.MessageEmbed()
                     .setTitle("**Songs from: __" + term.join(" ") + "__**")
-                    .setDescription(allNames + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl)
-                    .setThumbnail(bodyString.results[0].artworkUrl100)
+                    .setDescription(allNames + "\n\n" + "Go to the artist on Itunes here: " + bodyString.results[0].artistViewUrl + "\n\n Main genre: " + bodyString.results[0].primaryGenreName)
+                    .setImage(bodyString.results[0].artworkUrl100)
 
                 message.author.send(songsEmbed);
 
