@@ -32,7 +32,7 @@ module.exports = {
 
                 let gifUrl = bodyString.results[int].url;
 
-                message.channel.send(message.member.displayName + "slapped <@" + taggedUser + ">! \n" + gifUrl)
+                message.channel.send(message.member.displayName + " slapped <@" + taggedUser + ">! \n" + gifUrl)
             })
         })
 
