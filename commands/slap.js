@@ -3,6 +3,7 @@ const { RSA_NO_PADDING, SSL_OP_ALL } = require("constants");
 
 const Discord = require("discord.js");
 const https = require('https');
+const { join } = require("path");
 
 module.exports = {
     name: "slap",
@@ -10,10 +11,11 @@ module.exports = {
     execute(message, args) {
         const taggedUser = message.mentions.users.first();
         let key = process.env.tenorkey;
+        let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
         if (message.guild === null) return;
 
-        https.get('https://api.tenor.com/v1/search?q=excited&key=' + key + "&limit=50", res => {
+        https.get('https://api.tenor.com/v1/search?q=' + msgArgs[1].join(" ") + '&key=' + key + "&limit=50", res => {
             let body = '';
 
             res.on('data', chunk => {
