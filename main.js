@@ -50,14 +50,14 @@ client.on('guildDelete', guild => {
 });
 
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", guildMember => {
     if (welcomeToggle == true) {
-        client.on('guildMemberAdd', (guildMember) => {
-            guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Member"));
-        });
+
+        guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Member"));
+
         let welcomeEmbed = new Discord.MessageEmbed()
             .setTitle("welcome " + member + "!")
-            .setDescription("Welcome to " + guild.name " :P!")
+            .setDescription("Welcome to " + guild.name + " :P!")
             .setThumbnail(client.user.avatarURL());
         member.guild.channels.get('761912789765062658').send(welcomeEmbed)
     }
