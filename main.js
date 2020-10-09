@@ -143,6 +143,10 @@ client.on('message', message => {
 
         client.commands.get('slap').execute(message, args);
 
+    } else if (command == 'report') {
+
+        client.commands.get('report').execute(message, args);
+
     }
 });
 
