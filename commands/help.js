@@ -15,7 +15,7 @@ module.exports = {
             .addField("**%meme**", "`sends a random meme` || ", true)
             .addField("**%ping**", "`Connectiontest to current server (" + server + ")`", true)
             .addField("**%delete <number>**", "`deletes the provided amount of messages`", true)
-            .addField("**%uptime**", "`Shows bot stats (Still glitched)`", true)
+            .addField("**%uptime**", "`Shows bot stats `", true)
             .addField("**%joke**", "`Sends a random joke`", true)
             .addField("**%userinfo**", "`Shows info about pinged user / about you`")
             .addField("**%mememan**", "`sends a random` " + "***mememan***" + "` meme`", true)

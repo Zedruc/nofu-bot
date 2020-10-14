@@ -102,11 +102,12 @@ client.on('message', message => {
     } else if (command === 'uptime') {
 
         let time = Date.now() - date_ob;
+        let seconds = time / 1000;
 
         const statEmbed = new Discord.MessageEmbed()
             .setTitle("**  = STATISTICS =**")
             .addField("**Memory usage ::**", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
-            .addField("**Uptime (glitched)**", `time: ${time}`);
+            .addField("**Uptime **", `${seconds} seconds`);
         message.channel.send(statEmbed);
 
     } else if (command === 'mememan') {
