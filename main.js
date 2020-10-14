@@ -112,7 +112,7 @@ client.on('message', message => {
 
         const statEmbed = new Discord.MessageEmbed()
             .setTitle("**  = STATISTICS =**")
-            .addField("**Memory usage ::**", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
+            .addField("**Memory usage **", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
             .addField("**Uptime **", `${pd} days \n ${ph} hours \n ${ps} seconds`);
         message.channel.send(statEmbed);
 
