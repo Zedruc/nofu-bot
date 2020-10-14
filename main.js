@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const http = require('http');
 const client = new Discord.Client();
 
-//import { welcomeToggle } from "../nofu-bot/commands/welcome";
 let welcomeToggle = true;
 let date_ob = new Date();
 
