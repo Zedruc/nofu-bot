@@ -106,10 +106,14 @@ client.on('message', message => {
         let hours = seconds / 3600;
         let days = seconds / 86400;
 
+        let ps = seconds.toFixed();
+        let ph = hours.toFixed();
+        let pd = days.toFixed();
+
         const statEmbed = new Discord.MessageEmbed()
             .setTitle("**  = STATISTICS =**")
             .addField("**Memory usage ::**", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
-            .addField("**Uptime **", `${days} days \n ${hours} hours \n ${seconds} seconds`);
+            .addField("**Uptime **", `${pd} days \n ${ph} hours \n ${ps} seconds`);
         message.channel.send(statEmbed);
 
     } else if (command === 'mememan') {
