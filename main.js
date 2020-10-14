@@ -103,11 +103,13 @@ client.on('message', message => {
 
         let time = Date.now() - date_ob;
         let seconds = time / 1000;
+        let hours = seconds / 3600;
+        let days = seconds / 86400;
 
         const statEmbed = new Discord.MessageEmbed()
             .setTitle("**  = STATISTICS =**")
             .addField("**Memory usage ::**", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
-            .addField("**Uptime **", `${seconds} seconds`);
+            .addField("**Uptime **", `${days} days \n ${hours} hours \n ${seconds} seconds`);
         message.channel.send(statEmbed);
 
     } else if (command === 'mememan') {
