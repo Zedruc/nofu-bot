@@ -12,11 +12,12 @@ module.exports = {
 
         let prefix = "%";
 
+        let server = servers[message.guild.id];
+
 
         let msgArgs = message.content.slice(prefix.length).trim().split(' ');
 
         function play(connection, message) {
-            let server = servers[message.guild.id];
 
             server.dispatcher = connection.play(ytdl(server.queue[0], { filter: "audioonly" }));
 
