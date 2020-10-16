@@ -48,7 +48,7 @@ module.exports = {
                 } catch (err) {
                     console.log(err);
                     queue.delete(message.guild.id);
-                    return message.channel.send(err);
+                    return message.channel.send("`" + err + "`");
                 }
             } else {
                 serverQueue.songs.push(song);
@@ -58,7 +58,7 @@ module.exports = {
             }
         } catch (error) {
             console.log(error);
-            message.channel.send(error.message);
+            message.channel.send("`" + error.message + "`");
         }
     },
 
