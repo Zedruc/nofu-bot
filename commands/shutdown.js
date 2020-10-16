@@ -9,7 +9,7 @@ module.exports = {
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         
-        if(message.author !== owner){
+        if(message.author.id !== owner){
             message.reply("You have NO permissions to use owner commands! Attempt will be logged")
             return;
         } else {
