@@ -39,7 +39,7 @@ module.exports = {
             return;
         }
 
-        if (!message.member.voiceChannel) {
+        if (!message.member.voice.channel) {
             message.reply('You must be in a voice channel!');
             return;
         }
@@ -52,7 +52,7 @@ module.exports = {
 
         server.queue.push(msgArgs[1]);
 
-        if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function (connection) {
+        if (!message.guild.voiceConnection) message.member.voice.channel.join().then(function (connection) {
             play(connection, message);
         })
 
