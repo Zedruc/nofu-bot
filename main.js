@@ -164,7 +164,7 @@ client.on('message', message => {
                 .setTitle("**__Shutting down and sestroying client...__**")
                 .setDescription("Will boot on console-command")
                 .setColor('#ff0000');
-                message,channel.send(embed);
+                message.channel.send(embed);
                 client.destroy()
             } else if(msgArgs[1] == "restart"){
                  let embed = new Discord.MessageEmbed()
@@ -180,7 +180,5 @@ client.on('message', message => {
             }
         
     }
-
-}
 
 client.login(process.env.token);
