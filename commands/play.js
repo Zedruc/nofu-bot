@@ -12,6 +12,7 @@ module.exports = {
 
         let prefix = "%";
 
+
         let msgArgs = message.content.slice(prefix.length).trim().split(' ');
 
         function play(connection, message) {
