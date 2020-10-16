@@ -4,7 +4,6 @@
  */
 const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
-const { Player } = require('discord-player');
 
 module.exports = {
     name: "play",
