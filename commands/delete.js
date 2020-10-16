@@ -18,7 +18,7 @@ module.exports = {
 
       message.reply("Please provide a number between 2 and 100!");
 
-    } else if (message.author.id == message.guild.ownerID) {
+    } else if (message.member.hasPermission('ADMINISTRATOR')) {
 
       message.delete;
 
