@@ -4,6 +4,7 @@
  */
 const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
+const { Player } = require('discord-player');
 
 module.exports = {
     name: "play",
@@ -12,50 +13,81 @@ module.exports = {
 
         let prefix = "%";
 
-
         let msgArgs = message.content.slice(prefix.length).trim().split(' ');
 
-        var servers = {};
+        const queue = new Map();
 
-        if (!msgArgs[1]) {
-            message.reply('Please provide a link!');
-            return;
+        const voiceChannel = message.member.voice.channel;
+        if (!voiceChannel)
+            return message.channel.send(
+                "You need to be in a voice channel to play music!"
+            );
+        const permissions = voiceChannel.permissionsFor(message.client.user);
+        if (!permissions.has("CONNECT") || !permissions.has("SPEAK")) {
+            return message.channel.send(
+                "I need the permissions to join and speak in your voice channel!"
+            );
         }
 
-        if (!message.member.voice.channel) {
-            message.reply('You must be in a voice channel!');
-            return;
+        const songInfo = await ytdl.getInfo(msgArgs[1]);
+        const song = {
+            title: songInfo.title,
+            url: songInfo.video_url,
+        };
+
+        if (!serverQueue) {
+
+        } else {
+            serverQueue.songs.push(song);
+            console.log(serverQueue.songs);
+            return message.channel.send(`${song.title} has been added to the queue!`);
         }
 
-        if (!servers[message.guild.id]) servers[message.guild.id] = {
-            queue: []
+        // Creating the contract for our queue
+        const queueContruct = {
+            textChannel: message.channel,
+            voiceChannel: voiceChannel,
+            connection: null,
+            songs: [],
+            volume: 5,
+            playing: true,
+        };
+        // Setting the queue using our contract
+        queue.set(message.guild.id, queueContruct);
+        // Pushing the song to our songs array
+        queueContruct.songs.push(song);
+
+        try {
+            // Here we try to join the voicechat and save our connection into our object.
+            var connection = await voiceChannel.join();
+            queueContruct.connection = connection;
+            // Calling the play function to start a song
+            play(message.guild, queueContruct.songs[0]);
+        } catch (err) {
+            // Printing the error message if the bot fails to join the voicechat
+            console.log(err);
+            queue.delete(message.guild.id);
+            return message.channel.send(err);
         }
 
-        var server = server[message.guild.id];
-
-        server.queue.push(msgArgs[1]);
-
-        if (!message.guild.voiceConnection) message.member.voice.channel.join().then(function (connection) {
-            play(connection, message);
-        })
-
-
-        function play(connection, message) {
-            var server = servers[message.guild.id];
-
-            server.dispatcher = connection.play(ytdl(server.queue[0], { filter: "audioonly" }));
-
-            server.queue.shift();
-
-            server.dispatcher.on('end', function () {
-                if (server.queue[0]) {
-                    play(connection, message);
-                } else {
-                    connection.disconnect();
-                }
-            });
-
+        function play(guild, song) {
+            const serverQueue = queue.get(guild.id);
+            if (!song) {
+                serverQueue.voiceChannel.leave();
+                queue.delete(guild.id);
+                return;
+            }
         }
+
+        const dispatcher = serverQueue.connection
+            .play(ytdl(song.url))
+            .on("finish", () => {
+                serverQueue.songs.shift();
+                play(guild, serverQueue.songs[0]);
+            })
+            .on("error", error => console.error(error));
+        dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
+        serverQueue.textChannel.send(`Start playing: **${song.title}**`);
 
     }
 }
