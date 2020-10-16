@@ -1,5 +1,7 @@
 const Discord = require("discord.js");
 
+const owner = '568729687291985930';
+
 module.exports = {
     name: "client",
     description: "will destroy the client",
@@ -7,7 +9,7 @@ module.exports = {
         let prefix = "%";
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         
-        if(message.author !== 568729687291985930){
+        if(message.author !== owner){
             message.reply("You have NO permissions to use owner commands! Attempt will be logged")
             return;
         } else {
