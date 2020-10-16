@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const client = new Discord.Client();
 
 const owner = '568729687291985930';
 
