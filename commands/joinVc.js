@@ -1,3 +1,8 @@
+/**
+ * This is just a test
+ * You wont see this in the %help command
+ */
+
 const Discord = require("discord.js");
 
 module.exports = {
