@@ -137,10 +137,6 @@ client.on('message', message => {
 
         client.commands.get('findanime').execute(message, args);
 
-    } else if (command === 'play') {
-
-        client.commands.get('play').execute(message, args);
-
     } else if (command == 'findsongs') {
 
         client.commands.get('findsongs').execute(message, args);
