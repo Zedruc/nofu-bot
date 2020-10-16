@@ -8,6 +8,7 @@ module.exports = {
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
         
         if(message.author.id !== 568729687291985930){
+            message,reply("You have NO permissions to use owner commands! Attempt will be logged")
             return;
         } else {
             if(msgArgs[1] == "shutdown"){
