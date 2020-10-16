@@ -10,6 +10,8 @@ module.exports = {
     description: "makes the bot join your vc",
     execute(message, args) {
 
+        let prefix = "%";
+
         let msgArgs = message.content.slice(prefix.length).trim().split(' ');
 
         function play(connection, message) {
