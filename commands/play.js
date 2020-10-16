@@ -15,24 +15,7 @@ module.exports = {
 
         let msgArgs = message.content.slice(prefix.length).trim().split(' ');
 
-        function play(connection, message) {
-            let server = servers[message.guild.id];
-
-            server.dispatcher = connection.play(ytdl(server.queue[0], { filter: "audioonly" }));
-
-            server.queue.shift();
-
-            server.dispatcher.on('end', function () {
-                if (server.queue[0]) {
-                    play(connection, message);
-                } else {
-                    connection.disconnect();
-                }
-            });
-
-        }
-
-        let servers = {};
+        var servers = {};
 
         if (!msgArgs[1]) {
             message.reply('Please provide a link!');
@@ -48,7 +31,7 @@ module.exports = {
             queue: []
         }
 
-        let server = server[message.guild.id];
+        var server = server[message.guild.id];
 
         server.queue.push(msgArgs[1]);
 
@@ -56,6 +39,23 @@ module.exports = {
             play(connection, message);
         })
 
+
+        function play(connection, message) {
+            var server = servers[message.guild.id];
+
+            server.dispatcher = connection.play(ytdl(server.queue[0], { filter: "audioonly" }));
+
+            server.queue.shift();
+
+            server.dispatcher.on('end', function () {
+                if (server.queue[0]) {
+                    play(connection, message);
+                } else {
+                    connection.disconnect();
+                }
+            });
+
+        }
 
     }
 }
