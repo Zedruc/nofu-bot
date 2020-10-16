@@ -39,6 +39,10 @@ module.exports = {
 
                     message.reply("Wait what?");
 
+                } else if,(taggedUser == message.guild.roles.everyone){
+                
+                    message.reply("that's a bit too much :/")
+                
                 } else {
 
                     message.channel.send(message.member.displayName + " hugs <@" + taggedUser + "> :D! \n" + gifUrl)
