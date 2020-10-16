@@ -39,7 +39,7 @@ module.exports = {
 
                     message.reply("Wait what?");
 
-                } else if,(taggedUser == message.guild.roles.everyone){
+                } else if (taggedUser == message.guild.roles.everyone){
                 
                     message.reply("that's a bit too much :/")
                 
