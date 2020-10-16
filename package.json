@@ -17,6 +17,7 @@
     "git": "^0.1.5",
     "moment": "^2.29.0",
     "moment-duration-format": "^2.3.2",
+    "opusscript": "0.0.7",
     "request": "^2.88.2",
     "ytdl-core": "^3.3.0"
   }
