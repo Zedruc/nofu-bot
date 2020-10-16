@@ -49,7 +49,5 @@ module.exports = {
                 }
             })
         })
-
-        message.reply();
     }
 }
