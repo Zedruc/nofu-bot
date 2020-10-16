@@ -6,7 +6,7 @@ const Discord = require("discord.js");
 const ytdl = require("ytdl-core");
 
 module.exports = {
-    name: "joinvc",
+    name: "play",
     description: "makes the bot join your vc",
     execute(message, args) {
 
