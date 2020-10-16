@@ -10,4 +10,3 @@ module.exports = {
           console.log("shutdown logic in main");
         }
     }
-}
