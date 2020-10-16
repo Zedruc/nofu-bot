@@ -3,8 +3,8 @@ const https = require('https');
 const { join } = require("path");
 
 module.exports = {
-    name: "slap",
-    description: "yes, you can slap others now xD",
+    name: "hug",
+    description: "Since T H E    W O R L D W I D E   E V E N T is still a thing you now can hug others via discord :D!",
     execute(message, args) {
         if (message.guild === null) return;
 
