@@ -16,14 +16,17 @@ module.exports = {
             if(msgArgs[1] == "shutdown"){
                 let embed = new Discord.MessageEmbed()
                 .setTitle("**__Shutting down and sestroying client...__**")
-                .setDescription("Will boot on console-command");
+                .setDescription("Will boot on console-command")
+                .setColor('#ff0000');
                 message,channel.send(embed);
                 client.destroy()
             } else if(msgArgs[1] == "restart"){
                  let embed = new Discord.MessageEmbed()
                 .setTitle("**__Restarting client...__**")
-                .setDescription("Will boot up automatically");
-                message.channel.send(embed);
+                .setDescription("Will boot up automatically")
+                .setColor('#ff0000');
+     
+                message.channel.send(embed)
                 client.destroy().then(() => {
                     client.login(process.env.token)
                 })
