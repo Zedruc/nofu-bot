@@ -10,6 +10,8 @@ module.exports = {
     description: "makes the bot join your vc",
     execute(message, args) {
 
+        let msgArgs = message.content.slice(prefix.length).trim().split(' ');
+
         function play(connection, message) {
             let server = servers[message.guild.id];
 
@@ -29,7 +31,7 @@ module.exports = {
 
         let servers = {};
 
-        if (!args[1]) {
+        if (!msgArgs[1]) {
             message.reply('Please provide a link!');
             return;
         }
@@ -45,7 +47,7 @@ module.exports = {
 
         let server = server[message.guild.id];
 
-        server.queue.push(args[1]);
+        server.queue.push(msgArgs[1]);
 
         if (!message.guild.voiceConnection) message.member.voiceChannel.join().then(function (connection) {
             play(connection, message);

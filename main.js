@@ -137,9 +137,9 @@ client.on('message', message => {
 
         client.commands.get('findanime').execute(message, args);
 
-    } else if (command === 'joinvc') {
+    } else if (command === 'play') {
 
-        client.commands.get('joinvc').execute(message, args);
+        client.commands.get('play').execute(message, args);
 
     } else if (command == 'findsongs') {
 
