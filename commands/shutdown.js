@@ -28,9 +28,10 @@ module.exports = {
                 .setColor('#ff0000');
      
                 message.channel.send(embed)
-                client.destroy().then(() => {
-                    client.login(process.env.token)
-                })
+                return client.destroy()
+                       .then(() => {
+                       client.login(process.env.token)
+                });
             }
         }
     }
