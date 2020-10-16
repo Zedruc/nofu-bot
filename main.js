@@ -151,7 +151,33 @@ client.on('message', message => {
         
     } else if (command == 'client') {
 
-        client.commands.get('client').execute(message, args);
+        let prefix = "%";
+        let owner = '568729687291985930';
+        let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
+        
+        if(message.author.id !== owner){
+            message.reply("You have NO permissions to use owner commands! Attempt will be logged")
+            return;
+        } else {
+            if(msgArgs[1] == "shutdown"){
+                let embed = new Discord.MessageEmbed()
+                .setTitle("**__Shutting down and sestroying client...__**")
+                .setDescription("Will boot on console-command")
+                .setColor('#ff0000');
+                message,channel.send(embed);
+                client.destroy()
+            } else if(msgArgs[1] == "restart"){
+                 let embed = new Discord.MessageEmbed()
+                .setTitle("**__Restarting client...__**")
+                .setDescription("Will boot up automatically")
+                .setColor('#ff0000');
+     
+                message.channel.send(embed)
+                return client.destroy()
+                       .then(() => {
+                       client.login(process.env.token)
+                });
+            }
         
     }
 
