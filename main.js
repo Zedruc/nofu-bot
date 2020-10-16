@@ -141,11 +141,16 @@ client.on('message', message => {
 
         client.commands.get('findsongs').execute(message, args);
 
-    } else if (command == 'slap') {
+    }  else if (command == 'slap') {
 
         client.commands.get('slap').execute(message, args);
 
+    } else if (command == 'hug') {
+
+        client.commands.get('hug').execute(message, args);
+        
     }
+
 });
 
 client.login(process.env.token);
