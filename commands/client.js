@@ -15,7 +15,8 @@ module.exports = {
 
       let embed = new Discord.MessageEmbed()
         .setTitle("__***Restarting client***__")
-        .setDescription("Booting up automically")
+        .setDescription("\nBooting up automically\n")
+        .setColor('#8b0000')
 
       message.channel.send(embed)
         .then(msg => client.destroy())
@@ -25,7 +26,8 @@ module.exports = {
 
       let embed = new Discord.MessageEmbed()
         .setTitle("__***Destroying client***__")
-        .setDescription("Booting up on console command")
+        .setDescription("\nWill boot up again on `node main.js`\n")
+        .setColor('#8b0000')
 
       message.channel.send(embed);
       //test
