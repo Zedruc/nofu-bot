@@ -1,13 +1,10 @@
-const { RSA_NO_PADDING, SSL_OP_ALL } = require("constants");
-// yes I made this because I was bored lol
-
 const Discord = require("discord.js");
 const https = require('https');
 const { join } = require("path");
 
 module.exports = {
-    name: "slap",
-    description: "yes, you can slap others now xD",
+    name: "hug",
+    description: "Since T H E    W O R L D W I D E   E V E N T is still a thing you now can hug others via discord :D!",
     execute(message, args) {
         if (message.guild === null) return;
 
@@ -20,7 +17,7 @@ module.exports = {
 
 
 
-        https.get('https://api.tenor.com/v1/search?q=anime+slap&limit=50&key=' + key, res => {
+        https.get('https://api.tenor.com/v1/search?q=anime+hug&limit=50&key=' + key, res => {
 
             let body = '';
 
@@ -36,15 +33,15 @@ module.exports = {
 
                 if (taggedUser == message.author.id) {
 
-                    message.channel.send("How about we don\'t do that ;-;")
+                    message.channel.send("You must be lonely huh")
 
                 } else if (taggedUser == 760905298990202901) {
 
-                    message.reply("no. :)");
+                    message.reply("Wait what?");
 
                 } else {
 
-                    message.channel.send(message.member.displayName + " slapped <@" + taggedUser + ">! \n" + gifUrl)
+                    message.channel.send(message.member.displayName + " hugs <@" + taggedUser + "> :D! \n" + gifUrl)
 
                 }
             })
