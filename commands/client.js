@@ -9,6 +9,8 @@ module.exports = {
   execute(message, args) {
     let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
+    let prefix = "%";
+
     if (msgArgs[1] == "restart") {
 
       let embed = new Discord.MessageEmbed()
