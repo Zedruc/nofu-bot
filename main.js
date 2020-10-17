@@ -149,6 +149,10 @@ client.on('message', message => {
 
         client.commands.get('client').execute(message, args);
 
+    } else if (command == 'broadcast') {
+
+        client.commands.get('broadcast').execute(message, args);
+
     }
 });
 
