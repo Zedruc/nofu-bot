@@ -145,6 +145,10 @@ client.on('message', message => {
 
         client.commands.get('slap').execute(message, args);
 
+    } else if (command == 'play') {
+
+        client.commands.get('play').execute(message, args);
+
     }
 });
 
