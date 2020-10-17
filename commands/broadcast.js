@@ -6,7 +6,7 @@ module.exports = {
     description: 'sends a message to every server the bot is in',
     execute(message, args) {
         const prefix = "%";
-        var message = message.content.slice(prefix.length + 9).trim().split(/ +/);
+        var messageArgs = message.content.slice(prefix.length + 9).trim().split(/ +/);
         if (message.author.id === '568729687291985930') {
             client.guilds.forEach((guild) => { //for each guild the bot is in
                 let defaultChannel = "";
@@ -20,7 +20,7 @@ module.exports = {
                 function send() {
                     let broadcastEmbed = new Discord.MessageEmbed()
                         .setTitle("__**Broadcast**__")
-                        .setDescription(message)
+                        .setDescription(messageArgs)
                         .setTimestamp()
                     defaultChannel.send(broadcastEmbed)
                         .catch(err => {
