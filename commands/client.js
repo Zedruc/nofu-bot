@@ -7,9 +7,9 @@ module.exports = {
   name: "client",
   description: "will destroy the client",
   execute(message, args) {
-    let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
-
     let prefix = "%";
+
+    let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
     if (msgArgs[1] == "restart") {
 
