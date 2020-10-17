@@ -9,16 +9,27 @@ module.exports = {
         var guildList = client.guilds.array();
         var message = message.content.slice(prefix.length + 9).trim().split(/ +/);
         if (message.author.id === '568729687291985930') {
-            try {
-                let broadcastEmbed = new Discord.MessageEmbed()
-                    .setTitle("__**Broadcast**__")
-                    .setDescription(message)
-                    .setTimestamp()
-                guildList.forEach(guild => guild.defaultChannel.send(broadcastEmbed))
-                    .then(message.reply('Broadcast should be sent!'));
-            } catch (err) {
-                console.log("Could not send message to " + guild.name + "\n " + err);
-            }
+            client.guilds.forEach((guild) => { //for each guild the bot is in
+                let defaultChannel = "";
+                guild.channels.forEach((channel) => {
+                    if (channel.type == "text" && defaultChannel == "") {
+                        if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+                            defaultChannel = channel;
+                        }
+                    }
+                })
+                function send() {
+                    let broadcastEmbed = new Discord.MessageEmbed()
+                        .setTitle("__**Broadcast**__")
+                        .setDescription(message)
+                        .setTimestamp()
+                    defaultChannel.send(broadcastEmbed)
+                        .catch(err => {
+                            console.log(err);
+                        })
+                        .then(console.log("broadcast sent!"))
+                }
+            });
         }
     }
 }
