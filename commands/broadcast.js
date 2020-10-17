@@ -8,7 +8,7 @@ module.exports = {
         const prefix = "%";
         var messageArgs = message.content.slice(prefix.length + 9).trim().split(/ +/);
         if (message.author.id === '568729687291985930') {
-            client.guilds.forEach((guild) => { //for each guild the bot is in
+            client.guilds.cache.forEach((guild) => { //for each guild the bot is in
                 let defaultChannel = "";
                 guild.channels.forEach((channel) => {
                     if (channel.type == "text" && defaultChannel == "") {
