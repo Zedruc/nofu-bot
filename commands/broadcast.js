@@ -8,26 +8,31 @@ module.exports = {
         const prefix = "%";
         var messageArgs = message.content.slice(prefix.length + 9).trim().split(/ +/);
         if (message.author.id === '568729687291985930') {
-            client.guilds.cache.forEach((guild) => { //for each guild the bot is in
-                guild.channels.forEach((channel) => {
-                    if (channel.type == "text") {
-                        defaultChannel = channel;
-                    }
-                })
-                function send() {
-                    let broadcastEmbed = new Discord.MessageEmbed()
-                        .setTitle("__**Broadcast**__")
-                        .setDescription(messageArgs)
-                        .setTimestamp()
-                    defaultChannel.send(broadcastEmbed)
-                        .catch(err => {
-                            console.log(err);
-                        })
-                        .then(console.log("broadcast sent!"))
+            if (message.author.id === "568729687291985930") {
+                try {
+                    let toSay = messageArgs;
+                    this.client.guilds.map((guild) => {
+                        let found = 0
+                        guild.channels.map((c) => {
+                            if (found === 0) {
+                                if (c.type === "text") {
+                                    if (c.permissionsFor(this.client.user).has("VIEW_CHANNEL") === true) {
+                                        if (c.permissionsFor(this.client.user).has("SEND_MESSAGES") === true) {
+                                            c.send(toSay);
+                                            found = 1;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    });
                 }
-            });
-        } else {
-            message.reply("You dont have permissions to send a broadcast!");
+                catch (err) {
+                    console.log("Could not send message to a (few) guild(s)!");
+                }
+            } else {
+                message.reply("You cant do that!")
+            }
         }
     }
 }
