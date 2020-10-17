@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const Client = new Discord.Client();
+const client = new Discord.Client();
 
 module.exports = {
     name: 'broadcast',
