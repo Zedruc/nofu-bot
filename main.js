@@ -153,6 +153,10 @@ client.on('message', message => {
 
         client.commands.get('broadcast').execute(message, args);
 
+    } else if (command == 'hug') {
+
+        client.commands.get('hug').execute(message, args);
+
     }
 });
 
