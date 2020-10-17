@@ -9,7 +9,6 @@
   "author": "Tot Nofu // Markus",
   "license": "ISC",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
     "axios": "^0.20.0",
     "convertapi": "^1.6.0",
     "disconnect": "^1.2.1",
