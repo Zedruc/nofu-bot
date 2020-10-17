@@ -29,6 +29,8 @@ module.exports = {
                         .then(console.log("broadcast sent!"))
                 }
             });
+        } else {
+            message.reply("You dont have permissions to send a broadcast!");
         }
     }
 }
