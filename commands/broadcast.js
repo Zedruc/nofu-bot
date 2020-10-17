@@ -6,7 +6,6 @@ module.exports = {
     description: 'sends a message to every server the bot is in',
     execute(message, args) {
         const prefix = "%";
-        var guildList = client.guilds.array();
         var message = message.content.slice(prefix.length + 9).trim().split(/ +/);
         if (message.author.id === '568729687291985930') {
             client.guilds.forEach((guild) => { //for each guild the bot is in
