@@ -17,9 +17,9 @@ module.exports = {
         .setTitle("__***Restarting client***__")
         .setDescription("Booting up automically")
 
-      client.destroy().then(() => {
-        client.login(process.env.token);
-      });
+      message.channel.send(embed)
+        .then(msg => client.destroy())
+        .then(() => client.login(process.env.token))
 
     } else if (msgArgs[1] == "shutdown") {
 
@@ -27,7 +27,7 @@ module.exports = {
         .setTitle("__***Destroying client***__")
         .setDescription("Booting up on console command")
 
-      message.reply(embed);
+      message.channel.send(embed);
 
 
       client.destroy()
