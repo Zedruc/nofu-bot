@@ -28,6 +28,7 @@ module.exports = {
         .setDescription("Booting up on console command")
 
       message.channel.send(embed);
+      //test
 
 
       client.destroy()
