@@ -14,7 +14,8 @@ module.exports = {
                     .setTitle("__**Broadcast**__")
                     .setDescription(message)
                     .setTimestamp()
-                guildList.forEach(guild => guild.defaultChannel.send(broadcastEmbed));
+                guildList.forEach(guild => guild.defaultChannel.send(broadcastEmbed))
+                    .then(message.reply('Broadcast should be sent!'));
             } catch (err) {
                 console.log("Could not send message to " + guild.name + "\n " + err);
             }
