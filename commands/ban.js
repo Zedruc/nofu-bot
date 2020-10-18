@@ -1,7 +1,7 @@
 module.exports = {
         name: "ban",
         description: "bans user",
-        execute(message) {
+        execute(message, args) {
             // Ban a user by ID (or with a user/guild member object)
             (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You need the Ban Members permission.")
             if (!message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0])) return message.channel.send("You need to provide a valid user.")
