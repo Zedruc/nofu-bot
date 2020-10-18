@@ -1,7 +1,7 @@
 module.exports = {
     name: "ban",
     description: "bans user",
-    execute(message, args) {
+    execute(message) {
         const args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
         ​
         const user = message.mentions.users.first(); // returns the user object if an user mention exists
