@@ -8,6 +8,6 @@ module.exports = {
 
             guild.members.ban(message.mentions.users.first().id || message.guild.members.get(args[0])
                 .then(user => console.log(`Banned ${user.username || user.id || user} from ${guild.name}`))
-                .catch(console.error);
+                .catch(console.error("error lol"));
             }
         }
