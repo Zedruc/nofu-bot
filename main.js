@@ -52,8 +52,6 @@ client.on('guildDelete', guild => {
 client.on("guildMemberAdd", guildMember => {
     if (welcomeToggle == true) {
 
-        guildMember.addRole(guildMember.guild.roles.find(role => role.name === "Member"));
-
         let welcomeEmbed = new Discord.MessageEmbed()
             .setTitle("welcome " + member + "!")
             .setDescription("Welcome to " + guild.name + " :P!")
