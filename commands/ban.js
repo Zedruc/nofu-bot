@@ -3,10 +3,8 @@ module.exports = {
     description: "bans user",
     execute(message) {
         const args = message.content.split(' ').slice(1); // All arguments behind the command name with the prefix
-        ​
         const user = message.mentions.users.first(); // returns the user object if an user mention exists
         const banReason = args.slice(1).join(' '); // Reason of the ban (Everything behind the mention)
-        ​
         // Check if an user mention exists in this message
         if (message.member.hasPermission('ADMINISTRATOR')) {
             if (!user) {
@@ -33,11 +31,9 @@ module.exports = {
             message.channel.send({
                 embed: banConfirmationEmbed
             }); // Sends a confirmation embed that the user has been successfully banned
-            ​​
             const modlogChannelID = ''; // Discord channel ID where you want to have logged the details about the ban
             if (modlogChannelID.length !== 0) {
                 if (!client.channels.get(modlogChannelID)) return undefined; // Check if the modlogChannelID is a real Discord server channel that really exists
-                ​
                 const banConfirmationEmbedModlog = new Discord.RichEmbed()
                     .setAuthor(`Banned by **${msg.author.username}#${msg.author.discriminator}**`, msg.author.displayAvatarURL)
                     .setThumbnail(user.displayAvatarURL)
