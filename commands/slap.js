@@ -32,7 +32,7 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 let int = Math.floor(Math.random(1) * 49);
 
-                let gifUrl = bodyString.results[int].url;
+                let gifUrl = bodyString.results[int].media[0].tinygif.url;
 
                 if (taggedUser == message.author.id) {
 
@@ -48,7 +48,7 @@ module.exports = {
                         .setColor('#9E1A1A')
                         .setTitle(message.member.displayName + " slapped <@" + taggedUser + ">! \n")
                         .setAuthor("%slap", "/images/NofuBotpfp.png")
-                        .setImage(gifUrl)
+                        .setImage([gifUrl]);
                     message.channel.send(slapEmbed);
 
                 }
