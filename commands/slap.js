@@ -44,7 +44,12 @@ module.exports = {
 
                 } else {
 
-                    message.channel.send(message.member.displayName + " slapped <@" + taggedUser + ">! \n" + gifUrl)
+                    let slapEmbed = new Discord.MessageEmbed()
+                        .setColor('#9E1A1A')
+                        .setTitle(message.member.displayName + " slapped <@" + taggedUser + ">! \n")
+                        .setAuthor("%slap", "/images/NofuBotpfp.png")
+                        .setImage(gidUrl)
+                    message.channel.send(slapEmbed);
 
                 }
             })
