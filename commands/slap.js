@@ -46,8 +46,8 @@ module.exports = {
 
                     let slapEmbed = new Discord.MessageEmbed()
                         .setColor('#9E1A1A')
+                        .setAuthor("%slap", "/images/NofuBotpfp.png", "/images/NofuBotpfp.png")
                         .setTitle(message.member.displayName + " slapped <@" + taggedUser + ">! \n")
-                        .setAuthor("%slap", "/images/NofuBotpfp.png")
                         .setFooter(gifUrl);
                     message.channel.send(slapEmbed);
 
