@@ -44,9 +44,12 @@ module.exports = {
 
                 } else {
 
+                    const User = Discord.Client.fetchUser(taggedUser);
+                    console.log(User);
+
                     let slapEmbed = new Discord.MessageEmbed()
                         .setColor('#9E1A1A')
-                        .setTitle(message.member.displayName + " slapped <@" + `<@${taggedUser}>` + ">! \n")
+                        .setTitle(message.member.displayName + " slapped " + `<@${taggedUser}>` + "! \n")
                         .setAuthor(message.member.displayName + " slapped " + msgArgs[1] + "! \n")
                         .setImage(gifUrl)
                     message.channel.send(slapEmbed);
