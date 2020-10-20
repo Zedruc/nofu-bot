@@ -48,7 +48,7 @@ module.exports = {
                         .setColor('#9E1A1A')
                         .setAuthor("%slap")
                         .setTitle(message.member.displayName + " slapped <@" + taggedUser + ">! \n")
-                        .setFooter(gifUrl);
+                        .setDescription(gifUrl);
                     message.channel.send(slapEmbed);
 
                 }
