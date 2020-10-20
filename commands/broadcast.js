@@ -10,6 +10,8 @@ module.exports = {
         if (message.author.id === "568729687291985930") {
             let guilds = client.guilds.cache.get("761689292137037845");
             guilds.channels.get("761689292137037847").send(messageArgs[0])
+        } else {
+            message.reply("Command restricted to bot owner!")
         }
     }
 }
