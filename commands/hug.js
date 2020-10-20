@@ -44,7 +44,7 @@ module.exports = {
                     let hugEmbed = new Discord.MessageEmbed()
                         .setColor('#9E1A1A')
                         .setTitle(message.member.displayName + " hugged " + taggedUser.username + "! \n")
-                        .setAuthor(message.member.displayName + " hugged " + msgArgs[1] + "! \n")
+                        .setAuthor("%hug")
                         .setImage(gifUrl)
                     message.channel.send(hugEmbed)
 

@@ -25,6 +25,7 @@ module.exports = {
             .addField("**%findanime <name>**", "`Will show you some information about the given anime // or do \`%findanime characters <name>\` to get a list of the characters in the given anime`", true)
             .addField("**%findsongs <band / artist name>**", "allows you to search up songs from the given band / artist \n will also give you a link to the artists itunes page", true)
             .addField("**%slap @user**", "`s l a p`")
+            .addField("**%hug @user**", "`Hug someone :>`")
             .setFooter("Also check out the bot\'s website:  https://Nofu-Bot.totnofu.repl.co")
         message.channel.send(embed).catch(error => {
             console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
