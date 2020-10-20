@@ -2,6 +2,7 @@ const { RSA_NO_PADDING, SSL_OP_ALL } = require("constants");
 // yes I made this because I was bored lol
 
 const Discord = require("discord.js");
+const Client = new Discord.Client();
 const https = require('https');
 const { join } = require("path");
 
