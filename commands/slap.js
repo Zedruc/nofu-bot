@@ -45,7 +45,7 @@ module.exports = {
 
                 } else {
 
-                    const User = Client.fetchUser(taggedUser);
+                    const User = Client.users.fetch(taggedUser);
                     //
                     console.log(User);
 
