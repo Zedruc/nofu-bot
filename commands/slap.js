@@ -44,7 +44,7 @@ module.exports = {
 
                 } else {
 
-                    const User = Discord.Client.fetchUser(taggedUser);
+                    const User = Client.fetchUser(taggedUser);
                     console.log(User);
 
                     let slapEmbed = new Discord.MessageEmbed()
