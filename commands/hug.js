@@ -29,7 +29,7 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 let int = Math.floor(Math.random(1) * 49);
 
-                let gifUrl = bodyString.results[int].url;
+                let gifUrl = bodyString.results[int].media[0].tinygif.url;
 
                 if (taggedUser == message.author.id) {
 
@@ -41,7 +41,12 @@ module.exports = {
 
                 } else {
 
-                    message.channel.send(message.member.displayName + " hugs <@" + taggedUser + "> :D! \n" + gifUrl)
+                    let hugEmbed = new Discord.MessageEmbed()
+                        .setColor('#9E1A1A')
+                        .setTitle(message.member.displayName + " hugged " + `<@${taggedUser}>` + "! \n")
+                        .setAuthor(message.member.displayName + " hugged " + msgArgs[1] + "! \n")
+                        .setImage(gifUrl)
+                    message.channel.send(hugEmbed)
 
                 }
             })
