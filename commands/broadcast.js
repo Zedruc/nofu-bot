@@ -8,8 +8,8 @@ module.exports = {
         const prefix = "%";
         var messageArgs = message.content.slice(prefix.length + 9).trim().split(/ +/);
         if (message.author.id === "568729687291985930") {
-            let guilds = client.guilds.cache.filter(g => g.memberCount > 15);
-            guilds.send("siis");
+            let guilds = client.guilds.cache.get("761689292137037845");
+            guilds.channels.get("761689292137037847").send(messageArgs[0])
         }
     }
 }
