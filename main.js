@@ -73,10 +73,6 @@ client.on("guildMemberAdd", guildMember => {
 
 client.on("guildCreate", guild => {
     let channel = client.channels.cache.find(channel => channel.name === "general");
-    if (!channel) {
-        channel = client.channels.cache.find(channel => channel.name === "welcome");
-    }
-
 
     //defaultChannel will be the channel object that it first finds the bot has permissions for
     let helloThereEmbed = new Discord.MessageEmbed()
