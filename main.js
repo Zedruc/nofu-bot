@@ -58,7 +58,26 @@ client.on("guildMemberAdd", guildMember => {
             .setThumbnail(client.user.avatarURL());
         member.guild.channels.get('761912789765062658').send(welcomeEmbed)
     }
-})
+});
+
+client.on("guildCreate", guild => {
+    let defaultChannel = "";
+    guild.channels.forEach((channel) => {
+        if (channel.type == "text" && defaultChannel == "") {
+            if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+                defaultChannel = channel;
+            }
+        }
+    })
+    //defaultChannel will be the channel object that it first finds the bot has permissions for
+    let helloThereEmbed = new Discord.MessageEmbed()
+        .setAuthor("General Kenobi", "https://pbs.twimg.com/profile_images/1074423168910155778/iwqG_GfY_400x400.jpg")
+        .setTitle("**Hello There!**")
+        .setColor("#42d7f5")
+        .setDescription("Thanks for adding me to your server, to get started just do %help :D")
+        .setFooter("If you want to ask something or whatever: Tot Nofu#4100 \n :p")
+    defaultChannel.send(helloThereEmbed);
+});
 
 
 
@@ -146,10 +165,6 @@ client.on('message', message => {
     } else if (command == 'client') {
 
         client.commands.get('client').execute(message, args);
-
-    } else if (command == 'broadcast') {
-
-        client.commands.get('broadcast').execute(message, args);
 
     } else if (command == 'hug') {
 

@@ -2,7 +2,7 @@ const Discord = module.require('discord.js');
 
 module.exports = {
     name: 'userinfo',
-    description: 'Zeigt Infos über den command user / gepingten user',
+    description: 'Shows infos about you/the tagged user',
     execute(message, args) {
 
         if (message.guild === null) return;
@@ -12,7 +12,7 @@ module.exports = {
         let embed = new Discord.MessageEmbed()
             .setAuthor(user.username + '#' + user.discriminator, user.displayAvatarURL)
             .setDescription(`${user}`)
-            .setImage(message.author.displayAvatarURL())
+            .setImage(user.displayAvatarURL())
             .addField('Status:', user.presence.status, true)
             .setFooter(`ID: ${user.id}`)
             .setTimestamp()

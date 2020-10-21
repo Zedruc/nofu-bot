@@ -9,10 +9,13 @@ module.exports = {
 
         let infoEmbed = new Discord.MessageEmbed()
             .setColor(9384170)
-            .setTitle("*Server Info*")
-            .addField("**Server Name:**", `${message.guild.name}`, true)
-            .addField("**Member Count:**", `${message.guild.memberCount}`, true)
-            .addField("**Server Owner**", `${message.guild.owner}`, true)
+            .setTitle("*__Server Info__*")
+            .setImage(message.guild.iconURL)
+            .setDescription(`Information about ${message.guild}`)
+            .addField("**Owner**: ", `The owner of this server is ${message.guild.owner}`)
+            .addField("**Member Count**: ", ` ${message.guild.memberCount} members`)
+            .addField("**Emoji Count**: ", ` ${message.guild.emojis.cache.size} emojis`)
+            .addField("**Roles Count**: ", ` ${message.guild.roles.cache.size} roles`)
 
         message.channel.send(infoEmbed);
     }

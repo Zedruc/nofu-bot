@@ -35,23 +35,35 @@ module.exports = {
 
                 let gifUrl = bodyString.results[int].media[0].tinygif.url;
 
-                if (taggedUser == message.author.id) {
+                if (taggedUser) {
 
-                    message.channel.send("How about we don\'t do that ;-;")
+                    if (taggedUser == message.author.id) {
 
-                } else if (taggedUser == 760905298990202901) {
+                        message.channel.send("How about we don\'t do that ;-;")
 
-                    message.reply("no. :)");
+                    } else if (taggedUser == 760905298990202901) {
 
+                        message.reply("no. :)");
+
+                    } else {
+
+                        const User = Client.users.fetch(taggedUser);
+                        //
+                        console.log(User);
+
+                        let slapEmbed = new Discord.MessageEmbed()
+                            .setColor('#9E1A1A')
+                            .setTitle(message.member.displayName + " slapped " + taggedUser.username + "! \n")
+                            .setAuthor("%slap")
+                            .setImage(gifUrl)
+                        message.channel.send(slapEmbed);
+
+                    }
                 } else {
-
-                    const User = Client.users.fetch(taggedUser);
-                    //
-                    console.log(User);
 
                     let slapEmbed = new Discord.MessageEmbed()
                         .setColor('#9E1A1A')
-                        .setTitle(message.member.displayName + " slapped " + taggedUser.username + "! \n")
+                        .setTitle(message.member.displayName + " slapped " + msgArgs[1] + "! \n")
                         .setAuthor("%slap")
                         .setImage(gifUrl)
                     message.channel.send(slapEmbed);

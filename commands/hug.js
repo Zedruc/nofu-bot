@@ -30,20 +30,31 @@ module.exports = {
                 let int = Math.floor(Math.random(1) * 49);
 
                 let gifUrl = bodyString.results[int].media[0].tinygif.url;
+                if (taggedUser) {
 
-                if (taggedUser == message.author.id) {
+                    if (taggedUser == message.author.id) {
 
-                    message.channel.send("You must be lonely huh")
+                        message.channel.send("You must be lonely huh")
 
-                } else if (taggedUser == 760905298990202901) {
+                    } else if (taggedUser == 760905298990202901) {
 
-                    message.reply("Wait what?");
+                        message.reply("Wait what?");
 
+                    } else {
+
+                        let hugEmbed = new Discord.MessageEmbed()
+                            .setColor('#9E1A1A')
+                            .setTitle(message.member.displayName + " hugged " + taggedUser.username + "! \n")
+                            .setAuthor("%hug")
+                            .setImage(gifUrl)
+                        message.channel.send(hugEmbed)
+
+                    }
                 } else {
 
                     let hugEmbed = new Discord.MessageEmbed()
                         .setColor('#9E1A1A')
-                        .setTitle(message.member.displayName + " hugged " + taggedUser.username + "! \n")
+                        .setTitle(message.member.displayName + " hugged " + msgArgs[1] + "! \n")
                         .setAuthor("%hug")
                         .setImage(gifUrl)
                     message.channel.send(hugEmbed)
