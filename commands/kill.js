@@ -40,7 +40,7 @@ module.exports = {
 
                         } else if (taggedUser == 760905298990202901) {
 
-                            message.reply("Wait what?");
+                            message.reply("NO NO NO NO");
 
                         } else {
 
