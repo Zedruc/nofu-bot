@@ -41,8 +41,6 @@ client.on("ready", () => {
 
     http.get('http://worldtimeapi.org/api/timezone/Europe/Berlin',
         res => {
-            // console.log(res.statusCode);
-            // console.log(res.headers);
 
             let data = '';
 
