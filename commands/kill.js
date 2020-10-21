@@ -44,22 +44,22 @@ module.exports = {
 
                         } else {
 
-                            let hugEmbed = new Discord.MessageEmbed()
+                            let killEmbed = new Discord.MessageEmbed()
                                 .setColor('#9E1A1A')
                                 .setTitle(message.member.displayName + " killed " + taggedUser.username + "! \n")
                                 .setAuthor("%kill")
                                 .setImage(gifUrl)
-                            message.channel.send(hugEmbed)
+                            message.channel.send(killEmbed)
 
                         }
                     } else {
 
-                        let hugEmbed = new Discord.MessageEmbed()
+                        let killEmbed = new Discord.MessageEmbed()
                             .setColor('#9E1A1A')
                             .setTitle(message.member.displayName + " killed " + msgArgs[1] + "! \n")
                             .setAuthor("%kill")
                             .setImage(gifUrl)
-                        message.channel.send(hugEmbed)
+                        message.channel.send(killEmbed)
 
                     }
                 })
@@ -90,22 +90,22 @@ module.exports = {
 
                         } else {
 
-                            let hugEmbed = new Discord.MessageEmbed()
+                            let killEmbed = new Discord.MessageEmbed()
                                 .setColor('#910f06')
                                 .setTitle(message.member.displayName + " killed " + taggedUser.username + "! \n")
                                 .setAuthor("%kill")
                                 .setImage(gifUrl)
-                            message.channel.send(hugEmbed)
+                            message.channel.send(killEmbed)
 
                         }
                     } else {
 
-                        let hugEmbed = new Discord.MessageEmbed()
+                        let killEmbed = new Discord.MessageEmbed()
                             .setColor('#910f06')
                             .setTitle(message.member.displayName + " killed " + msgArgs[1] + "! \n")
                             .setAuthor("%kill")
                             .setImage(gifUrl)
-                        message.channel.send(hugEmbed)
+                        message.channel.send(killEmbed)
                     }
                 }
                 );
