@@ -29,7 +29,7 @@ client.on("ready", () => {
     setInterval(() => {
 
         let defaultChannel = "";
-        message.guild.channels.cache.forEach((channel) => {
+        client.guild.channels.cache.forEach((channel) => {
             if (channel.type == "text" && defaultChannel == "") {
                 if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
                     defaultChannel = channel;
