@@ -27,8 +27,16 @@ client.on("ready", () => {
     client.user.setActivity('his master', { type: 'LISTENING' })
 
     setInterval(() => {
-        const channel = client.channels.cache.find(channel => channel.name === "general")
-        channel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D")
+
+        let defaultChannel = "";
+        guild.channels.forEach((channel) => {
+            if (channel.type == "text" && defaultChannel == "") {
+                if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+                    defaultChannel = channel;
+                    defaultChannel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D");
+                }
+            }
+        })
     }, 600000);
 
     http.get('http://worldtimeapi.org/api/timezone/Europe/Berlin',
