@@ -13,19 +13,22 @@ module.exports = {
     var args = message.content.slice(6).split(" ");
 
     const löschAnzahl = args[1];
+    if (message.member.hasPermission('ADMINISTRATOR')) {
 
-    if (!löschAnzahl || löschAnzahl == 0 || löschAnzahl > 100) {
+      if (!löschAnzahl || löschAnzahl == 0 || löschAnzahl > 100) {
 
-      message.reply("Please provide a number between 2 and 100!");
+        message.reply("Please provide a number between 2 and 100!");
 
-    } else if (message.member.hasPermission('ADMINISTRATOR')) {
+      } else {
 
-      message.delete;
+        message.delete;
 
-      return message.channel.bulkDelete(löschAnzahl);
+        return message.channel.bulkDelete(löschAnzahl);
+
+      }
 
     } else {
-      message.reply("Youre not in the owner!");
+      message.reply("Youre not allowed to use this command! \n`Missing Permissions`");
 
       console.log("User " + message.author.id + " hat versucht den command `delete` zu benutzen");
     }

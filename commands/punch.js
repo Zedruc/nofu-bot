@@ -21,7 +21,7 @@ module.exports = {
 
 
 
-        https.get('https://api.tenor.com/v1/search?q=anime+slap&limit=50&key=' + key, res => {
+        https.get('https://api.tenor.com/v1/search?q=anime%20punch&limit=50&key=' + key, res => {
 
             let body = '';
 
@@ -51,22 +51,22 @@ module.exports = {
                         //
                         console.log(User);
 
-                        let slapEmbed = new Discord.MessageEmbed()
+                        let punchEmbed = new Discord.MessageEmbed()
                             .setColor('#9E1A1A')
-                            .setTitle(message.member.displayName + " slapped " + taggedUser.username + "! \n")
-                            .setAuthor("%slap")
+                            .setTitle(message.member.displayName + " punched " + taggedUser.username + "! \n")
+                            .setAuthor("%punch")
                             .setImage(gifUrl)
-                        message.channel.send(slapEmbed);
+                        message.channel.send(punchEmbed);
 
                     }
                 } else {
 
                     let slapEmbed = new Discord.MessageEmbed()
                         .setColor('#9E1A1A')
-                        .setTitle(message.member.displayName + " slapped " + msgArgs[1] + "! \n")
-                        .setAuthor("%slap")
+                        .setTitle(message.member.displayName + " punched " + msgArgs[1] + "! \n")
+                        .setAuthor("%punch")
                         .setImage(gifUrl)
-                    message.channel.send(slapEmbed);
+                    message.channel.send(punchEmbed);
 
                 }
             })
