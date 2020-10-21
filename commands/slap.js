@@ -33,7 +33,7 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 let int = Math.floor(Math.random(1) * 49);
 
-                let gifUrl = bodyString.results[int].media[0].tinygif.url;
+                let gifUrl = bodyString.results[int].media[0].gif.url;
 
                 if (taggedUser) {
 
