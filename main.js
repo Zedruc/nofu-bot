@@ -163,9 +163,9 @@ client.on('message', message => {
 
         client.commands.get('findsongs').execute(message, args);
 
-    } else if (command == 'slap') {
+    } else if (command == 'punch') {
 
-        client.commands.get('slap').execute(message, args);
+        client.commands.get('punch').execute(message, args);
 
     } else if (command == 'client') {
 

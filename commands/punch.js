@@ -7,7 +7,7 @@ const https = require('https');
 const { join } = require("path");
 
 module.exports = {
-    name: "slap",
+    name: "punch",
     description: "yes, you can slap others now xD",
     execute(message, args) {
         if (message.guild === null) return;
@@ -61,7 +61,7 @@ module.exports = {
                     }
                 } else {
 
-                    let slapEmbed = new Discord.MessageEmbed()
+                    let punchEmbed = new Discord.MessageEmbed()
                         .setColor('#9E1A1A')
                         .setTitle(message.member.displayName + " punched " + msgArgs[1] + "! \n")
                         .setAuthor("%punch")
