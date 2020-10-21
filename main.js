@@ -26,6 +26,11 @@ client.on("ready", () => {
     console.info("Der Nofu-bot ist jetzt online!");
     client.user.setActivity('his master', { type: 'LISTENING' })
 
+    setInterval(() => {
+        const channel = client.channels.cache.find(channel => channel.name === "general")
+        channel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D")
+    }, 600000);
+
     http.get('http://worldtimeapi.org/api/timezone/Europe/Berlin',
         res => {
             // console.log(res.statusCode);
@@ -177,6 +182,11 @@ client.on('message', message => {
     } else if (command == 'kill') {
 
         client.commands.get('kill').execute(message, args);
+
+    } else if (command == "test") {
+
+        const channel = client.channels.cache.find(channel => channel.name === "general")
+        channel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D")
 
     }
 });
