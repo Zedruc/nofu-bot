@@ -72,14 +72,12 @@ client.on("guildMemberAdd", guildMember => {
 });
 
 client.on("guildCreate", guild => {
-    let defaultChannel = "";
-    client.guilds.channels.cache.forEach((channel) => {
-        if (channel.type == "text" && defaultChannel == "") {
-            if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-                defaultChannel = channel;
-            }
-        }
-    })
+    let channel = client.channels.cache.find(channel => channel.name === "general");
+    if (!channel) {
+        channel = client.channels.cache.find(channel => channel.name === "welcome");
+    }
+
+
     //defaultChannel will be the channel object that it first finds the bot has permissions for
     let helloThereEmbed = new Discord.MessageEmbed()
         .setAuthor("General Kenobi", "https://pbs.twimg.com/profile_images/1074423168910155778/iwqG_GfY_400x400.jpg")
@@ -87,7 +85,7 @@ client.on("guildCreate", guild => {
         .setColor("#42d7f5")
         .setDescription("Thanks for adding me to your server, to get started just do %help :D")
         .setFooter("If you want to ask something or whatever: Tot Nofu#4100 \n :p")
-    defaultChannel.send(helloThereEmbed);
+    channel.send(helloThereEmbed);
 });
 
 
