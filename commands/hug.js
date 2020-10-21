@@ -43,7 +43,7 @@ module.exports = {
                     } else {
 
                         let hugEmbed = new Discord.MessageEmbed()
-                            .setColor('#9E1A1A')
+                            .setColor('#e320e0')
                             .setTitle(message.member.displayName + " hugged " + taggedUser.username + "! \n")
                             .setAuthor("%hug")
                             .setImage(gifUrl)
@@ -53,7 +53,7 @@ module.exports = {
                 } else {
 
                     let hugEmbed = new Discord.MessageEmbed()
-                        .setColor('#9E1A1A')
+                        .setColor('#e320e0')
                         .setTitle(message.member.displayName + " hugged " + msgArgs[1] + "! \n")
                         .setAuthor("%hug")
                         .setImage(gifUrl)
