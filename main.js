@@ -174,6 +174,10 @@ client.on('message', message => {
 
         client.commands.get('ban').execute(message, args);
 
+    } else if (command == 'kill') {
+
+        client.commands.get('kill').execute(message, args);
+
     }
 });
 
