@@ -26,18 +26,18 @@ client.on("ready", () => {
     console.info("Der Nofu-bot ist jetzt online!");
     client.user.setActivity('his master', { type: 'LISTENING' })
 
-    setInterval(() => {
-
-        let defaultChannel = "";
-        client.guilds.channels.cache.forEach((channel) => {
-            if (channel.type == "text" && defaultChannel == "") {
-                if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-                    defaultChannel = channel;
-                    defaultChannel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D");
-                }
-            }
-        })
-    }, 600000);
+    //setInterval(() => {
+    //
+    //  let defaultChannel = "";
+    //  client.guilds.channels.cache.forEach((channel) => {
+    //      if (channel.type == "text" && defaultChannel == "") {
+    //          if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+    //                defaultChannel = channel;
+    //                defaultChannel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D");
+    //         }
+    //        }
+    //    })
+    //}, 600000);
 
     http.get('http://worldtimeapi.org/api/timezone/Europe/Berlin',
         res => {
