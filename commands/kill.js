@@ -88,6 +88,16 @@ module.exports = {
 
                             message.reply("NO NO NO NO");
 
+                        } else if (taggedUser == 568729687291985930) {
+                            message.reply("Oh... I'm not gonna let you kill my creator.")
+
+                            let destructionEmbed = new Discord.MessageEmbed()
+                                .setColor('#910f06')
+                                .setTitle(message.member.displayName + " killed " + message.author + "! \n")
+                                .setAuthor("fatality")
+                                .setImage(gifUrl)
+
+                            message.channel.send(destructionEmbed);
                         } else {
 
                             let killEmbed = new Discord.MessageEmbed()
