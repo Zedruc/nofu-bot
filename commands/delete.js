@@ -15,6 +15,11 @@ module.exports = {
     const löschAnzahl = args[1];
     if (message.member.hasPermission('ADMINISTRATOR')) {
 
+      if (!client.hasPermission('ADMINISTRATOR')) {
+        message.channel.send("I don't have the permissions to to that!")
+        return;
+      }
+
       if (!löschAnzahl || löschAnzahl == 0 || löschAnzahl > 100) {
 
         message.reply("Please provide a number between 2 and 100!");
