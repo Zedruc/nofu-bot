@@ -6,7 +6,7 @@ let welcomeToggle = true;
 let date_ob = new Date();
 
 
-const prefix = '%';
+let prefix = '%';
 
 const fs = require('fs');
 const { info, timeStamp } = require('console');
@@ -187,6 +187,12 @@ client.on('message', message => {
 
         const channel = client.channels.cache.find(channel => channel.name === "general")
         channel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D")
+
+    } else if (command == "setprefix") {
+
+        export { prefix };
+        client.commands.get('setprefix').execute(message, args)
+            || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 
     }
 });
