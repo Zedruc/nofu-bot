@@ -188,6 +188,10 @@ client.on('message', message => {
         const channel = client.channels.cache.find(channel => channel.name === "general")
         channel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D")
 
+    } else if (command == "devyt") {
+
+        client.commands.get('devyt').execute(message, args);
+
     }
 });
 
