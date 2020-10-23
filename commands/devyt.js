@@ -18,17 +18,28 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 let channelId = bodyString.items[0].id.channelId;
                 let channel = bodyString.items[0].snippet.title;
-                let isLive = bodyString.items[0].snippet.liveBroadcastContent;
-                console.log(channel);
+                let isLiveCnt = bodyString.items[0].snippet.liveBroadcastContent;
+                if (isLive == 'none') {
+                    let ytEmbed = new Discord.MessageEmbed()
+                        .setColor('	#FF0000')
+                        .setTitle('**__The Developer\'s Channel: __**')
+                        .addField('Channel ID: ', channelId, true)
+                        .addField('Channel Name: ', channel, true)
+                        .addField('isLive: ', 'false', true)
 
-                let ytEmbed = new Discord.MessageEmbed()
-                    .setColor('	#FF0000')
-                    .setTitle('**__The Developer\'s Channel: __**')
-                    .addField('Channel ID: ', channelId, true)
-                    .addField('Channel Name: ', channel, true)
-                    .addField('isLive', isLive, true)
+                    message.channel.send(ytEmbed);
+                } else {
+                    console.log(channel);
 
-                message.channel.send(ytEmbed);
+                    let ytEmbed = new Discord.MessageEmbed()
+                        .setColor('	#FF0000')
+                        .setTitle('**__The Developer\'s Channel: __**')
+                        .addField('Channel ID: ', channelId, true)
+                        .addField('Channel Name: ', channel, true)
+                        .addField('isLive: ', 'true \n' + isLivecnt, true)
+
+                    message.channel.send(ytEmbed);
+                }
 
             });
         });
