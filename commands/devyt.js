@@ -19,7 +19,7 @@ module.exports = {
                 let channelId = bodyString.items[0].id.channelId;
                 let channel = bodyString.items[0].snippet.title;
                 let isLiveCnt = bodyString.items[0].snippet.liveBroadcastContent;
-                if (isLive == 'none') {
+                if (isLiveCnt == 'none') {
                     let ytEmbed = new Discord.MessageEmbed()
                         .setColor('	#FF0000')
                         .setTitle('**__The Developer\'s Channel: __**')
