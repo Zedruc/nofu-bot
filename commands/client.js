@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
+const { v4: uuidv4 } = require('uuid');
 
 const owner = '568729687291985930';
 
@@ -33,6 +34,9 @@ module.exports = {
         message.channel.send(embed);
         //test
 
+        const uuid = uuidv4();
+
+        console.log("Client operation ID: " + uuid);
 
         client.destroy();
 

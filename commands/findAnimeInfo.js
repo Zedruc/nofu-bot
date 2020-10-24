@@ -14,6 +14,7 @@ module.exports = {
         let argsString = rawArgs.toString();
         let animeName = argsString.replace(/,/g, " ");
         console.log(argsString);
+        //
         if (msgArgs[1] == "characters") {
             let animeNameGetID = message.content.slice(prefix.length + 21).trim().split(/ +/);
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
@@ -38,6 +39,7 @@ module.exports = {
                             let length = chars.length - 1;
                             console.log(length);
                             let allNames = [];
+
                             let i = 0;
                             do {
                                 i++
@@ -63,6 +65,7 @@ module.exports = {
                     })
                 });
             })
+            //
         } else {
             https.get('https://api.jikan.moe/v3/search/anime?q=' + animeName, res => {
                 let body = '';
