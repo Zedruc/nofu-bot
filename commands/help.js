@@ -26,6 +26,8 @@ module.exports = {
             .addField("**%findsongs <band / artist name>**", "allows you to search up songs from the given band / artist \n will also give you a link to the artists itunes page", true)
             .addField("**%punch @user**", "`b o n k`")
             .addField("**%hug @user**", "`Hug someone :>`")
+            .addField("**%stare** @user", "Intense  s t a r i n g")
+            .addField("**%devyt**", "`Shows live-information about my YouTube channel hehe :p (e.g. Is Libve: false/true)`")
             .setFooter("Also check out the bot\'s website:  https://Nofu-Bot.totnofu.repl.co")
         message.channel.send(embed).catch(error => {
             console.error("Es ist folgender Fehler in help.js aufgetreten:", error);

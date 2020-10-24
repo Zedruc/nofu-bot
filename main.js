@@ -192,6 +192,10 @@ client.on('message', message => {
 
         client.commands.get('devyt').execute(message, args);
 
+    } else if (command == "stare") {
+
+        client.commands.get('stare').execute(message, args);
+
     }
 });
 
