@@ -62,9 +62,11 @@ module.exports = {
                     }
                 } else {
 
+                    let noP = msgArgs.replace(/,/g, " ");
+
                     let punchEmbed = new Discord.MessageEmbed()
                         .setColor('#610C98')
-                        .setTitle(message.member.displayName + " stares intensely at " + noPing + "- \n")
+                        .setTitle(message.member.displayName + " stares intensely at " + noP + "- \n")
                         .setAuthor("s t a r e")
                         .setImage(gifUrl)
                     message.channel.send(punchEmbed);
