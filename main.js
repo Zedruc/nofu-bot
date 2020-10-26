@@ -57,18 +57,6 @@ client.on('guildDelete', guild => {
     console.log(`Bot wurde entfernt von ${guild.name} (id: ${guild.id})`)
 });
 
-
-client.on("guildMemberAdd", guildMember => {
-    if (welcomeToggle == true) {
-
-        let welcomeEmbed = new Discord.MessageEmbed()
-            .setTitle("welcome " + member + "!")
-            .setDescription("Welcome to " + guild.name + " :P!")
-            .setThumbnail(client.user.avatarURL());
-        member.guild.channels.get('761912789765062658').send(welcomeEmbed)
-    }
-});
-
 client.on("guildCreate", guild => {
     console.log(`Wurde entfernt von ${guild.name} \n ${guild.id}`);
 });
