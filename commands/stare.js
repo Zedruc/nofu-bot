@@ -18,6 +18,7 @@ module.exports = {
 
         let key = process.env.tenorkey;
         let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
+        let noPing = message.content.slice(prefix.length + 5).trim().split(/ +/);
 
 
 
@@ -63,7 +64,7 @@ module.exports = {
 
                     let punchEmbed = new Discord.MessageEmbed()
                         .setColor('#610C98')
-                        .setTitle(message.member.displayName + " stares intensely at " + msgArgs[1] + "- \n")
+                        .setTitle(message.member.displayName + " stares intensely at " + noPing + "- \n")
                         .setAuthor("s t a r e")
                         .setImage(gifUrl)
                     message.channel.send(punchEmbed);
