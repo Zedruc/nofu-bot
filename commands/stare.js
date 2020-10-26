@@ -63,6 +63,7 @@ module.exports = {
                 } else {
 
                     let rawArgs = args;
+                    let argsString = rawArgs.toString();
                     let noP = argsString.replace(/,/g, " ");
 
                     let punchEmbed = new Discord.MessageEmbed()
