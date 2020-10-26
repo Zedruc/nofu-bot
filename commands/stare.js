@@ -62,7 +62,8 @@ module.exports = {
                     }
                 } else {
 
-                    let noP = msgArgs.replace(/,/g, " ");
+                    let rawArgs = args;
+                    let noP = argsString.replace(/,/g, " ");
 
                     let punchEmbed = new Discord.MessageEmbed()
                         .setColor('#610C98')
