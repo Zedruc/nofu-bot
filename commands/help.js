@@ -7,6 +7,9 @@ module.exports = {
 
         const Discord = require('discord.js');
         const server = message.guild.name;
+
+        //Currently thinking of a way to separate the help command because its getting more and more
+
         const embed = new Discord.MessageEmbed()
             .setTitle("Helpcenter >>")
             .setColor(9384170)
