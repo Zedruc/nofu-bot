@@ -39,7 +39,7 @@ module.exports = {
                 //    bodyString["regs"][newReg] = uuid;
                 //}
 
-                bodyString["counter"][bodyString.counter + 1]
+                bodyString["counter"][bodyString["counter"] + 1]
                 bodyString["regs"][newReg] = uuid;
 
                 console.log(data);
