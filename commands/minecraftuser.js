@@ -29,16 +29,20 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 console.log(bodyString);
 
-                //fetch("https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5", {
-                //    method: 'PUT',
-                //    headers: { 'Content-Type': 'application/json' },
-                //    body: body += uuid,
-                //})
-                //    .then((res) => res.json())
-                //    .then((data) => {
-                //        console.log(data);
-                //    })
-                //    .catch((err) => console.log(err));
+                let data = {
+                    siis: "soos"
+                }
+
+                fetch("https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5", {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                    })
+                    .catch((err) => console.log(err));
 
             });
 
