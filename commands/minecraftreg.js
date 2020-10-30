@@ -30,13 +30,18 @@ module.exports = {
                 console.log(bodyString);
 
                 let data = {
+                    "counter": 0,
                     "regs": {}
                 }
 
-                for (let i = 0; i < 1; i++) {
-                    var newReg = "User" + i + " " + user;
-                    bodyString["regs"][newReg] = uuid;
-                }
+                //for (let i = 0; i < 1; i++) {
+                var newReg = "User" + data.counter + " " + user;
+                //    bodyString["regs"][newReg] = uuid;
+                //}
+
+                bodyString["counter"][bodyString.counter + 1]
+                bodyString["regs"][newReg] = uuid;
+
                 console.log(data);
                 console.log("-------------");
                 console.log(bodyString);
