@@ -4,7 +4,7 @@ module.exports = {
   description: "Sends a random Chuck Norris fact from the CNfDB",
   async execute(message, args) {
     //Sends a request to the icndb for a joke. I should probably exclude the explicit ones but I don't really care atm
-    let x = await fetch("http://api.icndb.com/jokes/random");
+    let x = await fetch("http://api.icndb.com/jokes/random?exclude=[explicit]");
     x.json().then(body => {
       message.channel.send(body.value.joke);
     });
