@@ -176,7 +176,7 @@ client.on('message', message => {
 
         client.commands.get("chuckNorrisFacts").execute(message, args);
 
-    } else if (command == "dlete") {
+    } else if (command == "delete") {
 
         client.commands.get("delete").execute(message, args);
 
