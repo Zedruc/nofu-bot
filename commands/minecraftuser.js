@@ -13,7 +13,7 @@ module.exports = {
         let user = message.author.name;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3"; //yes thats mine
 
-        if (uuid.length < example_uuid) {
+        if (uuid[0].length < example_uuid.length) {
             message.reply("Please use your uuid to register! (registering with name is currently in developement)");
             throw new Error("UUID Invalid");
         }
@@ -30,7 +30,7 @@ module.exports = {
                 console.log(bodyString);
 
                 let data = {
-                    users: uuid
+                    users: user + uuid
                 }
 
                 fetch("https://jsonblob.com/api/jsonBlob/72e08016-1acf-11eb-84f5-99c14ac486d4", {
