@@ -33,12 +33,13 @@ module.exports = {
                     "regs": {}
                 }
 
-                for (let i = 0; i < 8; i++) {
-                    var newReg = "User" + i;
-                    var newVal = uuid;
-                    data["regs"]["user" + i] = uuid;
+                for (let i = 0; i < 1; i++) {
+                    var newReg = "User" + i + " " + user;
+                    bodyString["regs"][newReg] = uuid;
                 }
                 console.log(data);
+                console.log("-------------");
+                console.log(bodyString);
 
                 fetch("https://jsonblob.com/api/jsonBlob/72e08016-1acf-11eb-84f5-99c14ac486d4", {
                     method: 'PUT',
