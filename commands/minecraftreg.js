@@ -44,7 +44,7 @@ module.exports = {
                 //}
 
                 Object.keys(bodyString).forEach(function (key) {
-                    if (bodyString[regs] == newReg) {
+                    if (bodyString["regs"] == newReg) {
                         message.reply("Already logged in! Use %mcstats to see your stats (not available yet)");
                         throws(err => {
                             console.log(err);
