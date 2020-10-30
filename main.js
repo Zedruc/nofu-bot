@@ -58,7 +58,7 @@ client.on('guildDelete', guild => {
 });
 
 client.on("guildCreate", guild => {
-    console.log(`Wurde entfernt von ${guild.name} \n ${guild.id}`);
+    console.log(`Wurde hinzugefügt ${guild.name} \n ${guild.id}`);
 });
 
 
