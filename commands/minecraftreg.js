@@ -61,18 +61,18 @@ module.exports = {
                 fetch("https://jsonblob.com/api/jsonBlob/" + process.env.json_regs, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(bodyString),
+                    body: JSON.stringify(bodyString),--
                 })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        console.log(data);
-                    })
-                    .then(message.reply("Succesfully logged in as " + message.author.tag + " with MC-UUID " + uuid))
-                    .catch((err) => console.log(err));
-
-            });
+                .then((res) => res.json())
+                .then((data) => {
+                    console.log(data);
+                })
+                .then(message.reply("Succesfully logged in as " + message.author.tag + " with MC-UUID " + uuid))
+                .catch((err) => console.log(err));
 
         });
 
-    }
+    });
+
+}
 }

@@ -173,8 +173,12 @@ client.on('message', message => {
         client.commands.get("mcregister").execute(message, args);
 
     } else if (command == "cnf") {
-        
+
         client.commands.get("chuckNorrisFacts").execute(message, args);
+
+    } else if (command == "dlete") {
+
+        client.commands.get("delete").execute(message, args);
 
     }
 });
