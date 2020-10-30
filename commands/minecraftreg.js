@@ -30,7 +30,7 @@ module.exports = {
                 console.log(bodyString);
 
                 let data = {
-                    regs: {}
+                    "regs": {}
                 }
 
                 for (let i = 0; i < 8; i++) {
