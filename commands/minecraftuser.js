@@ -32,9 +32,7 @@ module.exports = {
                 fetch("https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5", {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: body + JSON.stringify({
-                        "users": uuid
-                    }),
+                    body: body += uuid,
                 })
                     .then((res) => res.json())
                     .then((data) => {
