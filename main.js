@@ -172,7 +172,11 @@ client.on('message', message => {
 
         client.commands.get("mcregister").execute(message, args);
 
+    } else if (command == "cnf") {
+        
+        client.commands.get("chuckNorrisFacts").execute(message, args);
+
     }
 });
 
-client.login(process.env.token);
+client.login("NzQ5ODkzMDc0NzI5MDQyMDIy.X0ymWQ.uvDjqRKFr41qKdp81Lno0T8e7co");
