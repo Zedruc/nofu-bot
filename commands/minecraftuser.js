@@ -11,6 +11,12 @@ module.exports = {
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
         let user = message.author.name;
+        let example_uuid = "1c0211121b6442a989fff16ed0272ce3"; //yes thats mine
+
+        if (uuid.length < example_uuid) {
+            message.reply("Please use your uuid to register! (registering with name is currently in developement)");
+            return;
+        }
 
         https.get('https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5', res => {
             let body = '';
@@ -31,7 +37,7 @@ module.exports = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                user: uuid
+                users: user + " - " + uuid
             }),
         })
             .then((res) => res.json())
