@@ -168,6 +168,10 @@ client.on('message', message => {
 
         client.commands.get('stare').execute(message, args);
 
+    } else if (command == "mcregister") {
+
+        client.commands.get("mcregister").execute(message, args);
+
     }
 });
 
