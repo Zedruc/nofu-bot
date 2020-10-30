@@ -19,7 +19,7 @@ module.exports = {
             throw new Error("UUID Invalid");
         }
 
-        https.get('https://jsonblob.com/api/jsonBlob/72e08016-1acf-11eb-84f5-99c14ac486d4', res => {
+        https.get('https://jsonblob.com/api/jsonBlob/' + process.env.json_regs, res => {
             let body = '';
 
             res.on('data', chunk => {
@@ -58,7 +58,7 @@ module.exports = {
                 console.log("--------------------------");
                 console.log(bodyString);
 
-                fetch("https://jsonblob.com/api/jsonBlob/72e08016-1acf-11eb-84f5-99c14ac486d4", {
+                fetch("https://jsonblob.com/api/jsonBlob/" + process.env.json_regs, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(bodyString),
