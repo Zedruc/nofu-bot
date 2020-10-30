@@ -33,7 +33,7 @@ module.exports = {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: body + JSON.stringify({
-                        users: user + " - " + uuid
+                        "users": uuid
                     }),
                 })
                     .then((res) => res.json())
