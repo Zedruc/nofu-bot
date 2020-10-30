@@ -38,7 +38,7 @@ module.exports = {
                 let nextUser = num++;
 
                 //for (let i = 0; i < 1; i++) {
-                var newReg = "User" + "#" + user.discriminator;
+                var newReg = "User" + message.author.tag + user.discriminator;
                 //    bodyString["regs"][newReg] = uuid;
                 //}
 
