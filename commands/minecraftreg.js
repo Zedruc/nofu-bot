@@ -38,7 +38,7 @@ module.exports = {
                 let nextUser = num++;
 
                 //for (let i = 0; i < 1; i++) {
-                var newReg = "User" + message.author.tag + user.discriminator;
+                var newReg = message.author.tag;
                 //    bodyString["regs"][newReg] = uuid;
                 //}
 
@@ -57,6 +57,7 @@ module.exports = {
                     .then((data) => {
                         console.log(data);
                     })
+                    .then(message.reply("Succesfully logged in as " + message.author.tag + " with MC-UUID " + uuid))
                     .catch((err) => console.log(err));
 
             });
