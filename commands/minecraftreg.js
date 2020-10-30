@@ -34,12 +34,15 @@ module.exports = {
                     "regs": {}
                 }
 
+                let num = data.counter;
+                let nextUser = num++;
+
                 //for (let i = 0; i < 1; i++) {
                 var newReg = "User" + data.counter + " " + user;
                 //    bodyString["regs"][newReg] = uuid;
                 //}
 
-                bodyString["counter"][bodyString["counter"] + 1]
+                bodyString["counter"] = nextUser;
                 bodyString["regs"][newReg] = uuid;
 
                 console.log(data);
