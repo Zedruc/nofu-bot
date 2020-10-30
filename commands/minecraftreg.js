@@ -10,7 +10,7 @@ module.exports = {
 
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
-        let user = message.author;
+        let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3"; //yes thats mine
 
         if (uuid[0].length < example_uuid.length) {
@@ -38,15 +38,14 @@ module.exports = {
                 let nextUser = num++;
 
                 //for (let i = 0; i < 1; i++) {
-                var newReg = "User" + data.counter + " " + user;
+                var newReg = "User" + "#" + user.discriminator;
                 //    bodyString["regs"][newReg] = uuid;
                 //}
 
                 bodyString["counter"] = nextUser;
                 bodyString["regs"][newReg] = uuid;
 
-                console.log(data);
-                console.log("-------------");
+                console.log("--------------------------");
                 console.log(bodyString);
 
                 fetch("https://jsonblob.com/api/jsonBlob/72e08016-1acf-11eb-84f5-99c14ac486d4", {
