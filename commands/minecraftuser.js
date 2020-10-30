@@ -15,7 +15,7 @@ module.exports = {
 
         if (uuid.length < example_uuid) {
             message.reply("Please use your uuid to register! (registering with name is currently in developement)");
-            return;
+            throw new Error("UUID Invalid");
         }
 
         https.get('https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5', res => {
@@ -26,24 +26,25 @@ module.exports = {
             });
 
             res.on('end', () => {
-                let String = JSON.parse(body);
+                let bodyString = JSON.parse(body);
                 console.log(String);
+
+                fetch("https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5", {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: body + JSON.stringify({
+                        users: user + " - " + uuid
+                    }),
+                })
+                    .then((res) => res.json())
+                    .then((data) => {
+                        console.log(data);
+                    })
+                    .catch((err) => console.log(err));
 
             });
 
         });
 
-        fetch("https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5", {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                users: user + " - " + uuid
-            }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                console.log(data);
-            })
-            .catch((err) => console.log(err));
     }
 }
