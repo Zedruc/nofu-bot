@@ -44,7 +44,7 @@ module.exports = {
                 fetch("https://jsonblob.com/api/jsonBlob/72e08016-1acf-11eb-84f5-99c14ac486d4", {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data),
+                    body: JSON.stringify(bodyString),
                 })
                     .then((res) => res.json())
                     .then((data) => {
