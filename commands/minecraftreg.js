@@ -1,3 +1,4 @@
+const { throws } = require("assert");
 const { put } = require("request")
 
 //https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5
@@ -41,6 +42,13 @@ module.exports = {
                 var newReg = message.author.tag;
                 //    bodyString["regs"][newReg] = uuid;
                 //}
+
+                if (bodyString["regs"][newReg] == true) {
+                    message.reply("Already logged in! Use %mcstats to see your stats (not available yet)");
+                    throws(err => {
+                        console.log(err);
+                    });
+                }
 
                 bodyString["counter"] = nextUser;
                 bodyString["regs"][newReg] = uuid;
