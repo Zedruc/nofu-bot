@@ -36,7 +36,7 @@ module.exports = {
                 for (let i = 0; i < 8; i++) {
                     var newReg = "User" + i;
                     var newVal = uuid;
-                    body[regs]["user" + i] = uuid;
+                    data[regs]["user" + i] = uuid;
                 }
                 console.log(data);
 
