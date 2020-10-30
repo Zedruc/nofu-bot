@@ -30,15 +30,13 @@ module.exports = {
                 console.log(bodyString);
 
                 let data = {
-                    regs: {
-
-                    }
+                    regs: {}
                 }
 
                 for (let i = 0; i < data.length; i++) {
                     var newReg = "User" + i;
                     var newVal = uuid;
-                    data.regs["siis"] = "1c0211121b6442a989fff16ed0272ce3";
+                    data.regs.users = uuid;
                 }
                 console.log(data);
 
