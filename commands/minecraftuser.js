@@ -30,7 +30,7 @@ module.exports = {
                 console.log(bodyString);
 
                 let data = {
-                    siis: "soos"
+                    users: uuid
                 }
 
                 fetch("https://jsonblob.com/api/jsonBlob/72e08016-1acf-11eb-84f5-99c14ac486d4", {
