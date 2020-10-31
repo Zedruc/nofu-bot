@@ -30,7 +30,7 @@ module.exports = {
       .setTitle(User + " was banned by " + message.member.displayname)
       .setAuthor("Ban case", message.author.displayAvatarURL, message.author.displayAvatarUR)
       .setDescription("Ban reason: " + banReason + "\n Date of ban: " + date)
-      .setThumbnail("/video/2283_BongoCatBanHammer.gif")
+      .setThumbnail("../video/2283_BongoCatBanHammer.gif")
       .setTimestamp();
 
     message.channel.send(banEmbed);
