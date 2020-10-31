@@ -190,9 +190,7 @@ client.on('message', message => {
                     }
                 }
             })
-            setInterval(function () {
-                defaultChannel.send("Message here") //send it to whatever channel the bot has permissions to send on
-            }, 5000);
+
         })
     }
 });
