@@ -12,7 +12,7 @@ module.exports = {
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
         let user = message.member.displayName;
-        let example_uuid = "1c0211121b6442a989fff16ed0272ce3"; //yes thats mine
+        let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
 
         if (uuid[0].length < example_uuid.length) {
             message.channel.send("Please use your uuid to register! (registering with name is currently in developement)");

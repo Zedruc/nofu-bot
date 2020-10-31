@@ -31,7 +31,8 @@ module.exports = {
                     });
 
                     res.on('end', () => {
-                        console.log(body);
+                        let a = body.replace(/ \[/g, "");
+                        let b = console.log(a.replace(/ \]/g, ""));
                     });
                 });
 
