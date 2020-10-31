@@ -61,7 +61,7 @@ module.exports = {
     console.log(string); */
     const passwordLength = 15;
     var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz.;,$!';
     var charactersLength = characters.length;
     for ( var i = 0; i < passwordLength; i++ ) {
       result += characters.charAt(Math.floor(Math.random() * charactersLength));
@@ -69,7 +69,7 @@ module.exports = {
     let passEmbed = new Discord.MessageEmbed()
     .setTitle("**Your personal generated password:**")
     .addField("There you go: ", result)
-    .setFooter("__There are 1533058025824 different passwords this bot can generate :p__")
+    .setFooter(`There are ${charactersLength**15}  different passwords this bot can generate :p`)
     .setTimestamp();
     
     message.author.send(passEmbed);
