@@ -29,6 +29,16 @@ module.exports = {
                     let body = '';
                     res.on('data', chunk => {
                         body += chunk;
+
+                        /**Error:
+                         * <!DOCTYPE html>
+                         * ^
+                         * SyntaxError: Unexpected token < in JSON at position 0
+                         * at JSON.parse (<anonymous>)
+                         * 
+                         * still todo
+                         * */
+
                     });
 
                     res.on('end', () => {
