@@ -10,7 +10,7 @@ module.exports = {
     let User = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
     if (!args[0]) return message.channel.send('Please specify a user');
 
-    if (!member) return message.channel.send('User not found');
+    if (!User) return message.channel.send('User not found');
     if (User.hasPermission("BAN_MEMBERS")) return message.reply("Can't kick user since their role is equal to or above mine")
     let banReason = args.join(" ").slice(22);
     if (!banReason) {
