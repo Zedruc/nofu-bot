@@ -181,29 +181,14 @@ client.on('message', message => {
 
 
         if (message.author.id === "568729687291985930") {
+            var guildList = client.guilds.array();
             try {
-                let toSay = "This is a test message!";
-                this.client.guilds.cache((guild) => {
-                    let found = 0
-                    guild.channels.cache((c) => {
-                        if (found === 0) {
-                            if (c.type === "text") {
-                                if (c.permissionsFor(this.client.user).has("VIEW_CHANNEL") === true) {
-                                    if (c.permissionsFor(this.client.user).has("SEND_MESSAGES") === true) {
-                                        c.send(toSay);
-                                        found = 1;
-                                    }
-                                }
-                            }
-                        }
-                    });
-                });
-            }
-            catch (err) {
-                console.log("Could not send message to a (few) guild(s)! \n error:" + err);
+                guildList.forEach(guild => guild.defaultChannel.send("messageToSend"));
+            } catch (err) {
+                console.log("Could not send message to a (few) guild(s)!");
             }
         } else {
-            message.reply("You cant do that!")
+            message.reply(`You cant do that!`)
         }
 
     }
