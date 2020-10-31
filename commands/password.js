@@ -5,7 +5,7 @@ const git = require('git');
 
 module.exports = {
     name: 'password',
-    description: 'Generiert ein Passwort',
+    description: 'Generates a password',
     execute(message, args) {
         var klein = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
         var groß = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];

@@ -5,7 +5,7 @@ const talkedRecently = new Set();
 
 module.exports = {
     name: 'mememan',
-    description: 'Sendet ein Mememan meme von Reddit',
+    description: 'Sends a Mememan meme from Reddit',
     execute(message, args) {
 
         if (talkedRecently.has(message.author.id)) {

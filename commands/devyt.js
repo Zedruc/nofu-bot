@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'devyt',
-    description: 'Sendet einen Flachewitz',
+    description: 'Sends a bad joke',
     execute(message, args) {
         let key = process.env.yt_api;
         https.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q=Tot%20Nofu&key=' + key, res => {

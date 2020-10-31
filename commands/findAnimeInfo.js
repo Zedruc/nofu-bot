@@ -2,7 +2,7 @@ const https = require('https');
 const Discord = require('discord.js');
 module.exports = {
     name: 'findanime',
-    description: 'lists infos about the given anime',
+    description: 'Lists infos about the given anime',
     execute(message, args) {
 
         if (message.guild === null) return;

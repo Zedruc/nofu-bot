@@ -4,7 +4,7 @@ const { put } = require("request")
 //https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5
 module.exports = {
     name: "mcregister",
-    description: "register with your minecraft uuid with /mcregister <uuid>",
+    description: "Register with your minecraft uuid with /mcregister <uuid>",
     execute(message, args) {
         const fetch = require("node-fetch");
         const https = require('https');

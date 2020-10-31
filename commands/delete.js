@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 module.exports = {
   name: 'delete',
-  description: 'löscht Nachrichten',
+  description: 'Deletes messages',
   execute(message, args) {
 
     if (message.guild === null) return;
