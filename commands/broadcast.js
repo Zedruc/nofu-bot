@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'findsongs',
-    description: 'Searches songs of given artist',
+    name: 'broadcast',
+    description: 'Sends a message to all guild the bot is in',
     execute(message, args) {
 
         if (message.guild === null) return;
