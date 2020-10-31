@@ -177,17 +177,23 @@ client.on('message', message => {
 
     } else if (command == "broadcast") {
 
-        client.guilds.forEach((guild) => { //for each guild the bot is in
+        if (!message.author.id == "568729687291985930") {
+            return;
+        }
+
+        client.guilds.cache.forEach((guild) => { //for each guild the bot is in
             let defaultChannel = "";
-            guild.channels.forEach((channel) => {
+            guild.channels.cache.forEach((channel) => {
                 if (channel.type == "text" && defaultChannel == "") {
                     if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
                         defaultChannel = channel;
                     }
                 }
-            });
-            defaultChannel.send("test test") //send it to whatever channel the bot has permissions to send on
-        });
+            })
+            setInterval(function () {
+                defaultChannel.send("Message here") //send it to whatever channel the bot has permissions to send on
+            }, 5000);
+        })
     }
 
     client.login(process.env.token);
