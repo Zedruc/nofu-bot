@@ -185,9 +185,9 @@ client.on('message', message => {
                         defaultChannel = channel;
                     }
                 }
-            })
+            });
             defaultChannel.send("test test") //send it to whatever channel the bot has permissions to send on
-        })
+        });
     }
 
     client.login(process.env.token);
