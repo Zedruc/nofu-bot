@@ -19,6 +19,7 @@ module.exports = {
                 let sender = message.author.tag;
                 let user = bodyString.regs[sender];
                 let UUID = user[0];
+                console.log(UUID);
                 if (user == null) {
                     message.reply("You first have to login to your account via uuid!\n`%mcregister <UUID>`");
                     return;
