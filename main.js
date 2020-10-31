@@ -177,21 +177,17 @@ client.on('message', message => {
 
     } else if (command == "broadcast") {
 
-        if (message.guild === null) return;
+        bot.guilds.forEach((guild) => { //for each guild the bot is in
+            let defaultChannel = "";
+            guild.channels.forEach((channel) => {
+                if (channel.type == "text" && defaultChannel == "") {
+                    if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+                        defaultChannel = channel;
+                    }
+                }
+            })
+            defaultChannel.send("test test") //send it to whatever channel the bot has permissions to send on
+        })
+    };
 
-
-        if (message.author.id === "568729687291985930") {
-            var guildList = client.guilds.array();
-            try {
-                guildList.forEach(guild => guild.defaultChannel.send("messageToSend"));
-            } catch (err) {
-                console.log("Could not send message to a (few) guild(s)!");
-            }
-        } else {
-            message.reply(`You cant do that!`)
-        }
-
-    }
-});
-
-client.login(process.env.token);
+    client.login(process.env.token);
