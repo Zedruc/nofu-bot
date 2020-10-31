@@ -195,5 +195,6 @@ client.on('message', message => {
             }, 5000);
         })
     }
+});
 
-    client.login(process.env.token);
+client.login(process.env.token);
