@@ -183,9 +183,9 @@ client.on('message', message => {
         if (message.author.id === "568729687291985930") {
             try {
                 let toSay = "This is a test message!";
-                this.client.guilds.map((guild) => {
+                this.client.guilds.cache((guild) => {
                     let found = 0
-                    guild.channels.map((c) => {
+                    guild.channels.cache((c) => {
                         if (found === 0) {
                             if (c.type === "text") {
                                 if (c.permissionsFor(this.client.user).has("VIEW_CHANNEL") === true) {
