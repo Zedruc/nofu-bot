@@ -7,8 +7,10 @@ module.exports = {
   execute(message, args) {
     // Ban a user by ID (or with a user/guild member object)
     if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You dont have the permission to run this command")
-    let User = message.mentions.users.first() || client.users.resolve(args[0]);
-    if (!User) return message.channel.send("No user given to ban")
+    let User = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
+    if (!args[0]) return message.channel.send('Please specify a user');
+
+    if (!member) return message.channel.send('User not found');
     if (User.hasPermission("BAN_MEMBERS")) return message.reply("Can't kick user since their role is equal to or above mine")
     let banReason = args.join(" ").slice(22);
     if (!banReason) {
