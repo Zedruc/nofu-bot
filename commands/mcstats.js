@@ -31,7 +31,7 @@ module.exports = {
                     });
 
                     res.on('end', () => {
-                        bodyString2 = JSON.parse(body);
+                        console.log(body);
                     });
                 });
 
