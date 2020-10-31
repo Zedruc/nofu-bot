@@ -8,7 +8,7 @@ const { join } = require("path");
 
 module.exports = {
     name: "stare",
-    description: "stare at someone (if they post cringe or smth like that)",
+    description: "Stare at someone (if they post cringe or smth like that)",
     execute(message, args) {
         if (message.guild === null) return;
 

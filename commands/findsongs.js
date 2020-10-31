@@ -3,7 +3,7 @@ const https = require('https');
 
 module.exports = {
     name: 'findsongs',
-    description: 'searches songs of given artist',
+    description: 'Searches songs of given artist',
     execute(message, args) {
 
         if (message.guild === null) return;

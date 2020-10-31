@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: 'serverinfo',
-    description: "Zeigt infos über den aktuellen Server an",
+    description: "Displays information about the current server",
     execute(message, args) {
 
         if (message.guild === null) return;

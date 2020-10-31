@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 module.exports = {
   name: 'delete',
-  description: 'löscht Nachrichten',
+  description: 'Deletes messages',
   execute(message, args) {
 
     if (message.guild === null) return;
@@ -13,9 +13,11 @@ module.exports = {
     var args = message.content.slice(6).split(" ");
 
     const löschAnzahl = args[1];
-    if (message.member.hasPermission('ADMINISTRATOR')) {
-
-      //if (client.hasPermission('ADMINISTRATOR') == false) {
+    if (message.member.hasPermission('MANAGE_MESSAGES')) {
+      // MANAGE_MESSAGES is actually the permission that allows
+      // clients to delete other people's messages
+      
+      //if (client.hasPermission('MANAGE_MESSAGES') == false) {
       //  message.channel.send("I don't have the permissions to to that!")
       //  return;
       //}

@@ -7,7 +7,7 @@ const talkedRecently = new Set();
 
 module.exports = {
     name: 'joke',
-    description: 'Sendet einen Flachewitz',
+    description: 'Sends a bad joke',
     execute(message, args) {
         if (talkedRecently.has(message.author.id)) {
             message.channel.send("Wait a bit before getting typing this again. - " + "<@" + message.author + ">");

@@ -4,7 +4,7 @@ const { join } = require("path");
 
 module.exports = {
     name: "hug",
-    description: "Since T H E    W O R L D W I D E   E V E N T is still a thing you now can hug others via discord :D!",
+    description: "Since T H E   W O R L D W I D E   E V E N T is still a thing you now can hug others via discord :D!",
     execute(message, args) {
         if (message.guild === null) return;
 
