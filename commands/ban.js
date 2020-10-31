@@ -16,12 +16,18 @@ module.exports = {
 
     User.ban({ reason: banReason })
 
+    let td = new Date();
+    let dd = String(td.getDate()).padStart(2, '0');
+    let mm = String(td.getMonth() + 1).padStart(2, '0');
+    let yyyy = td.getFullYear();
+    let date = dd + "/" + mm + "/" + yyyy; //European
+
     let banEmbed = new Discord.MessageEmbed()
       .setColor("#FF0000")
-      .setTitle(User + " was banned by " + message.author.displayname)
-      .setAuthor("__Ban case__", message.author.avatarURL, message.author.avatarURL, true)
-      .setDescription("Ban reason: " + banReason + "\n Date of ban: " + Date.now())
-      .setThumbnail("https://emoji.gg/assets/emoji/2283_BongoCatBanHammer.gif")
+      .setTitle(User + " was banned by " + message.member.displayname)
+      .setAuthor("Ban case", message.member.avatarURL, message.member.avatarURL, true)
+      .setDescription("Ban reason: " + banReason + "\n Date of ban: " + date)
+      .setThumbnail("/video/2283_BongoCatBanHammer.gif")
       .setTimestamp();
 
     message.channel.send(banEmbed);
