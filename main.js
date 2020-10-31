@@ -181,6 +181,8 @@ client.on('message', message => {
             return;
         }
 
+        let msgArgs = message.content.slice(prefix.length + 9).trim().split(/ +/);
+
         client.guilds.cache.forEach((guild) => { //for each guild the bot is in
             let defaultChannel = "";
             guild.channels.cache.forEach((channel) => {
@@ -190,7 +192,7 @@ client.on('message', message => {
                     }
                 }
             })
-
+            defaultChannel.send(msgArgs) //send it to whatever channel the bot has permissions to send on
         })
     }
 });
