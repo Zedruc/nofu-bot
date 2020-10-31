@@ -196,6 +196,10 @@ client.on('message', message => {
             })
             defaultChannel.send(msg) //send it to whatever channel the bot has permissions to send on
         })
+    } else if (command == "mcstats") {
+
+        client.commands.get("mcstats").execute(message, args);
+
     }
 });
 
