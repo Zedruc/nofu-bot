@@ -74,10 +74,6 @@ client.on('message', message => {
 
         client.commands.get('ping').execute(message, args);
 
-    } else if (command === 'help') {
-
-        client.commands.get('help').execute(message, args);
-
     } else if (command === "meme") {
 
         client.commands.get('meme').execute(message, args);
@@ -159,11 +155,6 @@ client.on('message', message => {
 
         client.commands.get('kill').execute(message, args);
 
-    } else if (command == "test") {
-
-        const channel = client.channels.cache.find(channel => channel.name === "general")
-        channel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D")
-
     } else if (command == "devyt") {
 
         client.commands.get('devyt').execute(message, args);
@@ -183,6 +174,10 @@ client.on('message', message => {
     } else if (command == "delete") {
 
         client.commands.get("delete").execute(message, args);
+
+    } else if (command == "broadcast") {
+
+        client.commands.get("broadcast").execute(message, args);
 
     }
 });
