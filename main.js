@@ -177,7 +177,7 @@ client.on('message', message => {
 
     } else if (command == "broadcast") {
 
-        bot.guilds.forEach((guild) => { //for each guild the bot is in
+        client.guilds.forEach((guild) => { //for each guild the bot is in
             let defaultChannel = "";
             guild.channels.forEach((channel) => {
                 if (channel.type == "text" && defaultChannel == "") {
