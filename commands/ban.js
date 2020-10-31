@@ -25,7 +25,7 @@ module.exports = {
     let banEmbed = new Discord.MessageEmbed()
       .setColor("#FF0000")
       .setTitle(User + " was banned by " + message.member.displayname)
-      .setAuthor("Ban case", message.member.avatarURL, message.member.avatarURL, true)
+      .setAuthor("Ban case", message.author.displayAvatarURL, message.author.displayAvatarURL, true)
       .setDescription("Ban reason: " + banReason + "\n Date of ban: " + date)
       .setThumbnail("/video/2283_BongoCatBanHammer.gif")
       .setTimestamp();
