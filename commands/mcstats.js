@@ -32,6 +32,7 @@ module.exports = {
                     });
 
                     res.on('end', () => {
+                        console.log(body[0].name);
                         let a = body.replace(/ \[/g, "");
                         let b = console.log(a.replace(/ \]/g, ""));
                     });
