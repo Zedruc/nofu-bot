@@ -12,27 +12,41 @@ module.exports = {
 
     let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
-    if (message.author.id === '568729687291985930') {
+    if (message.author.id === owner) {
       if (msgArgs[1] == "restart") {
 
-        let embed = new Discord.MessageEmbed()
-          .setTitle("__***Restarting client***__")
-          .setDescription("\nBooting up automically\n")
-          .setColor('#8b0000')
+        let bootEmbed = {
+          title: "Restarting client",
+          description: "Booting up automatically",
+          color: '#8b0000',
+          footer:{
+            text: client.user.username,
+            icon_url: client.user.displayAvatarURL({format: "png"}),
+          },
+          timestamp: (new Date()).toISOString()
+        }
 
-        message.channel.send(embed)
+        message.channel.send({embed: bootEmbed})
           .then(msg => client.destroy())
           .then(() => client.login(process.env.token))
 
       } else if (msgArgs[1] == "shutdown") {
-
-        let embed = new Discord.MessageEmbed()
-          .setTitle("__***Destroying client***__")
-          .setDescription("\nWill boot up again on `node main.js`\n")
-          .setColor('#8b0000')
-
-        message.channel.send(embed);
         //test
+        
+        let bootEmbed = {
+          title: "Destroying client",
+          description: "Will boot up again on `node main.js",
+          color: '#8b0000',
+          footer:{
+            text: client.user.username,
+            icon_url: client.user.displayAvatarURL({format: "png"}),
+          },
+          timestamp: (new Date()).toISOString()
+        }
+
+        message.channel.send({embed: bootEmbed})
+          .then(msg => client.destroy())
+          .then(() => client.login(process.env.token))
 
         const uuid = uuidv4();
 
