@@ -16,7 +16,8 @@ module.exports = {
 
         if (uuid[0].length < example_uuid.length) {
             message.channel.send("Please use your uuid to register! (registering with name is currently in developement)");
-            throw new Error("UUID Invalid");
+            console.log("Invalid UUID");
+            return;
         }
 
         https.get('https://jsonblob.com/api/jsonBlob/' + process.env.json_regs, res => {
