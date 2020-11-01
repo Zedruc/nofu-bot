@@ -1,6 +1,7 @@
-const { SSL_OP_COOKIE_EXCHANGE } = require('constants');
 const https = require('https');
-const MojangAPI = require('mojang-api');
+const Discord = require('discord.js');
+const { exitCode } = require('process');
+const sender = message.author;
 
 module.exports = {
     name: 'mcstats',
@@ -35,21 +36,31 @@ module.exports = {
             res.on('data', chunk => {
                 body += chunk;
 
-                /**Error:
-                 * <!DOCTYPE html>
-                 * ^
-                 * SyntaxError: Unexpected token < in JSON at position 0
-                 * at JSON.parse (<anonymous>)
-                 * 
-                 * still todo
-                 * */
-
             });
 
             res.on('end', () => {
-                console.log(body[0]);
-                let a = body.replace(/ \[/g, "");
-                let b = console.log(a.replace(/ \]/g, ""));
+                let bodyString = JSON.parse(body);
+                console.log(bodyString);
+                console.log(bodyString[0].name);
+                let nOn /*number of names*/ = bodyString.length;
+
+                let nameHistory = [];
+
+                let mcStatsEmbed = new Discord.MessageEmbed()
+                    .setColor('#00ad00')
+                    .setTitle(sender.name + "\'s Minecraft name history")
+                    .setAuthor(sender.displayName, sender.displayAvatarURL, sender.displayAvatarURL)
+                    .setDescription(readableArr)
+
+
+                for (let i = 0; i < bodyString.length; i++) {
+                    console.log(bodyString[i].name);
+                    nameHistory.push(bodyString[i].name)
+                    mcStatsEmbed
+                        .addField(i !== 0 ? new Date(bodyString[i].changedToAt) : "Original name: ", bodyString[i].name, true);
+                }
+                console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
+                let readableArr = nameHistory.join(" ");
             });
         });
     }
