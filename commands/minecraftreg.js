@@ -51,6 +51,11 @@ module.exports = {
                             console.log(err);
                         });
                     }
+
+                    if (bodyString["regs"][key] == uuid) {
+                        message.reply("Another user is already logged in with this UUID!");
+                        return;
+                    }
                 });
 
                 bodyString["counter"] = nextUser;

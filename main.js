@@ -194,7 +194,10 @@ client.on('message', message => {
                     }
                 }
             })
-            defaultChannel.send(msg) //send it to whatever channel the bot has permissions to send on
+            let broadcastEmbed = new Discord.MessageEmbed()
+                .setTitle("**__Broadcast__**")
+                .setDescription(msg)
+            defaultChannel.send(broadcastEmbed) //send it to whatever channel the bot has permissions to send on
         })
     } else if (command == "mcstats") {
 
