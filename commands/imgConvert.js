@@ -5,7 +5,7 @@ const { image_links } = require("../resources.json");
 module.exports = {
   name: "convert",
   description: "Converts given file url to provided file-type",
-  execute(message, args) {
+  execute(message, args, client) {
 
     if (message.guild === null) return;
 
@@ -23,16 +23,20 @@ module.exports = {
         // get converted file url
         console.log("Converted file url: " + result.file.url);
 
-        let downloadEmbed = new Discord.MessageEmbed()
-          .setThumbnail(image_links.image_icon)
-          .setTitle("Your Download link: ")
-          .addField(result.file.url, `Your image converted to ${fileType}`)
-
-        message.channel.send(downloadEmbed);
+        let downloadEmbed = {
+          title: `Your Download link!`,
+          url: result.file.url,
+          footer:{
+            text: client.user.username,
+            icon_url: client.user.displayAvatarURL({format: "png"}),
+          },
+          timestamp: (new Date()).toISOString()
+        } 
+        message.channel.send({embed: downloadEmbed})
       })
 
       .catch(function (e) {
-        console.error(e.toString());
+        message.channel.send(`:interrobang: An error occured whilst converting your file. Check if your file is valid and if the destination (*${fileType}*) is too.`);
       });
   }
 };

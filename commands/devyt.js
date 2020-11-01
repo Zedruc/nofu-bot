@@ -2,46 +2,53 @@ const https = require('https');
 const Discord = require('discord.js');
 
 module.exports = {
-    name: 'devyt',
-    description: 'Sends a bad joke',
-    execute(message, args) {
-        let key = process.env.yt_api;
-        https.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q=Tot%20Nofu&key=' + key, res => {
-
-            let body = '';
-
-            res.on('data', chunk => {
-                body += chunk;
-            });
-
-            res.on('end', () => {
-                let bodyString = JSON.parse(body);
-                let channelId = bodyString.items[0].id.channelId;
-                let channel = bodyString.items[0].snippet.title;
-                let isLiveCnt = bodyString.items[0].snippet.liveBroadcastContent;
-                if (isLiveCnt == 'none') {
-                    let ytEmbed = new Discord.MessageEmbed()
-                        .setColor('	#FF0000')
-                        .setTitle('**__The Developer\'s Channel: __**')
-                        .addField('Channel ID: ', channelId, true)
-                        .addField('Channel Name: ', channel, true)
-                        .addField('isLive: ', 'false', true)
-
-                    message.channel.send(ytEmbed);
-                } else {
-                    console.log(channel);
-
-                    let ytEmbed = new Discord.MessageEmbed()
-                        .setColor('	#FF0000')
-                        .setTitle('**__The Developer\'s Channel: __**')
-                        .addField('Channel ID: ', channelId, true)
-                        .addField('Channel Name: ', channel, true)
-                        .addField('isLive: ', 'true \n' + isLivecnt, true)
-
-                    message.channel.send(ytEmbed);
-                }
-
-            });
-        });
-    }
+  name: 'devyt',
+  description: 'Sends a bad joke',
+  execute(message, args, client) {
+    let key = process.env.yt_api;
+    https.get('https://www.googleapis.com/youtube/v3/search?part=snippet&q=Tot%20Nofu&key=' + key, res => {
+    
+    let body = '';
+    
+    res.on('data', chunk => {
+      body += chunk;
+    });
+    
+    res.on('end', () => {
+      let bodyString = JSON.parse(body);
+      let channelId = bodyString.items[0].id.channelId;
+      let channel = bodyString.items[0].snippet.title;
+      let isLiveCnt = bodyString.items[0].snippet.liveBroadcastContent;
+      
+      let ytEmbed = {
+        title: "The developer's channel:",
+        color: '#ff0000',
+        fields:[
+          {
+            name: "Channel ID",
+            value: channelId,
+            inline: true
+          },
+          {
+            name: "Channel Name",
+            value: channel,
+            inline: true
+          },
+          {
+            name: "Currently streaming",
+            value: isLiveCnt == "none" ? "No" : "Yes",
+            inline: true
+          },
+        ],
+        footer:{
+          text: client.user.username,
+          icon_url: client.user.displayAvatarURL({format: "png"}),
+        },
+        timestamp: (new Date()).toISOString()
+      }
+      message.channel.send({embed: ytEmbed});
+      
+    });
+  });
+}
 }

@@ -92,11 +92,11 @@ client.on('message', message => {
 
     } else if (command === 'userinfo') {
 
-        client.commands.get('userinfo').execute(message, args);
+        client.commands.get('userinfo').execute(message, args, client);
 
     } else if (command === 'joke') {
 
-        client.commands.get('joke').execute(message, args);
+        client.commands.get('joke').execute(message, args, client);
 
     } else if (command === 'uptime') {
 
@@ -125,15 +125,15 @@ client.on('message', message => {
 
     } else if (command === 'convert') {
 
-        client.commands.get('convert').execute(message, args);
+        client.commands.get('convert').execute(message, args, client);
 
     } else if (command === 'findanime') {
 
-        client.commands.get('findanime').execute(message, args);
+        client.commands.get('findanime').execute(message, args, client);
 
     } else if (command == 'findsongs') {
 
-        client.commands.get('findsongs').execute(message, args);
+        client.commands.get('findsongs').execute(message, args, client);
 
     } else if (command == 'punch') {
 
@@ -145,7 +145,7 @@ client.on('message', message => {
 
     } else if (command == 'hug') {
 
-        client.commands.get('hug').execute(message, args);
+        client.commands.get('hug').execute(message, args, client);
 
     } else if (command == 'ban') {
 
@@ -153,11 +153,11 @@ client.on('message', message => {
 
     } else if (command == 'kill') {
 
-        client.commands.get('kill').execute(message, args);
+        client.commands.get('kill').execute(message, args, client);
 
     } else if (command == "devyt") {
 
-        client.commands.get('devyt').execute(message, args);
+        client.commands.get('devyt').execute(message, args, client);
 
     } else if (command == "stare") {
 
@@ -169,7 +169,7 @@ client.on('message', message => {
 
     } else if (command == "cnf") {
 
-        client.commands.get("chuckNorrisFacts").execute(message, args);
+        client.commands.get("chuckNorrisFacts").execute(message, args, client);
 
     } else if (command == "delete") {
 
