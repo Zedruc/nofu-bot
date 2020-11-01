@@ -11,6 +11,8 @@ module.exports = {
 
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
+        console.log(uuid);
+        console.log(uuid[0]);
         let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
 
