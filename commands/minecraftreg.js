@@ -42,7 +42,11 @@ module.exports = {
                 var newReg = message.author.id;
 
                 for (const [key, value] of Object.entries(bodyString.regs)) {
-                    console.log(`${key}: ${value}`);
+
+                    console.log("-----------");
+                    console.log({ value, uuid });
+                    console.log("-----------");
+
                     if (value.includes(uuid)) {
                         message.reply("this UUID is already registered!");
                         return;
