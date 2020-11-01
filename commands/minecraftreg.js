@@ -55,10 +55,7 @@ module.exports = {
 
                 for (let i = 0; i < bodyString.regs.length; i++) {
                     const element = bodyString.regs[i];
-                    if (element.includes(uuid)) {
-                        message.reply("Another user is already logged/you are already logged in with this UUID!")
-                        return;
-                    }
+                    console.log("---------element--------- \n" + element);
                 }
 
                 bodyString["counter"] = nextUser;
