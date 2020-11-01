@@ -52,7 +52,14 @@ module.exports = {
                         });
                     }
 
-                    if (bodyString["regs"][key] == uuid) {
+                    let has_it = false;
+                    for (let i = 0; i < regs.length; i++) {
+                        const element = regs[i];
+                        if (element[0] === uuid) {
+                            has_it = true;
+                        }
+                    }
+                    if (has_it) {
                         message.reply("Another user is already logged in with this UUID!");
                         return;
                     }
