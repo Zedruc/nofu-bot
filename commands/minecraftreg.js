@@ -43,7 +43,6 @@ module.exports = {
                 var newReg = message.author.id;
 
                 for (const [key, value] of Object.entries(bodyString.regs)) {
-
                     console.log("-----------");
                     console.log({ value, uuString });
                     console.log("-----------");

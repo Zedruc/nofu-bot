@@ -32,7 +32,7 @@ module.exports = {
             .addField("**%stare** @user", "Intense  s t a r i n g")
             .addField("**%cnf**", "`C h u c k    N o r r i s    F a c t s`")
             .addField("**%mcregister <Minecraft UUID>**", "`Register with your Minecraft uuid to unlock %mcstats`")
-            .addField("**%mcstats (Still broken because the JSON response starts with `[`  for whatever reason ?-?)**", "`Shows the players name history (for now)`")
+            .addField("**%mcstats**", "`Shows the players name history (for now)`")
             .addField("**%devyt**", "`Shows live-information about my YouTube channel hehe :p (e.g. Is Live: false/true)`")
             .setFooter("Also check out the bot\'s website:  https://Nofu-Bot.totnofu.repl.co")
         message.channel.send(embed).catch(error => {
