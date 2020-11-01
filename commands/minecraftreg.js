@@ -44,26 +44,22 @@ module.exports = {
                 //    bodyString["regs"][newReg] = uuid;
                 //}
 
-                Object.keys(bodyString).forEach(function (key) {
-                    if (bodyString["regs"] == newReg) {
-                        message.reply("Already logged in! Use %mcstats to see your stats (not available yet)");
-                        throws(err => {
-                            console.log(err);
-                        });
-                    }
+                //Object.keys(bodyString).forEach(function (key) {
+                //    if (bodyString["regs"] == newReg) {
+                //        message.reply("Already logged in! Use %mcstats to see your stats (not available yet)");
+                //        throws(err => {
+                //            console.log(err);
+                //        });
+                //    }
+                //});
 
-                    let has_it = false;
-                    for (let i = 0; i < bodyString.regs.length; i++) {
-                        const element = bodyString.regs[i];
-                        if (element[0] === uuid) {
-                            has_it = true;
-                        }
-                    }
-                    if (has_it) {
-                        message.reply("Another user is already logged in with this UUID!");
+                for (let i = 0; i < bodyString.regs.length; i++) {
+                    const element = bodyString.regs[i];
+                    if (element.includes(uuid)) {
+                        message.reply("Another user is already logged/you are already logged in with this UUID!")
                         return;
                     }
-                });
+                }
 
                 bodyString["counter"] = nextUser;
                 bodyString["regs"][newReg] = uuid;
