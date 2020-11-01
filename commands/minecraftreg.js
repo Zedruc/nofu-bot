@@ -11,8 +11,7 @@ module.exports = {
 
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
-        console.log(uuid);
-        console.log(uuid[0]);
+        let uuString = uuid[0];
         let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
 
@@ -46,17 +45,17 @@ module.exports = {
                 for (const [key, value] of Object.entries(bodyString.regs)) {
 
                     console.log("-----------");
-                    console.log({ value, uuid });
+                    console.log({ value, uuString });
                     console.log("-----------");
 
-                    if (value.includes(uuid)) {
+                    if (value.includes(uuString)) {
                         message.reply("this UUID is already registered!");
                         return;
                     }
                 }
 
                 bodyString["counter"] = Object.keys(bodyString.regs).length;
-                bodyString["regs"][newReg] = uuid;
+                bodyString["regs"][newReg] = uuString;
 
                 console.log("--------------------------");
                 console.log(bodyString);
@@ -70,7 +69,7 @@ module.exports = {
                     .then((data) => {
                         console.log(data);
                     })
-                    .then(message.reply("Succesfully logged in as " + message.author.tag + " with MC-UUID " + uuid))
+                    .then(message.reply("Succesfully logged in as " + message.author.tag + " with MC-UUID " + uuString))
                     .catch((err) => console.log(err));
 
             });
