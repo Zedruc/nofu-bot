@@ -39,26 +39,17 @@ module.exports = {
                 let num = data.counter;
                 let nextUser = num++;
 
-                //for (let i = 0; i < 1; i++) {
                 var newReg = message.author.id;
-                //    bodyString["regs"][newReg] = uuid;
-                //}
 
-                //Object.keys(bodyString).forEach(function (key) {
-                //    if (bodyString["regs"] == newReg) {
-                //        message.reply("Already logged in! Use %mcstats to see your stats (not available yet)");
-                //        throws(err => {
-                //            console.log(err);
-                //        });
-                //    }
-                //});
-
-                for (let i = 0; i < bodyString.regs.length; i++) {
-                    const element = bodyString.regs[i];
-                    console.log("---------element--------- \n" + element);
+                for (const [key, value] of Object.entries(bodyString.regs)) {
+                    console.log(`${key}: ${value}`);
+                    if (value.includes(uuid)) {
+                        message.reply("this UUID is already registered!");
+                        return;
+                    }
                 }
 
-                bodyString["counter"] = nextUser;
+                bodyString["counter"] = Object.keys(bodyString.regs).length;
                 bodyString["regs"][newReg] = uuid;
 
                 console.log("--------------------------");
