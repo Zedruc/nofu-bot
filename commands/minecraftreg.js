@@ -40,7 +40,7 @@ module.exports = {
                 let nextUser = num++;
 
                 //for (let i = 0; i < 1; i++) {
-                var newReg = message.author.tag;
+                var newReg = message.author.id;
                 //    bodyString["regs"][newReg] = uuid;
                 //}
 
