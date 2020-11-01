@@ -74,10 +74,6 @@ client.on('message', message => {
 
         client.commands.get('ping').execute(message, args);
 
-    } else if (command === 'help') {
-
-        client.commands.get('help').execute(message, args);
-
     } else if (command === "meme") {
 
         client.commands.get('meme').execute(message, args);
@@ -159,11 +155,6 @@ client.on('message', message => {
 
         client.commands.get('kill').execute(message, args, client);
 
-    } else if (command == "test") {
-
-        const channel = client.channels.cache.find(channel => channel.name === "general")
-        channel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D")
-
     } else if (command == "devyt") {
 
         client.commands.get('devyt').execute(message, args, client);
@@ -183,6 +174,31 @@ client.on('message', message => {
     } else if (command == "delete") {
 
         client.commands.get("delete").execute(message, args);
+
+    } else if (command == "broadcast") {
+
+        if (!message.author.id == "568729687291985930") {
+            return;
+        }
+
+        let rawArgs = args;
+        let argsString = rawArgs.toString();
+        let msg = argsString.replace(/,/g, " ");
+
+        client.guilds.cache.forEach((guild) => { //for each guild the bot is in
+            let defaultChannel = "";
+            guild.channels.cache.forEach((channel) => {
+                if (channel.type == "text" && defaultChannel == "") {
+                    if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+                        defaultChannel = channel;
+                    }
+                }
+            })
+            defaultChannel.send(msg) //send it to whatever channel the bot has permissions to send on
+        })
+    } else if (command == "mcstats") {
+
+        client.commands.get("mcstats").execute(message, args);
 
     }
 });
