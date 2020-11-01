@@ -54,7 +54,7 @@ module.exports = {
 
                     let has_it = false;
                     for (let i = 0; i < bodyString[0].regs.length; i++) {
-                        const element = regs[i];
+                        const element = bodyString[0].regs[i];
                         if (element[0] === uuid) {
                             has_it = true;
                         }
