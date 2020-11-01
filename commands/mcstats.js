@@ -1,12 +1,12 @@
 const https = require('https');
 const Discord = require('discord.js');
 const { exitCode } = require('process');
-const sender = message.author;
 
 module.exports = {
     name: 'mcstats',
     description: 'Shows player info (Minecraft info)',
     execute(message, args) {
+        const sender = message.author;
         //https://api.mojang.com/user/profiles/uuid/names
         https.get('https://jsonblob.com/api/jsonBlob/' + process.env.json_regs, res => {
             let body = '';
