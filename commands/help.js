@@ -1,7 +1,7 @@
 module.exports = {
     name: 'help',
     description: "Help Command",
-    execute(message, args) {
+    execute(message, args, client) {
 
         if (message.guild === null) return;
 

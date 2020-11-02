@@ -80,7 +80,7 @@ client.on('message', message => {
 
     } else if (command === 'help') {
 
-        client.commands.get('help').execute(message, args);
+        client.commands.get('help').execute(message, args, client);
 
     } else if (command === 'delete') {
 
