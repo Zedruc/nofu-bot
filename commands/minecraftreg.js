@@ -10,7 +10,7 @@ module.exports = {
 
         let prefix = "%";
         let dec_uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
-        let uuid = Base64.encode(dec_uuid);
+        let uuid = [Base64.encode(dec_uuid).toString()];
         let uuString = uuid[0];
         let user = message.member.displayName;
         let example_uuid = "MWMwMjExMTIxYjY0NDJhOTg5ZmZmMTZlZDAyNzJjZTM=";
