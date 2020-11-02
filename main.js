@@ -177,28 +177,8 @@ client.on('message', message => {
 
     } else if (command == "broadcast") {
 
-        if (!message.author.id == "568729687291985930") {
-            return;
-        }
+        client.commands.get("broadcast").execute(message, args, client);
 
-        let rawArgs = args;
-        let argsString = rawArgs.toString();
-        let msg = argsString.replace(/,/g, " ");
-
-        client.guilds.cache.forEach((guild) => { //for each guild the bot is in
-            let defaultChannel = "";
-            guild.channels.cache.forEach((channel) => {
-                if (channel.type == "text" && defaultChannel == "") {
-                    if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-                        defaultChannel = channel;
-                    }
-                }
-            })
-            let broadcastEmbed = new Discord.MessageEmbed()
-                .setTitle("**__Broadcast__**")
-                .setDescription(msg)
-            defaultChannel.send(broadcastEmbed) //send it to whatever channel the bot has permissions to send on
-        })
     } else if (command == "mcstats") {
 
         client.commands.get("mcstats").execute(message, args);

@@ -11,7 +11,7 @@ module.exports = {
     if (!args[0]) return message.channel.send('Please specify a user');
 
     if (!User) return message.channel.send('User not found');
-    if (User.hasPermission("BAN_MEMBERS")) return message.reply("Can't kick user since their role is equal to or above mine")
+    if (User.hasPermission("BAN_MEMBERS")) return message.reply("Can't ban user since their role is equal to or above mine")
     let banReason = args.join(" ").slice(22);
     if (!banReason) {
       banReason = "No reason given";
