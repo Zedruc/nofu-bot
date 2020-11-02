@@ -10,12 +10,12 @@ module.exports = {
 
         let prefix = "%";
         let dec_uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
-        let uuid = [Base64.encode(dec_uuid)];
+        let uuid = Base64.encode(dec_uuid);
         let uuString = uuid[0];
         let user = message.member.displayName;
         let example_uuid = "MWMwMjExMTIxYjY0NDJhOTg5ZmZmMTZlZDAyNzJjZTM=";
 
-        if (uuid[0].length !== example_uuid.length) {
+        if (uuid.length !== example_uuid.length) {
             message.channel.send("Please use your uuid to register! (registering with name is currently in developement)");
             console.log("Invalid UUID");
             return;
