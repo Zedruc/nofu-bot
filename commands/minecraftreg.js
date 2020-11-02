@@ -11,7 +11,7 @@ module.exports = {
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
         let uuString = uuid[0];
-        let encodedUUID = Base64.encode(uuString);
+        let encodedUUID = [Base64.encode(uuString)];
         let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
 
@@ -51,7 +51,7 @@ module.exports = {
                 }
 
                 bodyString["counter"] = Object.keys(bodyString.regs).length;
-                bodyString["regs"][newReg] = encodedUUID;
+                bodyString["regs"][newReg] = encodedUUID[0];
 
                 console.log("--------------------------");
                 console.log(bodyString);
