@@ -38,13 +38,13 @@ module.exports = {
                 .setColor(9384170)
                 .addField("Utility commands :", "-----------------------------------------")
                 .addFields(
-                    { name: "__%help__", value: "`this`" },
-                    { name: "__%ping__", value: "`connection test to current server`" },
-                    { name: "__%uptime__", value: "`shows uptime and some information about the bot`" },
-                    { name: "__%password__", value: "`generates a safe pasword for you and sends it into your direct messages`" },
-                    { name: "__%convert__", value: "`provide a link and a file format to convert to and the bot will do the job! \n \`%convert <url> <file ext>\``" },
-                    { name: "__%findanime__", value: "`will show you information about the given anime // you can also do \`%findanime characters <name>\` to get a list of all characters in the given anime`" },
-                    { name: "__%findsongs <band / artist>__", value: "`will send you a list of all songs of the given band / artist in your direct messages`" }
+                    { name: "__%help__", value: "this`" },
+                    { name: "__%ping__", value: "connection test to current serve`" },
+                    { name: "__%uptime__", value: "shows uptime and some information about the bot" },
+                    { name: "__%password__", value: "generates a safe pasword for you and sends it into your direct messages" },
+                    { name: "__%convert__", value: "provide a link and a file format to convert to and the bot will do the job! \n `%convert <url> <file ext>`" },
+                    { name: "__%findanime__", value: "will show you information about the given anime // you can also do `%findanime characters <name>` to get a list of all characters in the given anime" },
+                    { name: "__%findsongs <band / artist>__", value: "will send you a list of all songs of the given band / artist in your direct messages" }
 
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
@@ -58,13 +58,13 @@ module.exports = {
                 .setColor(9384170)
                 .addField("Fun commands :", "-----------------------------------------")
                 .addFields(
-                    { name: "__%meme__", value: "`sends a random meme from r/meme`" },
-                    { name: "__%joke__", value: "`sends a completely random joke`" },
-                    { name: "__%mememan__", value: "`same as %meme just from r/mememan`" },
-                    { name: "__%punch @user__", value: "`a n g e r y`" },
-                    { name: "__%hug @user__", value: "`since the   W O R L D W I D E   E V E N T  is still a thing you can now hug others via discord :>`" },
-                    { name: "__%stare @user__", value: "`just in case someone posts   c r i n g e`" },
-                    { name: "__%cnf__", value: "random Chuck Norris fact`" }
+                    { name: "__%meme__", value: "sends a random meme from r/meme" },
+                    { name: "__%joke__", value: "sends a completely random joke" },
+                    { name: "__%mememan__", value: "same as %meme just from r/mememan" },
+                    { name: "__%punch @user__", value: "a n g e r y" },
+                    { name: "__%hug @user__", value: "since the   W O R L D W I D E   E V E N T  is still a thing you can now hug others via discord :>" },
+                    { name: "__%stare @user__", value: "just in case someone posts   c r i n g e" },
+                    { name: "__%cnf__", value: "random Chuck Norris fact" }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();
