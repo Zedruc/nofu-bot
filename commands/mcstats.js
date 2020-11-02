@@ -1,6 +1,7 @@
 const https = require('https');
 const Discord = require('discord.js');
 const { exitCode } = require('process');
+const { Base64 } = require('js-base64');
 
 module.exports = {
     name: 'mcstats',
@@ -20,7 +21,7 @@ module.exports = {
                 console.log(bodyString);
                 let sender = message.author.id;
                 let user = bodyString.regs[sender];
-                let UUID = user[0];
+                let UUID = Base64.decode(user[0]);
                 console.log(UUID);
                 if (user == null) {
                     message.reply("You first have to login to your account via uuid!\n`%mcregister <UUID>`");
