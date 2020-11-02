@@ -42,6 +42,7 @@ module.exports = {
                         let nOn /*number of names*/ = bodyString.length;
 
                         let nameHistory = [];
+                        let readableArr = nameHistory.join(" ");
 
                         let mcStatsEmbed = new Discord.MessageEmbed()
                             .setColor('#00ad00')
@@ -57,7 +58,6 @@ module.exports = {
                                 .addField(i !== 0 ? new Date(bodyString[i].changedToAt) : "Original name: ", bodyString[i].name, true);
                         }
                         console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
-                        let readableArr = nameHistory.join(" ");
                         message.channel.send(mcStatsEmbed);
                     });
                 });
