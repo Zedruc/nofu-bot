@@ -13,7 +13,7 @@ module.exports = {
         let uuid = [Base64.encode(dec_uuid)];
         let uuString = uuid[0];
         let user = message.member.displayName;
-        let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
+        let example_uuid = "MWMwMjExMTIxYjY0NDJhOTg5ZmZmMTZlZDAyNzJjZTM=";
 
         if (uuid[0].length !== example_uuid.length) {
             message.channel.send("Please use your uuid to register! (registering with name is currently in developement)");
