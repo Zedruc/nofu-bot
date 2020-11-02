@@ -1,7 +1,5 @@
 const { throws } = require("assert");
-const { put } = require("request")
-
-//https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5
+const { put } = require("request");
 module.exports = {
     name: "mcregister",
     description: "Register with your minecraft uuid with /mcregister <uuid>",
