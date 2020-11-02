@@ -47,11 +47,14 @@ module.exports = {
 
                 )
                 .setFooter("More will be made!");
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
         } else if (msgArgs[0] == "fun") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("Helpcenter >>")
                 .setColor(9384170)
-                .addField("Utility commands :", "-----------------------------------------")
+                .addField("Fun commands :", "-----------------------------------------")
                 .addFields(
                     { name: "__%meme__", value: "`sends a random meme from r/meme`" },
                     { name: "__%joke__", value: "`sends a completely random joke`" },
@@ -62,26 +65,35 @@ module.exports = {
                     { name: "__%cnf__", value: "random Chuck Norris fact`" }
                 )
                 .setFooter("More will be made!");
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
         } else if (msgArgs[0] == "mc") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("Helpcenter >>")
                 .setColor(9384170)
-                .addField("Utility commands :", "-----------------------------------------")
+                .addField("Minecraft related commands :", "-----------------------------------------")
                 .addFields(
                     { name: "__%mcregister <MC-UUID>__", value: "Register with your Minecraft UUID to use %mcstast" },
                     { name: "__%mcstats__", value: "yet it only lists your name history but more will be added :D" }
                 )
                 .setFooter("More will be made!");
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
         } else if (msgArgs[0] == "admin") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("Helpcenter >>")
                 .setColor(9384170)
-                .addField("Utility commands :", "-----------------------------------------")
+                .addField("Administrative commands :", "-----------------------------------------")
                 .addFields(
                     { name: "__%delete <2 - 100>__", value: "deletes the given amount of messages in the chat" },
                     { name: "__%ban @user__", value: "bans the given user" },
                 )
                 .setFooter("More will be made!");
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
         }
     }
 }
