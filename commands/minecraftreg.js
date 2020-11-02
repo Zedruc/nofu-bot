@@ -1,6 +1,5 @@
 const { throws } = require("assert");
 const { put } = require("request");
-var crypto = require("crypto-js");
 module.exports = {
     name: "mcregister",
     description: "Register with your minecraft uuid with /mcregister <uuid>",
@@ -9,11 +8,10 @@ module.exports = {
         const https = require('https');
 
         let prefix = "%";
-        let UnEnc_uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
-        let uuid = [crypto.SHA256(UnEnc_uuid)];
+        let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
         let uuString = uuid[0];
         let user = message.member.displayName;
-        let example_uuid = "b1fb748e605254f2f4cdc0eab68680bf11a436a433ba45acf60a06d6cac7ea49"; //encoded
+        let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
 
         if (uuid[0].length !== example_uuid.length) {
             message.channel.send("Please use your uuid to register! (registering with name is currently in developement)");
