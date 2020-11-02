@@ -203,6 +203,10 @@ client.on('message', message => {
 
         client.commands.get("mcstats").execute(message, args);
 
+    } else if (command == "admin") {
+
+        client.commands.get("admin").execute(message, args);
+
     }
 });
 
