@@ -5,6 +5,8 @@ module.exports = {
 
         if (message.guild === null) return;
 
+        let prefix = "%";
+
         let msgArgs = message.content.slice(prefix.length + 4).trim().split(/ +/);
 
         const Discord = require('discord.js');
