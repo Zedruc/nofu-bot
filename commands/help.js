@@ -27,7 +27,8 @@ module.exports = {
                     { name: "__Administrative__", value: "%help admin" }
 
                 )
-                .setFooter("More will be made!");
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
             message.channel.send(embed).catch(error => {
                 console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
             });
@@ -46,7 +47,8 @@ module.exports = {
                     { name: "__%findsongs <band / artist>__", value: "`will send you a list of all songs of the given band / artist in your direct messages`" }
 
                 )
-                .setFooter("More will be made!");
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
             message.channel.send(embed).catch(error => {
                 console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
             });
@@ -64,7 +66,8 @@ module.exports = {
                     { name: "__%stare @user__", value: "`just in case someone posts   c r i n g e`" },
                     { name: "__%cnf__", value: "random Chuck Norris fact`" }
                 )
-                .setFooter("More will be made!");
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
             message.channel.send(embed).catch(error => {
                 console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
             });
@@ -77,7 +80,8 @@ module.exports = {
                     { name: "__%mcregister <MC-UUID>__", value: "Register with your Minecraft UUID to use %mcstast" },
                     { name: "__%mcstats__", value: "yet it only lists your name history but more will be added :D" }
                 )
-                .setFooter("More will be made!");
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();;
             message.channel.send(embed).catch(error => {
                 console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
             });
@@ -90,7 +94,8 @@ module.exports = {
                     { name: "__%delete <2 - 100>__", value: "deletes the given amount of messages in the chat" },
                     { name: "__%ban @user__", value: "bans the given user" },
                 )
-                .setFooter("More will be made!");
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
             message.channel.send(embed).catch(error => {
                 console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
             });
