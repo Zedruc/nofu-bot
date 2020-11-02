@@ -15,7 +15,7 @@ module.exports = {
         let user = message.member.displayName;
         let example_uuid = "MWMwMjExMTIxYjY0NDJhOTg5ZmZmMTZlZDAyNzJjZTM=";
 
-        if (uuid.length !== example_uuid.length) {
+        if (uuid[0].length !== example_uuid.length) {
             message.channel.send("Please use your uuid to register! (registering with name is currently in developement)");
             console.log("Invalid UUID");
             return;
