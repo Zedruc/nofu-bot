@@ -51,7 +51,7 @@ module.exports = {
                 }
 
                 bodyString["counter"] = Object.keys(bodyString.regs).length;
-                bodyString["regs"][newReg] = encodedUUID[0];
+                bodyString["regs"][newReg] = encodedUUID;
 
                 console.log("--------------------------");
                 console.log(bodyString);
