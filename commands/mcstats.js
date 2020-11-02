@@ -55,7 +55,7 @@ module.exports = {
                             console.log(bodyString[i].name);
                             nameHistory.push(bodyString[i].name)
                             mcStatsEmbed
-                                .addField(i !== 0 ? new Date(bodyString[i].changedToAt) : "Original name: ", bodyString[i].name, true);
+                                .addField(i !== 0 ? "changed to at " + new Date(bodyString[i].changedToAt) + ":" : "Original name: ", bodyString[i].name);
                         }
                         console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
                         message.channel.send(mcStatsEmbed);
