@@ -1,5 +1,6 @@
 const { throws } = require("assert");
 const { put } = require("request");
+var crypto = require("crypto-js");
 module.exports = {
     name: "mcregister",
     description: "Register with your minecraft uuid with /mcregister <uuid>",
@@ -8,7 +9,8 @@ module.exports = {
         const https = require('https');
 
         let prefix = "%";
-        let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
+        let UnEnc_uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
+        let uuid = crypto.SHA256(UnEnc_uuid);
         let uuString = uuid[0];
         let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
