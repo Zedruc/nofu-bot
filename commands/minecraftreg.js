@@ -1,5 +1,6 @@
 const { throws } = require("assert");
 const { put } = require("request");
+const { Base64 } = require('js-base64');
 module.exports = {
     name: "mcregister",
     description: "Register with your minecraft uuid with /mcregister <uuid>",
@@ -10,6 +11,7 @@ module.exports = {
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
         let uuString = uuid[0];
+        let encodedUUID = Base64.encode(uuString);
         let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
 
@@ -35,9 +37,6 @@ module.exports = {
                     "regs": {}
                 }
 
-                let num = data.counter;
-                let nextUser = num++;
-
                 var newReg = message.author.id;
 
                 for (const [key, value] of Object.entries(bodyString.regs)) {
@@ -52,7 +51,7 @@ module.exports = {
                 }
 
                 bodyString["counter"] = Object.keys(bodyString.regs).length;
-                bodyString["regs"][newReg] = uuid;
+                bodyString["regs"][newReg] = encodedUUID;
 
                 console.log("--------------------------");
                 console.log(bodyString);
