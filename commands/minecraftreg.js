@@ -10,7 +10,7 @@ module.exports = {
 
         let prefix = "%";
         let UnEnc_uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
-        let uuid = crypto.SHA256(UnEnc_uuid);
+        let uuid = [crypto.SHA256(UnEnc_uuid)];
         let uuString = uuid[0];
         let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
