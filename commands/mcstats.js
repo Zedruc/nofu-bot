@@ -18,7 +18,7 @@ module.exports = {
             res.on('end', () => {
                 let bodyString = JSON.parse(body);
                 console.log(bodyString);
-                let sender = message.author.tag;
+                let sender = message.author.id;
                 let user = bodyString.regs[sender];
                 let UUID = user[0];
                 console.log(UUID);
