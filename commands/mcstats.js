@@ -47,7 +47,7 @@ module.exports = {
                         let mcStatsEmbed = new Discord.MessageEmbed()
                             .setColor('#00ad00')
                             .setTitle(message.member.displayName + "\'s Minecraft name history")
-                            .setAuthor(message.member.displayName, sender.displayAvatarURL, sender.displayAvatarURL)
+                            .setAuthor(message.member.displayName, message.author.displayAvatarURL, message.author.displayAvatarURL)
                             .setDescription(readableArr)
 
 
