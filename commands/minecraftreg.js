@@ -44,7 +44,7 @@ module.exports = {
                     console.log({ value, uuString });
                     console.log("-----------");
 
-                    if (value.includes(uuString)) {
+                    if (value.includes(encodedUUID)) {
                         message.reply("this UUID is already registered!");
                         return;
                     }
