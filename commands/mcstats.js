@@ -61,6 +61,7 @@ module.exports = {
                 }
                 console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
                 let readableArr = nameHistory.join(" ");
+                message.channel.send(mcStatsEmbed);
             });
         });
     }
