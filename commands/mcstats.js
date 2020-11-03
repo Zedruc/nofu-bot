@@ -24,7 +24,7 @@ module.exports = {
                 let user = bodyString.regs[sender];
                 let UUID = Base64.decode(user[0])
                 console.log(UUID);
-                if (user == null || UUID == null) {
+                if (!user) {
                     message.reply("You first have to login to your account via uuid!\n`%mcregister <UUID>`");
                     return;
                 }
