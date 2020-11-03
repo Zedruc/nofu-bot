@@ -1,6 +1,8 @@
 const https = require('https');
 const Discord = require('discord.js');
 const { exitCode } = require('process');
+const { Base64 } = require('js-base64');
+const { error } = require('console');
 
 module.exports = {
     name: 'mcstats',
@@ -18,50 +20,51 @@ module.exports = {
             res.on('end', () => {
                 let bodyString = JSON.parse(body);
                 console.log(bodyString);
-                let sender = message.author.tag;
+                let sender = message.author.id;
                 let user = bodyString.regs[sender];
-                let UUID = user[0];
+                let UUID = Base64.decode(user[0])
                 console.log(UUID);
-                if (user == null) {
+                if (user == null || UUID == null) {
                     message.reply("You first have to login to your account via uuid!\n`%mcregister <UUID>`");
                     return;
                 }
 
+                https.get('https://api.mojang.com/user/profiles/' + UUID + '/names', res => {
+                    let body = '';
+
+                    res.on('data', chunk => {
+                        body += chunk;
+
+                    });
+
+                    res.on('end', () => {
+                        let bodyString = JSON.parse(body);
+                        console.log(bodyString);
+                        console.log(bodyString[0].name);
+                        let nOn /*number of names*/ = bodyString.length;
+
+                        let nameHistory = [];
+                        let readableArr = nameHistory.join(" ");
+
+                        let mcStatsEmbed = new Discord.MessageEmbed()
+                            .setColor('#00ad00')
+                            .setTitle(message.member.displayName + "\'s Minecraft name history")
+                            .setAuthor(message.member.displayName, message.author.displayAvatarURL, message.author.displayAvatarURL)
+                            .setDescription(readableArr)
+
+
+                        for (let i = 0; i < bodyString.length; i++) {
+                            console.log(bodyString[i].name);
+                            nameHistory.push(bodyString[i].name)
+                            mcStatsEmbed
+                                .addField(i !== 0 ? "changed to at " + new Date(bodyString[i].changedToAt) + ":" : "Original name: ", bodyString[i].name);
+                        }
+                        console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
+                        message.channel.send(mcStatsEmbed);
+                    });
+                });
+
             })
-        });
-
-        https.get('https://api.mojang.com/user/profiles/' + UUID + '/names', res => {
-            let body = '';
-
-            res.on('data', chunk => {
-                body += chunk;
-
-            });
-
-            res.on('end', () => {
-                let bodyString = JSON.parse(body);
-                console.log(bodyString);
-                console.log(bodyString[0].name);
-                let nOn /*number of names*/ = bodyString.length;
-
-                let nameHistory = [];
-
-                let mcStatsEmbed = new Discord.MessageEmbed()
-                    .setColor('#00ad00')
-                    .setTitle(sender.name + "\'s Minecraft name history")
-                    .setAuthor(sender.displayName, sender.displayAvatarURL, sender.displayAvatarURL)
-                    .setDescription(readableArr)
-
-
-                for (let i = 0; i < bodyString.length; i++) {
-                    console.log(bodyString[i].name);
-                    nameHistory.push(bodyString[i].name)
-                    mcStatsEmbed
-                        .addField(i !== 0 ? new Date(bodyString[i].changedToAt) : "Original name: ", bodyString[i].name, true);
-                }
-                console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
-                let readableArr = nameHistory.join(" ");
-            });
         });
     }
 }

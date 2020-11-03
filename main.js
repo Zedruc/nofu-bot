@@ -25,16 +25,19 @@ client.on("ready", () => {
     client.user.setActivity('his master', { type: 'LISTENING' })
 
     //setInterval(() => {
-    //
-    //  let defaultChannel = "";
-    //  client.guilds.channels.cache.forEach((channel) => {
-    //      if (channel.type == "text" && defaultChannel == "") {
-    //          if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-    //                defaultChannel = channel;
-    //                defaultChannel.send("Don't forget to use `%idea` if you got an idea to improve the bot :D");
-    //         }
-    //        }
-    //    })
+
+    //client.guilds.cache.forEach((guild) => { //for each guild the bot is in
+    //    let defaultChannel = "";
+    //    const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
+    //    if (!channel) {
+    //        guild.channels.cache.forEach((channel) => {
+    //            if (channel.type == "text" && defaultChannel == "") {
+    //                if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+    //                    defaultChannel = channel;
+    //                }
+    //            }
+    //        });
+    //    }
     //}, 600000);
 
     http.get('http://worldtimeapi.org/api/timezone/Europe/Berlin',
@@ -80,8 +83,7 @@ client.on('message', message => {
 
     } else if (command === 'help') {
         message.react("⁉");
-        client.commands.get('help').execute(message, args);
-
+        client.commands.get('help').execute(message, args, client);
     } else if (command === 'delete') {
 
         client.commands.get('delete').execute(message, args);
@@ -177,28 +179,15 @@ client.on('message', message => {
 
     } else if (command == "broadcast") {
 
-        if (!message.author.id == "568729687291985930") {
-            return;
-        }
+        client.commands.get("broadcast").execute(message, args, client);
 
-        let rawArgs = args;
-        let argsString = rawArgs.toString();
-        let msg = argsString.replace(/,/g, " ");
-
-        client.guilds.cache.forEach((guild) => { //for each guild the bot is in
-            let defaultChannel = "";
-            guild.channels.cache.forEach((channel) => {
-                if (channel.type == "text" && defaultChannel == "") {
-                    if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-                        defaultChannel = channel;
-                    }
-                }
-            })
-            defaultChannel.send(msg) //send it to whatever channel the bot has permissions to send on
-        })
     } else if (command == "mcstats") {
 
         client.commands.get("mcstats").execute(message, args);
+
+    } else if (command == "admin") {
+
+        client.commands.get("admin").execute(message, args);
 
     }
 });

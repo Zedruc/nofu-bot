@@ -44,6 +44,11 @@ You can actually
 
   %slap <@user> :D 
 
+# The newest stuff
+People can now register their minecraft account with
+```%mcregister <Minecraft UUID>```
+After doing this you can do ```%mcstats``` to see infos about your account
+
 # Facts about the dev
 So, I'm german
 > What hopefully explains the partially bad english

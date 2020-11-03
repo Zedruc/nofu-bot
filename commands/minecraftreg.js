@@ -1,7 +1,6 @@
 const { throws } = require("assert");
-const { put } = require("request")
-
-//https://jsonblob.com/api/jsonBlob/deae33dc-1ac5-11eb-84f5-2120f48a02f5
+const { put } = require("request");
+const { Base64 } = require('js-base64');
 module.exports = {
     name: "mcregister",
     description: "Register with your minecraft uuid with /mcregister <uuid>",
@@ -11,6 +10,8 @@ module.exports = {
 
         let prefix = "%";
         let uuid = message.content.slice(prefix.length + 10).trim().split(/ +/);
+        let uuString = uuid[0];
+        let encodedUUID = [Base64.encode(uuString)];
         let user = message.member.displayName;
         let example_uuid = "1c0211121b6442a989fff16ed0272ce3";
 
@@ -36,25 +37,21 @@ module.exports = {
                     "regs": {}
                 }
 
-                let num = data.counter;
-                let nextUser = num++;
-
-                //for (let i = 0; i < 1; i++) {
                 var newReg = message.author.id;
-                //    bodyString["regs"][newReg] = uuid;
-                //}
 
-                Object.keys(bodyString).forEach(function (key) {
-                    if (bodyString["regs"] == newReg) {
-                        message.reply("Already logged in! Use %mcstats to see your stats (not available yet)");
-                        throws(err => {
-                            console.log(err);
-                        });
+                for (const [key, value] of Object.entries(bodyString.regs)) {
+                    console.log("-----------");
+                    console.log({ value, uuString });
+                    console.log("-----------");
+
+                    if (value.includes(encodedUUID[0])) {
+                        message.reply("this UUID is already registered!");
+                        return;
                     }
-                });
+                }
 
-                bodyString["counter"] = nextUser;
-                bodyString["regs"][newReg] = uuid;
+                bodyString["counter"] = Object.keys(bodyString.regs).length;
+                bodyString["regs"][newReg] = encodedUUID;
 
                 console.log("--------------------------");
                 console.log(bodyString);
@@ -68,7 +65,7 @@ module.exports = {
                     .then((data) => {
                         console.log(data);
                     })
-                    .then(message.reply("Succesfully logged in as " + message.author.tag + " with MC-UUID " + uuid))
+                    .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + uuString + "__"))
                     .catch((err) => console.log(err));
 
             });

@@ -1,42 +1,104 @@
 module.exports = {
     name: 'help',
     description: "Help Command",
-    execute(message, args) {
+    execute(message, args, client) {
 
         if (message.guild === null) return;
+
+        let prefix = "%";
+
+        let msgArgs = message.content.slice(prefix.length + 4).trim().split(/ +/);
 
         const Discord = require('discord.js');
         const server = message.guild.name;
 
         //Currently thinking of a way to separate the help command because its getting more and more
 
-        const embed = new Discord.MessageEmbed()
-            .setTitle("Helpcenter >>")
-            .setColor(9384170)
-            .addField("Commands :", "-----------------------------------------")
-            .addField("**%help**", "`that`", true)
-            .addField("**%meme**", "`sends a random meme` ", true)
-            .addField("**%ping**", "`Connectiontest to current server (" + server + ")`", true)
-            .addField("**%delete <number>**", "`deletes the provided amount of messages`", true)
-            .addField("**%uptime**", "`Shows bot stats `", true)
-            .addField("**%joke**", "`Sends a random joke`", true)
-            .addField("**%userinfo**", "`Shows info about pinged user / about you`")
-            .addField("**%mememan**", "`sends a random` " + "***mememan***" + "` meme`", true)
-            .addField("**%password**", "`generates a random password and sends it to you`", true)
-            .addField("**%convert**", "`Allows you to provide a direct link to an image and convert it to the given file type` \n\n example: %convert png https://cdn.discordapp.com/attachments/583683143895220226/761889131034574858/20201002_101811.jpg", true)
-            .addField("**%welcome**", "`If the user of the command is admin it toggles the welcoming message`", true)
-            .addField("**%findanime <name>**", "`Will show you some information about the given anime // or do \`%findanime characters <name>\` to get a list of the characters in the given anime`", true)
-            .addField("**%findsongs <band / artist name>**", "allows you to search up songs from the given band / artist \n will also give you a link to the artists itunes page", true)
-            .addField("**%punch @user**", "`b o n k`")
-            .addField("**%hug @user**", "`Hug someone :>`")
-            .addField("**%stare** @user", "Intense  s t a r i n g")
-            .addField("**%cnf**", "`C h u c k    N o r r i s    F a c t s`")
-            .addField("**%mcregister <Minecraft UUID>**", "`Register with your Minecraft uuid to unlock %mcstats`")
-            .addField("**%mcstats (Still broken because the JSON response starts with `[`  for whatever reason ?-?)**", "`Shows the players name history (for now)`")
-            .addField("**%devyt**", "`Shows live-information about my YouTube channel hehe :p (e.g. Is Live: false/true)`")
-            .setFooter("Also check out the bot\'s website:  https://Nofu-Bot.totnofu.repl.co")
-        message.channel.send(embed).catch(error => {
-            console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
-        });
+        if (!msgArgs[0]) {
+
+            const embed = new Discord.MessageEmbed()
+                .setTitle("Helpcenter >>")
+                .setColor(9384170)
+                .addField("Commands :", "-----------------------------------------")
+                .addFields(
+                    { name: "__Uitility commands__", value: "%help utility" },
+                    { name: "__Fun commands__", value: "%help fun" },
+                    { name: "__Minecraft related__", value: "%help mc" },
+                    { name: "__Administrative__", value: "%help admin" }
+
+                )
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
+        } else if (msgArgs[0] == "utility") {
+            const embed = new Discord.MessageEmbed()
+                .setTitle("Helpcenter >>")
+                .setColor(9384170)
+                .addField("Utility commands :", "-----------------------------------------")
+                .addFields(
+                    { name: "__%help__", value: "this`" },
+                    { name: "__%ping__", value: "connection test to current serve`" },
+                    { name: "__%uptime__", value: "shows uptime and some information about the bot" },
+                    { name: "__%password__", value: "generates a safe pasword for you and sends it into your direct messages" },
+                    { name: "__%convert__", value: "provide a link and a file format to convert to and the bot will do the job! \n `%convert <url> <file ext>`" },
+                    { name: "__%findanime__", value: "will show you information about the given anime // you can also do `%findanime characters <name>` to get a list of all characters in the given anime" },
+                    { name: "__%findsongs <band / artist>__", value: "will send you a list of all songs of the given band / artist in your direct messages" }
+
+                )
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
+        } else if (msgArgs[0] == "fun") {
+            const embed = new Discord.MessageEmbed()
+                .setTitle("Helpcenter >>")
+                .setColor(9384170)
+                .addField("Fun commands :", "-----------------------------------------")
+                .addFields(
+                    { name: "__%meme__", value: "sends a random meme from r/meme" },
+                    { name: "__%joke__", value: "sends a completely random joke" },
+                    { name: "__%mememan__", value: "same as %meme just from r/mememan" },
+                    { name: "__%punch @user__", value: "a n g e r y" },
+                    { name: "__%hug @user__", value: "since the   W O R L D W I D E   E V E N T  is still a thing you can now hug others via discord :>" },
+                    { name: "__%stare @user__", value: "just in case someone posts   c r i n g e" },
+                    { name: "__%cnf__", value: "random Chuck Norris fact" }
+                )
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
+        } else if (msgArgs[0] == "mc") {
+            const embed = new Discord.MessageEmbed()
+                .setTitle("Helpcenter >>")
+                .setColor(9384170)
+                .addField("Minecraft related commands :", "-----------------------------------------")
+                .addFields(
+                    { name: "__%mcregister <MC-UUID>__", value: "Register with your Minecraft UUID to use %mcstast" },
+                    { name: "__%mcstats__", value: "yet it only lists your name history but more will be added :D" }
+                )
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();;
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
+        } else if (msgArgs[0] == "admin") {
+            const embed = new Discord.MessageEmbed()
+                .setTitle("Helpcenter >>")
+                .setColor(9384170)
+                .addField("Administrative commands :", "-----------------------------------------")
+                .addFields(
+                    { name: "__%delete <2 - 100>__", value: "deletes the given amount of messages in the chat" },
+                    { name: "__%ban @user__", value: "bans the given user" },
+                )
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
+        }
     }
 }
