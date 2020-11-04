@@ -58,7 +58,7 @@ module.exports = {
                                 console.log({ value, uuString });
                                 console.log("-----------");
 
-                                if (value.includes(encodedUUID[0])) {
+                                if (value.includes(UUIDofName)) {
                                     message.reply("this UUID is already registered!");
                                     return;
                                 }
@@ -79,7 +79,7 @@ module.exports = {
                                 .then((data) => {
                                     console.log(data);
                                 })
-                                .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + uuString + "__"))
+                                .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + UUIDofName + "__"))
                                 .catch((err) => console.log(err));
 
                         });
