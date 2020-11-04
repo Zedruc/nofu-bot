@@ -33,7 +33,8 @@ module.exports = {
                     let bodyString = JSON.parse(body);
 
                     let UUIDofName = bodyString.id;
-                    let encUUID = Base64.encode(UUIDofName);
+                    console.log(UUIDofName);
+                    let encUUID = [Base64.encode(UUIDofName)];
 
                     https.get('https://jsonblob.com/api/jsonBlob/' + process.env.json_regs, res => {
                         let body = '';
@@ -46,7 +47,7 @@ module.exports = {
                             let bodyString = JSON.parse(body);
                             console.log(bodyString);
 
-                            let data = {
+                            let dataTemplate = {
                                 "counter": 0,
                                 "regs": {}
                             }
@@ -81,6 +82,7 @@ module.exports = {
                                 })
                                 .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + UUIDofName + "__"))
                                 .catch((err) => console.log(err));
+                            return;
 
                         });
 
