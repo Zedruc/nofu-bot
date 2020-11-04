@@ -21,13 +21,13 @@ module.exports = {
                 let bodyString = JSON.parse(body);
                 console.log(bodyString);
                 let sender = message.author.id;
-                let user = bodyString.regs[sender];
-                let UUID = Base64.decode(user[0])
-                console.log(UUID);
                 if (!(bodyString.regs.hasOwnProperty(sender))) {
                     message.reply("You first have to login to your account via uuid!\n`%mcregister <UUID>`");
                     return;
                 }
+                let user = bodyString.regs[sender];
+                let UUID = Base64.decode(user[0])
+                console.log(UUID);
 
                 https.get('https://api.mojang.com/user/profiles/' + UUID + '/names', res => {
                     let body = '';
