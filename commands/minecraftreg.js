@@ -80,7 +80,6 @@ module.exports = {
                                 .then((data) => {
                                     console.log(data);
                                 })
-                                .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + UUIDofName + "__"))
                                 .catch((err) => console.log(err));
                             return;
 
