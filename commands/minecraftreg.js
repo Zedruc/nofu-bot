@@ -80,6 +80,7 @@ module.exports = {
                                 .then((data) => {
                                     console.log(data);
                                 })
+                                .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + UUIDofName + "__"))
                                 .catch((err) => console.log(err));
                             return;
 
@@ -96,58 +97,59 @@ module.exports = {
             //message.channel.send("Please use your uuid to register! (registering with name is currently in developement)");
             //console.log("Invalid UUID");
             //return;
-        }
+        } else {
 
-        https.get('https://jsonblob.com/api/jsonBlob/' + process.env.json_regs, res => {
-            let body = '';
+            https.get('https://jsonblob.com/api/jsonBlob/' + process.env.json_regs, res => {
+                let body = '';
 
-            res.on('data', chunk => {
-                body += chunk;
-            });
+                res.on('data', chunk => {
+                    body += chunk;
+                });
 
-            res.on('end', () => {
-                let bodyString = JSON.parse(body);
-                console.log(bodyString);
+                res.on('end', () => {
+                    let bodyString = JSON.parse(body);
+                    console.log(bodyString);
 
-                let data = {
-                    "counter": 0,
-                    "regs": {}
-                }
-
-                var newReg = message.author.id;
-
-                for (const [key, value] of Object.entries(bodyString.regs)) {
-                    console.log("-----------");
-                    console.log({ value, uuString });
-                    console.log("-----------");
-
-                    if (value.includes(encodedUUID[0])) {
-                        message.reply("this UUID is already registered!");
-                        return;
+                    let data = {
+                        "counter": 0,
+                        "regs": {}
                     }
-                }
 
-                bodyString["counter"] = Object.keys(bodyString.regs).length;
-                bodyString["regs"][newReg] = encodedUUID;
+                    var newReg = message.author.id;
 
-                console.log("--------------------------");
-                console.log(bodyString);
+                    for (const [key, value] of Object.entries(bodyString.regs)) {
+                        console.log("-----------");
+                        console.log({ value, uuString });
+                        console.log("-----------");
 
-                fetch("https://jsonblob.com/api/jsonBlob/" + process.env.json_regs, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(bodyString),
-                })
-                    .then((res) => res.json())
-                    .then((data) => {
-                        console.log(data);
+                        if (value.includes(encodedUUID[0])) {
+                            message.reply("this UUID is already registered!");
+                            return;
+                        }
+                    }
+
+                    bodyString["counter"] = Object.keys(bodyString.regs).length;
+                    bodyString["regs"][newReg] = encodedUUID;
+
+                    console.log("--------------------------");
+                    console.log(bodyString);
+
+                    fetch("https://jsonblob.com/api/jsonBlob/" + process.env.json_regs, {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(bodyString),
                     })
-                    .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + uuString + "__"))
-                    .catch((err) => console.log(err));
+                        .then((res) => res.json())
+                        .then((data) => {
+                            console.log(data);
+                        })
+                        .then(message.reply("Succesfully logged in as __" + message.author.tag + "__ with MC-UUID __" + uuString + "__"))
+                        .catch((err) => console.log(err));
+
+                });
 
             });
-
-        });
+        }
 
     }
 }
