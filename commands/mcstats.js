@@ -22,7 +22,7 @@ module.exports = {
                 console.log(bodyString);
                 let sender = message.author.id;
                 if (!(bodyString.regs.hasOwnProperty(sender))) {
-                    message.reply("You first have to login to your account via uuid!\n`%mcregister <UUID>`");
+                    message.reply("You first have to login to your account via uuid or name!\n`%mcregister <UUID> or <name>`");
                     return;
                 }
                 let user = bodyString.regs[sender];

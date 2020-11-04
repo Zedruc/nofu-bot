@@ -3,7 +3,7 @@ const { put } = require("request");
 const { Base64 } = require('js-base64');
 module.exports = {
     name: "mcregister",
-    description: "Register with your minecraft uuid with /mcregister <uuid>",
+    description: "Register with your minecraft uuid with /mcregister <uuid> or <name>",
     execute(message, args) {
 
         //https://api.mojang.com/user/profile/agent/minecraft/name/<name>
