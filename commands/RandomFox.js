@@ -18,7 +18,7 @@ module.exports = {
                 let foxEmbed = new Discord.MessageEmbed()
                     .setTitle('**__F o x__**')
                     .setImage(bodyString.image)
-                    .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                    .setFooter("F l u f f y", client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp();
 
                 message.channel.send(foxEmbed);
