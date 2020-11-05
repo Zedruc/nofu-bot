@@ -74,7 +74,7 @@ client.on('message', message => {
     const command = args.shift().toLowerCase();
 
     if (command === 'ping') {
-
+        message.react("🏓");
         client.commands.get('ping').execute(message, args);
 
     } else if (command === "meme") {
@@ -82,9 +82,8 @@ client.on('message', message => {
         client.commands.get('meme').execute(message, args);
 
     } else if (command === 'help') {
-
+        message.react("⁉");
         client.commands.get('help').execute(message, args, client);
-
     } else if (command === 'delete') {
 
         client.commands.get('delete').execute(message, args);
@@ -102,7 +101,7 @@ client.on('message', message => {
         client.commands.get('joke').execute(message, args, client);
 
     } else if (command === 'uptime') {
-
+        message.react("🕰");
         let time = Date.now() - date_ob;
         let seconds = time / 1000;
         let hours = seconds / 3600;
