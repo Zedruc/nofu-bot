@@ -190,6 +190,10 @@ client.on('message', message => {
 
         client.commands.get("admin").execute(message, args);
 
+    } else if (command == "fox") {
+
+        client.commands.get("fox").execute(message, args, client);
+
     }
 });
 

@@ -81,7 +81,7 @@ module.exports = {
                     { name: "__%mcstats__", value: "yet it only lists your name history but more will be added :D" }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
-                .setTimestamp();;
+                .setTimestamp();
             message.channel.send(embed).catch(error => {
                 console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
             });
