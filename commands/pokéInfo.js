@@ -29,7 +29,7 @@ module.exports = {
                     .setTimestamp();
                 for (let i = 0; i < bodyString.abilities.length; i++) {
                     //All abilities, name, add a image from the pokémon
-                    pokéInfoEmbed.addField(`Ability ${i + 1}`, abilitypath[i].ability.name, true)
+                    pokéInfoEmbed.addField(`__Ability ${i + 1}__`, abilitypath[i].ability.name, true)
                     if (i++ > bodyString.abilities.length) {
                         break;
                     }
