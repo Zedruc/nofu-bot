@@ -27,6 +27,8 @@ module.exports = {
                     //All abilities, name, add a image from the pokémon
                     pokéInfoEmbed.addField(`Ability ${i}`, abilitypath[i].name)
                 }
+
+                message.channel.send(pokéInfoEmbed);
             });
         });
     }
