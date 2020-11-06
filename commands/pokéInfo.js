@@ -19,13 +19,15 @@ module.exports = {
 
             res.on('end', () => {
                 let bodyString = JSON.parse(body);
+                let id = bodyString.id;
                 let abilitypath = bodyString.abilities;
 
                 let pokéInfoEmbed = new Discord.MessageEmbed()
                     .setTitle("**__Pokédex__**")
+                    .setImage('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id + '.png')
                 for (let i = 0; i < bodyString.abilities.length; i++) {
                     //All abilities, name, add a image from the pokémon
-                    pokéInfoEmbed.addField(`Ability ${i + 1}`, abilitypath[i].ability.name)
+                    pokéInfoEmbed.addField(`Ability ${i + 1}`, abilitypath[i].ability.name, true)
                 }
 
                 message.channel.send(pokéInfoEmbed);
