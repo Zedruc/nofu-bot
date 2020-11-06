@@ -25,7 +25,7 @@ module.exports = {
                     .setTitle("**__Pokédex__**")
                 for (let i = 0; i < bodyString.abilities.length; i++) {
                     //All abilities, name, add a image from the pokémon
-                    pokéInfoEmbed.addField(`Ability ${i}`, abilitypath[i].name)
+                    pokéInfoEmbed.addField(`Ability ${i}`, abilitypath[i].ability.name)
                 }
 
                 message.channel.send(pokéInfoEmbed);
