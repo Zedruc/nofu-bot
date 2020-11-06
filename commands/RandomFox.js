@@ -17,6 +17,7 @@ module.exports = {
 
                 let foxEmbed = new Discord.MessageEmbed()
                     .setTitle('**__F o x__**')
+                    .setColor('#FF521D')
                     .setImage(bodyString.image)
                     .setFooter("F l u f f y", client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp();

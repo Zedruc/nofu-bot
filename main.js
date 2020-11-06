@@ -193,6 +193,10 @@ client.on('message', message => {
 
         client.commands.get("fox").execute(message, args, client);
 
+    } else if (command == "pokedex" || command == "pokédex") {
+
+        client.commands.get("pokedex").execute(message, args, client);
+
     }
 });
 
