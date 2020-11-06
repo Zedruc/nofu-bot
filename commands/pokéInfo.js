@@ -6,6 +6,8 @@ module.exports = {
     description: "Lists infos about the given pokémon",
     execute(message, args) {
 
+        let prefix = "%";
+
         let pokémonName = message.content.slice(prefix.length + 7).trim().split(/ +/);
 
         https.get('https://pokeapi.co/api/v2/pokemon/' + pokémonName, res => {
