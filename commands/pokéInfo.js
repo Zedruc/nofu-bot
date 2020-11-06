@@ -10,7 +10,7 @@ module.exports = {
 
         let pokémonName = message.content.slice(prefix.length + 7).trim().split(/ +/);
 
-        https.get('https://pokeapi.co/api/v2/pokemon/' + pokémonName, res => {
+        https.get('https://pokeapi.co/api/v2/pokemon/' + pokémonName.toLowerCase(), res => {
             let body = '';
 
             res.on('data', chunk => {
