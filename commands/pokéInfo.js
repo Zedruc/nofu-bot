@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 module.exports = {
     name: 'pokedex',
     description: "Lists infos about the given pokémon",
-    execute(message, args) {
+    execute(message, args, client) {
 
         let prefix = "%";
 
