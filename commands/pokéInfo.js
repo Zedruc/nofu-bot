@@ -30,11 +30,16 @@ module.exports = {
                 for (let i = 0; i < bodyString.abilities.length; i++) {
                     //All abilities, name, add a image from the pokémon
                     pokéInfoEmbed.addField(`Ability ${i + 1}`, abilitypath[i].ability.name, true)
+                    if (i++ == bodyString.abilities.length) {
+                        break;
+                    }
                 }
 
                 for (let i = 0; i < bodyString.forms.length; i++) {
                     pokéInfoEmbed.addField(`__Form ${i + 1}__`, bodyString.forms[i].name, true)
-
+                    if (i++ == bodyString.forms) {
+                        break;
+                    }
                 }
 
                 message.channel.send(pokéInfoEmbed);
