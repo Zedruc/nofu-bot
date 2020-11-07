@@ -19,6 +19,14 @@ module.exports = {
 
             res.on('end', () => {
                 let bodyString = JSON.parse(body);
+
+                if (bodyString == "Not Found") {
+                    let errorEmbed = new Discord.MessageEmbed()
+                        .setTitle("**__Oops__**")
+                        .setDescription("The pokémon you tried to searche for wasn't found :/")
+                        .setFooter("Sorry.", client.user.displayAvatarURL({ format: "png" }))
+                }
+
                 let id = bodyString.id;
                 let abilitypath = bodyString.abilities;
 
