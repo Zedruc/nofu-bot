@@ -18,15 +18,18 @@ module.exports = {
             });
 
             res.on('end', () => {
-                let bodyString = JSON.parse(body);
 
-                if (bodyString == "Not Found") {
+                if (body == "Not Found") {
+                    console.error("Error: Pokémon not found");
                     let errorEmbed = new Discord.MessageEmbed()
-                        .setTitle("**__Oops__**")
-                        .setDescription("The pokémon you tried to searche for wasn't found :/")
-                        .setFooter("Sorry.", client.user.displayAvatarURL({ format: "png" }))
+                        .setTitle("Pokémon not found")
+                        .setDescription("The Pokémon you searched for (" + pokémonName + ") was not found")
+                        .setFooter("Errorcode [404] NOT FOUND", client.user.displayAvatarURL({ format: "png" }))
+                        .setTimestamp()
                     return message.channel.send(errorEmbed);
                 }
+
+                let bodyString = JSON.parse(body);
 
                 let id = bodyString.id;
                 let abilitypath = bodyString.abilities;
