@@ -25,6 +25,7 @@ module.exports = {
                         .setTitle("**__Oops__**")
                         .setDescription("The pokémon you tried to searche for wasn't found :/")
                         .setFooter("Sorry.", client.user.displayAvatarURL({ format: "png" }))
+                    return message.channel.send(errorEmbed);
                 }
 
                 let id = bodyString.id;
