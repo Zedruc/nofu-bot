@@ -1,4 +1,4 @@
-const Discord = require('discord.js')
+const Discord = require('discord.js');
 
 module.exports = {
     name: 'broadcast',
@@ -23,11 +23,12 @@ module.exports = {
                         defaultChannel = channel;
                     }
                 }
-                let broadcastEmbed = new Discord.MessageEmbed()
-                    .setTitle("**__Broadcast__**")
-                    .setDescription(msg)
-                defaultChannel.send(broadcastEmbed)
             });
+
+            let broadcastEmbed = new Discord.MessageEmbed()
+                .setTitle("**__Broadcast__**")
+                .setDescription(msg)
+            defaultChannel.send(broadcastEmbed)
 
         });
     }
