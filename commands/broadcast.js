@@ -14,7 +14,7 @@ module.exports = {
         let msg = argsString.replace(/,/g, " ");
         //
 
-        client.guilds.forEach((guild) => { //for each guild the bot is in
+        client.guilds.cache.forEach((guild) => { //for each guild the bot is in
             let defaultChannel = "";
             guild.channels.forEach((channel) => {
                 if (channel.type == "text" && defaultChannel == "") {
