@@ -1,3 +1,5 @@
+const Discord = require('discord.js')
+
 module.exports = {
     name: 'broadcast',
     description: 'Sends message to every server the bot is in',
@@ -13,7 +15,7 @@ module.exports = {
 
         client.guilds.cache.forEach((guild) => { //for each guild the bot is in
             let defaultChannel = "";
-            const channel = message.member.guild.channels.cache.find(ch => ch.name === 'general');
+            const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
             if (!channel) {
                 guild.channels.cache.forEach((channel) => {
                     if (channel.type == "text" && defaultChannel == "") {
