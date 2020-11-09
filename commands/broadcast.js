@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'delete',
-    description: 'Deletes messages',
+    name: 'broadcast',
+    description: 'Sends message to every server the bot is in',
     execute(message, args, client) {
         if (!message.author.id == "568729687291985930") {
             return;
@@ -20,6 +20,10 @@ module.exports = {
                             defaultChannel = channel;
                         }
                     }
+                    let broadcastEmbed = new Discord.MessageEmbed()
+                        .setTitle("**__Broadcast__**")
+                        .setDescription(msg)
+                    defaultChannel.send(broadcastEmbed)
                 });
             } else {
                 let broadcastEmbed = new Discord.MessageEmbed()
@@ -27,10 +31,6 @@ module.exports = {
                     .setDescription(msg)
                 channel.send(broadcastEmbed)
             }
-            let broadcastEmbed = new Discord.MessageEmbed()
-                .setTitle("**__Broadcast__**")
-                .setDescription(msg)
-            defaultChannel.send(broadcastEmbed) //send it to whatever channel the bot has permissions to send on
         });
     }
 }
