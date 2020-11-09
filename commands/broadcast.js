@@ -56,7 +56,5 @@ module.exports = {
         catch (err) {
             console.log("Could not send message to a (few) guild(s)!");
         }
-    } else {
-        message.reply("You cant do that!")
     }
 }
