@@ -9,6 +9,7 @@ module.exports = {
         let rawArgs = args;
         let argsString = rawArgs.toString();
         let msg = argsString.replace(/,/g, " ");
+        //
 
         client.guilds.cache.forEach((guild) => { //for each guild the bot is in
             let defaultChannel = "";
