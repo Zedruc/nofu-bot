@@ -39,9 +39,9 @@ module.exports = {
                         serverEmbed.addField("__Online Players__", data.players.online + "\nMaximum: " + data.players.max)
                     }
 
-                    if (key.includes("version")) {
-                        serverEmbed.addField("__Server Version__", data.version)
-                    }
+                    //if (key.includes("version")) {
+                    //    serverEmbed.addField("__Server Version__", data.version)
+                    //}
                 }
                 message.channel.send(serverEmbed);
             });
