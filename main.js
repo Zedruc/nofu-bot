@@ -182,7 +182,7 @@ client.on('message', message => {
 
         client.commands.get("pokedex").execute(message, args, client);
 
-    } else if (command == "mcserverstatus" || command == "mcss") {
+    } else if (command == "mcss") {
 
         client.commands.get("mcserverstatus").execute(message, args, client);
 

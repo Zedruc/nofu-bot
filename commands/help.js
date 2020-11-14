@@ -80,7 +80,7 @@ module.exports = {
                 .addFields(
                     { name: "__%mcregister <MC-UUID>__", value: "Register with your Minecraft UUID to use %mcstast" },
                     { name: "__%mcstats__", value: "yet it only lists your name history but more will be added :D" },
-                    { name: "__%mcserverstatus // mcss <Server Address>__", value: "e.g. %serverstatus hypixel.net will show information about the Minecraft server hypixel.net" }
+                    { name: "__%mcss <Server Address>__", value: "e.g. %serverstatus hypixel.net will show information about the Minecraft server hypixel.net" }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();

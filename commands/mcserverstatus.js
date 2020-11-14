@@ -7,7 +7,7 @@ module.exports = {
     execute(message, args, client) {
         console.log("Is executed");
         const prefix = '%';
-        let serverAddress = message.content.slice(prefix.length + 12).trim().split(/ +/);
+        let serverAddress = message.content.slice(prefix.length + 4).trim().split(/ +/);
 
         https.get('https://api.mcsrvstat.us/2/' + serverAddress, (res) => {
             let body = '';
@@ -24,24 +24,24 @@ module.exports = {
                     .setFooter("MSS", client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp()
                 for (const [key, value] of Object.entries(data)) {
-                    //if (key.includes("ip")) {
-                    //    serverEmbed.addField('__IP__', data.ip)
-                    //}
+                    if (key.includes("ip")) {
+                        serverEmbed.addField('__IP__', data.ip)
+                    }
 
-                    //if (key.includes("motd")) {
-                    //    for (let i = 0; i < data.motd.clean.length; i++) {
-                    //        let element = data.motd.clean[i];
-                    //        serverEmbed.setDescription("__Server MOTD__ \n " + element)
-                    //    }
-                    //}
+                    if (key.includes("motd")) {
+                        for (let i = 0; i < data.motd.clean.length; i++) {
+                            let element = data.motd.clean[i];
+                            serverEmbed.setDescription("__Server MOTD__ \n " + element)
+                        }
+                    }
 
-                    //if (key.includes("players")) {
-                    //    serverEmbed.addField("__Online Players__", data.players.online + "\nMaximum: " + data.players.max)
-                    //}
+                    if (key.includes("players")) {
+                        serverEmbed.addField("__Online Players__", data.players.online + "\nMaximum: " + data.players.max)
+                    }
 
-                    //if (key.includes("version")) {
-                    //    serverEmbed.addField("__Server Version__", data.version)
-                    //}
+                    if (key.includes("version")) {
+                        serverEmbed.addField("__Server Version__", data.version)
+                    }
                 }
                 message.channel.send(serverEmbed);
             });
