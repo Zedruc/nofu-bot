@@ -1,4 +1,3 @@
-//https://api.mcsrvstat.us/2/<address>
 const https = require('https');
 const Discord = require('discord.js');
 
