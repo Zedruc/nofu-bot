@@ -33,7 +33,7 @@ module.exports = {
                         serverEmbed.addField("__MOTD__", "\u200b")
                         for (let i = 0; i < data.motd.length; i++) {
                             const element = data.modt[i];
-                            serverEmbed.addField("‏‏‎-", element)
+                            serverEmbed.addField(element, "\u200b")
                         }
                     }
 
