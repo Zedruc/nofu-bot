@@ -30,9 +30,9 @@ module.exports = {
                     }
 
                     if (key.includes("motd")) {
-                        serverEmbed.addField("__MOTD__", "\u200b")
                         for (let i = 0; i < data.motd.clean.length; i++) {
-                            serverEmbed.addField("\u200B", data.motd.clean[i])
+                            let element = data.motd.clean[i];
+                            serverEmbed.setDescription("__Server MOTD__ \n " + element)
                         }
                     }
 
