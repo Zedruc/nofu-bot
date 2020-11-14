@@ -32,7 +32,7 @@ module.exports = {
                     if (key.includes("motd")) {
                         serverEmbed.addField("__MOTD__", "\u200b")
                         for (let i = 0; i < data.motd.length; i++) {
-                            serverEmbed.addField(data.modt[i], "\u200b")
+                            serverEmbed.addField("-", data.motd[i])
                         }
                     }
 
