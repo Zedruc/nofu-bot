@@ -3,7 +3,7 @@ const https = require('https');
 const Discord = require('discord.js');
 
 module.exports = {
-    name: 'serverstatus',
+    name: 'mcserverstatus',
     description: 'Checks the Minecraft server status and gives information about the server',
     execute(message, args, client) {
         console.log("Is executed");
@@ -23,6 +23,7 @@ module.exports = {
                     .setTitle("__Minecraft Server Status | " + serverAddress + "__")
                     .setThumbnail('https://api.mcsrvstat.us/icon/' + serverAddress)
                     .setFooter("MSS", client.user.displayAvatarURL({ format: "png" }))
+                    .setTimestamp()
                 for (const [key, value] of Object.entries(data)) {
                     if (key.includes("ip")) {
                         serverEmbed.addField('__IP__', data.ip)
@@ -32,7 +33,7 @@ module.exports = {
                         serverEmbed.addField("__MOTD__", "\u200b")
                         for (let i = 0; i < data.motd.length; i++) {
                             const element = data.modt[i];
-                            serverEmbed.addField("\u200b", element)
+                            serverEmbed.addField(" ", element)
                         }
                     }
 
