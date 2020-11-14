@@ -37,7 +37,7 @@ module.exports = {
                     }
 
                     if (key.includes("players")) {
-                        serverEmbed.addField("__Online Players__", data.players.online + "\nMaximum: " + data.players.max)
+                        serverEmbed.addField("__Players__", "Online: " + data.players.online + "\nMaximum: " + data.players.max)
                     }
 
                     if (key.includes("version")) {
