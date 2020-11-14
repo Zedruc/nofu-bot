@@ -39,21 +39,6 @@ client.on("ready", () => {
     //        });
     //    }
     //}, 600000);
-
-    http.get('http://worldtimeapi.org/api/timezone/Europe/Berlin',
-        res => {
-
-            let data = '';
-
-            res.on('data', chunk => {
-                data += chunk;
-            })
-
-            res.on('end', () => {
-                let answer = JSON.parse(data);
-                console.info("Gestartet um: " + answer.datetime + "// Zeitzone: Europe/Berlin");
-            })
-        });
 });
 
 client.on('guildDelete', guild => {
