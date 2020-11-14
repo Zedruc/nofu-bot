@@ -28,6 +28,10 @@ module.exports = {
                         serverEmbed.addField('__IP__', data.ip)
                     }
 
+                    if (key.includes("online")) {
+                        serverEmbed.addField("__Status__", data.online == true ? "Online" : "Offline")
+                    }
+
                     if (key.includes("motd")) {
                         let lines = [];
                         for (let i = 0; i < data.motd.clean.length; i++) {
