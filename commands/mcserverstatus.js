@@ -28,12 +28,12 @@ module.exports = {
                         serverEmbed.addField('__IP__', data.ip)
                     }
 
-                    if (key.includes("motd")) {
-                        for (let i = 0; i < data.motd.clean.length; i++) {
-                            let element = data.motd.clean[i];
-                            serverEmbed.setDescription("__Server MOTD__ \n " + element)
-                        }
-                    }
+                    //if (key.includes("motd")) {
+                    //    for (let i = 0; i < data.motd.clean.length; i++) {
+                    //        let element = data.motd.clean[i];
+                    //        serverEmbed.setDescription("__Server MOTD__ \n " + element)
+                    //    }
+                    //}
 
                     //if (key.includes("players")) {
                     //    serverEmbed.addField("__Online Players__", data.players.online + "\nMaximum: " + data.players.max)
