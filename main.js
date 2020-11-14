@@ -197,7 +197,7 @@ client.on('message', message => {
 
         client.commands.get("pokedex").execute(message, args, client);
 
-    } else if (command = "serverstatus") {
+    } else if (command == "serverstatus") {
 
         client.commands.get("serverstatus").execute(message, args, client);
 
