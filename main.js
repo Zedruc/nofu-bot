@@ -199,7 +199,7 @@ client.on('message', message => {
 
     } else if (command == "mcserverstatus" || command == "mcss") {
 
-        client.commands.get("serverstatus").execute(message, args, client);
+        client.commands.get("mcserverstatus").execute(message, args, client);
 
     }
 });
