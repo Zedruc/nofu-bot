@@ -29,11 +29,11 @@ module.exports = {
                     }
 
                     if (key.includes("motd")) {
-                        serverEmbed.addField("__MOTD__", "\u200b")
+                        let lines = [];
                         for (let i = 0; i < data.motd.clean.length; i++) {
-                            let element = data.motd.clean[i];
-                            serverEmbed.addField("‎", element)
+                            lines.push(data.motd.clean[i])
                         }
+                        serverEmbed.addField("__MOTD__", lines.join("\n"))
                     }
 
                     if (key.includes("players")) {
