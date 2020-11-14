@@ -24,9 +24,9 @@ module.exports = {
                     .setFooter("MSS", client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp()
                 for (const [key, value] of Object.entries(data)) {
-                    if (key.includes("ip")) {
-                        serverEmbed.addField('__IP__', data.ip)
-                    }
+                    //if (key.includes("ip")) {
+                    //    serverEmbed.addField('__IP__', data.ip)
+                    //}
 
                     //if (key.includes("motd")) {
                     //    for (let i = 0; i < data.motd.clean.length; i++) {
