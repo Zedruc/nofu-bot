@@ -6,6 +6,7 @@ module.exports = {
     name: 'serverstatus',
     description: 'Checks the Minecraft server status and gives information about the server',
     execute(message, args, client) {
+        console.log("Is executed");
         const prefix = '%';
         let serverAddress = message.content.slice(prefix.length + 12).trim().split(/ +/);
 
