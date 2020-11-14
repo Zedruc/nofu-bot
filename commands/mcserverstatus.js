@@ -35,9 +35,9 @@ module.exports = {
                         }
                     }
 
-                    if (key.includes("players")) {
-                        serverEmbed.addField("__Online Players__", data.players.online + "\nMaximum: " + data.players.max)
-                    }
+                    //if (key.includes("players")) {
+                    //    serverEmbed.addField("__Online Players__", data.players.online + "\nMaximum: " + data.players.max)
+                    //}
 
                     //if (key.includes("version")) {
                     //    serverEmbed.addField("__Server Version__", data.version)
