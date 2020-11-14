@@ -32,8 +32,7 @@ module.exports = {
                     if (key.includes("motd")) {
                         serverEmbed.addField("__MOTD__", "\u200b")
                         for (let i = 0; i < data.motd.length; i++) {
-                            const element = data.modt[i];
-                            serverEmbed.addField(element, "\u200b")
+                            serverEmbed.addField(data.modt[i], "\u200b")
                         }
                     }
 
