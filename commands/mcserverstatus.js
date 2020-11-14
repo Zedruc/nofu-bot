@@ -29,9 +29,9 @@ module.exports = {
                     }
 
                     if (key.includes("motd")) {
-                        for (let i = -1; i < data.motd.clean.length; i++) {
+                        for (let i = 0; i < data.motd.clean.length; i++) {
                             let element = data.motd.clean[i];
-                            serverEmbed.setDescription("__Server MOTD__ \n " + element)
+                            serverEmbed.addField("\u200b", element)
                         }
                     }
 
