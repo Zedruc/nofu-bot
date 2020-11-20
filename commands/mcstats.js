@@ -61,6 +61,7 @@ module.exports = {
                         }
                         console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
                         mcStatsEmbed.setThumbnail('https://mineskin.de/helm/' + nameHistory[0] + '/100.png');
+                        console.log(nameHistory[0]);
                         message.channel.send(mcStatsEmbed);
                     });
                 });
