@@ -41,7 +41,6 @@ module.exports = {
                         let bodyString = JSON.parse(body);
                         console.log(bodyString);
                         console.log(bodyString[0].name);
-                        let nOn /*number of names*/ = bodyString.length;
 
                         let nameHistory = [];
                         let readableArr = nameHistory.join(" ");
@@ -59,8 +58,10 @@ module.exports = {
                             mcStatsEmbed
                                 .addField(i !== 0 ? "changed to at " + new Date(bodyString[i].changedToAt) + ":" : "Original name: ", bodyString[i].name);
                         }
-                        console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
-                        mcStatsEmbed.setThumbnail('https://mineskin.de/helm/' + nameHistory[0] + '/100.png');
+
+                        let lastName = nameHistory.length - 1;
+
+                        mcStatsEmbed.setThumbnail('https://mineskin.de/helm/' + nameHistory[lastName] + '/100.png');
                         console.log(nameHistory[0]);
                         message.channel.send(mcStatsEmbed);
                     });
