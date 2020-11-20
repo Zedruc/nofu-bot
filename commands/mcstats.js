@@ -48,6 +48,7 @@ module.exports = {
 
                         let mcStatsEmbed = new Discord.MessageEmbed()
                             .setColor('#00ad00')
+                            .setThumbnail('https://crafatar.com/avatars/' + UUID)
                             .setTitle(message.member.displayName + "\'s Minecraft name history")
                             .setAuthor(message.member.displayName, message.author.displayAvatarURL, message.author.displayAvatarURL)
                             .setDescription(readableArr)
