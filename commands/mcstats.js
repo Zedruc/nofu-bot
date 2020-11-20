@@ -48,7 +48,6 @@ module.exports = {
 
                         let mcStatsEmbed = new Discord.MessageEmbed()
                             .setColor('#00ad00')
-                            .setThumbnail('https://crafatar.com/avatars/' + UUID)
                             .setTitle(message.member.displayName + "\'s Minecraft name history")
                             .setAuthor(message.member.displayName, message.author.displayAvatarURL, message.author.displayAvatarURL)
                             .setDescription(readableArr)
@@ -59,6 +58,11 @@ module.exports = {
                             nameHistory.push(bodyString[i].name)
                             mcStatsEmbed
                                 .addField(i !== 0 ? "changed to at " + new Date(bodyString[i].changedToAt) + ":" : "Original name: ", bodyString[i].name);
+                            if (i !== 0) {
+                                console.log("Not Original name");
+                            } else {
+                                mcStatsEmbed.setThumbnail('https://mineskin.de/helm/fakeyt/100.png');
+                            }
                         }
                         console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
                         message.channel.send(mcStatsEmbed);
