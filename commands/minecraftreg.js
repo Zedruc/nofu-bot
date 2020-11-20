@@ -122,8 +122,8 @@ module.exports = {
                         console.log({ value, uuString });
                         console.log("-----------");
 
-                        if (value.includes(encodedUUID[0])) {
-                            message.reply("this UUID is already registered!");
+                        if (value.includes(encodedUUID[0]) || key.includes(message.author.id)) {
+                            message.reply("this account is already registered!");
                             return;
                         }
                     }
