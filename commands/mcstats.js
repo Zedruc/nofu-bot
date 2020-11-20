@@ -61,7 +61,7 @@ module.exports = {
                             if (i !== 0) {
                                 console.log("Not Original name");
                             } else {
-                                mcStatsEmbed.setThumbnail('https://mineskin.de/helm/fakeyt/100.png');
+                                mcStatsEmbed.setThumbnail('https://mineskin.de/helm/' + bodyString[i].name + '/100.png');
                             }
                         }
                         console.log("Minecraft name history of " + message.member.displayName + "\n" + nameHistory);
