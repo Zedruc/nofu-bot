@@ -186,6 +186,10 @@ client.on('message', message => {
 
         client.commands.get("mcserverstatus").execute(message, args, client);
 
+    } else if (command == "mcsearch") {
+
+        client.commands.get("mcsearch").execute(message, args, client);
+
     }
 });
 
