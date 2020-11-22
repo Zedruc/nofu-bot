@@ -27,6 +27,7 @@ module.exports = {
                     answerEmbed.setFooter("404", client.user.displayAvatarURL({ format: "png" }))
                     message.channel.send(answerEmbed);
                 } else if (body.length !== 0) {
+                    let bodyString = JSON.parse(body);
                     answerEmbed
                         .setTitle("Profile found")
                         .setColor("#008000")
