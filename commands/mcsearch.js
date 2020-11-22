@@ -21,10 +21,10 @@ module.exports = {
                 let answerEmbed = new Discord.MessageEmbed()
 
                 if (body.length == 0) {
-                    answerEmbed.setTitle("__Profile not found [404 NOT FOUND]__")
+                    answerEmbed.setTitle("__Profile not found__")
                     answerEmbed.setColor("#FF0000")
                     answerEmbed.setDescription("Nothing here :(")
-                    answerEmbed.setFooter("404", client.user.displayAvatarURL({ format: "png" }))
+                    answerEmbed.setFooter("404 Not Found", client.user.displayAvatarURL({ format: "png" }))
                     message.channel.send(answerEmbed);
                 } else if (body.length !== 0) {
                     let bodyString = JSON.parse(body);
