@@ -22,7 +22,7 @@ module.exports = {
 
                 let answerEmbed = new Discord.MessageEmbed()
 
-                if (bodyString.length == 0) {
+                if (bodyString.length == 11) {
                     answerEmbed.setTitle("__Profile not found [404 NOT FOUND]__")
                     answerEmbed.setColor("#FF0000")
                     answerEmbed.setDescription("Nothing here :(")
