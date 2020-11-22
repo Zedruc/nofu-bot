@@ -18,17 +18,15 @@ module.exports = {
             });
 
             res.on('end', () => {
-                let bodyString = JSON.parse(body);
-
                 let answerEmbed = new Discord.MessageEmbed()
 
-                if (bodyString.length == 11) {
+                if (body.length == 0) {
                     answerEmbed.setTitle("__Profile not found [404 NOT FOUND]__")
                     answerEmbed.setColor("#FF0000")
                     answerEmbed.setDescription("Nothing here :(")
                     answerEmbed.setFooter("404", client.user.displayAvatarURL({ format: "png" }))
                     message.channel.send(answerEmbed);
-                } else {
+                } else if (body.length !== 0) {
                     answerEmbed
                         .setTitle("Profile found")
                         .setColor("#008000")
