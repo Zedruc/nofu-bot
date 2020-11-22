@@ -24,14 +24,14 @@ module.exports = {
 
                 if (bodyString.length == 0) {
                     answerEmbed.setTitle("__Profile not found [404 NOT FOUND]__")
-                    answerEmbed.setColor("red")
+                    answerEmbed.setColor("#FF0000")
                     answerEmbed.setDescription("Nothing here :(")
                     answerEmbed.setFooter("404", client.user.displayAvatarURL({ format: "png" }))
                     message.channel.send(answerEmbed);
                 } else {
                     answerEmbed
                         .setTitle("Profile found")
-                        .setColor("green")
+                        .setColor("#008000")
                         .setThumbnail(`https://crafatar.com/avatars/${bodyString.id}`)
                         .setDescription(`__ID__: ${bodyString.id}`)
                         .setFooter("Success!", client.user.displayAvatarURL({ format: "png" }))
