@@ -10,7 +10,7 @@ module.exports = {
         let infoEmbed = new Discord.MessageEmbed()
             .setColor(9384170)
             .setTitle("*__Server Info__*")
-            .setImage(message.guild.iconURL)
+            .setImage(message.guild.iconURL())
             .setDescription(`Information about ${message.guild}`)
             .addField("**Owner**: ", `The owner of this server is ${message.guild.owner}`)
             .addField("**Member Count**: ", ` ${message.guild.memberCount} members`)
