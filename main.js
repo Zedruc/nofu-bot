@@ -190,6 +190,10 @@ client.on('message', message => {
 
         client.commands.get("mcsearch").execute(message, args, client);
 
+    } else if (command == "doggo") {
+
+        client.commands.get("doggo").execute(message, args, client);
+
     }
 });
 

@@ -65,7 +65,8 @@ module.exports = {
                     { name: "__%hug @user__", value: "since the   W O R L D W I D E   E V E N T  is still a thing you can now hug others via discord :>" },
                     { name: "__%stare @user__", value: "just in case someone posts   c r i n g e" },
                     { name: "__%cnf__", value: "random Chuck Norris fact" },
-                    { name: "__%fox__", value: "sends fox images :D" }
+                    { name: "__%fox__", value: "sends fox images :D" },
+                    { name: "__%doggo__", value: "sends images of doggos :)" }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();
