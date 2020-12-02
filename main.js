@@ -194,6 +194,10 @@ client.on('message', message => {
 
         client.commands.get("doggo").execute(message, args, client);
 
+    } else if (command == "cat") {
+
+        client.commands.get("cat").execute(message, args, client);
+
     }
 });
 
