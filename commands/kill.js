@@ -35,14 +35,14 @@ module.exports = {
           if (taggedUser) {
 
             if (taggedUser == message.author.id) {
-              return message.channel.send("You must be lonely huh")
+              return message.channel.send("... ;-;")
             } else if (taggedUser == 760905298990202901) {
-              return message.reply("NO NO NO NO");
+              return message.reply("Nice try");
             }
 
           }
           let killEmbed = {
-            title: `${message.member.displayName} killed ${taggedUser ? taggedUser.username : msgArgs[1]}!`,
+            title: `${message.member.displayName} killed ${taggedUser ? taggedUser.username : msgArgs.join(" ")}!`,
             image: { url: gifUrl },
             color: "#9E1A1A",
             footer: {
