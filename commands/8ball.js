@@ -21,7 +21,7 @@ module.exports = {
 
         let embed = new Discord.MessageEmbed()
             .setTitle(":8ball:")
-            .addField("__:question: Question__", question)
+            .addField("__:question: Question__", question.join(" "))
             .addField("__:white_check_mark: Answer__", answers[answer_index]);
 
         message.channel.send(embed);
