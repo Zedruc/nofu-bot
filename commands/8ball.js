@@ -6,7 +6,7 @@ module.exports = {
     description: "Ask 8ball some questions",
     execute(message, args, client) {
         if (talkedRecently.has(message.author.id)) {
-            message.channel.send(":mute: Wait a bit before using this again. - " + "<@" + message.author + ">");
+            return message.channel.send(":mute: Wait a bit before using this again. - " + "<@" + message.author + ">");
             // Adds the user to the set so that they can't talk for a bit
         }
         const answers = [
