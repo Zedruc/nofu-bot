@@ -11,10 +11,11 @@ module.exports = {
             "Sure why not",
             "Why though",
             "Yesn't",
-            "Non't"
+            "Non't",
+            "nerd"
         ];
 
-        const question = message.content.slice(6).split(" ");
+        const question = message.content.slice(6).split(/ +/);
 
         const answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
 
