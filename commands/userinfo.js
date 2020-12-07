@@ -19,18 +19,18 @@ module.exports = {
   name: 'userinfo',
   description: 'Shows infos about you/the tagged user',
   execute(message, args, client) {
-    
+
     if (message.guild === null) return;
-    
+
     let user = message.mentions.users.first();
     if (!user) user = message.author;
     const userFlags = user.flags.toArray();
-    
+
     user.fetch();
     let embed = {
       title: `What do we know about ${user.username}?`,
-      thumbnail: {"url" : user.displayAvatarURL({format: "png"})},
-      fields:[
+      thumbnail: { "url": user.displayAvatarURL({ format: "png" }) },
+      fields: [
         {
           name: "Satus",
           value: user.presence.status,
@@ -57,9 +57,9 @@ module.exports = {
           inline: false
         }
       ],
-      footer:{
+      footer: {
         text: client.user.username,
-        icon_url: client.user.displayAvatarURL({format: "png"}),
+        icon_url: client.user.displayAvatarURL({ format: "png" }),
       },
       timestamp: (new Date()).toISOString()
     };

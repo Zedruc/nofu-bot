@@ -198,6 +198,10 @@ client.on('message', message => {
 
         client.commands.get("cat").execute(message, args, client);
 
+    } else if (command == "8ball") {
+
+        client.commands.get("8ball").execute(message, args, client);
+
     }
 });
 
