@@ -14,7 +14,6 @@ module.exports = {
             "Lol, **no**",
             "Yeah, idc",
             "Sure why not",
-            "Why though",
             "Yesn't",
             "Non't",
             "nerd"
