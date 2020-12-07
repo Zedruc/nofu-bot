@@ -1,9 +1,14 @@
 const Discord = require('discord.js');
+const talkedRecently = new Set();
 
 module.exports = {
     name: "8ball",
     description: "Ask 8ball some questions",
     execute(message, args, client) {
+        if (talkedRecently.has(message.author.id)) {
+            message.channel.send(":mute: Wait a bit before using this again. - " + "<@" + message.author + ">");
+            // Adds the user to the set so that they can't talk for a bit
+        }
         const answers = [
             "***Yes***",
             "Lol, **no**",
@@ -25,5 +30,11 @@ module.exports = {
             .addField("__:white_check_mark: Answer__", answers[answer_index]);
 
         message.channel.send(embed);
+
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+            // Removes the user from the set after a minute
+            talkedRecently.delete(message.author.id);
+        }, 8000); // <- That's not a minute lmao
     }
 }
