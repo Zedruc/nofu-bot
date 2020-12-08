@@ -16,7 +16,9 @@ module.exports = {
             "Sure why not",
             "Yesn't",
             "Non't",
-            "nerd"
+            "nerd",
+            "maybe, idk",
+            "8ball is currently on vacation, come back later..."
         ];
 
         const question = message.content.slice(6).split(/ +/);
