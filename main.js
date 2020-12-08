@@ -202,6 +202,10 @@ client.on('message', message => {
 
         client.commands.get("8ball").execute(message, args, client);
 
+    } else if (command == "stundenplan" || command == "stundnplan" || command == "sp") {
+
+        client.commands.get("stundenplan").execute(message, args, client);
+
     }
 });
 
