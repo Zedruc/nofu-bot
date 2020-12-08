@@ -16,14 +16,14 @@ module.exports = {
                 .setTitle("**__Stundenplan / Montag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/monday.png")
                 .addFields(
-                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Mathe" },
-                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch" },
-                    { name: "__9:30 - 9:45 / Erste Pause", value: "---------" },
-                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Deutsch" },
-                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Deutsch" },
-                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------" },
-                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Geographie" },
-                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Französisch" }
+                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Mathe", inline: true },
+                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch", inline: true },
+                    { name: "__9:30 - 9:45 / Erste Pause__", value: "---------", inline: true },
+                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Deutsch", inline: true },
+                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Deutsch", inline: true },
+                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------", inline: true },
+                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Geographie", inline: true },
+                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Französisch", inline: true }
                 )
                 .setColor("#800080")
 
@@ -33,14 +33,14 @@ module.exports = {
                 .setTitle("**__Stundenplan / Dienstag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/tuesday.png")
                 .addFields(
-                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Religion" },
-                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch" },
-                    { name: "__9:30 - 9:45 / Erste Pause", value: "---------" },
-                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Geschichte" },
-                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Physik" },
-                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------" },
-                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Biologie" },
-                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "IT" }
+                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Religion", inline: true },
+                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch", inline: true },
+                    { name: "__9:30 - 9:45 / Erste Pause__", value: "---------", inline: true },
+                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Geschichte", inline: true },
+                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Physik", inline: true },
+                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------", inline: true },
+                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Biologie", inline: true },
+                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "IT", inline: true }
                 )
                 .setColor("#800080")
 
@@ -50,14 +50,14 @@ module.exports = {
                 .setTitle("**__Stundenplan / Mittwoch__**")
                 .setThumbnail("https://img.icons8.com/ios/452/wednesday.png")
                 .addFields(
-                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Sport" },
-                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Sport" },
-                    { name: "__9:30 - 9:45 / Erste Pause", value: "---------" },
-                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Mathe" },
-                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Französisch" },
-                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------" },
-                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Deutsch" },
-                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Deutsch" }
+                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Sport", inline: true },
+                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Sport", inline: true },
+                    { name: "__9:30 - 9:45 / Erste Pause__", value: "---------", inline: true },
+                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Mathe", inline: true },
+                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Französisch", inline: true },
+                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------", inline: true },
+                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Deutsch", inline: true },
+                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Deutsch", inline: true }
                 )
                 .setColor("#800080")
 
@@ -67,14 +67,14 @@ module.exports = {
                 .setTitle("**__Stundenplan / Donnerstag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/thursday.png")
                 .addFields(
-                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "BWR" },
-                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch" },
-                    { name: "__9:30 - 9:45 / Erste Pause", value: "---------" },
-                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Biologie" },
-                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Geographie" },
-                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------" },
-                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Religion" },
-                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Mathe" }
+                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "BWR", inline: true },
+                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch", inline: true },
+                    { name: "__9:30 - 9:45 / Erste Pause__", value: "---------", inline: true },
+                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Biologie", inline: true },
+                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Geographie", inline: true },
+                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------", inline: true },
+                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "Religion", inline: true },
+                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Mathe", inline: true }
                 )
                 .setColor("#800080")
 
@@ -84,14 +84,14 @@ module.exports = {
                 .setTitle("**__Stundenplan / Freitag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/friday.png")
                 .addFields(
-                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Französisch" },
-                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "IT" },
-                    { name: "__9:30 - 9:45 / Erste Pause", value: "---------" },
-                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Geschichte" },
-                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Physik" },
-                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------" },
-                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "BWR" },
-                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Englisch" }
+                    { name: "__8:00 - 8:45 / 1. Stunde__", value: "Französisch", inline: true },
+                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "IT", inline: true },
+                    { name: "__9:30 - 9:45 / Erste Pause__", value: "---------", inline: true },
+                    { name: "__9:45 - 10:30 / 3. Stunde__", value: "Geschichte", inline: true },
+                    { name: "__10:30 - 11:15 / 4. Stunde__", value: "Physik", inline: true },
+                    { name: "__11:15 - 11:30 / Zweite Pause__", value: "---------", inline: true },
+                    { name: "__11:30 - 12:15 / 5. Stunde__", value: "BWR", inline: true },
+                    { name: "__12:15 - 13:00 / 6. Stunde__", value: "Englisch", inline: true }
                 )
                 .setColor("#800080")
 
