@@ -17,7 +17,7 @@ module.exports = {
                 .setThumbnail("https://img.icons8.com/ios/452/monday.png")
                 .addFields(
                     { name: "__8:00 - 8:45 / 1. Stunde__", value: "Mathe", inline: true },
-                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch", inline: true }
+                    { name: "__8:45 - 9:30 / 2. Stunde__", value: "Englisch", inline: true },
                     { name: "__9:30 - 9:45 / Erste Pause__", value: "---------" },
                     { name: "__9:45 - 10:30 / 3. Stunde__", value: "Deutsch", inline: true },
                     { name: "__10:30 - 11:15 / 4. Stunde__", value: "Deutsch", inline: true },
