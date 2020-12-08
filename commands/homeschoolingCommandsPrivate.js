@@ -7,7 +7,6 @@ module.exports = {
     description: "Stundenplan [german for timetable]",
     execute(message, args, client) {
         const arguments = message.content.slice(1).split(/ +/);
-        console.log(arguments);
 
         if (!arguments[1]) return message.reply("Gib einen Wochentag an");
 
