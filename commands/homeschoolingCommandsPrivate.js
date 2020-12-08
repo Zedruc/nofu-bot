@@ -9,9 +9,9 @@ module.exports = {
         const arguments = message.content.slice(1).split(/ +/);
         console.log(arguments);
 
-        if (!arguments[2]) return message.reply("Gib einen Wochentag an");
+        if (!arguments[1]) return message.reply("Gib einen Wochentag an");
 
-        if (arguments[2].toLowerCase() == "montag" || arguments[2].toLowerCase() == "mo") {
+        if (arguments[1].toLowerCase() == "montag" || arguments[1].toLowerCase() == "mo") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("**__Stundenplan / Montag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/monday.png")
@@ -28,7 +28,7 @@ module.exports = {
                 .setColor("#800080")
 
             message.channel.send(embed);
-        } else if (arguments[2].toLowerCase() == "dienstag" || arguments[2].toLowerCase() == "di") {
+        } else if (arguments[1].toLowerCase() == "dienstag" || arguments[1].toLowerCase() == "di") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("**__Stundenplan / Dienstag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/tuesday.png")
@@ -45,7 +45,7 @@ module.exports = {
                 .setColor("#800080")
 
             message.channel.send(embed);
-        } else if (arguments[2].toLowerCase() == "mittwoch" || arguments[2].toLowerCase() == "mi") {
+        } else if (arguments[1].toLowerCase() == "mittwoch" || arguments[1].toLowerCase() == "mi") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("**__Stundenplan / Mittwoch__**")
                 .setThumbnail("https://img.icons8.com/ios/452/wednesday.png")
@@ -62,7 +62,7 @@ module.exports = {
                 .setColor("#800080")
 
             message.channel.send(embed);
-        } else if (arguments[2].toLowerCase() == "donnerstag" || arguments[2].toLowerCase() == "do") {
+        } else if (arguments[1].toLowerCase() == "donnerstag" || arguments[1].toLowerCase() == "do") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("**__Stundenplan / Donnerstag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/thursday.png")
@@ -79,7 +79,7 @@ module.exports = {
                 .setColor("#800080")
 
             message.channel.send(embed);
-        } else if (arguments[2].toLowerCase() == "freitag" || arguments[2].toLowerCase() == "fr") {
+        } else if (arguments[1].toLowerCase() == "freitag" || arguments[1].toLowerCase() == "fr") {
             const embed = new Discord.MessageEmbed()
                 .setTitle("**__Stundenplan / Freitag__**")
                 .setThumbnail("https://img.icons8.com/ios/452/friday.png")
