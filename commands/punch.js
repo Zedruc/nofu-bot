@@ -45,7 +45,12 @@ module.exports = {
 
                         message.reply("no. :)");
 
-                    } else {
+                    } else if (taggedUser == 568729687291985930) {
+                        message.reply("never :p");
+
+                    }
+
+                    else {
 
                         const User = Client.users.fetch(taggedUser);
                         //
