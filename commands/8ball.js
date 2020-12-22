@@ -41,7 +41,7 @@ module.exports = {
 
         console.log(question);
 
-        const answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
+        let answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
 
         for (let i = 0; i < question.length; i++) {
             if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "hentai") {
