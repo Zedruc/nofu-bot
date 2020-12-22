@@ -15,7 +15,7 @@ module.exports = {
     if (message.author.id == owner) {
       if (msgArgs[1] == "restart") {
 
-        let bootEmbed = {
+        let restartEmbed = {
           title: "Restarting client",
           description: "Booting up automatically",
           color: '#8b0000',
@@ -26,7 +26,7 @@ module.exports = {
           timestamp: (new Date()).toISOString()
         }
 
-        message.channel.send({ embed: bootEmbed })
+        message.channel.send({ embed: restartEmbed })
           .then(msg => client.destroy())
           .then(() => client.login(process.env.token))
           .then(() => {
@@ -39,6 +39,8 @@ module.exports = {
               },
               timestamp: (new Date()).toISOString()
             }
+
+            message.channel.send({ embed: bootEmbed })
           })
 
       } else if (msgArgs[1] == "shutdown") {
