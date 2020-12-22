@@ -35,7 +35,8 @@ module.exports = {
             "nerd",
             "maybe, idk",
             "8ball is currently on vacation, come back later...",
-            "I've heard Hentai... Hentai is a big ***no no***" //9
+            "I've heard Hentai... Hentai is a big ***no no***", //9
+            "Lolis are illegal, calling the police"
         ];
         const question = message.content.slice(6).split(/ +/);
 
@@ -46,6 +47,12 @@ module.exports = {
         for (let i = 0; i < question.length; i++) {
             if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "hentai") {
                 answer_index = 9;
+            }
+        }
+
+        for (let i = 0; i < question.length; i++) {
+            if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "loli") {
+                answer_index = 10;
             }
         }
 
