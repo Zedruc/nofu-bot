@@ -40,8 +40,6 @@ module.exports = {
         ];
         const question = message.content.slice(6).split(/ +/);
 
-        console.log(question);
-
         if (new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(question.join(" ").toString())) {
             talkedRecently.add(message.author.id);
             setTimeout(() => {
@@ -57,10 +55,10 @@ module.exports = {
             if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "hentai") {
                 answer_index = 9;
             }
-        }
-
-        for (let i = 0; i < question.length; i++) {
             if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "loli") {
+                answer_index = 10;
+            }
+            if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "lolis") {
                 answer_index = 10;
             }
         }
