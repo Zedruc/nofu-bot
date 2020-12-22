@@ -43,8 +43,7 @@ module.exports = {
         console.log(question);
 
         if (new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(question.join(" ").toString())) {
-            message.channel.send("URL detected, returned.");
-            throw new Error("Question contained URL");
+            return message.channel.send("URL detected, returned.");
         }
 
         let answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
