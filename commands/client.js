@@ -12,7 +12,7 @@ module.exports = {
 
     let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
 
-    if (message.author.id === owner) {
+    if (message.author.id == owner) {
       if (msgArgs[1] == "restart") {
 
         let bootEmbed = {
