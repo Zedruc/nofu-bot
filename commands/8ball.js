@@ -40,13 +40,13 @@ module.exports = {
 
         const question = message.content.slice(6).split(/ +/);
 
-        let recognitionString = question.join(" ").toString();
+        console.log(question);
 
         const answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
 
-        if (recognitionString.indexOf("Hentai") !== -1) {
-            answer_index = 9;
-        }
+        //if (recognitionString.indexOf("Hentai") !== -1) {
+        //    answer_index = 9;
+        //}
 
         let embed = new Discord.MessageEmbed()
             .setTitle(":8ball:")
