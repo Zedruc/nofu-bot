@@ -38,11 +38,6 @@ module.exports = {
             "I've heard Hentai... Hentai is a big ***no no***" //9
         ];
 
-        const nono_words = [
-            "Hentai",
-            "Do you love"
-        ]
-
         const question = message.content.slice(6).split(/ +/);
 
         let recognitionString = question.join(" ").toString();
