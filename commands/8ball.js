@@ -43,6 +43,11 @@ module.exports = {
         console.log(question);
 
         if (new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(question.join(" ").toString())) {
+            talkedRecently.add(message.author.id);
+            setTimeout(() => {
+                // Removes the user from the set after a minute
+                talkedRecently.delete(message.author.id);
+            }, 8000); // <- That's not a minute lmao
             return message.channel.send("URL detected, returned.");
         }
 
