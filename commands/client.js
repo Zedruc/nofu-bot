@@ -19,32 +19,32 @@ module.exports = {
           title: "Restarting client",
           description: "Booting up automatically",
           color: '#8b0000',
-          footer:{
-            text: client.user.username,
-            icon_url: client.user.displayAvatarURL({format: "png"}),
+          footer: {
+            text: "Nofu Bot",
+            icon_url: client.user.displayAvatarURL({ format: "png" }),
           },
           timestamp: (new Date()).toISOString()
         }
 
-        message.channel.send({embed: bootEmbed})
+        message.channel.send({ embed: bootEmbed })
           .then(msg => client.destroy())
           .then(() => client.login(process.env.token))
 
       } else if (msgArgs[1] == "shutdown") {
         //test
-        
+
         let bootEmbed = {
           title: "Destroying client",
           description: "Will boot up again on `node main.js",
           color: '#8b0000',
-          footer:{
+          footer: {
             text: client.user.username,
-            icon_url: client.user.displayAvatarURL({format: "png"}),
+            icon_url: client.user.displayAvatarURL({ format: "png" }),
           },
           timestamp: (new Date()).toISOString()
         }
 
-        message.channel.send({embed: bootEmbed})
+        message.channel.send({ embed: bootEmbed })
           .then(msg => client.destroy())
           .then(() => client.login(process.env.token))
 
