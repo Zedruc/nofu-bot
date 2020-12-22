@@ -43,8 +43,10 @@ module.exports = {
 
         const answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
 
-        if (question.includes("Hentai")) {
-            answer_index = 9;
+        for (let i = 0; i < question.length; i++) {
+            if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "hentai") {
+                answer_index = 9;
+            }
         }
 
         let embed = new Discord.MessageEmbed()
