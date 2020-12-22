@@ -128,7 +128,7 @@ client.on('message', message => {
 
     } else if (command == 'client') {
 
-        client.commands.get('client').execute(message, args);
+        client.commands.get('client').execute(message, args, client);
 
     } else if (command == 'hug') {
 

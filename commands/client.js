@@ -2,12 +2,12 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const { v4: uuidv4 } = require('uuid');
 
-const owner = '568729687291985930';
+const owner = 568729687291985930;
 
 module.exports = {
   name: "client",
   description: "will destroy the client",
-  execute(message, args) {
+  execute(message, args, client) {
     let prefix = "%";
 
     let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
@@ -20,7 +20,7 @@ module.exports = {
           description: "Booting up automatically",
           color: '#8b0000',
           footer: {
-            text: "Nofu Bot",
+            text: client.user.username,
             icon_url: client.user.displayAvatarURL({ format: "png" }),
           },
           timestamp: (new Date()).toISOString()
