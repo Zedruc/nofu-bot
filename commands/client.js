@@ -29,6 +29,17 @@ module.exports = {
         message.channel.send({ embed: bootEmbed })
           .then(msg => client.destroy())
           .then(() => client.login(process.env.token))
+          .then(() => {
+            let bootEmbed = {
+              title: "Up and running again",
+              color: '#8b0000',
+              footer: {
+                text: client.user.username,
+                icon_url: client.user.displayAvatarURL({ format: "png" }),
+              },
+              timestamp: (new Date()).toISOString()
+            }
+          })
 
       } else if (msgArgs[1] == "shutdown") {
         //test
