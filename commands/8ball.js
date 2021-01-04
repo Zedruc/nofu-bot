@@ -45,9 +45,14 @@ module.exports = {
             setTimeout(() => {
                 // Removes the user from the set after a minute
                 talkedRecently.delete(message.author.id);
-            }, 8000); // <- That's not a minute lmao
+            }, 12000); // <- That's not a minute lmao
             return message.channel.send("URL detected, returned.");
         }
+        talkedRecently.add(message.author.id);
+        setTimeout(() => {
+            // Removes the user from the set after a minute
+            talkedRecently.delete(message.author.id);
+        }, 8000); // <- That's not a minute lmao
 
         let answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
 

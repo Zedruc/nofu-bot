@@ -1,4 +1,4 @@
-# 🤔 So what can it do?
+# 🤔 So what is it able to do?
 
 In short: It can entertain people :D
 

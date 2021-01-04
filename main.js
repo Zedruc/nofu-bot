@@ -142,10 +142,6 @@ client.on('message', message => {
 
         client.commands.get('kill').execute(message, args, client);
 
-    } else if (command == "devyt") {
-
-        client.commands.get('devyt').execute(message, args, client);
-
     } else if (command == "stare") {
 
         client.commands.get('stare').execute(message, args);
