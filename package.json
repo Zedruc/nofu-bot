@@ -9,7 +9,7 @@
   "author": "Tot Nofu // Markus",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "convertapi": "^1.6.0",
     "crypto-js": "^4.0.0",
     "disconnect": "^1.2.1",
