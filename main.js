@@ -53,6 +53,19 @@ client.on("guildCreate", guild => {
 
 client.on('message', message => {
 
+    if (message.guild.id === 688010097829478525 /*Homeschool Server*/) {
+        if (message.toString().toLowerCase().includes("toradora")) {
+            message.delete();
+            member = message.author;
+            var role = member.guild.roles.cache.find(role => role.name === "muted");
+            member.roles.add(role);
+            setTimeout(() => {
+                var role = member.guild.roles.cache.find(role => role.name === "role name");
+                member.roles.remove(role);
+            }, 10000);
+        }
+    }
+
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);

@@ -1,15 +1,13 @@
-const { RSA_NO_PADDING, SSL_OP_ALL } = require("constants");
 // yes I made this because I was bored lol
 
 const Discord = require("discord.js");
 const Client = new Discord.Client();
 const https = require('https');
-const { join } = require("path");
 
 module.exports = {
     name: "punch",
     description: "Yes, you can slap others now xD",
-    execute(message, args) {
+    execute(message) {
         if (message.guild === null) return;
 
         const taggedUser = message.mentions.users.first();
