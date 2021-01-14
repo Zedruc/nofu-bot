@@ -53,7 +53,7 @@ client.on("guildCreate", guild => {
 
 client.on('message', message => {
 
-    if (message.guild.id === 688010097829478525 /*Homeschool Server*/) {
+    if (message.guild.id == "688010097829478525" /*Homeschool Server*/) {
         if (message.toString().toLowerCase().includes("toradora")) {
             message.delete();
             member = message.author;
