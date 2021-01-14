@@ -56,7 +56,7 @@ client.on('message', message => {
     if (message.guild.id == "688010097829478525" /*Homeschool Server*/) {
         if (message.toString().toLowerCase().includes("toradora")) {
             message.delete();
-            member = message.author;
+            member = message.member;
             var role = member.guild.roles.cache.find(role => role.name === "muted");
             member.roles.add(role);
             setTimeout(() => {
