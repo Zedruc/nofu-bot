@@ -57,10 +57,9 @@ client.on('message', message => {
         if (message.toString().toLowerCase().includes("toradora")) {
             message.delete();
             member = message.member;
-            var role = member.guild.roles.cache.find(role => role.name === "muted");
+            var role = member.guild.roles.cache.find(role => role.id === "689074418168627205");
             member.roles.add(role);
             setTimeout(() => {
-                var role = member.guild.roles.cache.find(role => role.name === "muted");
                 member.roles.remove(role);
             }, 10000);
         }
