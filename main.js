@@ -63,7 +63,7 @@ client.on('message', message => {
                 member.roles.remove(role);
             }, 10000);
         }
-        if (message.toString().toLowerCase().includes("toradora") || message.toString().toLowerCase().includes("tora dora")) {
+        if (message.toString().toLowerCase().includes("toradora") || message.toString().toLowerCase().replace(" ", "").includes("toradora")) {
             muteDelete();
         }
     }
@@ -216,6 +216,10 @@ client.on('message', message => {
     } else if (command == "stundenplan" || command == "stundnplan" || command == "sp") {
 
         client.commands.get("stundenplan").execute(message, args, client);
+
+    } else if (command == "addAssignment") {
+
+        client.commands.get("addAssignment").execute(message, args, client);
 
     }
 });
