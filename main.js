@@ -217,10 +217,6 @@ client.on('message', message => {
 
         client.commands.get("stundenplan").execute(message, args, client);
 
-    } else if (command == "addAssignment") {
-
-        client.commands.get("addAssignment").execute(message, args, client);
-
     }
 });
 
