@@ -34,10 +34,13 @@ module.exports = {
             "Non't",
             "nerd",
             "maybe, idk",
-            "8ball is currently on vacation, come back later...",
-            "I've heard Hentai... Hentai is a big ***no no***", //9
-            "Lolis are illegal, calling the police"
+            "8ball is currently on vacation, come back later...", //8
         ];
+
+        const censoredStuffAnswers = [
+            "I've heard Hentai... Hentai is a big ***no no***",
+            "Lolis are illegal, calling the police" //1
+        ]
         const question = message.content.slice(6).split(/ +/);
 
         if (new RegExp("([a-zA-Z0-9]+://)?([a-zA-Z0-9_]+:[a-zA-Z0-9_]+@)?([a-zA-Z0-9.-]+\\.[A-Za-z]{2,4})(:[0-9]+)?(/.*)?").test(question.join(" ").toString())) {
@@ -56,29 +59,54 @@ module.exports = {
 
         let answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
 
+        function sendCensored() {
+            let embed = new Discord.MessageEmbed()
+                .setTitle(":8ball:")
+                .addField("__:question: Question__", question.join(" "))
+                .addField("__:white_check_mark: Answer__", censoredStuffAnswers[answer_index]);
+
+            message.channel.send(embed);
+
+            talkedRecently.add(message.author.id);
+            setTimeout(() => {
+                // Removes the user from the set after a minute
+                talkedRecently.delete(message.author.id);
+            }, 8000); // <- That's not a minute lmao
+            return;
+        }
+
         for (let i = 0; i < question.length; i++) {
             if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "hentai") {
-                answer_index = 9;
+                answer_index = 1;
+                sendCensored();
             }
             if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "loli") {
-                answer_index = 10;
+                answer_index = 0;
+                sendCensored();
             }
             if (question[i].toLowerCase().replace(/[^a-zA-Z ]/g, "") == "lolis") {
-                answer_index = 10;
+                answer_index = 0;
+                sendCensored();
+
             }
         }
 
-        let embed = new Discord.MessageEmbed()
-            .setTitle(":8ball:")
-            .addField("__:question: Question__", question.join(" "))
-            .addField("__:white_check_mark: Answer__", answers[answer_index]);
+        function sendNormal() {
+            let embed = new Discord.MessageEmbed()
+                .setTitle(":8ball:")
+                .addField("__:question: Question__", question.join(" "))
+                .addField("__:white_check_mark: Answer__", answers[answer_index]);
 
-        message.channel.send(embed);
+            message.channel.send(embed);
 
-        talkedRecently.add(message.author.id);
-        setTimeout(() => {
-            // Removes the user from the set after a minute
-            talkedRecently.delete(message.author.id);
-        }, 8000); // <- That's not a minute lmao
+            talkedRecently.add(message.author.id);
+            setTimeout(() => {
+                // Removes the user from the set after a minute
+                talkedRecently.delete(message.author.id);
+            }, 8000); // <- That's not a minute lmao
+            return;
+        }
+
+        sendNormal();
     }
 }
