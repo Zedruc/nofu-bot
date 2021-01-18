@@ -54,14 +54,17 @@ client.on("guildCreate", guild => {
 client.on('message', message => {
 
     if (message.guild.id == "688010097829478525" /*Homeschool Server*/) {
+        function deletRole(role) {
+            setTimeout(() => {
+                member.roles.remove(role);
+            }, 10000);
+        }
         function muteDelete() {
             message.delete();
             member = message.member;
             var role = member.guild.roles.cache.find(role => role.id === "689074418168627205");
             member.roles.add(role);
-            setTimeout(() => {
-                member.roles.remove(role);
-            }, 10000);
+            deletRole(role);
         }
         if (message.toString().toLowerCase().includes("toradora") || message.toString().toLowerCase().replace(" ", "").includes("toradora")) {
             muteDelete();
