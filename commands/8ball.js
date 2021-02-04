@@ -34,7 +34,8 @@ module.exports = {
             "Non't",
             "nerd",
             "maybe, idk",
-            "8ball is currently on vacation, come back later...", //8
+            "8ball is currently on vacation, come back later...",
+            "nope"
         ];
 
         const censoredStuffAnswers = [
@@ -49,7 +50,7 @@ module.exports = {
                 // Removes the user from the set after a minute
                 talkedRecently.delete(message.author.id);
             }, 12000); // <- That's not a minute lmao
-            return message.channel.send("URL detected, returned.");
+            return message.channel.send("A link isn't a question");
         }
         talkedRecently.add(message.author.id);
         setTimeout(() => {

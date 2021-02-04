@@ -66,7 +66,7 @@ client.on('message', message => {
             member.roles.add(role);
             deletRole(role);
         }
-        if (message.toString().toLowerCase().includes("toradora") || message.toString().toLowerCase().replace(" ", "").includes("toradora")) {
+        if (message.toString().toLowerCase().includes("toradora")) {
             muteDelete();
         }
     }

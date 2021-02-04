@@ -58,7 +58,7 @@ module.exports = {
         }
       ],
       footer: {
-        text: client.user.username,
+        text: client.user.username + " | if the status says offline the bot does not have the permissions to watch user's status",
         icon_url: client.user.displayAvatarURL({ format: "png" }),
       },
       timestamp: (new Date()).toISOString()
