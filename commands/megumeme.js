@@ -1,7 +1,7 @@
 // =============================================================================
 // REQUESTED BY A SERVER MEMBER
 // =============================================================================
-
+const https = require('https');
 module.exports = {
     name: "megumeme",
     description: "random megumin gifs from tenor yay",
