@@ -23,7 +23,7 @@ module.exports = {
                 let meguEmbed = {
                     title: `Megumeme ladies and gents!`,
                     image: { url: gifUrl },
-                    color: "#FF5359",
+                    color: "#990000",
                     footer: {
                         text: client.user.username,
                         icon_url: client.user.displayAvatarURL({ format: "png" }),
