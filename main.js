@@ -52,6 +52,7 @@ client.on("guildCreate", guild => {
 
 
 client.on('message', message => {
+    if (message.guild === null) return;
 
     if (message.guild.id == "688010097829478525" /*Homeschool Server*/) {
         function deletRole(role) {
