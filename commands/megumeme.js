@@ -16,9 +16,7 @@ module.exports = {
             })
 
             res.on('end', () => {
-                console.log(body);
                 let bodyString = JSON.parse(body);
-                console.log(bodyString);
                 let int = Math.floor(Math.random(1) * 49);
 
                 let gifUrl = bodyString.results[int].media[0].gif.url;
