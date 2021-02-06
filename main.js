@@ -220,6 +220,10 @@ client.on('message', message => {
 
         client.commands.get("stundenplan").execute(message, args, client);
 
+    } else if (command == "megumeme") {
+
+        client.commands.get("megumeme").execute(message, args, client);
+
     }
 });
 

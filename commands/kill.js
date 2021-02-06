@@ -19,7 +19,7 @@ module.exports = {
 
     if (decision == 1) {
 
-      https.get('https://api.tenor.com/v1/search?q=anime shooting gun&limit=50&key=' + key, res => {
+      https.get('https://api.tenor.com/v1/search?q=anime+shooting+gun&limit=50&key=' + key, res => {
 
         let body = '';
 

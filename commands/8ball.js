@@ -56,7 +56,7 @@ module.exports = {
         setTimeout(() => {
             // Removes the user from the set after a minute
             talkedRecently.delete(message.author.id);
-        }, 8000); // <- That's not a minute lmao
+        }, 8000);
 
         let answer_index = Math.floor(Math.random() * (answers.length - 1 - 0)) + 0;
 

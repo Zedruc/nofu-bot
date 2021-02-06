@@ -12,11 +12,6 @@ module.exports = {
             message.channel.send("Wait a bit before getting typing this again. - " + "<@" + message.author + ">");
         } else {
 
-            // the user can type the command ... your command code goes here :)
-
-
-
-
             https.get(url, (result) => {
                 var body = ''
                 result.on('data', (chunk) => {
