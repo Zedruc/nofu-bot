@@ -19,6 +19,7 @@ module.exports = {
                 });
 
                 res.on('end', () => {
+                    let totalRegs = 0;
                     let bodyString = JSON.parse(body);
                     let path = bodyString.regs;
 
@@ -29,7 +30,11 @@ module.exports = {
                         //console.log(key, " => ", value[0]);
                         mcregsEmbed.addField("DC_ID: " + key, "MC_UUID: " + value[0]);
                     }
-                    mcregsEmbed.setFooter("Total registrations: " + bodyString.regs.length);
+
+                    for (const [key, value] of Object.entries(path)) {
+                        totalRegs++;
+                    }
+                    mcregsEmbed.setFooter(`Total registrations: ${totalRegs}`);
 
                     message.author.send(mcregsEmbed);
                 });
