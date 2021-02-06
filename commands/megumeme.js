@@ -6,7 +6,7 @@ module.exports = {
     name: "megumeme",
     description: "random megumin gifs from tenor yay",
     execute(message, args, client) {
-        const key = process.env.tenor;
+        const key = process.env.tenorkey; //bruh
         https.get('https://api.tenor.com/v1/search?q=megumin&limit=50&key=' + key, res => {
 
             let body = '';
