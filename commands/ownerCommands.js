@@ -29,7 +29,7 @@ module.exports = {
                         //console.log(key, " => ", value[0]);
                         mcregsEmbed.addField("DC_ID: " + key, "MC_UUID: " + value[0]);
                     }
-                    mcregsEmbed.setFooter("Total registrations: " + bodyString.counter);
+                    mcregsEmbed.setFooter("Total registrations: " + bodyString.regs.length);
 
                     message.author.send(mcregsEmbed);
                 });
