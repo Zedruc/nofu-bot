@@ -20,8 +20,8 @@ module.exports = {
                 if (args[0] == "skywars" || args[0] == "sw") {
                     let stats = JSON.parse(body);
 
-                    let firstLogin = new Date(stats.player.firstLogin);
-                    let lastLogin = new Date(stats.player.lastLogin);
+                    let firstLogin = new Date(stats.player.firstLogin).toISOString;
+                    let lastLogin = new Date(stats.player.lastLogin).toISOString;
                     let SkyWarsGames = stats.player.stats.SkyWars.games_played_skywars;
                     let currentWinStreakSkyWars = stats.player.stats.SkyWars.win_streak;
                     let currentCoinsSkyWars = stats.player.stats.SkyWars.coins;
