@@ -5,10 +5,10 @@ module.exports = {
     name: 'hpstats',
     description: 'Show Hypixel stats for specific gamemodes',
     execute(message, args, client) {
+        console.log(args);
 
         if (!args[1]) return message.reply("You have to provide a gamemode!\n%hpstats `skywars/bedwars` `player name`");
         if (!args[2]) return message.reply("You have to provide a player name!\n%hpstats `skywars/bedwars` `player name`");
-        console.log(args);
 
         https.get(`https://api.hypixel.net/player?key=${process.env.hypixel_apikey}&name=${args[2]}`, res => {
             let body = '';
