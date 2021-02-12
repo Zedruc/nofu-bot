@@ -17,7 +17,7 @@ module.exports = {
 
             res.on('end', () => {
 
-                if (args[1] == "skywars" || args[0] == "sw") {
+                if (args[0] == "skywars" || args[0] == "sw") {
                     let stats = JSON.parse(body);
 
                     let firstLogin = new Date(stats.player.firstLogin);
