@@ -5,12 +5,10 @@ module.exports = {
     name: 'hpstats',
     description: 'Show Hypixel stats for specific gamemodes',
     execute(message, args, client) {
-        console.log(args);
+        if (!args[0]) return message.reply("You have to provide a gamemode!\n%hpstats `skywars/bedwars` `player name`");
+        if (!args[1]) return message.reply("You have to provide a player name!\n%hpstats `skywars/bedwars` `player name`");
 
-        if (!args[1]) return message.reply("You have to provide a gamemode!\n%hpstats `skywars/bedwars` `player name`");
-        if (!args[2]) return message.reply("You have to provide a player name!\n%hpstats `skywars/bedwars` `player name`");
-
-        https.get(`https://api.hypixel.net/player?key=${process.env.hypixel_apikey}&name=${args[2]}`, res => {
+        https.get(`https://api.hypixel.net/player?key=${process.env.hypixel_apikey}&name=${args[1]}`, res => {
             let body = '';
 
             res.on('data', (chunk) => {
@@ -19,7 +17,7 @@ module.exports = {
 
             res.on('end', () => {
 
-                if (args[1] == "skywars" || args[1] == "sw") {
+                if (args[1] == "skywars" || args[0] == "sw") {
                     let stats = JSON.parse(body);
 
                     let firstLogin = new Date(stats.player.firstLogin);
@@ -31,7 +29,7 @@ module.exports = {
                     let highestKillStreakSkyWars = stats.player.stats.SkyWars.killstreak;
 
                     let statsEmbed = new Discord.MessageEmbed()
-                        .setTitle(`${args[2]}'s Hypixel SkyWars stats`)
+                        .setTitle(`${args[1]}'s Hypixel SkyWars stats`)
                         .setColor("#05bdff")
                         .addFields(
                             { name: `First ever login:`, value: `${firstLogin}` },
@@ -47,7 +45,7 @@ module.exports = {
                     message.channel.send(statsEmbed);
                 }
 
-                else if (args[1] == "bedwars" || args[1] == "bw") {
+                else if (args[0] == "bedwars" || args[0] == "bw") {
                     let stats = JSON.parse(body);
 
                     let gamesPlayed = stats.player.stats.Bedwars.games_played_bedwars_1;
@@ -56,7 +54,7 @@ module.exports = {
                     let kills = x.player.stats.Bedwars.kills_bedwars;
 
                     let statsEmbed = new Discord.MessageEmbed()
-                        .setTitle(`${args[2]}'s Hypixel SkyWars stats`)
+                        .setTitle(`${args[1]}'s Hypixel SkyWars stats`)
                         .setColor("#05bdff")
                         .addFields(
                             { name: `Total amount of played games:`, value: `${gamesPlayed}` },
