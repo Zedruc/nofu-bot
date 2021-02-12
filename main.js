@@ -22,7 +22,7 @@ for (const file of commandFiles) {
 
 client.on("ready", () => {
     console.info("Der Nofu-bot ist jetzt online!");
-    client.user.setActivity('his master', { type: 'LISTENING' })
+    client.user.setActivity('chat', { type: 'LISTENING' })
 
     //setInterval(() => {
 
