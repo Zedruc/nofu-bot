@@ -20,8 +20,13 @@ module.exports = {
                 if (args[0] == "skywars" || args[0] == "sw") {
                     let stats = JSON.parse(body);
 
-                    let firstLogin = new Date(stats.player.firstLogin).toISOString();
-                    let lastLogin = new Date(stats.player.lastLogin).toISOString();
+                    let firstLoginDay = new Date(stats.player.firstLogin).getDay();
+                    let firstLoginMonth = new Date(stats.player.firstLogin).getMonth();
+                    let firstLoginYear = new Date(stats.player.firstLogin).getFullYear();
+                    //
+                    let lastLoginDay = new Date(stats.player.lastLogin).getDate();
+                    let lastLoginMonth = new Date(stats.player.lastLogin).getMonth();
+                    let lastLoginYear = new Date(stats.player.lastLogin).getFullYear();
                     let SkyWarsGames = stats.player.stats.SkyWars.games_played_skywars;
                     let currentWinStreakSkyWars = stats.player.stats.SkyWars.win_streak;
                     let currentCoinsSkyWars = stats.player.stats.SkyWars.coins;
@@ -32,8 +37,8 @@ module.exports = {
                         .setTitle(`${args[1]}'s Hypixel SkyWars stats`)
                         .setColor("#05bdff")
                         .addFields(
-                            { name: `First ever login:`, value: `${firstLogin}` },
-                            { name: `Last login:`, value: `${lastLogin}`, inline: true },
+                            { name: `First ever login:`, value: `${firstLoginDay}-${firstLoginMonth}-${firstLoginYear}` },
+                            { name: `Last login:`, value: `${lastLoginDay}-${lastLoginMonth}-${lastLoginYear}`, inline: true },
                             { name: `Total amount of played games:`, value: `${SkyWarsGames}`, inline: true },
                             { name: `Current winstreak:`, value: `${currentWinStreakSkyWars}`, inline: true },
                             { name: `Current balance (coins): `, value: `${currentCoinsSkyWars}`, inline: true },
