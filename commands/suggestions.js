@@ -4,17 +4,14 @@ module.exports = {
     name: "suggest",
     description: "Lets you suggest ideas/improvements for the Nofu Bot :D",
     execute(message, args, client) {
-        console.log("step 1");
         var suggestionContent = {};
         if (message.guild) return message.reply("please use this command in my direct messages!");
         else {
-            console.log("step 2");
             const filter = (m) => m.author.id === message.author.id;
             message.channel.send("What\'s your suggestion?");
             message.channel
                 .awaitMessages(filter, { max: 1, time: 180000 })
                 .then((collected) => {
-                    console.log("step 3");
                     suggestionContent["userID"] = collected.first().author.id;
                     suggestionContent["userName"] = collected.first().author;
                     suggestionContent["message"] = collected.first().content;
