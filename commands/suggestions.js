@@ -6,7 +6,6 @@ module.exports = {
     execute(message, args, client) {
         var suggestionContent = {};
         if (message.guild) return message.reply("please use this command in my direct messages!");
-        if (args.length) return message.reply("start the suggestion only with `%suggest`")
         message.channel.send("What's your suggestion?");
 
         const filter = (m) => m.author.id === message.author.id
