@@ -24,7 +24,7 @@ module.exports = {
                     let firstLoginMonth = new Date(stats.player.firstLogin).getMonth();
                     let firstLoginYear = new Date(stats.player.firstLogin).getFullYear();
                     //
-                    let lastLoginDay = new Date(stats.player.lastLogin).getDate();
+                    let lastLoginDay = new Date(stats.player.lastLogin).getDay();
                     let lastLoginMonth = new Date(stats.player.lastLogin).getMonth();
                     let lastLoginYear = new Date(stats.player.lastLogin).getFullYear();
                     let SkyWarsGames = stats.player.stats.SkyWars.games_played_skywars;
@@ -53,6 +53,14 @@ module.exports = {
                 else if (args[0] == "bedwars" || args[0] == "bw") {
                     let stats = JSON.parse(body);
 
+                    let firstLoginDay = new Date(stats.player.firstLogin).getDay();
+                    let firstLoginMonth = new Date(stats.player.firstLogin).getMonth();
+                    let firstLoginYear = new Date(stats.player.firstLogin).getFullYear();
+                    //
+                    let lastLoginDay = new Date(stats.player.lastLogin).getDay();
+                    let lastLoginMonth = new Date(stats.player.lastLogin).getMonth();
+                    let lastLoginYear = new Date(stats.player.lastLogin).getFullYear();
+
                     let gamesPlayed = stats.player.stats.Bedwars.games_played_bedwars_1;
                     let currentWinStreak = stats.player.stats.Bedwars.winstreak;
                     let currentCoins = stats.player.stats.Bedwars.coins;
@@ -62,6 +70,8 @@ module.exports = {
                         .setTitle(`${args[1]}'s Hypixel SkyWars stats`)
                         .setColor("#05bdff")
                         .addFields(
+                            { name: `First ever login:`, value: `${firstLoginDay}/${firstLoginMonth + 1}/${firstLoginYear}` },
+                            { name: `Last login:`, value: `${lastLoginDay}/${lastLoginMonth + 1}/${lastLoginYear}`, inline: true },
                             { name: `Total amount of played games:`, value: `${gamesPlayed}` },
                             { name: `Current winstreak:`, value: `${currentWinStreak}`, inline: true },
                             { name: `Current balance (coins): `, value: `${currentCoins}`, inline: true },
