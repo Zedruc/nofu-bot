@@ -38,10 +38,10 @@ module.exports = {
                         .setColor("#05bdff")
                         .addFields(
                             { name: "__General information__", value: "\u200B" },
-                            { name: `First ever login:`, value: `${firstLoginDay}/${firstLoginMonth + 1}/${firstLoginYear}` },
+                            { name: `First ever login:`, value: `${firstLoginDay}/${firstLoginMonth + 1}/${firstLoginYear}`, inline: true },
                             { name: `Last login:`, value: `${lastLoginDay}/${lastLoginMonth + 1}/${lastLoginYear}`, inline: true },
                             { name: "__Skywars stats__", value: "\u200B" },
-                            { name: `Total amount of played games:`, value: `${SkyWarsGames}` },
+                            { name: `Total amount of played games:`, value: `${SkyWarsGames}`, inline: true },
                             { name: `Current winstreak:`, value: `${currentWinStreakSkyWars}`, inline: true },
                             { name: `Current balance (coins): `, value: `${currentCoinsSkyWars}`, inline: true },
                             { name: `Total kills:`, value: `${killsSkyWars}`, inline: true },
@@ -73,10 +73,10 @@ module.exports = {
                         .setColor("#05bdff")
                         .addFields(
                             { name: "__General information__", value: "\u200B" },
-                            { name: `First ever login:`, value: `${firstLoginDay}/${firstLoginMonth + 1}/${firstLoginYear}` },
+                            { name: `First ever login:`, value: `${firstLoginDay}/${firstLoginMonth + 1}/${firstLoginYear}`, inline: true },
                             { name: `Last login:`, value: `${lastLoginDay}/${lastLoginMonth + 1}/${lastLoginYear}`, inline: true },
                             { name: "__Skywars stats__", value: "\u200B" },
-                            { name: `Total amount of played games:`, value: `${gamesPlayed}` },
+                            { name: `Total amount of played games:`, value: `${gamesPlayed}`, inline: true },
                             { name: `Current winstreak:`, value: `${currentWinStreak}`, inline: true },
                             { name: `Current balance (coins): `, value: `${currentCoins}`, inline: true },
                             { name: `Total kills:`, value: `${kills}`, inline: true }
