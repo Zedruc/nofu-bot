@@ -19,7 +19,6 @@ module.exports = {
 
             res.on('end', () => {
                 let bodyString = JSON.parse(body);
-                console.log(bodyString);
                 let sender = message.author.id;
                 if (!(bodyString.regs.hasOwnProperty(sender))) {
                     message.reply("You first have to login to your account via uuid or name!\n`%mcregister <UUID> or <name>`");
@@ -27,7 +26,6 @@ module.exports = {
                 }
                 let user = bodyString.regs[sender];
                 let UUID = Base64.decode(user[0])
-                console.log(UUID);
 
                 https.get('https://api.mojang.com/user/profiles/' + UUID + '/names', res => {
                     let body = '';
@@ -39,8 +37,6 @@ module.exports = {
 
                     res.on('end', () => {
                         let bodyString = JSON.parse(body);
-                        console.log(bodyString);
-                        console.log(bodyString[0].name);
 
                         let nameHistory = [];
                         let readableArr = nameHistory.join(" ");
@@ -53,7 +49,6 @@ module.exports = {
 
 
                         for (let i = 0; i < bodyString.length; i++) {
-                            console.log(bodyString[i].name);
                             nameHistory.push(bodyString[i].name)
                             mcStatsEmbed
                                 .addField(i !== 0 ? "changed to at " + new Date(bodyString[i].changedToAt) + ":" : "Original name: ", bodyString[i].name);
@@ -62,7 +57,6 @@ module.exports = {
                         let lastName = nameHistory.length - 1;
 
                         mcStatsEmbed.setThumbnail('https://mineskin.de/helm/' + nameHistory[lastName] + '/100.png');
-                        console.log(nameHistory[0]);
                         message.channel.send(mcStatsEmbed);
                     });
                 });
