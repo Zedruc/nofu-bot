@@ -226,7 +226,13 @@ client.on('message', message => {
         client.commands.get("megumeme").execute(message, args, client);
 
     } else if (command == "hpstats") {
+
         client.commands.get("hpstats").execute(message, args, client);
+
+    } else if (command == "suggest") {
+
+        client.commands.get("suggest").execute(message, args, client);
+
     }
 });
 
