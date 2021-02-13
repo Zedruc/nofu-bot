@@ -37,9 +37,11 @@ module.exports = {
                         .setTitle(`${args[1]}'s Hypixel SkyWars stats`)
                         .setColor("#05bdff")
                         .addFields(
+                            { name: "__General information__", value: "\u200B" },
                             { name: `First ever login:`, value: `${firstLoginDay}/${firstLoginMonth + 1}/${firstLoginYear}` },
                             { name: `Last login:`, value: `${lastLoginDay}/${lastLoginMonth + 1}/${lastLoginYear}`, inline: true },
-                            { name: `Total amount of played games:`, value: `${SkyWarsGames}`, inline: true },
+                            { name: "__Skywars stats__", value: "\u200B" },
+                            { name: `Total amount of played games:`, value: `${SkyWarsGames}` },
                             { name: `Current winstreak:`, value: `${currentWinStreakSkyWars}`, inline: true },
                             { name: `Current balance (coins): `, value: `${currentCoinsSkyWars}`, inline: true },
                             { name: `Total kills:`, value: `${killsSkyWars}`, inline: true },
@@ -70,8 +72,10 @@ module.exports = {
                         .setTitle(`${args[1]}'s Hypixel SkyWars stats`)
                         .setColor("#05bdff")
                         .addFields(
+                            { name: "__General information__", value: "\u200B" },
                             { name: `First ever login:`, value: `${firstLoginDay}/${firstLoginMonth + 1}/${firstLoginYear}` },
                             { name: `Last login:`, value: `${lastLoginDay}/${lastLoginMonth + 1}/${lastLoginYear}`, inline: true },
+                            { name: "__Skywars stats__", value: "\u200B" },
                             { name: `Total amount of played games:`, value: `${gamesPlayed}` },
                             { name: `Current winstreak:`, value: `${currentWinStreak}`, inline: true },
                             { name: `Current balance (coins): `, value: `${currentCoins}`, inline: true },
