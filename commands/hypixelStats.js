@@ -66,7 +66,7 @@ module.exports = {
                     let gamesPlayed = stats.player.stats.Bedwars.games_played_bedwars_1;
                     let currentWinStreak = stats.player.stats.Bedwars.winstreak;
                     let currentCoins = stats.player.stats.Bedwars.coins;
-                    let kills = x.player.stats.Bedwars.kills_bedwars;
+                    let kills = stats.player.stats.Bedwars.kills_bedwars;
 
                     let statsEmbed = new Discord.MessageEmbed()
                         .setTitle(`${args[1]}'s Hypixel SkyWars stats`)
