@@ -12,7 +12,7 @@ module.exports = {
             if (bans.size == 0) return;
             let bUser = bans.find(b => b.user.id == User)
             if (!bUser) return;
-            msg.guild.members.unban(bUser.user)
+            message.guild.members.unban(bUser.user)
             message.reply("User unbanned!");
         })
     }
