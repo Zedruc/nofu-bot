@@ -8,7 +8,12 @@ module.exports = {
 
         if (!User) return message.channel.send('User not found');
 
-        message.guild.members.cache.unban(User.id);
-        message.reply("User unbanned!");
+        message.guild.fetchBans().then(bans => {
+            if (bans.size == 0) return;
+            let bUser = bans.find(b => b.user.id == User)
+            if (!bUser) return;
+            msg.guild.members.unban(bUser.user)
+            message.reply("User unbanned!");
+        })
     }
 }
