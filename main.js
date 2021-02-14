@@ -52,11 +52,27 @@ client.on("guildCreate", guild => {
 
 
 client.on('message', message => {
-    if (message.author.id == "741750219812896879" || message.author.id == "642411721666986014") {
+
+    // =========================================================================
+    // JUST FOR FUN
+    // =========================================================================
+
+    if (message.author.id == "741750219812896879") {
         if (message.content.toString().indexOf("bruh") > -1) {
             message.reply("buh");
         }
     }
+
+    if (message.author.id == "642411721666986014") {
+        if (message.content.toString().indexOf("bruh") > -1) {
+            message.reply("buh");
+        }
+    }
+
+    // =========================================================================
+    // END FIRST BLOCK
+    // =========================================================================
+
     if (message.guild === null) return;
 
     if (message.guild.id == "688010097829478525" /*Homeschool Server*/) {
