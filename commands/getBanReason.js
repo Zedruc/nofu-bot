@@ -12,7 +12,7 @@ module.exports = {
             if (!user) return message.reply("user not found");
 
             let embed = new Discord.MessageEmbed()
-                .setTitle(`Ban reason for case ${user.first()}`)
+                .setTitle(`Ban reason for case ${user.first().id}`)
                 .addField("Ban Reason", user.first().reason)
             message.channel.send(embed)
         });
