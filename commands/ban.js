@@ -34,7 +34,6 @@ module.exports = {
       .setTimestamp();
 
     message.channel.send(banEmbed);
-    message.channel.send(`To unban this user you need their ID: ${User.id}`);
 
   }
 }
