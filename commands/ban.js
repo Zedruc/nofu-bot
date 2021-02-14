@@ -6,12 +6,12 @@ module.exports = {
   description: "Bans a member",
   execute(message, args) {
     // Ban a user by ID (or with a user/guild member object)
-    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You dont have the permission to run this command")
+    if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You dont have the permission to run this command");
     let User = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
     if (!args[0]) return message.channel.send('Please specify a user');
 
     if (!User) return message.channel.send('User not found');
-    if (User.hasPermission("BAN_MEMBERS")) return message.reply("Can't ban user since their role is equal to or above mine")
+    if (User.hasPermission("BAN_MEMBERS")) return message.reply("Lacking permissions to ban user");
     let banReason = args.join(" ").slice(22);
     if (!banReason) {
       banReason = "No reason given";
@@ -34,6 +34,7 @@ module.exports = {
       .setTimestamp();
 
     message.channel.send(banEmbed);
+    message.channel.send(`To unban this user you need their ID: ${User.id}`);
 
   }
 }
