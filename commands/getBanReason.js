@@ -5,7 +5,7 @@ module.exports = {
     description: 'Shows ban reason for specified user',
     execute(message, args, client) {
         let id = args[0];
-        if (User.hasPermission("BAN_MEMBERS")) return message.reply("To view ban reasons you must have the permission to ban users!");
+        if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply("To view ban reasons you must have the permission to ban users!");
 
         message.guild.fetchBans().then(bans => {
             let user = bans.filter(r => r.user.id == id);
