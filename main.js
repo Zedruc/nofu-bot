@@ -237,6 +237,10 @@ client.on('message', message => {
 
         client.commands.get("unban").execute(message, args, client);
 
+    } else if (command == "banreason") {
+
+        client.commands.get("banreason").execute(message, args, client);
+
     }
 });
 
