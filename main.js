@@ -52,7 +52,7 @@ client.on("guildCreate", guild => {
 
 
 client.on('message', message => {
-    if (message.author.id == "741750219812896879") {
+    if (message.author.id == "741750219812896879" || message.author.id == "642411721666986014") {
         if (message.content.toString().indexOf("bruh") > -1) {
             message.reply("buh");
         }
