@@ -13,7 +13,7 @@ module.exports = {
 
             let embed = new Discord.MessageEmbed()
                 .setTitle(`Ban case ${user.first().user.username}#${user.first().user.discriminator} (${user.first().user.id})`)
-                .addField("Ban Reason", user.first().reason)
+                .addField("Ban Reason", (user.first().reason) == null ? "No reason given" : user.first().reason)
                 .setColor("#ff0000")
                 .setThumbnail(`https://cdn.discordapp.com/avatars/${user.first().user.id}/${user.first().user.avatar}.png`)
                 .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
