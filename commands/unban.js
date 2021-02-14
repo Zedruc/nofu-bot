@@ -7,7 +7,6 @@ module.exports = {
         if (!args[0]) return message.channel.send('Please specify a user');
 
         if (!User) return message.channel.send('User not found');
-        if (User.hasPermission("BAN_MEMBERS")) return message.reply("Lacking permissions to ban user");
 
         message.guild.members.cache.unban(User.id);
         message.reply("User unbanned!");
