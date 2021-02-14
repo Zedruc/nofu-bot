@@ -80,7 +80,7 @@ module.exports = {
                 .addField("Minecraft related commands :", "-----------------------------------------")
                 .addFields(
                     { name: "__%mcregister <MC-UUID>__", value: "Register with your Minecraft UUID to use %mcstast" },
-                    { name: "__%mcstats__", value: "yet it only lists your name history but more will be added :D" },
+                    { name: "__%mcinfo__", value: "yet it only lists your name history but more will be added :D" },
                     { name: "__%mcss <Server Address>__", value: "e.g. %serverstatus hypixel.net will show information about the Minecraft server hypixel.net" },
                     { name: "__%hpstats <mode> <player name>__", value: "Shows Hypixel stats of player (Currently supported: SkyWars, Bedwars, Login informations)\nUUID Support will be added soon" }
                 )

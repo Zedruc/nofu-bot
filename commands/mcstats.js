@@ -5,7 +5,7 @@ const { Base64 } = require('js-base64');
 const { error } = require('console');
 
 module.exports = {
-    name: 'mcstats',
+    name: 'mcinfo',
     description: 'Shows player info (Minecraft info)',
     execute(message, args) {
         const sender = message.author;

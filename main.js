@@ -181,9 +181,9 @@ client.on('message', message => {
 
         client.commands.get("broadcast").execute(message, args, client);
 
-    } else if (command == "mcstats") {
+    } else if (command == "mcinfo") {
 
-        client.commands.get("mcstats").execute(message, args);
+        client.commands.get("mcinfo").execute(message, args);
 
     } else if (command == "admin") {
 
