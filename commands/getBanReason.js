@@ -12,8 +12,11 @@ module.exports = {
             if (!user) return message.reply("user not found");
 
             let embed = new Discord.MessageEmbed()
-                .setTitle(`Ban reason for case ${user.first().id}`)
+                .setTitle(`Ban case ${user.first().user.username}#${user.first().user.discriminator} (${user.first().user.id})`)
                 .addField("Ban Reason", user.first().reason)
+                .setColor("#ff0000")
+                .setThumbnail(`https://cdn.discordapp.com/avatars/${user.first().user.id}/${user.first().user.avatar}.png`)
+                .setFooter(client.user.username, client.user.displayAvatarURL({ format: "png" }))
             message.channel.send(embed)
         });
     }
