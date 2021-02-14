@@ -1,6 +1,6 @@
 module.exports = {
-    name: 'broadcast',
-    description: 'Sends message to every server the bot is in',
+    name: 'unban',
+    description: 'Unbans specified user',
     execute(message, args, client) {
         if (!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send("You dont have the permission to run this command");
         let User = args[0];

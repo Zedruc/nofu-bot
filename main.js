@@ -233,6 +233,10 @@ client.on('message', message => {
 
         client.commands.get("suggest").execute(message, args, client);
 
+    } else if (command == "unban") {
+
+        client.commands.get("unban").execute(message, args, client);
+
     }
 });
 
