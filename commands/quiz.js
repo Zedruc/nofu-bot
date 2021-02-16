@@ -10,7 +10,6 @@
 // ORDER: [REQUIRED EVENT: USER USES %quiz]
 // - Start queue with topic [  Topics with questions in Object: {"topic": {questions: ["1", "2"]}]}  ]
 // - Make %join available to join queue
-// - Wait until same person starts quiz with %start
 // - After every question wait 10 seconds (Or end question when everyone answered)
 // - After all questions are done end quiz, show podium
 //
@@ -73,7 +72,7 @@ module.exports = {
                 fields: [
                     {
                         name: `New quiz started by ${quizStarter}`,
-                        value: "Use %join to participate in the quiz before it's started!"
+                        value: "Use %join to participate in the quiz before it's started! (Starts in 15 seconds)"
                     }
                 ],
                 footer: {
@@ -93,7 +92,8 @@ module.exports = {
             let queueIsOpen = true;
             let players = new Set();
 
-            const collector = message.channel.createMessageCollector();
+            const filter = m => m.content.includes('%join');
+            const collector = message.channel.createMessageCollector(filter, { time: 15000 });
 
             collector.on('collect', m => {
                 if (queueIsOpen == true) {
@@ -109,13 +109,10 @@ module.exports = {
                 } else {
                     message.reply("The quiz already started, queue is closed!");
                 }
-                if (m.author.tag == quizStarter) {
-                    if (m.content == "%start") {
-                        queueIsOpen = false;
+            });
 
-                        initializeQuiz(Qtopic);
-                    }
-                }
+            collector.on('end', collected => {
+                initializeQuiz(Qtopic);
             });
         }
 
