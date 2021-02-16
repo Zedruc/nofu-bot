@@ -119,16 +119,13 @@ module.exports = {
                         .setDescription("Too few players joined, minimum is 2")
                     return message.channel.send(canceledEmbed);
                 }
-                message.channel.send("Queue closed! Starting quiz").then(msg => {
-                    setTimeout(() => {
-                        msg.edit("Queue closed! Starting quiz.");
-                    }, 1000);
+                message.channel.send("Queue closed! Starting quiz.").then(msg => {
                     setTimeout(() => {
                         msg.edit("Queue closed! Starting quiz..");
                     }, 1000);
                     setTimeout(() => {
                         msg.edit("Queue closed! Starting quiz...");
-                    }, 1000);
+                    }, 2000);
                 });
                 initializeQuiz(Qtopic);
             });
@@ -178,6 +175,13 @@ module.exports = {
                 // wait for right answer
                 message.channel.awaitMessages(filter, { time: 10000, errors: ['time'] })
                     .then(collected => {
+                        if (collected.size > 1) {
+                            message.channel.send("No one got the right answer.");
+                            setTimeout(() => {
+                                Quiz(pickedQuestions, pickedAnswers);
+                            }, 1000);
+                            return;
+                        }
                         message.channel.send(`${collected.first().author} got the correct answer!`);
                         setTimeout(() => {
                             Quiz(pickedQuestions, pickedAnswers);
