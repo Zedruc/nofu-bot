@@ -1,0 +1,158 @@
+{
+    "geography": {
+        "questions": [
+            "What is the capital of Chile ?",
+            "What is the highest mountain in Britain ?",
+            "What is the smallest country in the world ?",
+            "Alberta is a province of which country ?",
+            "How many countries still have the shilling as currency ?",
+            "Which is the only vowel not used as the first letter in a US State ?",
+            "What is the largest country in the world ?",
+            "Where would you find the River Thames ?",
+            "What is the hottest continent on Earth ?",
+            "What is the longest river in the world ?"
+        ],
+        "answers": [
+            "Santiago",
+            "Ben Nevis",
+            "Vatican City",
+            "Canada",
+            "Four – Kenya, Uganda, Tanzania and Somalia",
+            "E",
+            "Russia",
+            "London, UK",
+            "Africa",
+            "River Nile"
+        ]
+    },
+    "history": {
+        "questions": [
+            "What did the Romans call Scotland?",
+            "Who was made Lord Mayor of London In 1397, 1398, 1406 And 1419?",
+            "Who was Henry VIIIs last wife?",
+            "Who was the youngest British Prime Minister?",
+            "In which year was Joan of Arc burned at the stake?",
+            "Which nationality was the polar explorer Roald Amundsen?",
+            "Who was the first female Prime Minister of Australia?",
+            "Which English explorer was executed in 1618, fifteen year after being found guilty of conspiracy against King James I of England and VI of Scotland?",
+            "Which English city was once known as Duroliponte?",
+            "The first successful vaccine was introduced by Edward Jenner in 1796. Which disease did it guard against?"
+        ],
+        "answers": [
+            "Caledonia",
+            "Richard(Dick) Whittington",
+            "Catherine Parr",
+            "William Pitt(The Younger)",
+            "1431",
+            "Norwegian",
+            "Julia Gillard(2010 - 2013)",
+            "Sir Walter Raleigh",
+            "Cambridge",
+            "Smallpox"
+        ]
+    },
+    "sports": {
+        "questions": [
+            "What are the five colours of the Olympic rings?",
+            "In football, which team has won the Champions League(formerly the European Cup) the most?",
+            "How many players are there in a rugby league team?",
+            "Which horse is the only three- time winner of the Grand National?",
+            "Since 1977, where has snooker's World Championship taken place?",
+            "In tennis, what piece of fruit is found at the top of the men's Wimbledon trophy?",
+            "Who won the FIFA Women's World Cup in 2019?",
+            "In bowling, what is the term given for three consecutive strikes?",
+            "How many world titles has Phil Talyor won in darts ?",
+            "In golf, where does the Masters take place?"
+        ],
+        "answers": [
+            "Blue, yellow, black, green and red",
+            "Real Madrid(13)",
+            "13",
+            "Red Rum",
+            "Crucible Theatre",
+            "Pineapple",
+            "USA",
+            "A turkey",
+            "16",
+            "Augusta National"
+        ]
+    },
+    "music": {
+        "questions": [
+            "One Direction is known for being the runners-up in The X Factor in but who came first?",
+            "Which singer has the most UK Number One singles ever?",
+            "What was Britney Spears’ first single called?",
+            "Who is the only singer to have ever performed more than one James Bond theme song?",
+            "Who were the three headliners of Glastonbury ?",
+            "Who is the only musician ever to have been awarded the Nobel prize for literature?",
+            "Which Beatles song was banned from the BBC for its lyrics?",
+            "Who was the first female artist to achieve a UK number one with a self-written song?",
+            "What is the real name of U ’s guitarist known as The Edge?",
+            "What is David Bowie’s real name?"
+        ],
+        "answers": [
+            "Matt Cardle",
+            "Elvis Presley",
+            "Baby One More Time",
+            "Shirley Bassey (John Barry and his orchestra does not count as their theme is reused.",
+            "The Cure  The Killers and Stormzy",
+            "Bob Dylan",
+            "I am the Walrus",
+            "Kate Bush",
+            "David Evans",
+            "David Jones"
+        ]
+    },
+    "celebrities": {
+        "questions": [
+            "Which singer was known amongst other things as 'The King of Pop'?",
+            "What is Cher's last name?",
+            "What is the name of Kim Kardashian's eldest child?",
+            "Who was the winner of the first ever UK series of ‘I’m A Celebrity… Get Me Out Of Here!’?",
+            "Which English supermodel was born is Streatham in May     ?",
+            "Which footballer has the most Instagram followers in the world - as of     ?",
+            "Tom Cruise is an outspoken member of which religion?",
+            "Who is Dolly Parton married to?",
+            "American singer Stefani Joanne Angelina Germanotta is best known by which stagename?",
+            "Taylor Swift grew up on what type of farm?"
+        ],
+        "answers": [
+            "Michael Jackson",
+            "Sarkisian - full name Cherilyn Sarkisian",
+            "North West",
+            "Tony Blackburn",
+            "Naomi Campbell",
+            "Cristiano Ronaldo",
+            "Scientology",
+            "Carl Dean",
+            "Lady Gaga",
+            "Christmas Tree Farm"
+        ]
+    },
+    "true_or_false": {
+        "questions": [
+            "The Channel Tunnel is the longest rail tunnel in the world",
+            "A woman has walked on the Moon",
+            "According to Scottish law it is illegal to be drunk in charge of a cow",
+            "Vietnamese is an official language in Canada",
+            "The setting for the ITV drama Midsomer Murders is a fictional English county called Midsomer",
+            "An emu can fly",
+            "President Theodore Roosevelt's son was called Kermit",
+            "Edinburgh is further East than Carlisle",
+            "The can-opener was not invented until years after the tin can",
+            "There are McDonald’s one every continent except one"
+        ],
+        "answers": [
+            "False – The Gotthard Base Tunnel in Switzerland is miles longer at . miles long",
+            "False",
+            "True",
+            "False",
+            "True",
+            "False",
+            "True",
+            "False",
+            "True",
+            "True"
+        ]
+    }
+}

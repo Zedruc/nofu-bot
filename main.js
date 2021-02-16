@@ -262,6 +262,10 @@ client.on('message', message => {
 
         client.commands.get("banreason").execute(message, args, client);
 
+    } else if (command == "quiz") {
+
+        client.commands.get("quiz").execute(message, args, client);
+
     }
 });
 
