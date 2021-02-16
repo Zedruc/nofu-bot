@@ -60,9 +60,7 @@ module.exports = {
                 break;
 
             default:
-                message.reply("Couldn't find topic, list of topics:\ngeography, history, sports, music, clebrities, true or false");
-                throw new Error("Cancelled Command [Illegal argument]");
-                break;
+                return message.reply("Couldn't find topic, list of topics:\ngeography, history, sports, music, clebrities, true or false");
         }
 
         // =====================================================================
