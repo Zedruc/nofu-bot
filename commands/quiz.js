@@ -102,7 +102,7 @@ module.exports = {
                         if (!players.has(m.author.tag)) {
                             players.add(m.author.tag);
                             message.reply("succesfully entered the quiz!");
-                        } else {
+                        } else if (players.has(m.author.tag)) {
                             message.reply("You're already in the quiz!")
                         }
                     }
@@ -122,7 +122,7 @@ module.exports = {
                 QuizTopic = "true_or_false";
             }
 
-            fs.readFile("../quiz.json", { encoding: 'utf8' }, (err, data) => {
+            fs.readFile(`.././quiz.json`, { encoding: 'utf8' }, (err, data) => {
                 if (err) throw err;
                 let quizContent = JSON.parse(data);
                 let topicQuestions = quizContent[Qtopic]["questions"]; // array
