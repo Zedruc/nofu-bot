@@ -16,7 +16,7 @@
 // =============================================================================
 const Discord = require('discord.js');
 const fs = require('fs');
-const { pathToFileURL } = require('url');
+const { path } = require('path');
 
 const topics = [
     "geography",
@@ -123,7 +123,7 @@ module.exports = {
                 QuizTopic = "true_or_false";
             }
 
-            fs.readFile(`${__dirname}\\quiz.json`, { encoding: 'utf8' }, (err, data) => {
+            fs.readFile(path.resolve('../quiz.json'), { encoding: 'utf8' }, (err, data) => {
                 if (err) throw err;
                 let quizContent = JSON.parse(data);
                 let topicQuestions = quizContent[Qtopic]["questions"]; // array
