@@ -93,12 +93,12 @@ module.exports = {
             let players = new Set();
 
             const filter = m => m.content.includes('%join');
-            const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+            const collector = message.channel.createMessageCollector(filter, { time: 20000 });
 
             collector.on('collect', m => {
+                if (m.author.tag == quizStarter) return message.reply("You're already in the quiz!");
                 if (queueIsOpen == true) {
                     if (m.content == "%join") {
-                        if (m.author.tag == quizStarter) message.reply("You're already in the quiz!");
                         if (!players.has(m.author.tag)) {
                             players.add(m.author.tag);
                             message.reply("succesfully entered the quiz!");
