@@ -119,17 +119,17 @@ module.exports = {
                         .setDescription("Too few players joined, minimum is 2")
                     return message.channel.send(canceledEmbed);
                 }
-
-                let msg = message.channel.send("Queue closed! Starting quiz");
-                setTimeout(() => {
-                    msg.edit("Queue closed! Starting quiz.");
-                }, 1000);
-                setTimeout(() => {
-                    msg.edit("Queue closed! Starting quiz..");
-                }, 1000);
-                setTimeout(() => {
-                    msg.edit("Queue closed! Starting quiz...");
-                }, 1000);
+                message.channel.send("Queue closed! Starting quiz").then(msg => {
+                    setTimeout(() => {
+                        msg.edit("Queue closed! Starting quiz.");
+                    }, 1000);
+                    setTimeout(() => {
+                        msg.edit("Queue closed! Starting quiz..");
+                    }, 1000);
+                    setTimeout(() => {
+                        msg.edit("Queue closed! Starting quiz...");
+                    }, 1000);
+                });
                 initializeQuiz(Qtopic);
             });
         }
@@ -171,7 +171,7 @@ module.exports = {
             const filter = m => { m.content == answer };
 
             let questionEmbed = new Discord.MessageEmbed()
-                .setTitle(`__Question number ${questionNumber}__!`)
+                .setTitle(`__Question number ${questionNumber + 1}__!`)
                 .setDescription(`${question} \n 10 seconds time!`);
             message.channel.send({ embed: questionEmbed }).then(() => {
 
