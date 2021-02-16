@@ -113,6 +113,13 @@ module.exports = {
             });
 
             collector.on('end', collected => {
+                if (collected.size > 2) {
+                    const canceledEmbed = new Discord.MessageEmbed()
+                        .setTitle("__Cancelled Quiz!__")
+                        .setDescription("Too few players joined, minimum is 2")
+                    return message.channel.send(canceledEmbed);
+                }
+
                 let msg = message.channel.send("Queue closed! Starting quiz");
                 setTimeout(() => {
                     msg.edit("Queue closed! Starting quiz.");
@@ -156,9 +163,8 @@ module.exports = {
             var currentQuestionAnswerIndex = 0; // 0 - 4
             if (currentQuestionAnswerIndex == max) throw new Error("Finished all questions");
 
-            ask(questions[currentQuestionAnswerIndex], currentQuestionAnswerIndex, answers).then(() => {
-                currentQuestionAnswerIndex++;
-            });
+            ask(questions[currentQuestionAnswerIndex], currentQuestionAnswerIndex, answers)
+            currentQuestionAnswerIndex++;
         }
 
         function ask(question, questionNumber, answer) {
