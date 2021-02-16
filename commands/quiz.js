@@ -73,7 +73,7 @@ module.exports = {
                 fields: [
                     {
                         name: `New quiz started by ${quizStarter}`,
-                        value: "Use %join to participate in the quiz before it's started! (Starts in 15 seconds)"
+                        value: "Use %join to participate in the quiz before it's started! (Starts in 20 seconds)"
                     }
                 ],
                 footer: {
@@ -113,6 +113,16 @@ module.exports = {
             });
 
             collector.on('end', collected => {
+                let msg = message.channel.send("Queue closed! Starting quiz");
+                setTimeout(() => {
+                    msg.edit("Queue closed! Starting quiz.");
+                }, 1000);
+                setTimeout(() => {
+                    msg.edit("Queue closed! Starting quiz..");
+                }, 1000);
+                setTimeout(() => {
+                    msg.edit("Queue closed! Starting quiz...");
+                }, 1000);
                 initializeQuiz(Qtopic);
             });
         }
@@ -146,8 +156,8 @@ module.exports = {
             var currentQuestionAnswerIndex = 0; // 0 - 4
             if (currentQuestionAnswerIndex == max) throw new Error("Finished all questions");
 
-            ask(questions[currentQuestion], currentQuestionAnswerIndex, answers).then(() => {
-                currentQuestion++;
+            ask(questions[currentQuestionAnswerIndex], currentQuestionAnswerIndex, answers).then(() => {
+                currentQuestionAnswerIndex++;
             });
         }
 
