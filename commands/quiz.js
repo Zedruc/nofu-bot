@@ -123,7 +123,7 @@ module.exports = {
                 QuizTopic = "true_or_false";
             }
 
-            fs.readFile(path.resolve(__dirname, './quiz.json'), { encoding: 'utf8' }, (err, data) => {
+            fs.readFile(path.resolve(__dirname, '../quiz.json'), { encoding: 'utf8' }, (err, data) => {
                 if (err) throw err;
                 let quizContent = JSON.parse(data);
                 let topicQuestions = quizContent[Qtopic]["questions"]; // array
