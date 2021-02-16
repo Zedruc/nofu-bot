@@ -116,6 +116,7 @@ module.exports = {
                 if (collected.size < 2) {
                     const canceledEmbed = new Discord.MessageEmbed()
                         .setTitle("__Cancelled Quiz!__")
+                        .setColor("#ffa500")
                         .setDescription("Too few players joined, minimum is 2")
                     return message.channel.send(canceledEmbed);
                 }
@@ -140,6 +141,7 @@ module.exports = {
             fs.readFile(path.resolve(__dirname, '../quiz.json'), { encoding: 'utf8' }, (err, data) => {
                 if (err) throw err;
                 let quizContent = JSON.parse(data);
+                let topicColor = quizContent[Qtopic]["color"];
                 let topicQuestions = quizContent[Qtopic]["questions"]; // array
                 let topicAnswers = quizContent[Qtopic]["answers"]; // array
 
@@ -150,25 +152,27 @@ module.exports = {
 
                 }
 
-                Quiz(pickedQuestions, pickedAnswers);
+                Quiz(pickedQuestions, pickedAnswers, TopicColor);
             });
         }
 
 
-        function Quiz(questions, answers) {
+        function Quiz(questions, answers, color) {
+            const TopicColor = color;
             const max = 5;
             var currentQuestionAnswerIndex = 0; // 0 - 4
             if (currentQuestionAnswerIndex == max) throw new Error("Finished all questions");
 
-            ask(questions[currentQuestionAnswerIndex], currentQuestionAnswerIndex, answers)
+            ask(questions[currentQuestionAnswerIndex], currentQuestionAnswerIndex, answers, TopicColor)
             currentQuestionAnswerIndex++;
         }
 
-        function ask(question, questionNumber, answer) {
+        function ask(question, questionNumber, answer, color) {
             const filter = m => { m.content == answer };
 
             let questionEmbed = new Discord.MessageEmbed()
                 .setTitle(`__Question number ${questionNumber + 1}__!`)
+                .setColor(color)
                 .setDescription(`${question} \n 10 seconds time!`);
             message.channel.send({ embed: questionEmbed }).then(() => {
 

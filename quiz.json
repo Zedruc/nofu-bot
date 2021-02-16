@@ -1,5 +1,6 @@
 {
     "geography": {
+        "color": "#90ee90",
         "questions": [
             "What is the capital of Chile ?",
             "What is the highest mountain in Britain ?",
@@ -26,6 +27,7 @@
         ]
     },
     "history": {
+        "color": "#624a2e",
         "questions": [
             "What did the Romans call Scotland?",
             "Who was made Lord Mayor of London In 1397, 1398, 1406 And 1419?",
@@ -52,6 +54,7 @@
         ]
     },
     "sports": {
+        "color": "#ff0000",
         "questions": [
             "What are the five colours of the Olympic rings?",
             "In football, which team has won the Champions League(formerly the European Cup) the most?",
@@ -78,6 +81,7 @@
         ]
     },
     "music": {
+        "color": "#ffce00",
         "questions": [
             "One Direction is known for being the runners-up in The X Factor in but who came first?",
             "Which singer has the most UK Number One singles ever?",
@@ -104,6 +108,7 @@
         ]
     },
     "celebrities": {
+        "color": "#b428ff",
         "questions": [
             "Which singer was known amongst other things as 'The King of Pop'?",
             "What is Cher's last name?",
@@ -130,6 +135,7 @@
         ]
     },
     "true_or_false": {
+        "color": "#85ceff",
         "questions": [
             "The Channel Tunnel is the longest rail tunnel in the world",
             "A woman has walked on the Moon",
