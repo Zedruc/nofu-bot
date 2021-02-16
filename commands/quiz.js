@@ -72,7 +72,6 @@ module.exports = {
         function announceQuiz(quizStarter, quizTopic) {
             let embed = {
                 title: `__NEW QUIZ [${quizTopic}]__`,
-                thumbnail: { "url": user.displayAvatarURL({ format: "png" }) },
                 fields: [
                     {
                         name: `New quiz started by ${quizStarter}`,
