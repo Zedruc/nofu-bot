@@ -46,10 +46,10 @@ module.exports = {
             case topics[0]:
                 announceQuiz(quizStarter, topics[0])
                 break;
-            case topic[1]:
+            case topics[1]:
                 announceQuiz(quizStarter, topics[1])
                 break;
-            case topic[2]:
+            case topics[2]:
                 announceQuiz(quizStarter, topics[2])
                 break;
             case topics[3]:
