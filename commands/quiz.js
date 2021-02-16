@@ -152,7 +152,7 @@ module.exports = {
 
                 }
 
-                Quiz(pickedQuestions, pickedAnswers, TopicColor);
+                Quiz(pickedQuestions, pickedAnswers, topicColor);
             });
         }
 
