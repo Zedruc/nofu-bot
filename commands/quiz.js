@@ -113,7 +113,7 @@ module.exports = {
             });
 
             collector.on('end', collected => {
-                if (collected.size > 2) {
+                if (collected.size < 2) {
                     const canceledEmbed = new Discord.MessageEmbed()
                         .setTitle("__Cancelled Quiz!__")
                         .setDescription("Too few players joined, minimum is 2")
@@ -175,7 +175,7 @@ module.exports = {
                 // wait for right answer
                 message.channel.awaitMessages(filter, { time: 10000, errors: ['time'] })
                     .then(collected => {
-                        if (collected.size > 1) {
+                        if (collected.size < 1) {
                             message.channel.send("No one got the right answer.");
                             setTimeout(() => {
                                 Quiz(pickedQuestions, pickedAnswers);
