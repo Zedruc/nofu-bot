@@ -83,7 +83,7 @@ client.on('message', message => {
     // =========================================================================
     if (message.guild.id == "704285475791437844") {
         const _filter = [
-            "test"
+            "fuck"
         ]
 
         let text = message.content;
