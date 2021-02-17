@@ -85,19 +85,26 @@ client.on('message', message => {
     // =========================================================================
     if (message.guild.id == "704285475791437844") {
         if (message.channel.id == "741670112188432434") {
-            const _filter = fs.readFileSync(path.resolve("./slurs.json"), { encoding: 'utf8' }); // array
+            const slurs = fs.readFileSync(path.resolve("./slurs.json"), { encoding: 'utf8' }); // array
 
             let text = message.content;
             let stemmedText = stemmer.tokenizeAndStem(text, true);
-            for (let i = 0; i < stemmedText.length; i++) {
-                for (let x = 0; x < _filter.length; x++) {
-                    if (stemmedText.includes(_filter[x])) {
+
+            for (let x = 0; x < stemmedText.length; x++) {
+
+                for (let y = 0; y < slurs.length; y++) {
+
+                    if (stemmedText[x].indexOf(slurs[y] > -1)) {
+
                         message.delete();
                         break;
+
                     }
+
                 }
 
             }
+
         }
     }
 
