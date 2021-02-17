@@ -19,6 +19,7 @@ module.exports = {
 
                 if (args[0] == "skywars" || args[0] == "sw") {
                     let stats = JSON.parse(body);
+                    if(stats.player == null) return message.reply(`Couldn't find any stats for the player ${args[1]} :(`);
 
                     let firstLoginDay = new Date(stats.player.firstLogin).getDay();
                     let firstLoginMonth = new Date(stats.player.firstLogin).getMonth();
