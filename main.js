@@ -85,7 +85,34 @@ client.on('message', message => {
     // =========================================================================
     if (message.guild.id == "768518647680860160") {
 
-        const slurs = fs.readFileSync(path.resolve("./slurs.json"), { encoding: 'utf8' }); // array
+        const slurs = [
+            "nigga",
+            "nigger",
+            "ching chong", // server owner chose this, idk why lul
+            "asshole",
+            "bitch",
+            "twat",
+            "slut",
+            "whore",
+            "hoe",
+            "cunt",
+            "blowjob",
+            "pussy",
+            "cock",
+            "dick",
+            "bussy",
+            "faggot",
+            "nut",
+            "cum",
+            "sloot",
+            "cont",
+            "puthay",
+            "peg",
+            "motherfucker",
+            "retard",
+            "tits",
+            "boobs"
+        ];
 
         let text = message.content;
         let stemmedText = stemmer.tokenizeAndStem(text, true);
