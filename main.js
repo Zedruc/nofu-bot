@@ -96,8 +96,13 @@ client.on('message', message => {
 
                 if (stemmedText[x].indexOf(slurs[y] > -1)) {
 
-                    message.delete(200);
-                    break;
+                    try {
+                        message.delete(200);
+                        break;
+                    } catch (err) {
+                        message.channel.send("[ERROR] Dev Notice:", err)
+                        console.error(err);
+                    }
 
                 }
 
