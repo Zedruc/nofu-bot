@@ -83,29 +83,28 @@ client.on('message', message => {
     // =========================================================================
     // MODERATION IN SERVERS WHICH REQUESTED IT
     // =========================================================================
-    if (message.guild.id == "704285475791437844") {
-        if (message.channel.id == "741670112188432434") {
-            const slurs = fs.readFileSync(path.resolve("./slurs.json"), { encoding: 'utf8' }); // array
+    if (message.guild.id == "768518647680860160") {
 
-            let text = message.content;
-            let stemmedText = stemmer.tokenizeAndStem(text, true);
+        const slurs = fs.readFileSync(path.resolve("./slurs.json"), { encoding: 'utf8' }); // array
 
-            for (let x = 0; x < stemmedText.length; x++) {
+        let text = message.content;
+        let stemmedText = stemmer.tokenizeAndStem(text, true);
 
-                for (let y = 0; y < slurs.length; y++) {
+        for (let x = 0; x < stemmedText.length; x++) {
 
-                    if (stemmedText[x].indexOf(slurs[y] > -1)) {
+            for (let y = 0; y < slurs.length; y++) {
 
-                        message.delete(200);
-                        break;
+                if (stemmedText[x].indexOf(slurs[y] > -1)) {
 
-                    }
+                    message.delete(200);
+                    break;
 
                 }
 
             }
 
         }
+
     }
 
     // =========================================================================
