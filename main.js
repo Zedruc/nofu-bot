@@ -350,10 +350,6 @@ client.on('message', message => {
 
         client.commands.get("banreason").execute(message, args, client);
 
-    } else if (command == "pfpmagic") {
-
-        client.commands.get("pfpmagic").execute(message, args, client);
-
     }
 });
 
