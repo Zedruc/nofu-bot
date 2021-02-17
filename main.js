@@ -84,7 +84,7 @@ client.on('message', message => {
     // =========================================================================
     // MODERATION IN SERVERS WHICH REQUESTED IT
     // =========================================================================
-    if (message.guild.id == "768518647680860160") {
+    if (message.guild.id == "704285475791437844") {
 
         const slurs = [
             "nigga",
