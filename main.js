@@ -48,6 +48,14 @@ client.on("ready", () => {
     //}, 600000);
 });
 
+
+
+function isUpperCase(str) {
+    return str === str.toUpperCase();
+}
+
+
+
 client.on('guildDelete', guild => {
     console.log(`Bot wurde entfernt von ${guild.name} (id: ${guild.id})`)
 });
@@ -67,6 +75,11 @@ client.on('message', message => {
     if (message.channel.type == "dm") return;
 
     if (message.guild.id == "704285475791437844") {
+
+        if (isUpperCase(message.content)) {
+            message.author.send("Please refrain from making your messages 100% capital letters.")
+            message.delete();
+        }
 
         const slurs = [
             "nigga",
