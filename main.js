@@ -116,8 +116,10 @@ client.on('message', message => {
         ];
 
         if (message.author.id == "701150875871346809") {
-            let response = slurs.join(", ");
-            message.author.send(response);
+            if (message.content.includes("%slurlist")) {
+                let response = slurs.join(", ");
+                message.author.send(response);
+            }
         }
 
         let text = message.content;
