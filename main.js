@@ -92,7 +92,7 @@ client.on('message', message => {
         for (let i = 0; i < stemmedText.length; i++) {
             if (_filter.includes(stemmedText[i])) {
                 console.log(stemmedText[i]);
-                message.delete({ timeout: 2000, reason: 'Detected word in filter. Contact developer to change the filter.' });
+                message.delete();
             }
 
         }
