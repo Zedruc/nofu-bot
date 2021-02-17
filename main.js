@@ -125,9 +125,8 @@ client.on('message', message => {
                     message.delete({ timeout: 200, reason: "Detected word in filer, autodeleted." });
                     return;
                 } catch (err) {
-                    message.channel.send("[ERROR] Dev Notice:", err)
-                    console.error(err);
-                    return;
+                    message.channel.send("Critical error while deleting message, shutting down.");
+                    throw new Error(err);
                 }
             }
 
