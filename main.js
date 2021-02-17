@@ -63,6 +63,9 @@ client.on('message', message => {
     // =============================================================================
     // MODERATION BLOCK FOR SERVERS WHICH REQUESTED
     // =============================================================================
+
+    if (message.channel.type == "dm") return message.reply("Commands cant be used in my dms.");
+
     if (message.guild.id == "704285475791437844") {
 
         const slurs = [
