@@ -10,7 +10,7 @@ module.exports = {
             if (err) return message.channel.send("Something went wrong :(");
 
             image
-                .contrast(100)
+                .contrast(1)
                 .write(path.resolve(`../images/${message.author.id}`));
 
             message.channel.send(":,)", { files: [path.resolve(`../images${message.author.id}`)] });
