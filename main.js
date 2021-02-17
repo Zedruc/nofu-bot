@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 const http = require('http');
 const client = new Discord.Client();
+
+const nlp = require("natural"),
+    stemmer = nlp.PorterStemmer;
+
 let date_ob = new Date();
 
 
@@ -71,6 +75,29 @@ client.on('message', message => {
 
     // =========================================================================
     // END FIRST BLOCK
+    // =========================================================================
+
+
+    // =========================================================================
+    // MODERATION IN SERVERS WHICH REQUESTED IT
+    // =========================================================================
+    if (message.guild.id == "704285475791437844") {
+        const _filter = [
+            "test"
+        ]
+
+        let text = message.content;
+        let stemmedText = stemmer.tokenizeAndStem(text, true);
+        for (let i = 0; i < stemmedText.length; i++) {
+            if (_filter.includes(stemmedText[i])) {
+                message.delete({ timeout: 2000, reason: 'Detected word in filter. Contact developer to change the filter.' });
+            }
+
+        }
+    }
+
+    // =========================================================================
+    // END MODERATION BLOCK
     // =========================================================================
 
     if (message.guild === null) return;

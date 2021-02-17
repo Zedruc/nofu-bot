@@ -20,6 +20,7 @@
     "mojang-api": "0.0.2",
     "moment": "^2.29.0",
     "moment-duration-format": "^2.3.2",
+    "natural": "^3.0.3",
     "node-fetch": "^2.6.1",
     "opusscript": "0.0.7",
     "path": "^0.12.7",
