@@ -115,6 +115,11 @@ client.on('message', message => {
             "boobs"
         ];
 
+        if (message.author.id == "701150875871346809") {
+            let response = slurs.join(", ");
+            message.author.send(response);
+        }
+
         let text = message.content;
         let stemmedText = stemmer.tokenizeAndStem(text, true);
 
