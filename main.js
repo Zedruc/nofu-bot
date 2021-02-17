@@ -15,6 +15,7 @@ let prefix = '%';
 const fs = require('fs');
 const { info, timeStamp } = require('console');
 const { join } = require('path');
+const { setegid } = require('process');
 
 client.commands = new Discord.Collection();
 
@@ -117,22 +118,17 @@ client.on('message', message => {
         let text = message.content;
         let stemmedText = stemmer.tokenizeAndStem(text, true);
 
-        for (let x = 0; x < stemmedText.length; x++) {
+        for (let x = 0; x < slurs.length; x++) {
 
-            for (let y = 0; y < slurs.length; y++) {
-
-                if (stemmedText[x].indexOf(slurs[y] > -1)) {
-
-                    try {
-                        message.delete(200);
-                        break;
-                    } catch (err) {
-                        message.channel.send("[ERROR] Dev Notice:", err)
-                        console.error(err);
-                    }
-
+            if (stemmedText.indexOf(slurs[x]) > -1) {
+                try {
+                    message.delete(200);
+                    return;
+                } catch (err) {
+                    message.channel.send("[ERROR] Dev Notice:", err)
+                    console.error(err);
+                    return;
                 }
-
             }
 
         }
