@@ -90,9 +90,11 @@ client.on('message', message => {
         console.log(text);
         let stemmedText = stemmer.tokenizeAndStem(text, true);
         for (let i = 0; i < stemmedText.length; i++) {
-            if (_filter.includes(stemmedText[i])) {
-                console.log(stemmedText[i]);
-                message.delete();
+            for (let x = 0; x < _filter.length; x++) {
+                if (message.content.includes(_filter[x])) {
+                    message.delete();
+                    break;
+                }
             }
 
         }
