@@ -350,7 +350,13 @@ client.on('message', message => {
 
         client.commands.get("banreason").execute(message, args, client);
 
+    } else if (command == "vc") {
+
+        client.commands.get("vc").execute(message, args, client);
+
     }
+
+
 });
 
 client.login(process.env.token);
