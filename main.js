@@ -76,11 +76,6 @@ client.on('message', message => {
 
     if (message.guild.id == "704285475791437844") {
 
-        if (isUpperCase(message.content)) {
-            message.author.send("Please refrain from making your messages 100% capital letters.")
-            message.delete();
-        }
-
         const slurs = [
             "nigga",
             "nigger",
