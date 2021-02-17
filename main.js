@@ -96,7 +96,7 @@ client.on('message', message => {
 
                     if (stemmedText[x].indexOf(slurs[y] > -1)) {
 
-                        message.delete();
+                        message.delete(200);
                         break;
 
                     }
