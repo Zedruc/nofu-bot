@@ -4,6 +4,7 @@ module.exports = {
     name: "vc",
     description: "vc test",
     execute(message, args, client) {
+        if (!message.member.voice.channel) return message.reply("You have to be in a voice channel!");
         let vc = message.member.voice.channel;
         let channel = message.channel;
         vc.join().then(connection => {
