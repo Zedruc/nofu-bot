@@ -11,6 +11,7 @@ module.exports = {
             let dispatcher = connection.play("https://www.myinstants.com/media/sounds/roblox-death-sound_1.mp3") // lul
             dispatcher.on('finish', end => {
                 channel.send("oof");
+                vc.leave();
             });
 
         }).catch(err => {
