@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const http = require('http');
+const path = require('path');
+
 const client = new Discord.Client();
 
 const nlp = require("natural"),
@@ -82,9 +84,7 @@ client.on('message', message => {
     // MODERATION IN SERVERS WHICH REQUESTED IT
     // =========================================================================
     if (message.guild.id == "704285475791437844") {
-        const _filter = [
-            "fuck"
-        ]
+        const _filter = fs.readFileSync(path.resolve("./slurs.filter"), { encoding: 'utf8' }); // array
 
         let text = message.content;
         let stemmedText = stemmer.tokenizeAndStem(text, true);
