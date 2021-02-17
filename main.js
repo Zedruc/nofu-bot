@@ -87,7 +87,6 @@ client.on('message', message => {
         ]
 
         let text = message.content;
-        console.log(text);
         let stemmedText = stemmer.tokenizeAndStem(text, true);
         for (let i = 0; i < stemmedText.length; i++) {
             for (let x = 0; x < _filter.length; x++) {
