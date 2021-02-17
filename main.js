@@ -112,7 +112,7 @@ client.on('message', message => {
             }
         }
 
-        let text = message.content;
+        let text = message.content.toLocaleLowerCase();
         let stemmedText = stemmer.tokenizeAndStem(text, true);
 
         for (let x = 0; x < slurs.length; x++) {
