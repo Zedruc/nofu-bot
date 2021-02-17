@@ -87,9 +87,11 @@ client.on('message', message => {
         ]
 
         let text = message.content;
+        console.log(text);
         let stemmedText = stemmer.tokenizeAndStem(text, true);
         for (let i = 0; i < stemmedText.length; i++) {
             if (_filter.includes(stemmedText[i])) {
+                console.log(stemmedText[i]);
                 message.delete({ timeout: 2000, reason: 'Detected word in filter. Contact developer to change the filter.' });
             }
 
