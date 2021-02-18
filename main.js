@@ -65,11 +65,17 @@ client.on("guildCreate", guild => {
 });
 
 client.on('guildMemberAdd', (member) => {
+
     if (member.guild.id == "704285475791437844") {
+
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
-        let today = new Date().getDate();
+        var today = new Date();
+        var checkDate = new Date().setDate(today.getDate() - 5);
+
         const newMember = member.user;
-        if (newMember.createdAt.getDate() == today) {
+
+        if (newMember.createdAt > checkDate) {
+
             if (newMember.client.guilds.cache.size <= 6) {
                 let warning = new Discord.MessageEmbed()
                     .setTitle("[Developement Phase] __Potential alt account found__.")
@@ -77,6 +83,7 @@ client.on('guildMemberAdd', (member) => {
                         { name: `Potential alt account: ${newMember.discriminator}`, value: `Account created at ${newMember.createdAt.getDate()}` }
                     )
                     .setDescription("Remember that this detections aren't and never will be 100% correct")
+
                 staffChannel.send(warning);
             }
         }
