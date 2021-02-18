@@ -68,16 +68,31 @@ client.on('guildMemberAdd', (member) => {
 
     if (member.guild.id == "704285475791437844") {
 
+        dt.setTime(dt.getTime() + dt.getTimezoneOffset() * 60 * 1000);
+        console.log(dt); // Gives Tue Mar 22 2016 04:00:00 GMT+0530 (IST)
+
+        var offset = -300; //Timezone offset for EST in minutes.
+        var estDate = new Date(dt.getTime() + offset * 60 * 1000);
+        console.log(estDate); //Gives Mon Mar 21 2016 23:00:00 GMT+0530 (IST)
+
+        //==========
+
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
         const newMember = member.user;
 
         if (Date.now() - newMember.createdAt < 1000 * 60 * 60 * 24 * 10) {
+            let creationDate = newMember.createdAt;
+            creationDate.setDate(creationDate.getTime() + creationDate.getTimezoneOffset() * 60 * 1000);
+
+            var offset = -240; // minutes
+            var estDate = new Date(creationDate.getTime() + offset * 60 * 1000);
+
             let warning = new Discord.MessageEmbed()
                 .setTitle("[Developement Phase] __Potential alt account found__.")
                 .setThumbnail(newMember.avatarURL({ format: 'png', dynamic: true }))
                 .addFields(
                     { name: "Potential alt account:", value: `${newMember.tag}` },
-                    { name: "Accunt created on:", value: `Account created at ${newMember.createdAt.toLocaleString()}` },
+                    { name: "Accunt created on:", value: `Account created at ${estDate}` },
                     { name: `Account ID:`, value: newMember.id }
                 )
                 .setDescription("Remember that the detections aren't, and never will be 100% correct")
