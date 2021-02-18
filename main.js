@@ -66,13 +66,17 @@ client.on("guildCreate", guild => {
 
 client.on('guildMemberAdd', (member) => {
 
+    console.log("1");
+
     if (member.guild.id == "704285475791437844") {
+
+        console.log("2");
 
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
 
         const newMember = member.user;
 
-        console.log(newMember.client.guilds.cache.size);
+        console.log("fired");
 
         if (newMember.createdAt > checkDate) {
 
