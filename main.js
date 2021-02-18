@@ -76,7 +76,8 @@ client.on('guildMemberAdd', (member) => {
                 .setTitle("[Developement Phase] __Potential alt account found__.")
                 .setThumbnail(newMember.avatarURL({ format: 'png', dynamic: true }))
                 .addFields(
-                    { name: `Potential alt account: ${newMember.tag}`, value: `Account created at ${newMember.createdAt.toISOString()}` },
+                    { name: "Potential alt account:", value: `${newMember.tag}` },
+                    { name: "Accunt created on:", value: `Account created at ${newMember.createdAt.toLocaleString()}` }
                     { name: `Account ID:`, value: newMember.id }
                 )
                 .setDescription("Remember that the detections aren't, and never will be 100% correct")
