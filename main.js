@@ -71,6 +71,8 @@ client.on('guildMemberAdd', (member) => {
     if (member.guild.id == "704285475791437844") {
 
         console.log("2");
+        let today = new Date();
+        let checkDate = today.setDate(today.getDate - 5);
 
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
 
