@@ -76,7 +76,7 @@ client.on('guildMemberAdd', (member) => {
             let warning = new Discord.MessageEmbed()
                 .setTitle("[Developement Phase] __Potential alt account found__.")
                 .addFields(
-                    { name: `Potential alt account: ${newMember.discriminator}`, value: `Account created at ${newMember.createdAt.toISOString}` }
+                    { name: `Potential alt account: ${newMember.tag} [ID: ${newMember.id}]`, value: `Account created at ${newMember.createdAt.toISOString()}` }
                 )
                 .setDescription("Remember that this detections aren't and never will be 100% correct")
 
