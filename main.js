@@ -145,7 +145,6 @@ client.on('message', message => {
 
             if (stemmedText.indexOf(slurs[x]) > -1) {
                 try {
-                    message.author.send(`The word "${slurs[x]}" is banned in ${message.guild.name}!`);
                     message.delete({ timeout: 200, reason: "Detected word in filer, autodeleted." });
                     return;
                 } catch (err) {
