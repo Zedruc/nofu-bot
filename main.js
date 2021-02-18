@@ -64,6 +64,23 @@ client.on("guildCreate", guild => {
     console.log(`Wurde hinzugefügt ${guild.name} \n ${guild.id}`);
 });
 
+client.on('guildMemberAdd', (member) => {
+    const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
+    let today = new Date().getDate();
+    const newMember = member.user;
+    if (newMember.createdAt.getDate() == today) {
+        if (newMember.client.guilds.cache.size <= 6) {
+            let warning = new Discord.MessageEmbed()
+                .setTitle("[Developement Phase] __Potential alt account found__.")
+                .addFields(
+                    { name: `Potential alt account: ${newMember.discriminator}`, value: `Account created at ${newMember.createdAt.getDate()}` }
+                )
+                .setDescription("Remember that this detections aren't and never will be 100% correct")
+            staffChannel.send(warning);
+        }
+    }
+});
+
 
 
 client.on('message', message => {
@@ -123,7 +140,7 @@ client.on('message', message => {
                     message.delete({ timeout: 200, reason: "Detected word in filer, autodeleted." });
                     return;
                 } catch (err) {
-                    message.channel.send("Critical error while deleting message, shutting down.");
+                    message.channel.send("Critical error while deleting message");
                     throw new Error(err);
                 }
             }
