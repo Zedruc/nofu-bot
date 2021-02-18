@@ -32,7 +32,7 @@ module.exports = {
       thumbnail: { "url": user.displayAvatarURL({ format: "png" }) },
       fields: [
         {
-          name: "Satus",
+          name: "Status",
           value: user.presence.status,
           inline: true,
         },

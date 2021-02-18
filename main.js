@@ -107,9 +107,11 @@ client.on('message', message => {
     if (message.guild.id == "704285475791437844") {
 
         const slurs = [
+            "rape",
+            "nipples",
             "nigga",
             "nigger",
-            "ching chong", // server owner chose this, idk why lul
+            "ching chong",
             "asshole",
             "bitch",
             "twat",
