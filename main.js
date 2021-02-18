@@ -69,26 +69,28 @@ client.on('guildMemberAdd', (member) => {
     if (member.guild.id == "704285475791437844") {
 
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
-        var today = new Date();
-        var checkDate = new Date().setDate(today.getDate() - 5);
 
         const newMember = member.user;
 
         console.log(newMember.client.guilds.cache.size);
 
         if (newMember.createdAt > checkDate) {
-            console.log("passed date test");
 
-            if (newMember.client.guilds.cache.size <= 6) {
-                console.log("passed guild test");
-                let warning = new Discord.MessageEmbed()
-                    .setTitle("[Developement Phase] __Potential alt account found__.")
-                    .addFields(
-                        { name: `Potential alt account: ${newMember.discriminator}`, value: `Account created at ${newMember.createdAt.getDate()}` }
-                    )
-                    .setDescription("Remember that this detections aren't and never will be 100% correct")
+            if (Date.now() - newMember.createdAt < 1000 * 60 * 60 * 24 * 10) {
+                console.log("passed date test");
 
-                staffChannel.send(warning);
+                if (newMember.client.guilds.cache.size <= 6) {
+                    console.log("passed guild test");
+                    let warning = new Discord.MessageEmbed()
+                        .setTitle("[Developement Phase] __Potential alt account found__.")
+                        .addFields(
+                            { name: `Potential alt account: ${newMember.discriminator}`, value: `Account created at ${newMember.createdAt.getDate()}` }
+                        )
+                        .setDescription("Remember that this detections aren't and never will be 100% correct")
+
+                    staffChannel.send(warning);
+                }
+
             }
         }
     }
