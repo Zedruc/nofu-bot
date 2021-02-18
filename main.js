@@ -146,9 +146,9 @@ client.on('message', message => {
             if (stemmedText.indexOf(slurs[x]) > -1) {
                 try {
                     message.delete({ timeout: 200, reason: "Detected word in filer, autodeleted." });
-                    return;
+                    break;
                 } catch (err) {
-                    throw new Error(err);
+                    console.log(err);
                 }
             }
 
