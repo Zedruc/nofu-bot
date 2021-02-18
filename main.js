@@ -81,6 +81,7 @@ client.on('guildMemberAdd', (member) => {
                 )
                 .setDescription("Remember that the detections aren't, and never will be 100% correct")
                 .setFooter(client.user.username, client.user.displayAvatarURL({ format: 'png' }))
+                .setColor("#8a21a8")
 
             staffChannel.send(warning);
         }
