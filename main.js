@@ -74,9 +74,13 @@ client.on('guildMemberAdd', (member) => {
 
         const newMember = member.user;
 
+        console.log(newMember.client.guilds.cache.size);
+
         if (newMember.createdAt > checkDate) {
+            console.log("passed date test");
 
             if (newMember.client.guilds.cache.size <= 6) {
+                console.log("passed guild test");
                 let warning = new Discord.MessageEmbed()
                     .setTitle("[Developement Phase] __Potential alt account found__.")
                     .addFields(
