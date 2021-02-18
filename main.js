@@ -82,7 +82,7 @@ client.on('guildMemberAdd', (member) => {
 
         if (Date.now() - newMember.createdAt < 1000 * 60 * 60 * 24 * 10) {
             console.log("passed date test");
-            console.log(newMember.client.guilds.cache.size);
+            console.log(newMember.locale);
             if (newMember.client.guilds.cache.size <= 6) {
                 console.log("passed guild test");
                 let warning = new Discord.MessageEmbed()
