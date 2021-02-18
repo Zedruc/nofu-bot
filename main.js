@@ -80,6 +80,7 @@ client.on('guildMemberAdd', (member) => {
                     { name: `Account ID:`, value: newMember.id }
                 )
                 .setDescription("Remember that the detections aren't, and never will be 100% correct")
+                .setFooter(client.user.username, client.user.displayAvatarURL({ format: 'png' }))
 
             staffChannel.send(warning);
         }
