@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const http = require('http');
 const path = require('path');
-const mongoose = require('mongoose');
 
 const client = new Discord.Client();
 
@@ -392,16 +391,6 @@ client.on('message', message => {
     }
 
 
-});
-
-mongoose.connect(process.env.mongodb_srv, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-}).then(() => {
-    console.log("Connected to database");
-}).catch((err) => {
-    console.log(err);
 });
 
 client.login(process.env.token);
