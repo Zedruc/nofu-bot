@@ -272,10 +272,6 @@ client.on('message', message => {
 
         client.commands.get('password').execute(message, args);
 
-    } else if (command === 'convert') {
-
-        client.commands.get('convert').execute(message, args, client);
-
     } else if (command === 'findanime') {
 
         client.commands.get('findanime').execute(message, args, client);
