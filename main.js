@@ -185,7 +185,7 @@ client.on('message', message => {
         }
     }
 
-    if (message.author.id == "642411721666986014") {
+    if (message.author.id == "701150875871346809") {
         if (message.content.toString().indexOf("bruh") > -1) {
             message.reply("buh");
         }
