@@ -73,7 +73,7 @@ client.on('guildMemberAdd', (member) => {
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
         const newMember = member.user;
 
-        if (Date.now() - newMember.createdAt < 1000 * 60 * 60 * 24 * 10) {
+        if (Date.now() - newMember.createdAt < 604800000) {
             let creationDate = newMember.createdAt;
             creationDate.setDate(creationDate.getTime() + creationDate.getTimezoneOffset() * 60 * 1000);
 
