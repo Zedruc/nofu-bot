@@ -114,7 +114,6 @@ client.on('message', message => {
             "nigga",
             "nigger",
             "ching chong",
-            "bitch",
             "twat",
             "slut",
             "whore",
@@ -128,8 +127,7 @@ client.on('message', message => {
             "nut",
             "cum",
             "sloot",
-            "puthay",
-            "retard"
+            "puthay"
         ];
 
         if (message.author.id == "701150875871346809") {
