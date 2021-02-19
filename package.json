@@ -23,6 +23,7 @@
     "mojang-api": "0.0.2",
     "moment": "^2.29.0",
     "moment-duration-format": "^2.3.2",
+    "mongoose": "^5.11.17",
     "natural": "^3.0.3",
     "node-fetch": "^2.6.1",
     "opusscript": "0.0.7",

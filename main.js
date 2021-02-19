@@ -1,6 +1,7 @@
 const Discord = require('discord.js');
 const http = require('http');
 const path = require('path');
+const mongoose = require('mongoose');
 
 const client = new Discord.Client();
 
@@ -67,13 +68,6 @@ client.on("guildCreate", guild => {
 client.on('guildMemberAdd', (member) => {
 
     if (member.guild.id == "704285475791437844") {
-
-        dt.setTime(dt.getTime() + dt.getTimezoneOffset() * 60 * 1000);
-        console.log(dt); // Gives Tue Mar 22 2016 04:00:00 GMT+0530 (IST)
-
-        var offset = -300; //Timezone offset for EST in minutes.
-        var estDate = new Date(dt.getTime() + offset * 60 * 1000);
-        console.log(estDate); //Gives Mon Mar 21 2016 23:00:00 GMT+0530 (IST)
 
         //==========
 
@@ -165,6 +159,7 @@ client.on('message', message => {
                     break;
                 } catch (err) {
                     console.log(err);
+                    return;
                 }
             }
 
@@ -397,6 +392,16 @@ client.on('message', message => {
     }
 
 
+});
+
+mongoose.connect(process.env.mongodb_srv, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+}).then(() => {
+    console.log("Connected to database");
+}).catch((err) => {
+    console.log(err);
 });
 
 client.login(process.env.token);
