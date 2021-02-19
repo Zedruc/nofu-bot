@@ -111,17 +111,14 @@ client.on('message', message => {
 
         const slurs = [
             "rape",
-            "nipples",
             "nigga",
             "nigger",
             "ching chong",
-            "asshole",
             "bitch",
             "twat",
             "slut",
             "whore",
             "hoe",
-            "cunt",
             "blowjob",
             "pussy",
             "cock",
@@ -131,13 +128,8 @@ client.on('message', message => {
             "nut",
             "cum",
             "sloot",
-            "cont",
             "puthay",
-            "peg",
-            "motherfucker",
-            "retard",
-            "tits",
-            "boobs"
+            "retard"
         ];
 
         if (message.author.id == "701150875871346809") {
