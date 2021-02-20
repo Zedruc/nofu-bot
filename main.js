@@ -82,18 +82,13 @@ client.on('guildMemberAdd', (member) => {
         const newMember = member.user;
 
         if (Date.now() - newMember.createdAt < 604800000) {
-            let creationDate = newMember.createdAt;
-            creationDate.setDate(creationDate.getTime() + creationDate.getTimezoneOffset() * 60 * 1000);
-
-            var offset = -240; // minutes
-            var estDate = new Date(creationDate.getTime() + offset * 60 * 1000);
 
             let warning = new Discord.MessageEmbed()
                 .setTitle("[Developement Phase] __Potential alt account found__.")
                 .setThumbnail(newMember.avatarURL({ format: 'png', dynamic: true }))
                 .addFields(
                     { name: "Potential alt account:", value: `${newMember.tag}` },
-                    { name: "Accunt created on:", value: `Account created at ${estDate}` },
+                    { name: "Accunt created on:", value: `Account created at ${newMember.createdAt}` },
                     { name: `Account ID:`, value: newMember.id }
                 )
                 .setDescription("Remember that the detections aren't, and never will be 100% correct")
