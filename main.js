@@ -96,6 +96,24 @@ client.on('guildMemberAdd', (member) => {
                 .setColor("#8a21a8")
 
             staffChannel.send(warning);
+            if (member.guild.available) {
+                if (member.guild.roles.cache.find(role => role.name === "New Account")) {
+                    member.roles.add("New Account");
+                    return 0;
+                }
+
+                // if role isnt created or was deleted
+
+                member.guild.roles.create({
+                    data: {
+                        name: "New Account",
+                        color: "#99AAB5",
+                    },
+                    reason: `Role auto-created by Nofu Bot at ${(new Date()).toISOString()}`
+                }).then(() => {
+                    member.roles.add("New Account");
+                });
+            }
         }
     }
 });
