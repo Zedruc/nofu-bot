@@ -54,6 +54,7 @@ for (const file of commandFiles) {
 client.on("ready", () => {
 
     console.info("Der Nofu-bot ist jetzt online!");
+    client.user.setActivity("getting ready...", { type: 'PLAYING' });
     setInterval(() => {
         const index = Math.floor(Math.random() * (5 - 1) + 1).toString();
         client.user.setActivity(activities[index].msg, { type: activities[index].type });
