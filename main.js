@@ -33,7 +33,7 @@ client.on("ready", () => {
     // SLASH COMMANDS
     // =============================================================================
 
-    client.api.applications(client.user.id).guilds("768518647680860160").commands.post({
+    client.api.applications(client.user.id).guilds("761912789164883969").commands.post({
         data: {
             name: "hello",
             description: "hello world command"
