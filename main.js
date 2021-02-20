@@ -2,6 +2,30 @@ const Discord = require('discord.js');
 const http = require('http');
 const path = require('path');
 
+const activities =
+{
+    "1": {
+        "type": "PLAYING",
+        "msg": "with %help"
+    },
+    "2": {
+        "type": "LISTENING",
+        "msg": "to chat"
+    },
+    "3": {
+        "type": "PLAYING",
+        "msg": "with the developers console"
+    },
+    "4": {
+        "type": "COMPETING",
+        "msg": "with the developer"
+    },
+    "5": {
+        "type": "WATCHING",
+        "msg": "the developer struggling"
+    }
+}
+
 const client = new Discord.Client();
 
 const nlp = require("natural"),
@@ -29,48 +53,12 @@ for (const file of commandFiles) {
 
 client.on("ready", () => {
 
-    // =============================================================================
-    // SLASH COMMANDS
-    // =============================================================================
-
-    client.api.applications(client.user.id).guilds("761912789164883969").commands.post({
-        data: {
-            name: "hello",
-            description: "hello world command"
-            // possible options here e.g. options: [{...}]
-        }
-    });
-
-
-    client.ws.on('INTERACTION_CREATE', async interaction => {
-        const command = interaction.data.name.toLowerCase();
-        const args = interaction.data.options;
-
-        if (command === 'hello') {
-            // here you could do anything. in this sample
-            // i reply with an api interaction
-
-
-
-            client.api.interactions(interaction.id, interaction.token).callback.post({
-                data: {
-                    type: 4,
-                    data: {
-                        content: "hello world!!!"
-                    }
-                }
-            })
-        }
-    });
-
-    // =============================================================================
-    // 
-    // =============================================================================
-
-
-
     console.info("Der Nofu-bot ist jetzt online!");
-    client.user.setActivity('chat', { type: 'LISTENING' })
+    setInterval(() => {
+        const index = Math.floor(Math.random() * (5 - 1) + 1).toString(); // generates a random number between 1 and the length of the activities array list (in this case 5).
+        bot.user.setActivity(activities[index].msg, { type: activities[index].type }); // sets bot's activities to one of the phrases in the arraylist.
+    }, 60000); // Runs this every 10 seconds.
+
 });
 
 
