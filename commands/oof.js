@@ -8,9 +8,9 @@ module.exports = {
         let vc = message.member.voice.channel;
         let channel = message.channel;
         vc.join().then(connection => {
+            message.react("🔊");
             let dispatcher = connection.play("https://www.myinstants.com/media/sounds/roblox-death-sound_1.mp3") // lul
             dispatcher.on('finish', end => {
-                message.react("🔊");
                 vc.leave();
             });
 
