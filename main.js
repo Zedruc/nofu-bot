@@ -56,7 +56,7 @@ client.on("ready", () => {
     console.info("Der Nofu-bot ist jetzt online!");
     setInterval(() => {
         const index = Math.floor(Math.random() * (5 - 1) + 1).toString();
-        bot.user.setActivity(activities[index].msg, { type: activities[index].type });
+        client.user.setActivity(activities[index].msg, { type: activities[index].type });
     }, 60000);
 
 });
