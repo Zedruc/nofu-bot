@@ -28,31 +28,50 @@ for (const file of commandFiles) {
 
 
 client.on("ready", () => {
+
+    // =============================================================================
+    // SLASH COMMANDS
+    // =============================================================================
+
+    client.api.applications(client.user.id).guilds("768518647680860160").commands.post({
+        data: {
+            name: "hello",
+            description: "hello world command"
+            // possible options here e.g. options: [{...}]
+        }
+    });
+
+
+    client.ws.on('INTERACTION_CREATE', async interaction => {
+        const command = interaction.data.name.toLowerCase();
+        const args = interaction.data.options;
+
+        if (command === 'hello') {
+            // here you could do anything. in this sample
+            // i reply with an api interaction
+
+
+
+            client.api.interactions(interaction.id, interaction.token).callback.post({
+                data: {
+                    type: 4,
+                    data: {
+                        content: "hello world!!!"
+                    }
+                }
+            })
+        }
+    });
+
+    // =============================================================================
+    // 
+    // =============================================================================
+
+
+
     console.info("Der Nofu-bot ist jetzt online!");
     client.user.setActivity('chat', { type: 'LISTENING' })
-
-    //setInterval(() => {
-
-    //client.guilds.cache.forEach((guild) => { //for each guild the bot is in
-    //    let defaultChannel = "";
-    //    const channel = member.guild.channels.cache.find(ch => ch.name === 'general');
-    //    if (!channel) {
-    //        guild.channels.cache.forEach((channel) => {
-    //            if (channel.type == "text" && defaultChannel == "") {
-    //                if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-    //                    defaultChannel = channel;
-    //                }
-    //            }
-    //        });
-    //    }
-    //}, 600000);
 });
-
-
-
-function isUpperCase(str) {
-    return str === str.toUpperCase();
-}
 
 
 
