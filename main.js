@@ -10,7 +10,7 @@ const activities =
     },
     "2": {
         "type": "LISTENING",
-        "msg": "to chat"
+        "msg": "chat"
     },
     "3": {
         "type": "PLAYING",
