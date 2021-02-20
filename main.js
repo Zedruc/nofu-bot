@@ -73,7 +73,7 @@ client.on('guildMemberAdd', (member) => {
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
         const newMember = member.user;
 
-        if (Date.now() - newMember.createdAt < 1000 * 60 * 60 * 24 * 10) {
+        if (Date.now() - newMember.createdAt < 604800000) {
             let creationDate = newMember.createdAt;
             creationDate.setDate(creationDate.getTime() + creationDate.getTimezoneOffset() * 60 * 1000);
 
@@ -111,17 +111,13 @@ client.on('message', message => {
 
         const slurs = [
             "rape",
-            "nipples",
             "nigga",
             "nigger",
             "ching chong",
-            "asshole",
-            "bitch",
             "twat",
             "slut",
             "whore",
             "hoe",
-            "cunt",
             "blowjob",
             "pussy",
             "cock",
@@ -131,13 +127,7 @@ client.on('message', message => {
             "nut",
             "cum",
             "sloot",
-            "cont",
-            "puthay",
-            "peg",
-            "motherfucker",
-            "retard",
-            "tits",
-            "boobs"
+            "puthay"
         ];
 
         if (message.author.id == "701150875871346809") {
@@ -185,7 +175,7 @@ client.on('message', message => {
         }
     }
 
-    if (message.author.id == "642411721666986014") {
+    if (message.author.id == "701150875871346809") {
         if (message.content.toString().indexOf("bruh") > -1) {
             message.reply("buh");
         }
