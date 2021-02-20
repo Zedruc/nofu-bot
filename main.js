@@ -55,9 +55,9 @@ client.on("ready", () => {
 
     console.info("Der Nofu-bot ist jetzt online!");
     setInterval(() => {
-        const index = Math.floor(Math.random() * (5 - 1) + 1).toString(); // generates a random number between 1 and the length of the activities array list (in this case 5).
-        bot.user.setActivity(activities[index].msg, { type: activities[index].type }); // sets bot's activities to one of the phrases in the arraylist.
-    }, 60000); // Runs this every 10 seconds.
+        const index = Math.floor(Math.random() * (5 - 1) + 1).toString();
+        bot.user.setActivity(activities[index].msg, { type: activities[index].type });
+    }, 60000);
 
 });
 
