@@ -128,33 +128,6 @@ client.on('guildMemberAdd', (member) => {
 
 client.on('message', message => {
 
-
-
-    // =============================================================================
-    // TEST
-    // =============================================================================
-    if (message.content.includes("%embed")) {
-        if (!message.author.id == "568729687291985930") return;
-        let embed = new Discord.MessageEmbed()
-            .setTitle("React for stinky boy")
-            .setDescription(":>")
-        message.channel.send(embed).then(embedMsg => {
-            embedMsg.react("🤖");
-            const filter = (reaction, user) => reaction.emoji.name == '👍';
-            let coll = embedMsg.createReactionCollector(filter);
-            coll.on('collect', (reaction, user) => {
-                user.send("stinky boy")
-            });
-        });
-    }
-    // =============================================================================
-    // 
-    // =============================================================================
-
-
-
-
-
     // =============================================================================
     // MODERATION BLOCK FOR SERVERS WHICH REQUESTED
     // =============================================================================
