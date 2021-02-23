@@ -137,23 +137,12 @@ client.on('message', message => {
     if (message.guild.id == "704285475791437844") {
 
         const slurs = [
-            "rape",
             "nigga",
             "nigger",
             "ching chong",
-            "twat",
-            "slut",
-            "whore",
-            "hoe",
-            "blowjob",
-            "pussy",
             "cock",
             "dick",
-            "bussy",
             "faggot",
-            "nut",
-            "cum",
-            "sloot",
             "puthay"
         ];
 
