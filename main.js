@@ -140,8 +140,6 @@ client.on('message', message => {
             "nigga",
             "nigger",
             "ching chong",
-            "cock",
-            "dick",
             "faggot",
             "puthay"
         ];
