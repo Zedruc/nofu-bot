@@ -81,7 +81,7 @@ client.on('guildMemberAdd', (member) => {
         const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
         const newMember = member.user;
 
-        if (Date.now() - newMember.createdAt < 604800000) {
+        if (Date.now() - newMember.createdAt < 432000000) {
 
             let warning = new Discord.MessageEmbed()
                 .setTitle("[Developement Phase] __Potential alt account found__.")
