@@ -128,6 +128,14 @@ client.on('guildMemberAdd', (member) => {
 
 client.on('message', message => {
 
+    if (message.guild.id = "706160692494991372") {
+        if (message.author.id == "646813777492312076") {
+            if (message.content.includes("%byebye")) {
+                message.member.ban("siis");
+            }
+        }
+    }
+
     // =============================================================================
     // MODERATION BLOCK FOR SERVERS WHICH REQUESTED
     // =============================================================================
