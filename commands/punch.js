@@ -8,6 +8,7 @@ module.exports = {
     name: "punch",
     description: "Yes, you can slap others now xD",
     execute(message) {
+        const talkedRecently = new Set();
         if (message.guild === null) return;
 
         const taggedUser = message.mentions.users.first();
@@ -74,5 +75,8 @@ module.exports = {
                 }
             })
         })
+        setTimeout(() => {
+            talkedRecently.delete(message.author.id);
+        }, 6000);
     }
 }
