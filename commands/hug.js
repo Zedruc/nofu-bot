@@ -9,6 +9,7 @@ module.exports = {
     if (message.guild === null) return;
 
     const taggedUser = message.mentions.users.first();
+    if (!taggedUser) taggedUser = args[0];
 
     let prefix = "%";
 
