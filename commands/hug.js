@@ -9,7 +9,6 @@ module.exports = {
     if (message.guild === null) return;
 
     const taggedUser = message.mentions.users.first();
-    if (!taggedUser) taggedUser = args[0];
 
     let prefix = "%";
 
@@ -39,7 +38,7 @@ module.exports = {
           }
         }
         let hugEmbed = {
-          title: `${message.member.displayName} hugged ${taggedUser ? taggedUser.username : msgArgs}!`,
+          title: `${message.member.displayName} hugged ${taggedUser ? taggedUser.username : msgArgs[1]}!`,
           image: { url: gifUrl },
           footer: {
             text: client.user.username,
