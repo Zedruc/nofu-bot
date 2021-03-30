@@ -388,10 +388,6 @@ client.on('message', message => {
 
         client.commands.get("oof").execute(message, args, client);
 
-    } else if (command == "lyrics") {
-
-        client.commands.get("lyrics").execute(message, args, client);
-
     }
 
 
