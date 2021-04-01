@@ -300,6 +300,10 @@ client.on('message', message => {
 
         client.commands.get('ban').execute(message, args);
 
+    } else if (command == 'kick') {
+
+        client.commands.get('kick').execute(message, args, client);
+
     } else if (command == 'kill') {
 
         client.commands.get('kill').execute(message, args, client);
