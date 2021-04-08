@@ -199,11 +199,7 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if (command === 'ping') {
-        message.react("🏓");
-        client.commands.get('ping').execute(message, args);
-
-    } else if (command === "meme") {
+    if (command === "meme") {
 
         client.commands.get('meme').execute(message, args);
 

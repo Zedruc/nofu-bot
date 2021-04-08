@@ -12,69 +12,29 @@ module.exports = {
     execute(message, args) {
         if (message.guild === null) return;
 
+        var gifs = [
+            "https://media.tenor.com/images/c3f0b2ce02489b7a64d0c51ec92f02d5/tenor.gif",
+            "https://media.tenor.com/images/c6501221a2995e2cca8ecc23cf124a24/tenor.gif",
+            "https://media.tenor.com/images/f56bc9a14b1b1a7d8df2ea7b2c33f148/tenor.gif",
+            "https://media.tenor.com/images/82b74068ad8e9be8c3a6678b11259c6a/tenor.gif",
+            "https://media.tenor.com/images/aae673f94098dd48c0b827e9a7c28149/tenor.gif",
+            "https://media.tenor.com/images/1fddac67c1f014378d8f35d443efe9a1/tenor.gif",
+            "https://media.tenor.com/images/b3573dbe2ef0d8dabcec0fc8ffa8154e/tenor.gif"
+        ]
+
         const taggedUser = message.mentions.users.first();
 
-        let prefix = "%";
+        let stareEmbed = {
+            title: `${message.member.displayName} stares at ${taggedUser ? taggedUser.username : msgArgs[1]}!`,
+            image: { url: gifs[Math.floor(Math.random() * gifs.length)] },
+            color: "#9E1A1A",
+            footer: {
+                text: client.user.username,
+                icon_url: client.user.displayAvatarURL({ format: "png" }),
+            },
+            timestamp: (new Date()).toISOString()
+        };
 
-        let key = process.env.tenorkey;
-        let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
-        let noPing = message.content.slice(prefix.length + 5).trim().split(/ +/);
-
-
-
-        https.get('https://api.tenor.com/v1/search?q=anime%20stare&limit=50&key=' + key, res => {
-
-            let body = '';
-
-            res.on('data', chunk => {
-                body += chunk;
-            })
-
-            res.on('end', () => {
-                let bodyString = JSON.parse(body);
-                let int = Math.floor(Math.random(1) * 49);
-
-                let gifUrl = bodyString.results[int].media[0].gif.url;
-
-                if (taggedUser) {
-
-                    if (taggedUser == message.author.id) {
-
-                        message.channel.send("I dont even want to know how you did that-")
-
-                    } else if (taggedUser == 760905298990202901) {
-
-                        message.reply(";-;");
-
-                    } else {
-
-                        const User = Client.users.fetch(taggedUser);
-                        //
-                        console.log(User);
-
-                        let punchEmbed = new Discord.MessageEmbed()
-                            .setColor('#610C98')
-                            .setTitle(message.member.displayName + " stares intensely at " + taggedUser.username + "- \n")
-                            .setAuthor("s t a r e")
-                            .setImage(gifUrl)
-                        message.channel.send(punchEmbed);
-
-                    }
-                } else {
-
-                    let rawArgs = args;
-                    let argsString = rawArgs.toString();
-                    let noP = argsString.replace(/,/g, " ");
-
-                    let punchEmbed = new Discord.MessageEmbed()
-                        .setColor('#610C98')
-                        .setTitle(message.member.displayName + " stares intensely at " + noP + "- \n")
-                        .setAuthor("s t a r e")
-                        .setImage(gifUrl)
-                    message.channel.send(punchEmbed);
-
-                }
-            })
-        })
+        message.channel.send({ embed: stareEmbed });
     }
 }

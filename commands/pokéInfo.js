@@ -37,7 +37,7 @@ module.exports = {
                 let pokéInfoEmbed = new Discord.MessageEmbed()
                     .setTitle("**__Pokédex | " + bodyString.name + "__**")
                     .setImage('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + id + '.png')
-                    .setFooter("More Info will be provided soon", client.user.displayAvatarURL({ format: "png" }))
+                    .setFooter(".", client.user.displayAvatarURL({ format: "png" }))
                     .setTimestamp();
                 for (let i = 0; i < bodyString.abilities.length; i++) {
                     //All abilities, name, add a image from the pokémon

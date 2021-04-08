@@ -11,70 +11,29 @@ module.exports = {
         const talkedRecently = new Set();
         if (message.guild === null) return;
 
+        var gifs = [
+            "https://media.tenor.com/images/9c14d2d5dd918471954e5946166f3632/tenor.gif",
+            "https://media.tenor.com/images/b11c79cf158d8c9bd6e721676b06ad73/tenor.gif",
+            "https://media.tenor.com/images/7eb5ede6402a3fb97ab9fccc81640c2c/tenor.gif",
+            "https://media.tenor.com/images/eb379f98c7ced6d43a16e78dc25ae864/tenor.gif",
+            "https://media.tenor.com/images/8a79543998d6878be573aab94ae86456/tenor.gif",
+            "https://media.tenor.com/images/04f62b7819a22210c0ba411ddb2636a5/tenor.gif",
+
+        ]
+
         const taggedUser = message.mentions.users.first();
 
-        let prefix = "%";
+        let punchEmbed = {
+            title: `${message.member.displayName} punched ${taggedUser ? taggedUser.username : msgArgs[1]}!`,
+            image: { url: gifs[Math.floor(Math.random() * gifs.length)] },
+            color: "#9E1A1A",
+            footer: {
+                text: client.user.username,
+                icon_url: client.user.displayAvatarURL({ format: "png" }),
+            },
+            timestamp: (new Date()).toISOString()
+        };
 
-        let key = process.env.tenorkey;
-        let msgArgs = message.content.slice(prefix.length).trim().split(/ +/);
-
-
-
-        https.get('https://api.tenor.com/v1/search?q=anime%20punch&limit=50&key=' + key, res => {
-
-            let body = '';
-
-            res.on('data', chunk => {
-                body += chunk;
-            })
-
-            res.on('end', () => {
-                let bodyString = JSON.parse(body);
-                let int = Math.floor(Math.random(1) * 49);
-
-                let gifUrl = bodyString.results[int].media[0].gif.url;
-
-                if (taggedUser) {
-
-                    if (taggedUser == message.author.id) {
-
-                        message.channel.send("How about we don\'t do that ;-;")
-
-                    } else if (taggedUser == 760905298990202901) {
-
-                        message.reply("no. :)");
-
-                    } else if (taggedUser == 568729687291985930) {
-                        message.reply("never :p");
-
-                    }
-
-                    else {
-
-                        const User = Client.users.fetch(taggedUser);
-                        //
-                        console.log(User);
-
-                        let punchEmbed = new Discord.MessageEmbed()
-                            .setColor('#9E1A1A')
-                            .setTitle(message.member.displayName + " punched " + taggedUser.username + "! \n")
-                            .setAuthor("%punch")
-                            .setImage(gifUrl)
-                        message.channel.send(punchEmbed);
-
-                    }
-                } else {
-
-                    let punchEmbed = new Discord.MessageEmbed()
-                        .setColor('#9E1A1A')
-                        .setTitle(message.member.displayName + " punched " + msgArgs[1] + "! \n")
-                        .setAuthor("%punch")
-                        .setImage(gifUrl)
-                    message.channel.send(punchEmbed);
-
-                }
-            })
-        })
         setTimeout(() => {
             talkedRecently.delete(message.author.id);
         }, 6000);

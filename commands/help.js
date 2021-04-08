@@ -43,8 +43,8 @@ module.exports = {
                     { name: "__%convert__", value: "provide a link and a file format to convert to and the bot will do the job! \n `%convert <url> <file ext>`" },
                     { name: "__%findanime__", value: "will show you information about the given anime // you can also do `%findanime characters <name>` to get a list of all characters in the given anime" },
                     { name: "__%findsongs <band / artist>__", value: "will send you a list of all songs of the given band / artist in your direct messages" },
-                    { name: "__%suggest__", value: "Suggest any ideas you have by simply using %suggest and answering the bot's question" }
-
+                    { name: "__%suggest__", value: "Suggest any ideas you have by simply using %suggest and answering the bot's question" },
+                    { name: "__%serverinfo__", value: "Gives general information about the server the command was used in" }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();

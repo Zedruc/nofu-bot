@@ -32,7 +32,7 @@ module.exports = {
                         .setTitle("Profile found")
                         .setColor("#008000")
                         .setThumbnail(`https://crafatar.com/avatars/${bodyString.id}`)
-                        .setDescription(`__ID__: ${bodyString.id}`)
+                        .setDescription(`__ID__ ${bodyString.id}`)
                         .setFooter("Success!", client.user.displayAvatarURL({ format: "png" }))
                     message.channel.send(answerEmbed);
 
