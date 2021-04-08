@@ -263,10 +263,6 @@ client.on('message', message => {
 
         client.commands.get('punch').execute(message, args);
 
-    } else if (command == 'client') {
-
-        client.commands.get('client').execute(message, args, client);
-
     } else if (command == 'hug') {
 
         client.commands.get('hug').execute(message, args, client);
@@ -298,10 +294,6 @@ client.on('message', message => {
     } else if (command == "delete") {
 
         client.commands.get("delete").execute(message, args);
-
-    } else if (command == "broadcast") {
-
-        client.commands.get("broadcast").execute(message, args, client);
 
     } else if (command == "mcinfo") {
 
