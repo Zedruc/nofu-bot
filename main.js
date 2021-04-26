@@ -141,8 +141,7 @@ client.on('message', message => {
             "nigger",
             "ching chong",
             "faggot",
-            "puthay",
-            "https://tenor.com/view/sonic-and-mario-kiss-gay-make-out-gif-17269497" // I hate that gif
+            "puthay"
         ];
 
         if (message.author.id == "701150875871346809") {
