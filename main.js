@@ -127,8 +127,11 @@ client.on('guildMemberAdd', (member) => {
 
 
 client.on('message', message => {
-    if (message.author.id == "647445286695862292" || message.author.id == "646813777492312076" || message.author.id == "602267804288286736" || message.author.id == "733234312220246027") {
-        return;
+    var block_users = false;
+    if (block_users) {
+        if (message.author.id == "647445286695862292" || message.author.id == "646813777492312076" || message.author.id == "602267804288286736" || message.author.id == "733234312220246027") {
+            return;
+        }
     }
 
     // =============================================================================
