@@ -7,6 +7,7 @@ module.exports = {
     execute(message, args, client) {
 
         let prefix = "%";
+        if (!args[0]) return message.channel.send("Please provide a pokémon to get info about!")
 
         let pokémonName = message.content.slice(prefix.length + 7).trim().split(/ +/);
 
