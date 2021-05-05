@@ -11,7 +11,7 @@ module.exports = {
             let channel = message.channel;
             vc.join().then(connection => {
                 message.react("🔊");
-                let dispatcher = connection.play("../sounds/NUT.mp3") // N U T
+                let dispatcher = connection.play("https://www.myinstants.com/media/sounds/nut_Nk8Clrh.mp3") // N U T
                 dispatcher.on('finish', end => {
                     vc.leave();
                 });
