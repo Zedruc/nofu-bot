@@ -7,7 +7,7 @@ const https = require('https');
 module.exports = {
     name: "punch",
     description: "Yes, you can slap others now xD",
-    execute(message) {
+    execute(message, args, client) {
         const talkedRecently = new Set();
         if (message.guild === null) return;
 

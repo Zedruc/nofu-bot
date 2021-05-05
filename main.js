@@ -263,7 +263,7 @@ client.on('message', message => {
 
     } else if (command == 'punch') {
 
-        client.commands.get('punch').execute(message, args);
+        client.commands.get('punch').execute(message, args, client);
 
     } else if (command == 'hug') {
 
