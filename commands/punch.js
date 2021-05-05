@@ -10,7 +10,7 @@ module.exports = {
     execute(message, args, client) {
         const talkedRecently = new Set();
         if (message.guild === null) return;
-        if (!args[1]) return message.channel.send("You have to @ someone to punch!")
+        if (!args[0]) return message.channel.send("You have to @ someone to punch!")
         var gifs = [
             "https://media.tenor.com/images/9c14d2d5dd918471954e5946166f3632/tenor.gif",
             "https://media.tenor.com/images/b11c79cf158d8c9bd6e721676b06ad73/tenor.gif",
@@ -24,7 +24,7 @@ module.exports = {
         const taggedUser = message.mentions.users.first();
 
         let punchEmbed = {
-            title: `${message.member.displayName} punched ${taggedUser ? taggedUser.username : args[1]}!`,
+            title: `${message.member.displayName} punched ${taggedUser ? taggedUser.username : args[0]}!`,
             image: { url: gifs[Math.floor(Math.random() * gifs.length)] },
             color: "#9E1A1A",
             footer: {
