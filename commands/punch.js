@@ -24,7 +24,7 @@ module.exports = {
         const taggedUser = message.mentions.users.first();
 
         let punchEmbed = {
-            title: `${message.member.displayName} punched ${taggedUser ? taggedUser.username : msgArgs[1]}!`,
+            title: `${message.member.displayName} punched ${taggedUser ? taggedUser.username : args[1]}!`,
             image: { url: gifs[Math.floor(Math.random() * gifs.length)] },
             color: "#9E1A1A",
             footer: {
