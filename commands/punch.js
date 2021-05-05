@@ -33,6 +33,7 @@ module.exports = {
             },
             timestamp: (new Date()).toISOString()
         };
+        message.channel.send(punchEmbed);
 
         setTimeout(() => {
             talkedRecently.delete(message.author.id);
