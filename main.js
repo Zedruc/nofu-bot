@@ -361,6 +361,10 @@ client.on('message', message => {
 
         client.commands.get("oof").execute(message, args, client);
 
+    } else if (command == "nut") {
+
+        client.commands.get("nut").execute(message, args, client);
+
     }
 
 
