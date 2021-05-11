@@ -365,7 +365,12 @@ client.on('message', message => {
 
         client.commands.get("nut").execute(message, args, client);
 
+    } else if (command == "E") {
+
+        client.commands.get("E").execute(message, args, client);
+
     }
+
 
 
 });

@@ -2,7 +2,7 @@
 const Discord = require("discord.js");
 
 module.exports = {
-    name: "nut",
+    name: "E",
     description: "vc test",
     execute(message, args, client) {
         if (!message.member.voice.channel) return message.reply("You have to be in a voice channel!");
