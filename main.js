@@ -365,9 +365,9 @@ client.on('message', message => {
 
         client.commands.get("nut").execute(message, args, client);
 
-    } else if (command == "E") {
+    } else if (command == "e") {
 
-        client.commands.get("E").execute(message, args, client);
+        client.commands.get("e").execute(message, args, client);
 
     }
 
