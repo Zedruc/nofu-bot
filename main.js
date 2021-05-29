@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+
 const http = require('http');
 const path = require('path');
 
@@ -37,9 +38,6 @@ let date_ob = new Date();
 let prefix = '%';
 
 const fs = require('fs');
-const { info, timeStamp } = require('console');
-const { join } = require('path');
-const { setegid } = require('process');
 
 client.commands = new Discord.Collection();
 
@@ -57,7 +55,7 @@ client.on("ready", () => {
     client.user.setActivity("getting ready...", { type: 'PLAYING' });
     setInterval(() => {
         const index = Math.floor(Math.random() * (5 - 1) + 1).toString();
-        client.user.setActivity(activities[index].msg, { type: activities[index].type });
+        client.user.setActivity(activities[index.toString()].msg, { type: activities[index.toString()].type });
     }, 60000);
 
 });
