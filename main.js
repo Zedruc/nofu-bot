@@ -69,6 +69,33 @@ client.on("guildCreate", guild => {
 });
 
 
+/**
+ * Uptime command
+ * Calculating times
+ */
+
+function getRemainingSecondsOrMinutes(n) {
+    if (n <= 60) return n;
+    if (n > 60) {
+        var x = n - 60;
+        if (x > 60) {
+            return getRemainingSecondsOrMinutes(x);
+        }
+        return x;
+    }
+}
+
+function getRemainingHours(n) {
+    if (n <= 24) return n;
+    if (n > 24) {
+        var x = n - 24;
+        if (x > 24) {
+            return getRemainingHours(x);
+        }
+        return x;
+    }
+}
+
 client.on('message', message => {
     var block_users = false;
     if (block_users) {
@@ -115,7 +142,7 @@ client.on('message', message => {
         const statEmbed = new Discord.MessageEmbed()
             .setTitle("**  = STATISTICS =**")
             .addField("**Memory usage **", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
-            .addField("**Uptime **", `${times.days} days \n ${times.hours} hours \n ${times.seconds} seconds`);
+            .addField("**Uptime **", `${times.days} days \n ${getRemainingHours(times.hours)} hours \n ${getRemainingSecondsOrMinutes(times.minutes)} minutes \n ${getRemainingSecondsOrMinutes(times.seconds)} seconds`);
         message.channel.send(statEmbed);
 
     } else if (command === 'mememan') {
