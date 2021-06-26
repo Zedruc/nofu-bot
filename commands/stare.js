@@ -1,15 +1,7 @@
-const { RSA_NO_PADDING, SSL_OP_ALL } = require("constants");
-// yes I made this because I was bored lol
-
-const Discord = require("discord.js");
-const Client = new Discord.Client();
-const https = require('https');
-const { join } = require("path");
-
 module.exports = {
     name: "stare",
     description: "Stare at someone (if they post cringe or smth like that)",
-    execute(message, args) {
+    execute(message, args, client) {
         if (message.guild === null) return;
 
         var gifs = [

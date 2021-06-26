@@ -1,9 +1,3 @@
-// yes I made this because I was bored lol
-
-const Discord = require("discord.js");
-const Client = new Discord.Client();
-const https = require('https');
-
 module.exports = {
     name: "punch",
     description: "Yes, you can slap others now xD",

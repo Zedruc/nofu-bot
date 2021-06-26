@@ -6,6 +6,7 @@ module.exports = {
     description: 'Searches songs of given artist',
     execute(message, args, client) {
         console.log(args);
+        if (!args.length) return message.reply("You have to name an artist whose songs you want find");
         if (message.guild === null) return;
 
         let prefix = "%";

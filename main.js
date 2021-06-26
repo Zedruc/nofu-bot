@@ -1,7 +1,5 @@
+require('dotenv').config();
 const Discord = require('discord.js');
-
-const http = require('http');
-const path = require('path');
 
 const activities =
 {
@@ -28,9 +26,6 @@ const activities =
 }
 
 const client = new Discord.Client();
-
-const nlp = require("natural"),
-    stemmer = nlp.PorterStemmer;
 
 let date_ob = new Date();
 
@@ -70,59 +65,6 @@ client.on("guildCreate", guild => {
     console.log(`Wurde hinzugefügt ${guild.name} \n ${guild.id}`);
 });
 
-client.on('guildMemberAdd', (member) => {
-
-    if (member.guild.id == "704285475791437844") {
-
-        //==========
-
-        const staffChannel = client.channels.cache.find(channel => channel.id === "704372434022826136");
-        const newMember = member.user;
-
-        if (Date.now() - newMember.createdAt < 432000000) {
-
-            let warning = new Discord.MessageEmbed()
-                .setTitle("[Developement Phase] __Potential alt account found__.")
-                .setThumbnail(newMember.avatarURL({ format: 'png', dynamic: true }))
-                .addFields(
-                    { name: "Potential alt account:", value: `${newMember.tag}` },
-                    { name: "Accunt created on:", value: `Account created at ${newMember.createdAt}` },
-                    { name: `Account ID:`, value: newMember.id }
-                )
-                .setDescription("Remember that the detections aren't, and never will be 100% correct")
-                .setFooter(client.user.username, client.user.displayAvatarURL({ format: 'png' }))
-                .setColor("#8a21a8")
-
-            staffChannel.send(warning);
-            if (member.guild.available) {
-                if (member.guild.roles.cache.find(role => role.name === "New Account")) {
-                    member.roles.add("New Account");
-                    return 0;
-                }
-
-                // if role isnt created or was deleted
-
-                member.guild.roles.create({
-                    data: {
-                        name: "New Account",
-                        color: "#99AAB5",
-                        permissions: [
-                            "SEND_MESSAGES",
-                            "READ_MESSAGE_HISTORY",
-                            "CONNECT",
-                            "SPEAK"
-                        ]
-                    },
-                    reason: `Role auto-created by Nofu Bot at ${(new Date()).toISOString()}`
-                }).then(() => {
-                    member.roles.add("New Account");
-                });
-            }
-        }
-    }
-});
-
-
 
 client.on('message', message => {
     var block_users = false;
@@ -131,72 +73,9 @@ client.on('message', message => {
             return;
         }
     }
-
-    // =============================================================================
-    // MODERATION BLOCK FOR SERVERS WHICH REQUESTED
-    // =============================================================================
-
-    if (message.channel.type == "dm") return;
-
-    if (message.guild.id == "704285475791437844") {
-
-        const slurs = [
-            "nigga",
-            "nigger",
-            "ching chong",
-            "faggot",
-            "puthay"
-        ];
-
-        if (message.author.id == "701150875871346809") {
-            if (message.content.includes("%slurlist")) {
-                let response = slurs.join(", ");
-                message.author.send(response);
-            }
-        }
-
-        let text = message.content.toLocaleLowerCase();
-        let stemmedText = stemmer.tokenizeAndStem(text, true);
-
-        for (let x = 0; x < slurs.length; x++) {
-
-            if (stemmedText.indexOf(slurs[x]) > -1) {
-                try {
-                    message.delete({ timeout: 200, reason: "Detected word in filer, autodeleted." });
-                    break;
-                } catch (err) {
-                    console.log(err);
-                    return;
-                }
-            }
-
-        }
-
-    }
-
-    // =========================================================================
-    // END MODERATION BLOCK
-    // =========================================================================
+    // quick way to prevent my friends spamming the bot.
 
     if (message.guild === null) return;
-
-    if (message.guild.id == "688010097829478525" /*Homeschool Server*/) {
-        function deletRole(role) {
-            setTimeout(() => {
-                member.roles.remove(role);
-            }, 10000);
-        }
-        function muteDelete() {
-            message.delete();
-            member = message.member;
-            var role = member.guild.roles.cache.find(role => role.id === "689074418168627205");
-            member.roles.add(role);
-            deletRole(role);
-        }
-        if (message.toString().toLowerCase().replace(/\s/g, '').includes("toradora")) {
-            muteDelete();
-        }
-    }
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -281,7 +160,7 @@ client.on('message', message => {
 
     } else if (command == "stare") {
 
-        client.commands.get('stare').execute(message, args);
+        client.commands.get('stare').execute(message, args, client);
 
     } else if (command == "mcregister") {
 
@@ -366,6 +245,10 @@ client.on('message', message => {
     } else if (command == "e") {
 
         client.commands.get("e").execute(message, args, client);
+
+    } else if (command == "quiz") {
+
+        client.commands.get("quiz").execute(message, args, client);
 
     }
 
