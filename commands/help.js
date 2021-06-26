@@ -66,7 +66,8 @@ module.exports = {
                     { name: "__%cnf__", value: "random Chuck Norris fact" },
                     { name: "__%fox__", value: "sends fox images :D" },
                     { name: "__%doggo__", value: "sends images of doggos :)" },
-                    { name: "__%8ball <question>__", value: "ask 8ball some questions (8ball's toxic)" }
+                    { name: "__%8ball <question>__", value: "ask 8ball some questions (8ball's toxic)" },
+                    { name: "__%quiz <topic>__", value: "Asks a random question from the chosen topic. First one to answer wins." }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();
