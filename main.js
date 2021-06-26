@@ -1,5 +1,7 @@
 require('dotenv').config();
 const Discord = require('discord.js');
+const { Timer } = require('easytimer.js');
+var timerInstance = new Timer();
 
 const activities =
 {
@@ -45,6 +47,7 @@ for (const file of commandFiles) {
 
 
 client.on("ready", () => {
+    timerInstance.start();
 
     console.info("Der Nofu-bot ist jetzt online!");
     client.user.setActivity("getting ready...", { type: 'PLAYING' });
@@ -107,19 +110,12 @@ client.on('message', message => {
 
     } else if (command === 'uptime') {
         message.react("🕰");
-        let time = Date.now() - date_ob;
-        let seconds = time / 1000;
-        let hours = seconds / 3600;
-        let days = seconds / 86400;
-
-        let ps = seconds.toFixed();
-        let ph = hours.toFixed();
-        let pd = days.toFixed();
+        var times = timerInstance.getTotalTimeValues();
 
         const statEmbed = new Discord.MessageEmbed()
             .setTitle("**  = STATISTICS =**")
             .addField("**Memory usage **", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
-            .addField("**Uptime **", `${pd} days \n ${ph} hours \n ${ps} seconds`);
+            .addField("**Uptime **", `${times.days} days \n ${times.hours} hours \n ${times.seconds} seconds`);
         message.channel.send(statEmbed);
 
     } else if (command === 'mememan') {
