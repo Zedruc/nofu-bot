@@ -1,7 +1,8 @@
 
-# Nofu Bot v3.3.6
+# Nofu Bot v3.3.7
 New features and minor code improvements.
 - Added the quiz command - %quiz <topic>
+- Broadcasts are now a thing, if you want to get broadcasts made by the developer, create a channel that includes "broadcast" in its name!:D 
 
 # Upcoming
 <b>Nofu Bot v3.4</b>
