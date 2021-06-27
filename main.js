@@ -24,13 +24,16 @@ const activities =
     "5": {
         "type": "WATCHING",
         "msg": "the developer struggling"
+    },
+    "6": {
+        "type": "PLAYING",
+        "msg": "v.3.3.7"
     }
 }
 
 const client = new Discord.Client();
 
-let date_ob = new Date();
-
+const disbut = require('discord-buttons')(client);
 
 let prefix = '%';
 
@@ -52,16 +55,38 @@ client.on("ready", () => {
     console.info("Der Nofu-bot ist jetzt online!");
     client.user.setActivity("getting ready...", { type: 'PLAYING' });
     setInterval(() => {
-        const index = Math.floor(Math.random() * (5 - 1) + 1).toString();
+        const index = Math.floor(Math.random() * (6 - 1) + 1).toString();
         client.user.setActivity(activities[index.toString()].msg, { type: activities[index.toString()].type });
     }, 60000);
 
 });
 
+client.on("clickButton", async (button) => {
+    if (button.id.startsWith("yes")) {
+        var broadcastMessage = button.id.split("_")[1].substring(1);
 
+        var channels = await client.channels.cache.filter(channel =>
+            channel.name.toLowerCase().includes('broadcast') &&
+            channel.type == 'text' &&
+            channel.guild.id != button.message.guild.id
+        );
+        for (const channel of channels.array()) {
+            var broadCastEmbed = new Discord.MessageEmbed()
+                .setTitle(`Message broadcasted by ${button.clicker.user.username}${button.clicker.user.discriminator} from ${button.message.guild.name} at ${new Date().toLocaleString()}`)
+                .setColor("#4248f5")
+                .setDescription(broadcastMessage)
+            channel.send(broadCastEmbed);
+        }
+
+        return button.reply.send('Message broadcasted successfully!');
+    }
+
+    if (button.id == "no")
+        return button.reply.send('Message broadcast interrupted!');
+});
 
 client.on('guildDelete', guild => {
-    console.log(`Bot wurde entfernt von ${guild.name} (id: ${guild.id})`)
+    console.log(`Bot wurde entfernt von ${guild.name}(id: ${guild.id})`)
 });
 
 client.on("guildCreate", guild => {
@@ -141,7 +166,7 @@ client.on('message', message => {
 
         const statEmbed = new Discord.MessageEmbed()
             .setTitle("**  = STATISTICS =**")
-            .addField("**Memory usage **", `**${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB**`)
+            .addField("**Memory usage **", `** ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB ** `)
             .addField("**Uptime **", `${times.days} days \n ${getRemainingHours(times.hours)} hours \n ${getRemainingSecondsOrMinutes(times.minutes)} minutes \n ${getRemainingSecondsOrMinutes(times.seconds)} seconds`);
         message.channel.send(statEmbed);
 
