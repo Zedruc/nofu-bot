@@ -3,6 +3,8 @@ const Discord = require('discord.js');
 const { Timer } = require('easytimer.js');
 var timerInstance = new Timer();
 
+var usersInTimeout = new Set();
+
 const activities =
 {
     "1": {
@@ -128,9 +130,18 @@ client.on('message', message => {
             return;
         }
     }
-    // quick way to prevent my friends spamming the bot.
+    // quick way to prevent my friends from using the bot.
 
     if (message.guild === null) return;
+    if (message.author.id == client.user.id) return;
+
+    if (usersInTimeout.has(message.author.id)) return message.channel.send("Please wait before using a command again. [Global timeout on all servers is 2 Seconds]");
+    usersInTimeout.add(message.author.id);
+    setTimeout(() => {
+        usersInTimeout.delete(message.author.id);
+    }, 2400);
+
+    // Really short timeout just to prevent total spam
 
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -298,7 +309,12 @@ client.on('message', message => {
 
         client.commands.get("quiz").execute(message, args, client);
 
+    } else if (command == "ytsearch") {
+
+        client.commands.get("ytsearch").execute(message, args, client);
+
     }
+
 
 
 
