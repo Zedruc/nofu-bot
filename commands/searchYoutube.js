@@ -24,9 +24,9 @@ module.exports = {
                 var embedMessage = new Discord.MessageEmbed()
                     .setColor("#FF0000")
                     .setTitle(`Top Searchresults for "${query}"`)
-                    .addField(`${topResults[0].snippet.title} ${topResults[0].id.kind == "youtube#channel" ? "[Channel]" : "[Video]"}`, topResults[0].snippet.description)
-                    .addField(`${topResults[1].snippet.title} ${topResults[1].id.kind == "youtube#channel" ? "[Channel]" : "[Video]"}`, topResults[1].snippet.description)
-                    .addField(`${topResults[2].snippet.title} ${topResults[2].id.kind == "youtube#channel" ? "[Channel]" : "[Video]"}`, topResults[2].snippet.description)
+                    .addField(`${topResults[0].snippet.title} ${topResults[0].id.kind == "youtube#channel" ? "[Channel]" : "[Video]"}`, topResults[0].snippet.description || "No description available")
+                    .addField(`${topResults[1].snippet.title} ${topResults[1].id.kind == "youtube#channel" ? "[Channel]" : "[Video]"}`, topResults[1].snippet.description || "No description available")
+                    .addField(`${topResults[2].snippet.title} ${topResults[2].id.kind == "youtube#channel" ? "[Channel]" : "[Video]"}`, topResults[2].snippet.description || "No description available")
 
                 message.channel.send(embedMessage);
             });
