@@ -135,24 +135,26 @@ client.on('message', message => {
     if (message.guild === null) return;
     if (message.author.id == client.user.id) return;
 
-    if (usersInTimeout.has(message.author.id)) return message.channel.send("Please wait before using a command again. [Global timeout on all servers is 2 Seconds]");
-    usersInTimeout.add(message.author.id);
-    setTimeout(() => {
-        usersInTimeout.delete(message.author.id);
-    }, 2400);
-
-    // Really short timeout just to prevent total spam
-
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+function setInTimeout() {
+        if (usersInTimeout.has(message.author.id)) return message.channel.send("Please wait before using a command again. [Global timeout on all servers is 2 Seconds]");
+    usersInTimeout.add(message.author.id);
+    setTimeout(() => {
+        usersInTimeout.delete(message.author.id);
+    }, 2400);
+}
+
     if (command === "meme") {
+        setInTimeout();
 
         client.commands.get('meme').execute(message, args);
 
     } else if (command === 'help') {
+        setInTimeout();
         message.react("⁉");
         client.commands.get('help').execute(message, args, client);
     } else if (command === 'delete') {
@@ -160,18 +162,22 @@ client.on('message', message => {
         client.commands.get('delete').execute(message, args);
 
     } else if (command === 'serverinfo') {
+        setInTimeout();
 
         client.commands.get('serverinfo').execute(message, args);
 
     } else if (command === 'userinfo') {
+        setInTimeout();
 
         client.commands.get('userinfo').execute(message, args, client);
 
     } else if (command === 'joke') {
+        setInTimeout();
 
         client.commands.get('joke').execute(message, args, client);
 
     } else if (command === 'uptime') {
+        setInTimeout();
         message.react("🕰");
         var times = timerInstance.getTotalTimeValues();
 
@@ -182,134 +188,167 @@ client.on('message', message => {
         message.channel.send(statEmbed);
 
     } else if (command === 'mememan') {
+        setInTimeout();
 
         client.commands.get('mememan').execute(message, args);
 
     } else if (command === 'password') {
+        setInTimeout();
 
         client.commands.get('password').execute(message, args);
 
     } else if (command === 'findanime') {
+        setInTimeout();
 
         client.commands.get('findanime').execute(message, args, client);
 
     } else if (command == 'findsongs') {
+        setInTimeout();
 
         client.commands.get('findsongs').execute(message, args, client);
 
     } else if (command == 'punch') {
+        setInTimeout();
 
         client.commands.get('punch').execute(message, args, client);
 
     } else if (command == 'hug') {
+        setInTimeout();
 
         client.commands.get('hug').execute(message, args, client);
 
     } else if (command == 'ban') {
+        setInTimeout();
 
         client.commands.get('ban').execute(message, args);
 
     } else if (command == 'kick') {
+        setInTimeout();
 
         client.commands.get('kick').execute(message, args, client);
 
     } else if (command == 'kill') {
+        setInTimeout();
 
         client.commands.get('kill').execute(message, args, client);
 
     } else if (command == "stare") {
+        setInTimeout();
 
         client.commands.get('stare').execute(message, args, client);
 
     } else if (command == "mcregister") {
+        setInTimeout();
 
         client.commands.get("mcregister").execute(message, args);
 
     } else if (command == "cnf") {
+        setInTimeout();
 
         client.commands.get("chuckNorrisFacts").execute(message, args, client);
 
     } else if (command == "delete") {
+        setInTimeout();
 
         client.commands.get("delete").execute(message, args);
 
     } else if (command == "mcinfo") {
+        setInTimeout();
 
         client.commands.get("mcinfo").execute(message, args);
 
     } else if (command == "admin") {
+        setInTimeout();
 
         client.commands.get("admin").execute(message, args);
 
     } else if (command == "fox") {
+        setInTimeout();
 
         client.commands.get("fox").execute(message, args, client);
 
     } else if (command == "pokedex" || command == "pokédex") {
+        setInTimeout();
 
         client.commands.get("pokedex").execute(message, args, client);
 
     } else if (command == "mcss") {
+        setInTimeout();
 
         client.commands.get("mcserverstatus").execute(message, args, client);
 
     } else if (command == "mcsearch") {
+        setInTimeout();
 
         client.commands.get("mcsearch").execute(message, args, client);
 
     } else if (command == "doggo") {
+        setInTimeout();
 
         client.commands.get("doggo").execute(message, args, client);
 
     } else if (command == "cat") {
+        setInTimeout();
 
         client.commands.get("cat").execute(message, args, client);
 
     } else if (command == "8ball") {
+        setInTimeout();
 
         client.commands.get("8ball").execute(message, args, client);
 
     } else if (command == "stundenplan" || command == "stundnplan" || command == "sp") {
+        setInTimeout();
 
         client.commands.get("stundenplan").execute(message, args, client);
 
     } else if (command == "megumeme") {
+        setInTimeout();
 
         client.commands.get("megumeme").execute(message, args, client);
 
     } else if (command == "hpstats") {
+        setInTimeout();
 
         client.commands.get("hpstats").execute(message, args, client);
 
     } else if (command == "suggest") {
+        setInTimeout();
 
         client.commands.get("suggest").execute(message, args, client);
 
     } else if (command == "unban") {
+        setInTimeout();
 
         client.commands.get("unban").execute(message, args, client);
 
     } else if (command == "banreason") {
+        setInTimeout();
 
         client.commands.get("banreason").execute(message, args, client);
 
     } else if (command == "oof") {
+        setInTimeout();
 
         client.commands.get("oof").execute(message, args, client);
 
     } else if (command == "nut") {
+        setInTimeout();
 
         client.commands.get("nut").execute(message, args, client);
 
     } else if (command == "e") {
+        setInTimeout();
 
         client.commands.get("e").execute(message, args, client);
 
     } else if (command == "quiz") {
+        setInTimeout();
 
         client.commands.get("quiz").execute(message, args, client);
 
     } else if (command == "ytsearch") {
+        setInTimeout();
 
         client.commands.get("ytsearch").execute(message, args, client);
 
