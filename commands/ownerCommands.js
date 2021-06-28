@@ -44,7 +44,6 @@ module.exports = {
             var timer = 10;
 
             var index = message.content.indexOf(" ");  // Gets the first index where a space occours
-            var id = message.content.substr(0, index); // Gets the first part
             var res = message.content.substr(index + 1 + "broadcast".length);  // Gets the text part
 
             var yesButton = new MessageButton()
