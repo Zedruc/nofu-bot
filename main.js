@@ -153,6 +153,14 @@ client.on('message', message => {
     const args = message.content.slice(prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
+    function setInTimeout() {
+        if (usersInTimeout.has(message.author.id)) return message.channel.send("Please wait before using a command again. [Global timeout on all servers is 2 Seconds]");
+        usersInTimeout.add(message.author.id);
+        setTimeout(() => {
+            usersInTimeout.delete(message.author.id);
+        }, 2400);
+    }
+
     if (command === "meme") {
         if (setInTimeout(message)) return;
 
