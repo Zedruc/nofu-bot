@@ -366,12 +366,12 @@ client.on('message', message => {
 
         client.commands.get("ytsearch").execute(message, args, client);
 
-    }/*  else if (command == "activity") {
+    } else if (command == "activity") {
         if (setInTimeout(message)) return;
 
         client.commands.get("activity").execute(message, args, client);
 
-    } */
+    }
 });
 
 client.login(process.env.token);
