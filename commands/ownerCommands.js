@@ -5,9 +5,8 @@ module.exports = {
     name: 'admin',
     description: 'Only-owner commands',
     execute(message, args, client) {
-        const disbut = require('discord-buttons')(client);
-        const { MessageButton, MessageActionRow } = require('discord-buttons'); // https://discord-buttons.js.org/
-
+        require('discord-buttons')(client);
+        const { MessageButton, MessageActionRow } = require('discord-buttons');
 
         if (message.author.id !== "568729687291985930") {
             return message.reply("Only the bot owner is able to use this command!");
@@ -65,11 +64,32 @@ module.exports = {
                 .addComponent(yesButton)
                 .addComponent(NoButton)
 
-            message.channel.send("Are you sure you want to send this message to all available servers?", { component: buttonRow });
-            var counter = setInterval(() => {
-                timer--;
-                if (timer === 0) return message.reply("Message broacast interrupted, you didnt approve."); clearInterval(counter);
-            }, 10001);
+            message.channel.send("Are you sure you want to send this message to all available servers?", { buttons: [yesButton, NoButton] });
+            const filter = m => m.content.includes('yes');
+            const collector = message.channel.createMessageCollector(filter, { time: 15000 });
+
+            collector.on('collect', async m => {
+                var broadcastMessage = message.content.substring(message.content.indexOf(" "), message.content.length);
+
+                var channels = await client.channels.cache.filter(channel =>
+                    channel.name.toLowerCase().includes('broadcast') &&
+                    channel.type == 'text' &&
+                    channel.guild.id != message.guild.id
+                );
+                for (const channel of channels.array()) {
+                    var broadCastEmbed = new Discord.MessageEmbed()
+                        .setTitle(`Message broadcasted by ${message.author.username}${message.author.discriminator} from ${message.guild.name} at ${new Date().toLocaleString()}`)
+                        .setColor("#4248f5")
+                        .setDescription(broadcastMessage)
+                    channel.send(broadCastEmbed);
+                }
+
+                return message.reply('Message broadcasted successfully!');
+            });
+
+            collector.on('end', collected => {
+                return message.reply("Message broacast ended.");
+            });
         }
     }
 }
