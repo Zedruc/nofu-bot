@@ -22,7 +22,8 @@ module.exports = {
                     { name: "__Uitility commands__", value: "%help utility" },
                     { name: "__Fun commands__", value: "%help fun" },
                     { name: "__Minecraft related__", value: "%help mc" },
-                    { name: "__Administrative__", value: "%help admin" }
+                    { name: "__Administrative__", value: "%help admin" },
+                    { name: "__Voice Chat__", value: "%help voice" }
 
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
@@ -100,6 +101,22 @@ module.exports = {
                 .addFields(
                     { name: "__%delete <2 - 100>__", value: "deletes the given amount of messages in the chat" },
                     { name: "__%ban @user__", value: "bans the given user" },
+                )
+                .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
+                .setTimestamp();
+            message.channel.send(embed).catch(error => {
+                console.error("Es ist folgender Fehler in help.js aufgetreten:", error);
+            });
+        } else if (msgArgs[0] == "voice") {
+            const embed = new Discord.MessageEmbed()
+                .setTitle("Helpcenter >>")
+                .setColor(9384170)
+                .addField("Voicechat commands :", "-----------------------------------------")
+                .addFields(
+                    { name: "__%play <song name | YouTube URL>__", value: "Plays the given song / Adds it to the queue" },
+                    { name: "__%skip", value: "Skips the current song" },
+                    { name: "__%stop", value: "Stops the playback and makes the bot leave" },
+                    { name: "__%queue", value: "Show the current queue" },
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();

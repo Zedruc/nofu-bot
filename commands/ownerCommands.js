@@ -1,11 +1,14 @@
 const https = require('https');
 const Discord = require('discord.js');
-const { MessageButton, MessageActionRow } = require('discord-buttons'); // https://discord-buttons.js.org/
 
 module.exports = {
     name: 'admin',
     description: 'Only-owner commands',
     execute(message, args, client) {
+        const disbut = require('discord-buttons')(client);
+        const { MessageButton, MessageActionRow } = require('discord-buttons'); // https://discord-buttons.js.org/
+
+
         if (message.author.id !== "568729687291985930") {
             return message.reply("Only the bot owner is able to use this command!");
         }

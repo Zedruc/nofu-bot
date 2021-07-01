@@ -12,6 +12,7 @@ module.exports = {
     description: "All music controls",
     async execute(message, args, client, Discord, cmd) {
         var embed = new Discord.MessageEmbed();
+
         const voiceChannel = message.member.voice.channel;
         if (!voiceChannel) {
             embed.setTitle("You have to be in a voice chat!")
@@ -116,6 +117,15 @@ const video_player = async (guild, song) => {
 }
 
 const skip_song = (message, serverQueue) => {
+    var DjRole = message.guild.roles.cache.find(fn => fn.name == "DJ");
+    if (DjRole) {
+        embed.setTitle("DJ Role found!");
+        embed.setColor("#ff0000");
+        embed.setDescription("A DJ role was found, if this role exists it is required to have the role to use the skip/stop command.");
+        message.channel.send(embed);
+        return;
+    }
+
     if (!message.member.voice.channel) {
         var embed = new _Discord.MessageEmbed()
             .setTitle("You must be in a voice channel to use this command")
@@ -132,6 +142,15 @@ const skip_song = (message, serverQueue) => {
 }
 
 const stop_song = (message, serverQueue) => {
+    var DjRole = message.guild.roles.cache.find(fn => fn.name == "DJ");
+    if (DjRole) {
+        embed.setTitle("DJ Role found!");
+        embed.setColor("#ff0000");
+        embed.setDescription("A DJ role was found, if this role exists it is required to have the role to use the skip/stop command.");
+        message.channel.send(embed);
+        return;
+    }
+
     if (!message.member.voice.channel) {
         var embed = new _Discord.MessageEmbed()
             .setTitle("You must be in a voice channel to use this command")
