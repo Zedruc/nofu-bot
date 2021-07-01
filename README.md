@@ -1,9 +1,15 @@
-# Nofu Bot v3.4 is here!
+# Nofu Bot v3.5, now supporting vc parties
 
-After a few days of trying around theres one new feature making the difference.
+Nofu Bot v3.5 is here, and guess what?
+- It has a COMPLETE recode.
 
-Use `%activity` to show all activity types
-  
+- VC-Commands are here 😎
+`%play`
+`%skip`
+`%stop`
+`%queue`
+
+Hop in vc with some friends and listen to your favorite songs!
 
 # Commands
 
@@ -22,13 +28,6 @@ Here a few examples of what the bot can do:
   
 
 - %findanime will list some informations like characters and number of episodes about the given anime.
-
-## Vc-Commands [Experimental]
-
-Yes, I've added vc-commands.
-
-Just join a vc, type %nut or %e, enjoy.
-
   
 
 ## Questions

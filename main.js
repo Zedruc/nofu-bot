@@ -1,5 +1,19 @@
-require('dotenv').config();
 const Discord = require('discord.js');
+const client = new Discord.Client();
+
+require('dotenv').config();
+
+/* const { Timer } = require('easytimer.js');
+var timerInstance = new Timer(); */
+
+client.commands = new Discord.Collection();
+client.events = new Discord.Collection();
+
+['command_handler', 'event_handler'].forEach(handler => {
+    require(`./handlers/${handler}`)(client, Discord);
+});
+
+/* require('dotenv').config();
 const { Timer } = require('easytimer.js');
 var timerInstance = new Timer();
 
@@ -42,13 +56,21 @@ let prefix = '%';
 const fs = require('fs');
 
 client.commands = new Discord.Collection();
+client.musicCommands = new Discord.Collection();
 
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+const musicCommandFiles = fs.readdirSync('./commands/music').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
 
     client.commands.set(command.name, command);
+}
+
+for (const file of musicCommandFiles) {
+    const command = require(`./commands/music/${file}`);
+
+    client.musicCommands.set(command.name, command);
 }
 
 client.on("ready", () => {
@@ -96,10 +118,6 @@ client.on("guildCreate", guild => {
 });
 
 
-/**
- * Uptime command
- * Calculating times
- */
 
 function getRemainingSecondsOrMinutes(n) {
     if (n <= 60) return n;
@@ -133,7 +151,6 @@ function setInTimeout(message) {
         usersInTimeout.delete(message.author.id);
     }, 2400);
 
-    // Really short timeout just to prevent total spam
 }
 
 client.on('message', message => {
@@ -143,7 +160,6 @@ client.on('message', message => {
             return;
         }
     }
-    // quick way to prevent my friends from using the bot.
 
     if (message.guild === null) return;
     if (message.author.id == client.user.id) return;
@@ -371,7 +387,13 @@ client.on('message', message => {
 
         client.commands.get("activity").execute(message, args, client);
 
+    } else if (command == "music") {
+        if (setInTimeout(message)) return;
+
+        var cmd = client.musicCommands.get("music") || client.commands.find(a => a.aliases && a.aliases.includes(command));
+        cmd.execute(message, args, client);
     }
 });
+ */
 
 client.login(process.env.token);
