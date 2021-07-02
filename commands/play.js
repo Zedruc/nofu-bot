@@ -2,13 +2,14 @@ const ytdl = require("ytdl-core");
 const ytSearch = require('yt-search');
 
 const _Discord = require('discord.js');
+const lyricsFinder = require('lyrics-finder');
 
 const queue = new Map();
 // queue(message.guild.id, queue_constructor object {voice channel, text channel, connection, songs[]})
 
 module.exports = {
     name: "play",
-    aliases: ['p', 'skip', 'next', , 's', 'stop', 'end', 'leave', 'queue', 'q'],
+    aliases: ['p', 'skip', 'next', , 's', 'stop', 'end', 'leave', 'queue', 'q', 'lyrics', 'songtext'],
     description: "All music controls",
     async execute(message, args, client, Discord, cmd) {
         var embed = new Discord.MessageEmbed();
@@ -42,7 +43,7 @@ module.exports = {
 
             if (ytdl.validateURL(args[0])) {
                 const song_info = await ytdl.getInfo(args[0]);
-                song = { title: song_info.videoDetails.title, url: song_info.videoDetails.video_url }
+                song = { title: song_info.videoDetails.title, url: song_info.videoDetails.video_url, artist: song_info.videoDetails.author.name }
             } else {
                 const video_finder = async (query) => {
                     const videoResult = await ytSearch(query);
@@ -53,7 +54,7 @@ module.exports = {
                 const video = await video_finder(args.join(' '));
 
                 if (video) {
-                    song = { title: video.title, url: video.url }
+                    song = { title: video.title, url: video.url, artist: video.author.name }
                 } else {
                     embed.setTitle("Unable to find video")
                         .setColor('#ff0000')
@@ -93,6 +94,7 @@ module.exports = {
         else if (cmd === "skip" || cmd === "s" || cmd === "next") skip_song(message, serverQueue);
         else if (cmd === "stop" || cmd === "end" || cmd === "leave") stop_song(message, serverQueue);
         else if (cmd === "queue" || cmd === "q") show_queue(message, serverQueue, client);
+        else if (cmd === "lyrics" || cmd === "songtext") show_lyrics(message, serverQueue, client);
 
     }
 
@@ -186,4 +188,34 @@ const show_queue = (message, serverQueue, client) => {
     }
     embed.setFooter('Nofu Bot', client.user.displayAvatarURL({ format: "png" }));
     message.channel.send(embed);
+}
+
+// lyrics
+const find_lyrics = async (artist, song) => {
+    var lyrics = await lyricsFinder(artist, song) || "Lyrics not found.";
+    return lyrics;
+}
+
+const show_lyrics = async (message, serverQueue, client) => {
+    if (serverQueue.text_channel.id !== message.channel.id) return;
+    if (!serverQueue) {
+        var embed = new _Discord.MessageEmbed()
+            .setTitle("There is no song currently playing")
+            .setColor("#ff0000")
+        return message.channel.send(embed);
+    };
+    const lyrics = await find_lyrics(serverQueue.songs[0].artist, serverQueue.songs[0].title);
+
+    if (lyrics === "Lyrics not found.") {
+        var embed = new _Discord.MessageEmbed()
+            .setTitle("Could not find the song's lyrics.")
+            .setColor("#ff0000")
+        message.channel.send(embed);
+    } else {
+        var embed = new _Discord.MessageEmbed()
+            .setTitle(`Lyrics for __${serverQueue.songs[0].title}__`)
+            .setDescription(lyrics)
+            .setColor("#406e6b")
+        message.channel.send(embed);
+    }
 }
