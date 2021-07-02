@@ -8,6 +8,7 @@ Nofu Bot v3.5 is here, and guess what?
 `%skip`
 `%stop`
 `%queue`
+`%lyrics`
 
 Hop in vc with some friends and listen to your favorite songs!
 

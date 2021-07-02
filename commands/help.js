@@ -114,9 +114,10 @@ module.exports = {
                 .addField("Voicechat commands :", "-----------------------------------------")
                 .addFields(
                     { name: "__%play <song name | YouTube URL>__", value: "Plays the given song / Adds it to the queue" },
-                    { name: "__%skip", value: "Skips the current song" },
-                    { name: "__%stop", value: "Stops the playback and makes the bot leave" },
-                    { name: "__%queue", value: "Show the current queue" },
+                    { name: "__%skip__", value: "Skips the current song" },
+                    { name: "__%stop__", value: "Stops the playback and makes the bot leave" },
+                    { name: "__%queue__", value: "Show the current queue" },
+                    { name: "__%lyrics__", value: "Shows you the lyrics of the currently playing song" }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();
