@@ -53,7 +53,7 @@ module.exports = {
 
                 const video = await video_finder(args.join(' '));
 
-                if (video.title == undefined) {
+                if (video.title == undefined || video == null) {
                     embed.setTitle("Unable to find video")
                         .setColor('#ff0000')
                     return message.channel.send(embed);
