@@ -53,12 +53,18 @@ module.exports = {
 
                 const video = await video_finder(args.join(' '));
 
+                if (video.title == undefined) {
+                    embed.setTitle("Unable to find video")
+                        .setColor('#ff0000')
+                    return message.channel.send(embed);
+                }
+
                 if (video) {
                     song = { title: video.title, url: video.url, artist: video.author.name }
                 } else {
                     embed.setTitle("Unable to find video")
                         .setColor('#ff0000')
-                    message.channel.send(embed);
+                    return message.channel.send(embed);
                 }
             }
 
