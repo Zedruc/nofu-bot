@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
     name: "stundenplan",
+    aliases: ['sp'],
     description: "Stundenplan [german for timetable]",
     execute(message, args, client) {
         const arguments = message.content.slice(1).split(/ +/);
