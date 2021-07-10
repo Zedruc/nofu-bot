@@ -11,6 +11,8 @@ module.exports = {
             return message.channel.send(e);
         }
 
+        message.channel.startTyping();
+
         var query = message.content.slice(message.content.indexOf(" ") + 1);
 
         weather.find({ search: query, degreeType: 'C' }, (err, result) => {
@@ -28,6 +30,7 @@ module.exports = {
             embed.addField(`Forecast for ${forecast.day}`, `Lowest temperature ${forecast.low}, highest temperature ${forecast.high}. ${forecast.skytextday} with a ${forecast.precip}% chance of precipitation.`);
             embed.addField(`Forecast for ${forecast1.day}`, `Lowest temperature ${forecast1.low}, highest temperature ${forecast1.high}. ${forecast1.skytextday} with a ${forecast1.precip}% chance of precipitation.`);
 
+            message.channel.stopTyping();
             message.channel.send(embed);
         });
     }
