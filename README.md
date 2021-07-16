@@ -1,19 +1,19 @@
+# [Nofu Bot v3.7](https://top.gg/bot/760905298990202901), quick maths.
+
+  
+  
+
+Now you can generate [fractals](https://en.wikipedia.org/wiki/Fractal) with Nofu Bot!
 
   
 
-# [Nofu Bot v3.6](https://top.gg/bot/760905298990202901), hows the weather?
+`%fractal <number>`
 
   
 
-  
-
-A brand new command ladies and gents,
+<h6  class="subtext">crazy stuff ngl</h6>
 
   
-
-`%weather <query>`
-
-<h6  class="subtext">Now available for all of you who want to know whether school takes place or not :p</h6>
 
   
 
@@ -25,7 +25,11 @@ A brand new command ladies and gents,
 
   
 
+  
+
 Here a few examples of what the bot can do:
+
+  
 
   
 
@@ -33,7 +37,11 @@ Here a few examples of what the bot can do:
 
   
 
+  
+
 - %password will generate a completely random password and send it to you via direct messages
+
+  
 
   
 
@@ -41,23 +49,30 @@ Here a few examples of what the bot can do:
 
   
 
+  
+
 - %meme will send you a juicy meme from nowhere other than r/memes
+
+  
 
   
 
 - %findanime will list some informations like characters and number of episodes about the given anime.
 
+
+  
+
+## Questions and Requests
+
   
 
   
 
-## Questions
-
   
 
-  
+If you have any questions or even feature requests, feel free to open an issue at the bot's [Repository](https://github.com/Zedruc/nofu-bot/issues)
 
-If you have any questions or even feature requests, feel free to add me on Discord (Nofu#4100) or to send a message using the website!
+  
 
   
 

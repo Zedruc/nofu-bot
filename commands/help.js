@@ -48,7 +48,8 @@ module.exports = {
                     { name: "__%serverinfo__", value: "Gives general information about the server the command was used in" },
                     { name: "__%ytsearch <query>__", value: "Searches youtube for content and shows you the top 3 results" },
                     { name: "__%activity <activity type> <channel name>__", value: "Starts an activity in the given channel. Only type `%activity` to see all activity types" },
-                    { name: "__%weather <query>__", value: "Allows you to get the current weather from somewhere in the world in Discord! Example: `%weather Berlin Germany`" }
+                    { name: "__%weather <query>__", value: "Allows you to get the current weather from somewhere in the world in Discord! Example: `%weather Berlin Germany`" },
+                    { name: "__%fractal <number>__", value: "Generate a [fractal](https://en.wikipedia.org/wiki/Fractal) with your given number`" }
                 )
                 .setFooter("More will be made!", client.user.displayAvatarURL({ format: "png" }))
                 .setTimestamp();
